@@ -63,7 +63,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
       <div id="logo">
         <img src="../../images/logo-big.png">
       </div>
-      <h1>INVOICE 3-2-1</h1>
+      <h1>Rechnung #<?php echo $bill_id ?></h1>
       <div id="company" class="clearfix">
         <div>Gruppe 6 security corporation</div>
         <div>GG Street 42,<br /> 1337 Berlin </div>
@@ -89,12 +89,12 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
           <tr>
             <td class="service">Start</td>
             <td class="desc">Autobahn <?php echo $entryTollgateHighway ?> Auffahrt <?php echo $entryTollgateInterchange ?><br>Am <?php echo $entryTime ?></td>
-            <td class="unit">Code <?php echo $entryTollgateCode ?></td>
+            <td class="unit">Mautstellen Code <?php echo $entryTollgateCode ?></td>
             <td class="qty"></td>
             <td class="total"></td>
           </tr>
           <tr>
-            <td class="service"></td>
+            <td class="service">Strecke</td>
             <td class="desc"><?php echo $distance ?> Kilometer.</td>
             <td class="unit"></td>
             <td class="qty"></td>
@@ -103,7 +103,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
           <tr>
             <td class="service">Ende</td>
             <td class="desc">Autobahn <?php echo $exitTollgateHighway ?> Ausfahrt <?php echo $exitTollgateInterchange ?><br>Am <?php echo $exitTime ?></td>
-            <td class="unit">Code <?php echo $exitTollgateCode ?></td>
+            <td class="unit">Mautstellen Code <?php echo $exitTollgateCode ?></td>
             <td class="qty"></td>
             <td class="total"></td>
           </tr>

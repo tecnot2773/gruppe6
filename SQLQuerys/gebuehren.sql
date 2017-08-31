@@ -1,4 +1,4 @@
-DELETE FROM `gebuehren` WHERE `bisEntfernung` BETWEEN 10 AND 4000;
+DELETE FROM `gebuehren` WHERE `bisEntfernung` BETWEEN 10 AND 10000;
 INSERT INTO `gebuehren`(`bisEntfernung`, `kosten`) VALUES 
 (10,2.00),
 (20,3.00),
