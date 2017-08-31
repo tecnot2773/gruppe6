@@ -31,7 +31,7 @@
 	if ($action == "entry")
 	{
 		$plate = $_POST["text-plate-entry"];
-		$id_entrytollgate = $_POST["text-IDentry"];
+		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		
 		//$check_timeformat = is_a($entry_time, 'DateTime');
@@ -46,7 +46,10 @@
 		
 		$entry_time = mysqli_real_escape_string($conn, $entry_time);
 		$plate = mysqli_real_escape_string ($conn, $plate);
-		$id_entrytollgate = mysqli_real_escape_string ($conn, $id_entrytollgate);
+		$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
+		
+		$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
+		$id_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
 		
 		$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
 		mysqli_query($conn, $quary_sql_entry);
@@ -61,7 +64,7 @@
 	if ($action == "exit")
 	{
 		$plate = $_POST["text-plate-exit"];
-		$id_exittollgate = $_POST["text-IDexit"];
+		$code_exittollgate = $_POST["text-CodeExit"];
 		$exit_time = $_POST["text-time-exit"];
 
 		if (empty($exit_time)){
@@ -72,7 +75,10 @@
 		}
 		$exit_time = mysqli_real_escape_string($conn, $exit_time);
 		$plate = mysqli_real_escape_string ($conn, $plate);
-		$id_exittollgate = mysqli_real_escape_string ($conn, $id_exittollgate);
+		$code_exittollgate = mysqli_real_escape_string ($conn, $code_exittollgate);
+		
+		$quary_get_TollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exittollgate";
+		$id_exittollgate = mysqli_query($conn, $quary_get_TollgateExitId);
 		
 		$quary_sql_exit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$id_exittollgate')";
 		mysqli_query($conn, $quary_sql_exit);
