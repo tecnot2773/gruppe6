@@ -26,6 +26,9 @@
 		<!--main contents          -->
 		<form action="/mitarbeiter/index.php" method="post">
 			<div id="main-area" class="container">
+				<div id="heading" class="page-header">
+					<h1>Wilkommen im Mitarbeiterbereich</h1>
+				</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
 						<input class="button" type="submit" name="execute" value="Ausführen"> 
