@@ -89,7 +89,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
           <tr>
             <td class="service">Start</td>
             <td class="desc">Autobahn <?php echo $entryTollgateHighway ?> Auffahrt <?php echo $entryTollgateInterchange ?><br>Am <?php echo $entryTime ?></td>
-            <td class="unit">Code <?php echo $entryTollgateCode ?></td>
+            <td class="unit">Mautstellen Code <?php echo $entryTollgateCode ?></td>
             <td class="qty"></td>
             <td class="total"></td>
           </tr>
@@ -103,7 +103,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
           <tr>
             <td class="service">Ende</td>
             <td class="desc">Autobahn <?php echo $exitTollgateHighway ?> Ausfahrt <?php echo $exitTollgateInterchange ?><br>Am <?php echo $exitTime ?></td>
-            <td class="unit">Code <?php echo $exitTollgateCode ?></td>
+            <td class="unit">Mautstellen Code <?php echo $exitTollgateCode ?></td>
             <td class="qty"></td>
             <td class="total"></td>
           </tr>
