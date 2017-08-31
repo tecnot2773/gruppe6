@@ -31,7 +31,8 @@
 				</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
-						test
+						<input class="button" type="submit" name="execute" value="Ausführen"> 
+						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
 					</div>
 				</div>
 				<div id="griddiv-left-upper" class="test">
@@ -84,8 +85,7 @@
 				<div id="griddiv-left-lower" class="test">
 					
 					<div id="buttondiv_rowstart" class="row">
-						<input class="button" type="submit" name="execute" value="Ausführen"> 
-						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
+						JUNGE
 					</div>
 					
 				</div>
