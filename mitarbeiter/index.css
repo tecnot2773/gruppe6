@@ -124,14 +124,15 @@ background-color: white;
 opacity: 0.8;
 border-radius: 20px;
 width: 49%;
-float: right
+float: right;
 
 }
 #griddiv-nav-top {
 background-color: white;
 opacity: 0.8;
 border-radius: 20px;
-width: 80%;
+width: 100%;
+margin-bottom: 18px;
 }
 #rowstart {
 padding-top:  50px;
