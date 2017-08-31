@@ -31,7 +31,7 @@
 				</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
-						<input class="button" type="submit" name="execute" value="Ausführen"> 
+
 						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 					
 					<div id="rowend" class="row">
 					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
-					<input id="text-IDentry" name="text-IDentry" class="enjoy-css" type="text" placeholder="ID Einfahrt"><br><br>
+					<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit"><br><br>					
 					
 					</div>
@@ -70,7 +70,7 @@
 					
 					<div id="rowend" class="row">
 					<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
-					<input id="text-IDexit" name="text-IDexit" class="enjoy-css" type="text" placeholder="ID Ausfahrt"><br><br>
+					<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
 					<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit"><br><br>					
 					<?php
 					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -85,9 +85,8 @@
 				<div id="griddiv-left-lower" class="test">
 					
 					<div id="buttondiv_rowstart" class="row">
-						JUNGE
+						<input class="button" type="submit" name="execute" value="Ausführen"> 
 					</div>
-					
 				</div>
 
 			</div>
