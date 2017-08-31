@@ -23,7 +23,7 @@ $query_getEntryTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtEin W
 $EntryTollgateData = mysqli_query($conn, $query_getEntryTollgateData);
 while ($data3 = mysqli_fetch_array($EntryTollgateData)){
 	$entryTime = $data3['zeitstempel'];
-	$entryTollgate = $data3['mautstelleID']
+	$entryTollgate = $data3['mautstelleID'];
 }
 
 $query_getExitTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtAus WHERE id = $exitid";
