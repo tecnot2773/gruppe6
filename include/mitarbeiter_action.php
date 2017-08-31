@@ -44,7 +44,7 @@
 			$entry_time = $entry_time;
 		}
 		
-		//$entry_time = mysqli_real_escape_string($conn, $entry_time);
+		$entry_time = mysqli_real_escape_string($conn, $entry_time);
 		$plate = mysqli_real_escape_string ($conn, $plate);
 		$id_entrytollgate = mysqli_real_escape_string ($conn, $id_entrytollgate);
 		
@@ -70,7 +70,7 @@
 		else{
 			$exit_time = $exit_time;
 		}
-		
+		$exit_time = mysqli_real_escape_string($conn, $exit_time);
 		$plate = mysqli_real_escape_string ($conn, $plate);
 		$id_exittollgate = mysqli_real_escape_string ($conn, $id_exittollgate);
 		
