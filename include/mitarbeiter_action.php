@@ -34,6 +34,8 @@
 		$id_entrytollgate = $_POST["text-IDentry"];
 		$entry_time = $_POST["text-time-entry"];
 		
+		$check_timeformat = is_a($entry_time, 'DateTime');
+		
 		if (empty($entry_time)){
 			$entry_time = date("Y-m-d H:i:s");
 		}
