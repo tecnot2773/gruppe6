@@ -4,14 +4,14 @@ include '../../include/db.php';
 $bill_id = $_GET["id"];
 
 $query_getBillData = "SELECT kosten, streckeID FROM rechnung WHERE id = $bill_id";
-$billData = mysqli_query = ($conn, $query_getBillData);
+$billData = mysqli_query($conn, $query_getBillData);
 while ($data1 = mysqli_fetch_array($billData)){
 	$costs = $data1['kosten'];
 	$routeId = $data1 ['streckeID'];
 }
 
 $query_getRouteData = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $routeId";
-$routeData = mysqli_query = ($conn, $query_getRouteData);
+$routeData = mysqli_query($conn, $query_getRouteData);
 while ($data2 = mysqli_fetch_array($routeData)){
 	$licensePlate = $data2['kennzeichen'];
 	$distance = $data2 ['kilometer'];
@@ -20,14 +20,14 @@ while ($data2 = mysqli_fetch_array($routeData)){
 }
 
 $query_getEntryTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtEin WHERE id = $entryId";
-$EntryTollgateData = mysqli_query = ($conn, $query_getEntryTollgateData);
+$EntryTollgateData = mysqli_query($conn, $query_getEntryTollgateData);
 while ($data3 = mysqli_fetch_array($EntryTollgateData)){
 	$entryTime = $data3['zeitstempel'];
 	$entryTollgate = $data3['mautstelleID']
 }
 
 $query_getExitTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtAus WHERE id = $exitid";
-$exitTollgateData = mysqli_query = ($conn, $query_getExitTollgateData);
+$exitTollgateData = mysqli_query($conn, $query_getExitTollgateData);
 while ($data4 = mysqli_fetch_array($exitTollgateData)){
 	$exitTime = $data4['zeitstempel'];
 	$exitTollgate = $data4['mautstelleID'];
