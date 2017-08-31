@@ -63,7 +63,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
       <div id="logo">
         <img src="../../images/logo-big.png">
       </div>
-      <h1>INVOICE 3-2-1</h1>
+      <h1>Rechnung #<?php echo $bill_id ?></h1>
       <div id="company" class="clearfix">
         <div>Gruppe 6 security corporation</div>
         <div>GG Street 42,<br /> 1337 Berlin </div>
