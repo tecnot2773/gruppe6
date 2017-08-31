@@ -104,8 +104,9 @@ nav a:hover::before {
 background-color: white;
 opacity: 0.8;
 border-radius: 20px;
-width: 49%;
+width: 50%;
 float: left;
+margin-bottom: 13px;
 margin-bottom: 13px;
 }
 #griddiv-left-lower {
@@ -118,7 +119,7 @@ width: 100%;
 background-color: white;
 opacity: 0.8;
 border-radius: 20px;
-width: 49%;
+width: 50%;
 
 margin-bottom: 13px;
 }
@@ -126,7 +127,7 @@ margin-bottom: 13px;
 background-color: white;
 opacity: 0.8;
 border-radius: 20px;
-width: 49%;
+width: 50%;
 
 }
 #griddiv-nav-top {
