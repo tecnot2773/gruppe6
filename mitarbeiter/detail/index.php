@@ -94,7 +94,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
             <td class="total"></td>
           </tr>
           <tr>
-            <td class="service"></td>
+            <td class="service">Strecke</td>
             <td class="desc"><?php echo $distance ?> Kilometer.</td>
             <td class="unit"></td>
             <td class="qty"></td>
