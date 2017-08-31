@@ -11,13 +11,13 @@ while ($data1 = mysqli_fetch_array($billData)){
 }
 
 $query_getRouteData = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $routeId";
-echo $query_getRouteData;
 $routeData = mysqli_query($conn, $query_getRouteData);
 while ($data2 = mysqli_fetch_array($routeData)){
+	$distance = $data2['kilometer'];
 	$licensePlate = $data2['kennzeichen'];
-	$distance = $data2 ['kilometer'];
-	$entryId = $data2 ['faehrtEinID'];
-	$exitId = $data2 ['faehrtAusID'];
+	$entryId = $data2['faehrtEinID'];
+	$exitId = $data2['faehrtAusID'];
+	echo $exitId;
 }
 
 $query_getEntryTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtEin WHERE id = $entryId";
