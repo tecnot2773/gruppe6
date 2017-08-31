@@ -2,7 +2,7 @@
  include_once '../include/db.php';
  
  
- $query_get_bill = "SELECT kosten, streckeID FROM rechnung";
+ $query_get_bill = "SELECT id, kosten, streckeID FROM rechnung";
  $result_bill = mysqli_query($conn,$query_get_bill);
 
  
@@ -42,18 +42,17 @@
 			   <?php
 				echo "<table border='1'>
 				<tr>
+				<th>ID</th>
 				<th>Kennzeichen</th>
-				<th>Strecke in Kilometer</th>
 				<th>Autobahn Einfahrt</th>
-				<th>Einfahrts Kreuz</th>
 				<th>Autobahn Ausfahrt</th>
-				<th>Ausfahrts Kreuz</th>
+				<th>Ausfahrt Zeit</th>
 				<th>Kosten in Euro</th>
 				</tr>";
 
 				while($data1 = mysqli_fetch_array($result_bill)){
 					$db_distanceID = $data1['streckeID'];
-					
+
 					$query_get_distance = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $db_distanceID";
 					$result_get_distance = mysqli_query($conn, $query_get_distance);
 					while ($data2 = mysqli_fetch_array($result_get_distance)){
@@ -65,11 +64,11 @@
 						while ($data3 = mysqli_fetch_array($result_get_tollgateid_entry)){
 							$db_get_tollgate_entry2 = $data3['mautstelleID'];
 						
-							$query_get_tollgateid_exit = "SELECT mautstelleID FROM faehrtAus WHERE id = $db_get_tollgate_exit";
+							$query_get_tollgateid_exit = "SELECT zeitstempel,mautstelleID FROM faehrtAus WHERE id = $db_get_tollgate_exit";
 							$result_get_tollgateid_exit = mysqli_query($conn, $query_get_tollgateid_exit);
 							while ($data4 = mysqli_fetch_array($result_get_tollgateid_exit)){
 								$db_get_tollgate_exit2 = $data4['mautstelleID'];
-							
+														
 								$query_get_highwayname_entry = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_get_tollgate_entry2";
 								$result_get_highwayname_entry = mysqli_query($conn, $query_get_highwayname_entry);
 								while ($data5 = mysqli_fetch_array($result_get_highwayname_entry)){
@@ -78,12 +77,11 @@
 									while ($data6= mysqli_fetch_array($result_get_highwayname_exit)){
 									
 										echo "<tr class='userlistoutput'>";
+										echo "<td width='70px'>" . $data1['id'] . "</td>";
 										echo "<td width='70px'>" . $data2['kennzeichen'] . "</td>";
-										echo "<td width='70px'>" . $data2['kilometer'] . "</td>";
-										echo "<td width='70px'>" . $data5['nameAutobahn'] . "</td>";
-										echo "<td width='70px'>" . $data5['nameKreuz'] . "</td>";
-										echo "<td width='70px'>" . $data6['nameAutobahn'] . "</td>";
-										echo "<td width='70px'>" . $data6['nameKreuz'] . "</td>";
+										echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
+										echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
+										echo "<td width='70px'>" . $data4['zeitstempel'] . "</td>";
 										echo "<td width='70px'>" . $data1['kosten'] . "</td>";
 										echo "</tr>";
 									}
