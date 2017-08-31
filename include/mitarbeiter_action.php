@@ -49,7 +49,10 @@
 		$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
 		
 		$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
-		$id_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
+		$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
+		while ($data1 = mysqli_fetch_array($result_entrytollgate)){
+		$id_entrytollgate = $data1['ID'];
+		}
 		
 		$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
 		mysqli_query($conn, $quary_sql_entry);
