@@ -89,11 +89,7 @@
 					</div>
 					
 				</div>
-				<div id="griddiv-status-bottom" class="test">
-					<div id="buttondiv_rowstart" class="row">
-						test
-					</div>
-				</div>
+
 			</div>
 		</form>
 	</body>
