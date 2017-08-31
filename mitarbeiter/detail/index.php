@@ -17,7 +17,6 @@ while ($data2 = mysqli_fetch_array($routeData)){
 	$licensePlate = $data2['kennzeichen'];
 	$entryId = $data2['faehrtEinID'];
 	$exitId = $data2['faehrtAusID'];
-	echo $exitId;
 }
 
 $query_getEntryTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtEin WHERE id = $entryId";
