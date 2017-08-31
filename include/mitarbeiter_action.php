@@ -81,7 +81,10 @@
 		$code_exittollgate = mysqli_real_escape_string ($conn, $code_exittollgate);
 		
 		$quary_get_TollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exittollgate";
-		$id_exittollgate = mysqli_query($conn, $quary_get_TollgateExitId);
+		$result_exittollgate = mysqli_query($conn, $quary_get_TollgateExitId);
+		while ($data2 = mysqli_fetch_array($result_exittollgate)){
+		$id_exittollgate = $data2['ID'];
+		}
 		
 		$quary_sql_exit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$id_exittollgate')";
 		mysqli_query($conn, $quary_sql_exit);
