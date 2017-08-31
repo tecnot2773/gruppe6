@@ -39,7 +39,7 @@
 					<div id="rowstart" class="row">
 						<input type="radio" name="selection" value="add">Mautstation hinzufügen<br>
 					</div>
-					<div id="rowend" class="row">
+					<div id="rowend-left-upper" class="row">
 						<input id="text-code" name="text-code" class="enjoy-css" type="text" placeholder="Code/Kürzel"><br><br>
 						<input id="text-namehighway" name="text-namehighway" class="enjoy-css" type="text" placeholder="Name Autobahn"><br><br>
 						<input id="text-namejunction" name="text-namejunction" class="enjoy-css" type="text" placeholder="Name Kreuz"><br><br>
