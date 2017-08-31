@@ -127,13 +127,11 @@ width: 49%;
 float: right
 
 }
-#griddiv-status-bottom {
+#griddiv-nav-top {
 background-color: white;
 opacity: 0.8;
 border-radius: 20px;
 width: 80%;
-    position: absolute;
-    bottom: 0;
 }
 #rowstart {
 padding-top:  50px;
