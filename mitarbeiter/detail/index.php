@@ -13,17 +13,18 @@ while ($data1 = mysqli_fetch_array($billData)){
 $query_getRouteData = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $routeId";
 $routeData = mysqli_query($conn, $query_getRouteData);
 while ($data2 = mysqli_fetch_array($routeData)){
+	$distance = $data2['kilometer'];
 	$licensePlate = $data2['kennzeichen'];
-	$distance = $data2 ['kilometer'];
-	$entryId = $data2 ['faehrtEinID'];
-	$exitId = $data2 ['faehrtAusID'];
+	$entryId = $data2['faehrtEinID'];
+	$exitId = $data2['faehrtAusID'];
+	echo $exitId;
 }
 
 $query_getEntryTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtEin WHERE id = $entryId";
 $EntryTollgateData = mysqli_query($conn, $query_getEntryTollgateData);
 while ($data3 = mysqli_fetch_array($EntryTollgateData)){
 	$entryTime = $data3['zeitstempel'];
-	$entryTollgate = $data3['mautstelleID']
+	$entryTollgate = $data3['mautstelleID'];
 }
 
 $query_getExitTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtAus WHERE id = $exitid";
@@ -94,7 +95,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
           </tr>
           <tr>
             <td class="service"></td>
-            <td class="desc"><?php echo $distance ?>Kilometer.</td>
+            <td class="desc"><?php echo $distance ?> Kilometer.</td>
             <td class="unit"></td>
             <td class="qty"></td>
             <td class="total"></td>
