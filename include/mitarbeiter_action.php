@@ -114,7 +114,7 @@
 		//	$plateFromRoute = $data['kennzeichen'];
 		//	if($plateFromRoute == $plate)
 		//}
-		if($plateCheck = "TRUE"){
+		if($plateCheck == "TRUE"){
 			//Start Check TollgateCode
 			$query_getTollgateCode = "SELECT code FROM mautstelle";
 			$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
