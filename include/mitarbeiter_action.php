@@ -106,7 +106,7 @@
 			echo "Kennzeichen nicht Gefunden";
 			$plateCheck = "FALSE";
 		}
-		else{
+		if ($rows >= 1{
 			echo "Kennzeichen Gefunden";
 			$plateCheck = "TRUE";
 		}
