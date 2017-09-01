@@ -18,6 +18,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
 		<link href="/mitarbeiter/rechnungen.css" type="text/css" rel="stylesheet" />
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
+		<title>Rechnungen</title>
 	</head>
 	<body>
 		<!--navbar -->
