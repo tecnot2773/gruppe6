@@ -34,40 +34,53 @@
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		
-		
-		if (empty($entry_time)){
-			$entry_time = date("Y-m-d H:i:s");
+		$quary_getTollgateCode = "SELECT code FROM mautstelle";
+		$result_getTollgateCode = mysqli_query($conn, $quary_getTollgateCode)
+		while ($data3 = mysqli_fetch_array($conn, $result_getTollgateCode){
+			$tollgateCode = $data3['code'];
+			if ($tollgateCode == code_entrytollgate){
+				$checkTollgateCode = "true";
+			}
+			else{
+				echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
+			}
 		}
-		else{
-			$entry_time = $entry_time;
-		}
-		
-		if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
-			echo "Richtiges Zeitangabe";
-		}
-		else
-		{
-			$entry_time = date("Y-m-d H:i:s");
-			echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time";
-		}
-		
-		$entry_time = mysqli_real_escape_string($conn, $entry_time);
-		$plate = mysqli_real_escape_string ($conn, $plate);
-		$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
-		
-		$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
-		$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
-		while ($data1 = mysqli_fetch_array($result_entrytollgate)){
-		$id_entrytollgate = $data1['ID'];
-		}
-		
-		$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
-		mysqli_query($conn, $quary_sql_entry);
-		
-		$entry_id = mysqli_insert_id ($conn);	//get ID from last INSERT
+		if($checkTollgateCode == "true"){
+			echo "Richtiger Code";
+			
+			if (empty($entry_time)){
+				$entry_time = date("Y-m-d H:i:s");
+			}
+			else{
+				$entry_time = $entry_time;
+			}
+			
+			if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
+			}
+			else
+			{
+				$entry_time = date("Y-m-d H:i:s");
+				echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time geändert";
+			}
+			
+			$entry_time = mysqli_real_escape_string($conn, $entry_time);
+			$plate = mysqli_real_escape_string ($conn, $plate);
+			$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
+			
+			$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
+			$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
+			while ($data1 = mysqli_fetch_array($result_entrytollgate)){
+			$id_entrytollgate = $data1['ID'];
+			}
+			
+			$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
+			mysqli_query($conn, $quary_sql_entry);
+			
+			$entry_id = mysqli_insert_id ($conn);	//get ID from last INSERT
 
-		$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
-		mysqli_query($conn, $quary_sql_entry_distance);
+			$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
+			mysqli_query($conn, $quary_sql_entry_distance);
+		}
 	}
 	
 	//add new vehicle exit and update 
@@ -90,7 +103,7 @@
 		else
 		{
 			$exit_time = date("Y-m-d H:i:s");
-			echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time";
+			echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert";
 		}
 		$exit_time = mysqli_real_escape_string($conn, $exit_time);
 		$plate = mysqli_real_escape_string ($conn, $plate);
