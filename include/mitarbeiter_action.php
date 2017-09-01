@@ -31,7 +31,6 @@
 				$rows = mysqli_num_rows($result_getTollgateCode);
 				if ($rows == 0){
 					$checkTollgateCode = "TRUE";
-					echo "checktollgadeCode TRUE";
 				}
 				if ($rows >= 1){
 					$checkTollgateCode = "FALSE";
@@ -67,6 +66,9 @@
 					}
 				}
 			}
+		}
+		else{
+			echo "Einige Felder wurden nicht ausgefüllt";
 		}
 	}
 	//add new vehicle entry
