@@ -43,6 +43,7 @@
 			}
 			else{
 				echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
+				$checkTollgateCode = "false";
 			}
 		}
 		if($checkTollgateCode == "true"){
