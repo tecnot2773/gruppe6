@@ -50,8 +50,6 @@
 		//End Check TollgateCode
 		
 		if($checkTollgateCode == "true"){
-			echo "Richtiger Code";
-			
 			//Start Check Time
 			if (empty($entry_time)){
 				$entry_time = date("Y-m-d H:i:s");
@@ -102,6 +100,7 @@
 		//Start Check if license plate is on Highway
 		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = $plate AND faehrtAusID = NULL";
 		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
+		echo $resultPlateFromRoute;
 		if (empty($resultPlateFromRoute)){
 			echo "Kennzeichen nicht Gefunden";
 			$plateCheck = "FALSE";
@@ -130,9 +129,7 @@
 			}
 			//End Check TollgateCode
 			
-			if($checkTollgateCode == "true"){
-				echo "Richtiger Code";
-					
+			if($checkTollgateCode == "true"){				
 				if (empty($exit_time)){
 					$exit_time = date("Y-m-d H:i:s");
 				}
