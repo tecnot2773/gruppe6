@@ -92,13 +92,13 @@
 							if($checkTollgateCode == "FALSE"){
 								echo "MautstellenCode ist nicht in der Datenbank";
 							}
-						}
-						echo "<br>";
-						if($checkTollgateCode == "TRUE"){
-								include 'include/price_calculation.php';
-								
-								$price = price::get_price("$distance");
-								echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
+							echo "<br>";
+							if($checkTollgateCode == "TRUE"){
+									include 'include/price_calculation.php';
+									
+									$price = price::get_price("$distance");
+									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
+							}
 						}
 						?>
 					</div>
