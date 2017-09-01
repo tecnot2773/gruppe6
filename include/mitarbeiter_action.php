@@ -108,6 +108,7 @@
 		}
 		else{
 			$plateCheck = "TRUE";
+			echo "Kennzeichen Gefunden";
 		}
 		//while ($data = mysqli_fetch_array($resultPlateFromRoute)){
 		//	$plateFromRoute = $data['kennzeichen'];
