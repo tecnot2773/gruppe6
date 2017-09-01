@@ -34,18 +34,21 @@
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		
-		if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
-			echo "Correctes Datum";
-		}
-		else
-		{
-			echo "Falsches Datum";
-		}
+		
 		if (empty($entry_time)){
 			$entry_time = date("Y-m-d H:i:s");
 		}
 		else{
 			$entry_time = $entry_time;
+		}
+		
+		if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
+			echo "Richtiges Zeitangabe";
+		}
+		else
+		{
+			echo "Falsche Zeitangabe - Zeitangabe wurde zu aktueller Zeit geändert";
+			$entry_time = date("Y-m-d H:i:s");
 		}
 		
 		$entry_time = mysqli_real_escape_string($conn, $entry_time);
