@@ -34,9 +34,6 @@
 						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
 					</div>
 					<div id="buttondiv_rowend" class="row">
-					<?php
-					include_once '../include/mitarbeiter_action.php';
-					?>
 						STATUS JUNGE
 					</div>
 				</div>
