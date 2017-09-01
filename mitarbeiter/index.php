@@ -34,7 +34,7 @@
 						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
 					</div>
 					<div id="buttondiv_rowend" class="row">
-						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
+						STATUS JUNGE
 					</div>
 				</div>
 				<div id="griddiv-left-upper" class="test">

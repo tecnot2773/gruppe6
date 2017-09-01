@@ -163,14 +163,15 @@ padding-right: 50px;
 padding-top:  50px;
 padding-left: 50px;
 padding-right: 50px;
-padding-bottom: 5px;
+padding-bottom: 8px;
+width: 100%;
 border-bottom: 1px solid black;
 }
 #buttondiv_rowend {
-padding-top:  50px;
+padding-top:  5px;
 padding-left: 50px;
 padding-right: 50px;
-padding-bottom: 35px;
+padding-bottom: 2px;
 }
 a.linkbutton {
     -webkit-appearance: button;
