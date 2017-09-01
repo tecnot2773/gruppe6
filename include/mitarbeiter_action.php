@@ -42,7 +42,6 @@
 				$checkTollgateCode = "true";
 			}
 			else{
-				echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
 				$checkTollgateCode = "false";
 			}
 		}
@@ -81,6 +80,9 @@
 
 			$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
 			mysqli_query($conn, $quary_sql_entry_distance);
+		}
+		if($checkTollgateCode == "false"){
+			echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
 		}
 	}
 	
