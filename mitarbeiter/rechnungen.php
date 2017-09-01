@@ -51,7 +51,7 @@
 						include_once '../include/mitarbeiter_action.php';
 					}
 					?>
-						<center>TIMON STINKT<center>
+						<center>...<center>
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
