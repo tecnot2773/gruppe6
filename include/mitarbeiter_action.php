@@ -220,8 +220,8 @@
 	}
 	else{$noAction = "TRUE";}
 	
-	if ($noAction == "TRUE"){
-		echo "Es wurde keine Action ausgewählt";
+	if ($noAction == "FALSE"){
+		echo "Es wurde keine Aktion ausgewählt";
 	}
 	class Mitarbeiter_Error
 	{
