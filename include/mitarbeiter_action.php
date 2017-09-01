@@ -32,18 +32,18 @@
 		while ($data = mysqli_fetch_array($result_getTollgateCode)){
 			$tollgateCode = $data['code'];
 			if ($tollgateCode == $code){
-				$checkTollgateCode = "false";
+				$checkTollgateCode = "FALSE";
 				echo "HABS TOLLGATE";
 			}
 			else{
-				$checkTollgateCode = "true";
+				$checkTollgateCode = "TRUE";
 				echo "Hallo";
 				break 1;
 			}
 		}
 		echo "TOLLGATE CHECK BEENDET";
 		//End Check TollgateCode
-		if($checkTollgateCode == "true"){
+		if($checkTollgateCode == "TRUE"){
 			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
 				$wrongLat = "FALSE";
 				echo "correct Latitude";
@@ -72,7 +72,7 @@
 					mysqli_query($conn,$quary_sql_add);
 					echo "Mautstelle erfolgreich hinzugefügt";
 					
-					if($checkTollgateCode == "false"){
+					if($checkTollgateCode == "FALSE"){
 						echo "MautstellenCode bereits vorhanden";
 					}
 				}
@@ -104,16 +104,16 @@
 			while ($data = mysqli_fetch_array($result_getTollgateCode)){
 				$tollgateCode = $data['code'];
 				if ($tollgateCode == $code_entrytollgate){
-					$checkTollgateCode = "true";
+					$checkTollgateCode = "TRUE";
 					break 1;
 				}
 				else{
-					$checkTollgateCode = "false";
+					$checkTollgateCode = "FALSE";
 				}
 			}
 			//End Check TollgateCode
 			
-			if($checkTollgateCode == "true"){
+			if($checkTollgateCode == "TRUE"){
 				//Start Check Time
 				if (empty($entry_time)){
 					$entry_time = date("Y-m-d H:i:s");
@@ -150,7 +150,7 @@
 				mysqli_query($conn, $quary_sql_entry_distance);
 				echo "Neue Einfahrt verbucht";
 			}
-			if($checkTollgateCode == "false"){
+			if($checkTollgateCode == "FALSE"){
 				echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
 			}
 		}
@@ -180,16 +180,16 @@
 			while ($data = mysqli_fetch_array($result_getTollgateCode)){
 				$tollgateCode = $data['code'];
 				if ($tollgateCode == $code_exittollgate){
-					$checkTollgateCode = "true";
+					$checkTollgateCode = "TRUE";
 					break 1;
 				}
 				else{
-					$checkTollgateCode = "false";
+					$checkTollgateCode = "FALSE";
 				}
 			}
 			//End Check TollgateCode
 			
-			if($checkTollgateCode == "true"){				
+			if($checkTollgateCode == "TRUE"){				
 				if (empty($exit_time)){
 					$exit_time = date("Y-m-d H:i:s");
 				}
@@ -264,7 +264,7 @@
 				mysqli_query($conn, $quary_add_rechnung);
 				echo "Neue Ausfahrt verbucht und Rechnung erstellt";
 			}
-			if($checkTollgateCode == "false"){
+			if($checkTollgateCode == "FALSE"){
 			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
 			}
 		}
