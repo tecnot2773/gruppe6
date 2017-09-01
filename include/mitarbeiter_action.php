@@ -1,4 +1,5 @@
 <?php
+	namespace my\error;
 	//Create connection
 	include_once 'db.php';
 	
