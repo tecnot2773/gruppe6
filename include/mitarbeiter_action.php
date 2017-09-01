@@ -104,107 +104,110 @@
 		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
 		if (empty($resultPlateFromRoute)){
 			echo "Kennzeichen nicht Gefunden";
-			break 1;
+			$plateCheck = "FALSE";
+		}
+		else{
+			$plateCheck = "TRUE";
 		}
 		//while ($data = mysqli_fetch_array($resultPlateFromRoute)){
 		//	$plateFromRoute = $data['kennzeichen'];
 		//	if($plateFromRoute == $plate)
 		//}
-
-		//Start Check TollgateCode
-		$query_getTollgateCode = "SELECT code FROM mautstelle";
-		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-		while ($data = mysqli_fetch_array($result_getTollgateCode)){
-			$tollgateCode = $data['code'];
-			if ($tollgateCode == $code_exittollgate){
-				$checkTollgateCode = "true";
-				break 1;
+		if($plateCheck = "TRUE"){
+			//Start Check TollgateCode
+			$query_getTollgateCode = "SELECT code FROM mautstelle";
+			$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+			while ($data = mysqli_fetch_array($result_getTollgateCode)){
+				$tollgateCode = $data['code'];
+				if ($tollgateCode == $code_exittollgate){
+					$checkTollgateCode = "true";
+					break 1;
+				}
+				else{
+					$checkTollgateCode = "false";
+				}
 			}
-			else{
-				$checkTollgateCode = "false";
-			}
-		}
-		//End Check TollgateCode
-		
-		if($checkTollgateCode == "true"){
-			echo "Richtiger Code";
+			//End Check TollgateCode
+			
+			if($checkTollgateCode == "true"){
+				echo "Richtiger Code";
+					
+				if (empty($exit_time)){
+					$exit_time = date("Y-m-d H:i:s");
+				}
+				else{
+					$exit_time = $exit_time;
+				}
 				
-			if (empty($exit_time)){
-				$exit_time = date("Y-m-d H:i:s");
-			}
-			else{
-				$exit_time = $exit_time;
-			}
-			
-			if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
-			}
-			else
-			{
-				$exit_time = date("Y-m-d H:i:s");
-				echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert";
-			}
-			$exit_time = mysqli_real_escape_string($conn, $exit_time);
-			$plate = mysqli_real_escape_string ($conn, $plate);
-			$code_exittollgate = mysqli_real_escape_string ($conn, $code_exittollgate);
-			
-			$quary_get_TollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exittollgate";
-			$result_exittollgate = mysqli_query($conn, $quary_get_TollgateExitId);
-			while ($data = mysqli_fetch_array($result_exittollgate)){
-			$id_exittollgate = $data['ID'];
-			}
-			
-			$quary_sql_exit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$id_exittollgate')";
-			mysqli_query($conn, $quary_sql_exit);
-			
-			$exit_id = mysqli_insert_id ($conn);	//get ID from last INSERT
-			
-			$quary_sql_exit_dist = "UPDATE strecke SET faehrtAusID = '$exit_id' WHERE faehrtAusID IS NULL and kennzeichen = '$plate'";
-			mysqli_query($conn, $quary_sql_exit_dist);
-			
-			//get tollgate IDs
-			$quary_get_entry_id = "SELECT faehrtEinID FROM strecke WHERE faehrtAusID = $exit_id";
-			$entry_id_calc = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_entry_id))['faehrtEinID'];
-			$quary_get_tollgate_id_one = "SELECT mautstelleID FROM faehrtEin WHERE id = $entry_id_calc";
-			$tollgate_id_one = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_tollgate_id_one))['mautstelleID'];
-			$quary_get_tollgate_id_two = "SELECT mautstelleID FROM faehrtAus WHERE id = $exit_id";
-			$tollgate_id_two = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_tollgate_id_two))['mautstelleID'];
-			//get coordiates
-			$quary_sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE id = $tollgate_id_one";
-			$quary_sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE id = $tollgate_id_two";
-			
-			$result1 = mysqli_query($conn,$quary_sql_Code1);
+				if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
+				}
+				else
+				{
+					$exit_time = date("Y-m-d H:i:s");
+					echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert";
+				}
+				$exit_time = mysqli_real_escape_string($conn, $exit_time);
+				$plate = mysqli_real_escape_string ($conn, $plate);
+				$code_exittollgate = mysqli_real_escape_string ($conn, $code_exittollgate);
+				
+				$quary_get_TollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exittollgate";
+				$result_exittollgate = mysqli_query($conn, $quary_get_TollgateExitId);
+				while ($data = mysqli_fetch_array($result_exittollgate)){
+				$id_exittollgate = $data['ID'];
+				}
+				
+				$quary_sql_exit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$id_exittollgate')";
+				mysqli_query($conn, $quary_sql_exit);
+				
+				$exit_id = mysqli_insert_id ($conn);	//get ID from last INSERT
+				
+				$quary_sql_exit_dist = "UPDATE strecke SET faehrtAusID = '$exit_id' WHERE faehrtAusID IS NULL and kennzeichen = '$plate'";
+				mysqli_query($conn, $quary_sql_exit_dist);
+				
+				//get tollgate IDs
+				$quary_get_entry_id = "SELECT faehrtEinID FROM strecke WHERE faehrtAusID = $exit_id";
+				$entry_id_calc = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_entry_id))['faehrtEinID'];
+				$quary_get_tollgate_id_one = "SELECT mautstelleID FROM faehrtEin WHERE id = $entry_id_calc";
+				$tollgate_id_one = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_tollgate_id_one))['mautstelleID'];
+				$quary_get_tollgate_id_two = "SELECT mautstelleID FROM faehrtAus WHERE id = $exit_id";
+				$tollgate_id_two = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_tollgate_id_two))['mautstelleID'];
+				//get coordiates
+				$quary_sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE id = $tollgate_id_one";
+				$quary_sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE id = $tollgate_id_two";
+				
+				$result1 = mysqli_query($conn,$quary_sql_Code1);
 
-			while ($data = mysqli_fetch_assoc($result1)){
-			$db_latitude1 = $data['lat'];
-			$db_longitude1 = $data['lon'];
-			}
-			$result2 = mysqli_query($conn,$quary_sql_Code2);
+				while ($data = mysqli_fetch_assoc($result1)){
+				$db_latitude1 = $data['lat'];
+				$db_longitude1 = $data['lon'];
+				}
+				$result2 = mysqli_query($conn,$quary_sql_Code2);
 
-			while ($data = mysqli_fetch_assoc($result2)){
-			$db_latitude2 = $data['lat'];
-			$db_longitude2 = $data['lon'];
+				while ($data = mysqli_fetch_assoc($result2)){
+				$db_latitude2 = $data['lat'];
+				$db_longitude2 = $data['lon'];
+				}
+				if($checkTollgateCode == "false"){
+				echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
+				}
 			}
-			if($checkTollgateCode == "false"){
-			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
-			}
+			
+			//calculation
+			include_once 'calculation.php';
+
+				$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
+				
+				$quary_push_distance = "UPDATE strecke SET kilometer = $distance WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id";
+				mysqli_query($conn, $quary_push_distance);
+				
+			//add Rechnung
+			$quary_get_kosten = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
+			$kosten = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_kosten))['kosten'];
+			$quary_get_strecke_id = "SELECT id FROM strecke WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id and kennzeichen = '$plate'";
+			$strecke_id = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_strecke_id))['id'];
+			
+			$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
+			mysqli_query($conn, $quary_add_rechnung);
 		}
-		
-		//calculation
-		include_once 'calculation.php';
-
-			$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
-			
-			$quary_push_distance = "UPDATE strecke SET kilometer = $distance WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id";
-			mysqli_query($conn, $quary_push_distance);
-			
-		//add Rechnung
-		$quary_get_kosten = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
-		$kosten = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_kosten))['kosten'];
-		$quary_get_strecke_id = "SELECT id FROM strecke WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id and kennzeichen = '$plate'";
-		$strecke_id = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_strecke_id))['id'];
-		
-		$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
-		mysqli_query($conn, $quary_add_rechnung);
-		
 	}
 ?>
