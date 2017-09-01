@@ -44,6 +44,7 @@
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/maustellen-info.php">hier</a>.
 						<br><br>
 						<?php
+						namespace my\error;
 						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							include_once 'include/calculation.php';
 							$code1 = $_POST["text-startstation"];
