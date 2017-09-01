@@ -33,20 +33,18 @@
 			$tollgateCode = $data['code'];
 			if ($tollgateCode == $code){
 				$checkTollgateCode = "FALSE";
-				echo "HABS TOLLGATE";
+				echo "checktollgadeCode False";
 			}
 			else{
 				$checkTollgateCode = "TRUE";
-				echo "Hallo";
+				echo "checktollgadeCode True";
 				break 1;
 			}
 		}
-		echo "TOLLGATE CHECK BEENDET";
 		//End Check TollgateCode
 		if($checkTollgateCode == "TRUE"){
 			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
 				$wrongLat = "FALSE";
-				echo "correct Latitude";
 			}
 			else
 			{
@@ -57,7 +55,6 @@
 			if($wrongLat == "FALSE"){
 				if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){
 					$wrongLon = "FALSE";
-					echo "correct Logitude";
 				}
 				else
 				{
