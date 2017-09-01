@@ -95,12 +95,10 @@
 						}
 						echo "<br>";
 						if($checkTollgateCode == "TRUE"){
-							if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								include 'include/price_calculation.php';
 								
 								$price = price::get_price("$distance");
 								echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
-							}
 						}
 						?>
 					</div>
