@@ -35,7 +35,8 @@
 		</header>
 		<!--main contents          -->
 		<div id="main-area" class="container">
-
+				<div id="placeholder" class="test">
+				</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
 						<a href="index.php" class="linkbutton">Übersicht</a>

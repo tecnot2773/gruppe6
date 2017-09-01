@@ -175,6 +175,10 @@ padding-top:  2px;
 padding-bottom: 5px;
 width: 100%;
 }
+#placeholder {
+padding-top: 20px;
+	
+}
 a.linkbutton {
     -webkit-appearance: button;
     -moz-appearance: button;
