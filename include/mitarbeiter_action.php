@@ -49,7 +49,7 @@
 				$wrongLat = "TRUE";
 			}
 			
-			if(wrongLat = "FALSE"){
+			if(wrongLat == "FALSE"){
 				if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){
 					$wrongLon = "FALSE";
 				}
@@ -59,7 +59,7 @@
 					$wrongLon = "TRUE";
 				}
 			
-				if(wrongLon = "FALSE"){
+				if(wrongLon == "FALSE"){
 				
 					$quary_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
 					mysqli_query($conn,$quary_sql_add);
