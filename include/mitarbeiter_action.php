@@ -26,10 +26,11 @@
 		$lat_insert = mysqli_real_escape_string ($conn, $lat_insert);
 		$lon_insert = mysqli_real_escape_string ($conn, $lon_insert);
 		
+		//Start Check TollgateCode
 		$query_getTollgateCode = "SELECT code FROM mautstelle";
 			$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
 			while ($data = mysqli_fetch_array($result_getTollgateCode)){
-				$code = $data['code'];
+				$tollgateCode = $data['code'];
 				if ($tollgateCode == $code){
 					$checkTollgateCode = "true";
 					break 1;
