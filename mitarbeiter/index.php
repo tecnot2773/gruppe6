@@ -85,7 +85,7 @@
 				<div id="griddiv-left-lower" class="test">
 					
 					<div id="buttondiv_rowstart" class="row">
-						<input class="button" type="submit" name="execute" value="Ausführen"> 
+					<center><input class="button" type="submit" name="execute" value="Ausführen"></center> 
 					</div>
 				</div>
 
