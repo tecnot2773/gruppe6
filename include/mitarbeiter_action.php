@@ -189,24 +189,26 @@
 				if($checkTollgateCode == "false"){
 				echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
 				}
-			}
 			
-			//calculation
-			include_once 'calculation.php';
+			
+				//calculation
+				include_once 'calculation.php';
 
-				$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
+					$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
+					
+					$quary_push_distance = "UPDATE strecke SET kilometer = $distance WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id";
+					mysqli_query($conn, $quary_push_distance);
+					
+				//add Rechnung
+				$quary_get_kosten = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
+				$kosten = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_kosten))['kosten'];
+				$quary_get_strecke_id = "SELECT id FROM strecke WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id and kennzeichen = '$plate'";
+				$strecke_id = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_strecke_id))['id'];
 				
-				$quary_push_distance = "UPDATE strecke SET kilometer = $distance WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id";
-				mysqli_query($conn, $quary_push_distance);
-				
-			//add Rechnung
-			$quary_get_kosten = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
-			$kosten = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_kosten))['kosten'];
-			$quary_get_strecke_id = "SELECT id FROM strecke WHERE faehrtEinID = $entry_id_calc and faehrtAusID = $exit_id and kennzeichen = '$plate'";
-			$strecke_id = mysqli_fetch_assoc(mysqli_query($conn, $quary_get_strecke_id))['id'];
-			
-			$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
-			mysqli_query($conn, $quary_add_rechnung);
+				$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
+				mysqli_query($conn, $quary_add_rechnung);
+			}	
 		}
 	}
+
 ?>
