@@ -54,8 +54,6 @@
 							$rows = mysqli_num_rows($result_getTollgateCode);
 							if ($rows == 0){
 							$checkTollgateCode = "FALSE";
-								echo "checktollgadeCode FALSE";
-								echo "MautstellenCode ist nicht in der Datenbank";
 							}
 							if($rows >= 1){
 								$checkTollgateCode = "TRUE";
@@ -66,8 +64,6 @@
 								$rows = mysqli_num_rows($result_getTollgateCode);
 								if ($rows == 0){
 								$checkTollgateCode = "FALSE";
-									echo "checktollgadeCode FALSE";
-									echo "MautstellenCode ist nicht in der Datenbank";
 								}
 								if($rows >= 1){
 									$checkTollgateCode = "TRUE";
@@ -100,11 +96,13 @@
 						?>
 						<br>
 						<?php
-						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-							include 'include/price_calculation.php';
-							
-							$price = price::get_price("$distance");
-							echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
+						if($checkTollgateCode == "TRUE"){
+							if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+								include 'include/price_calculation.php';
+								
+								$price = price::get_price("$distance");
+								echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
+							}
 						}
 						?>
 					</div>
