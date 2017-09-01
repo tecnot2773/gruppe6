@@ -31,6 +31,7 @@
 		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
 		while ($data = mysqli_fetch_array($result_getTollgateCode)){
 			$tollgateCode = $data['code'];
+			echo $code;
 			if ($tollgateCode == $code){
 				$checkTollgateCode = "FALSE";
 				echo "checktollgadeCode False";
