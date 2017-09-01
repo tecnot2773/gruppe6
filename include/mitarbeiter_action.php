@@ -216,7 +216,7 @@
 			}
 		}
 	}
-	class Error
+	class Mitarbeiter_Error
 	{
 		
 	}
