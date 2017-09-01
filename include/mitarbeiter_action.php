@@ -40,15 +40,38 @@
 			}
 			//End Check TollgateCode
 		if($checkTollgateCode == "true"){
-			$quary_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
-			mysqli_query($conn,$quary_sql_add);
-			echo "Mautstelle erfolgreich hinzugefügt";
-		}
-		if($checkTollgateCode == "false"){
-			echo "MautstellenCode bereits vorhanden";
+			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
+				$wrongLat = "FALSE";
+			}
+			else
+			{
+				echo "Latitude hat falsches Format";
+				$wrongLat = "TRUE";
+			}
+			
+			if(wrongLat = "FALSE"){
+				if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){
+					$wrongLon = "FALSE";
+				}
+				else
+				{
+					echo "Longitude hat falsches Format";
+					$wrongLon = "TRUE";
+				}
+			
+				if(wrongLon = "FALSE"){
+				
+					$quary_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
+					mysqli_query($conn,$quary_sql_add);
+					echo "Mautstelle erfolgreich hinzugefügt";
+					
+					if($checkTollgateCode == "false"){
+						echo "MautstellenCode bereits vorhanden";
+					}
+				}
+			}
 		}
 	}
-	
 	//add new vehicle entry
 	if ($action == "entry")
 	{
@@ -232,7 +255,7 @@
 				
 				$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
 				mysqli_query($conn, $quary_add_rechnung);
-				echo "Neue Ausfahrt verbucht und Rechnung erstellt"
+				echo "Neue Ausfahrt verbucht und Rechnung erstellt";
 			}
 			if($checkTollgateCode == "false"){
 			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
