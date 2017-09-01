@@ -29,6 +29,7 @@
 		//Start Check TollgateCode
 		$query_getTollgateCode = "SELECT code FROM mautstelle";
 		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+		echo $result_getTollgateCode;
 		while ($data = mysqli_fetch_array($result_getTollgateCode)){
 			$tollgateCode = $data['code'];
 			echo $code;
