@@ -35,10 +35,10 @@
 		$entry_time = $_POST["text-time-entry"];
 		
 		//Start Check TollgateCode
-		$quary_getTollgateCode = "SELECT code FROM mautstelle";
-		$result_getTollgateCode = mysqli_query($conn, $quary_getTollgateCode);
-		while ($data3 = mysqli_fetch_array($result_getTollgateCode)){
-			$tollgateCode = $data3['code'];
+		$query_getTollgateCode = "SELECT code FROM mautstelle";
+		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+		while ($data = mysqli_fetch_array($result_getTollgateCode)){
+			$tollgateCode = $data['code'];
 			if ($tollgateCode == $code_entrytollgate){
 				$checkTollgateCode = "true";
 				break 1;
@@ -75,8 +75,8 @@
 			
 			$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
 			$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
-			while ($data1 = mysqli_fetch_array($result_entrytollgate)){
-			$id_entrytollgate = $data1['ID'];
+			while ($data = mysqli_fetch_array($result_entrytollgate)){
+			$id_entrytollgate = $data['ID'];
 			}
 			
 			$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
@@ -98,12 +98,24 @@
 		$plate = $_POST["text-plate-exit"];
 		$code_exittollgate = $_POST["text-CodeExit"];
 		$exit_time = $_POST["text-time-exit"];
+		
+		//Start Check if license plate is on Highway
+		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = $plate AND faehrtAusID = NULL";
+		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
+		if (empty($resultPlateFromRoute)){
+			echo "Kennzeichen nicht Gefunden";
+			break 1;
+		}
+		//while ($data = mysqli_fetch_array($resultPlateFromRoute)){
+		//	$plateFromRoute = $data['kennzeichen'];
+		//	if($plateFromRoute == $plate)
+		//}
 
 		//Start Check TollgateCode
-		$quary_getTollgateCode = "SELECT code FROM mautstelle";
-		$result_getTollgateCode = mysqli_query($conn, $quary_getTollgateCode);
-		while ($data3 = mysqli_fetch_array($result_getTollgateCode)){
-			$tollgateCode = $data3['code'];
+		$query_getTollgateCode = "SELECT code FROM mautstelle";
+		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+		while ($data = mysqli_fetch_array($result_getTollgateCode)){
+			$tollgateCode = $data['code'];
 			if ($tollgateCode == $code_exittollgate){
 				$checkTollgateCode = "true";
 				break 1;
@@ -125,7 +137,6 @@
 			}
 			
 			if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
-				echo "Richtiges Zeitangabe";
 			}
 			else
 			{
@@ -138,8 +149,8 @@
 			
 			$quary_get_TollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exittollgate";
 			$result_exittollgate = mysqli_query($conn, $quary_get_TollgateExitId);
-			while ($data2 = mysqli_fetch_array($result_exittollgate)){
-			$id_exittollgate = $data2['ID'];
+			while ($data = mysqli_fetch_array($result_exittollgate)){
+			$id_exittollgate = $data['ID'];
 			}
 			
 			$quary_sql_exit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$id_exittollgate')";
@@ -196,18 +207,4 @@
 		mysqli_query($conn, $quary_add_rechnung);
 		
 	}
-	
-	/**class check{
-		public static function get_sucess ($selction_error)
-		$error_list = mysqli_error_list($conn);
-
-		if(!isset($error_list){
-			return "Ein Fehler ist Aufgetreten";
-		}
-		else
-		{
-			return "Alle Werte erfolgreich eingetragen";
-		}
-	return 
-	}*/
 ?>
