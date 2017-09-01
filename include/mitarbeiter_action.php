@@ -34,8 +34,8 @@
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		
-		//$check_timeformat = is_a($entry_time, 'DateTime');
-		//$check_timecontent = empty($entry_time);
+		$check_timeformat = preg_match("/(\d{4})-(\d{2})-(\d{2})/" "/(\d{2}):(\d{2}):(\d{2})/", $entry_time);
+		echo $check_timeformat;
 		
 		if (empty($entry_time)){
 			$entry_time = date("Y-m-d H:i:s");
