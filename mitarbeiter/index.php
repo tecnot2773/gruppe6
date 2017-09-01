@@ -34,6 +34,11 @@
 						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
 					</div>
 					<div id="buttondiv_rowend" class="row">
+					<?php
+					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+						include_once '../include/mitarbeiter_action.php';
+					}
+					?>
 						STATUS JUNGE
 					</div>
 				</div>
@@ -74,11 +79,6 @@
 					<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
 					<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
-					<?php
-					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-						include_once '../include/mitarbeiter_action.php';
-					}
-					?>
 					</div>
 					<div id="resultstring" class="alert alert-info">
 
