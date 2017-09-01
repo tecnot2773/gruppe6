@@ -35,11 +35,14 @@
 			if ($tollgateCode == $code){
 				$checkTollgateCode = "true";
 				break 1;
+				echo "Hallo";
 			}
 			else{
 				$checkTollgateCode = "false";
+				echo "HABS TOLLGATE";
 			}
 		}
+		echo "TOLLGATE CHECK BEENDET";
 		//End Check TollgateCode
 		if($checkTollgateCode == "true"){
 			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
