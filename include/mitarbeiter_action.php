@@ -30,12 +30,11 @@
 		$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code";
 		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
 			$rows = mysqli_num_rows($result_getTollgateCode);
-			if (rows == 0){
-				echo $tollgateCode;
+			if ($rows == 0){
 				$checkTollgateCode = "TRUE";
 				echo "checktollgadeCode TRUE";
 			}
-			if (rows >= 1){
+			if ($rows >= 1){
 				$checkTollgateCode = "FALSE";
 				echo "MautstellenCode ist bereits in der Datenbank";
 			}
