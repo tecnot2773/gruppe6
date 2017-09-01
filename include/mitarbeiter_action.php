@@ -34,7 +34,7 @@
 				$checkTollgateCode = "TRUE";
 				echo "checktollgadeCode TRUE";
 			}
-			if (rows >= 1){
+			if ($rows >= 1){
 				$checkTollgateCode = "FALSE";
 				echo "MautstellenCode ist bereits in der Datenbank";
 			}
