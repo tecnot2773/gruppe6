@@ -33,13 +33,13 @@
 		while ($data = mysqli_fetch_array($result_getTollgateCode)){
 			$tollgateCode = $data['code'];
 			if ($tollgateCode == $code){
+				$checkTollgateCode = "false";
+				echo "HABS TOLLGATE";
+			}
+			else{
 				$checkTollgateCode = "true";
 				break 1;
 				echo "Hallo";
-			}
-			else{
-				$checkTollgateCode = "false";
-				echo "HABS TOLLGATE";
 			}
 		}
 		echo "TOLLGATE CHECK BEENDET";
