@@ -49,7 +49,7 @@
 						include_once '../include/mitarbeiter_action.php';
 					}
 					?>
-						<center> <center>
+						<center>TIMON STINKT<center>
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
