@@ -101,7 +101,7 @@
 		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID = NULL";
 		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
 		echo $query_getPlateFromRoute;
-		$rows = mysqli_num_rows($resultPlateFromRoute)
+		$rows = mysqli_num_rows($resultPlateFromRoute);
 		if ($rows == 0){
 			echo "Kennzeichen nicht Gefunden";
 			$plateCheck = "FALSE";
