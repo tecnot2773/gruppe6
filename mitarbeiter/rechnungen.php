@@ -2,7 +2,7 @@
  include_once '../include/db.php';
  
  
- $query_get_bill = "SELECT id, kosten, streckeID FROM rechnung";
+ $query_get_bill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";
  $result_bill = mysqli_query($conn,$query_get_bill);
 
  
