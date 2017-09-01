@@ -69,8 +69,8 @@
 									$checkTollgateCode = "TRUE";
 								}
 								if($checkTollgateCode == "TRUE"){
-									$sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE code = $Code1";
-									$sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE code = $Code2";
+									$sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE code = $code1";
+									$sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE code = $code2";
 									
 									$result1 = mysqli_query($conn,$sql_Code1);
 
