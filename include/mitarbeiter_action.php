@@ -34,9 +34,13 @@
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		
-		$check_timeformat = preg_match("/(\d{4})-(\d{2})-(\d{2})/" "/(\d{2}):(\d{2}):(\d{2})/", $entry_time);
-		echo $check_timeformat;
-		
+		if (preg_match("/(\d{4})-(\d{2})-(\d{2})/" "/(\d{2}):(\d{2}):(\d{2})/", $entry_time)){
+			echo "Correctes Datum";
+		}
+		else
+		{
+			echo "Falsches Datum";
+		}
 		if (empty($entry_time)){
 			$entry_time = date("Y-m-d H:i:s");
 		}
