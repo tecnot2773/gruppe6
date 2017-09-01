@@ -255,7 +255,7 @@
 				
 				$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
 				mysqli_query($conn, $quary_add_rechnung);
-				echo "Neue Ausfahrt verbucht und Rechnung erstellt"
+				echo "Neue Ausfahrt verbucht und Rechnung erstellt";
 			}
 			if($checkTollgateCode == "false"){
 			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
