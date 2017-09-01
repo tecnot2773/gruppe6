@@ -40,6 +40,7 @@
 			$tollgateCode = $data3['code'];
 			if ($tollgateCode == $code_entrytollgate){
 				$checkTollgateCode = "true";
+				break 2;
 			}
 			else{
 				$checkTollgateCode = "false";
