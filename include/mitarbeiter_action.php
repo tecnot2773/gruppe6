@@ -34,7 +34,7 @@
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		
-		query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";
+		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";
 		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
 		$rows = mysqli_num_rows($resultPlateFromRoute);
 		if ($rows == 0){
