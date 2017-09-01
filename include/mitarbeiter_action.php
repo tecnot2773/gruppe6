@@ -38,11 +38,11 @@
 		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
 		$rows = mysqli_num_rows($resultPlateFromRoute);
 		if ($rows == 0){
-			echo "Kennzeichen ist bereits auf einer Autobahn";
-			$plateCheck = "FALSE";
+			$plateCheck = "TRUE";
 		}
 		if ($rows >= 1){
-			$plateCheck = "TRUE";
+			echo "Kennzeichen ist bereits auf einer Autobahn";
+			$plateCheck = "FALSE";
 		}
 		if($plateCheck == "TRUE"){
 		
