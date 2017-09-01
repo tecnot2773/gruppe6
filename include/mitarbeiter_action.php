@@ -54,7 +54,7 @@
 				echo "Latitude hat falsches Format";
 			}
 			
-			if(wrongLat == "FALSE"){
+			if($wrongLat == "FALSE"){
 				if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){
 					$wrongLon = "FALSE";
 					echo "correct Logitude";
@@ -65,7 +65,7 @@
 					echo "Longitude hat falsches Format";
 				}
 			
-				if(wrongLon == "FALSE"){
+				if($wrongLon == "FALSE"){
 				
 					$quary_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
 					echo $query_sql_add;
