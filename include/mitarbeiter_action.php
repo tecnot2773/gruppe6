@@ -27,23 +27,19 @@
 		$lon_insert = mysqli_real_escape_string ($conn, $lon_insert);
 		
 		//Start Check TollgateCode
-		$query_getTollgateCode = "SELECT code FROM mautstelle";
+		$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code";
 		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-		while ($data = mysqli_fetch_array($result_getTollgateCode)){
-			$tollgateCode = $data['code'];
-			echo $code;
-			echo $tollgateCode;
-			if ($tollgateCode == $code){
+			$tollgateCode = $data['code'];			echo $tollgateCode;
+			$rows = mysqli_num_rows($tollgateCode);
+			if (rows == 0){
 				echo $tollgateCode;
-				$checkTollgateCode = "FALSE";
-				echo "checktollgadeCode False";
-			}
-			else{
 				$checkTollgateCode = "TRUE";
-				echo "checktollgadeCode True";
-				break 1;
+				echo "checktollgadeCode TRUE";
 			}
-		}
+			if (rows >= 1){
+				$checkTollgateCode = "FALSE";
+				echo "MautstellenCode ist bereits in der Datenbank";
+			}
 		//End Check TollgateCode
 		if($checkTollgateCode == "TRUE"){
 			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
@@ -71,10 +67,6 @@
 					echo $query_sql_add;
 					mysqli_query($conn,$query_sql_add);
 					echo "Mautstelle erfolgreich hinzugefügt";
-					
-					if($checkTollgateCode == "FALSE"){
-						echo "MautstellenCode bereits vorhanden";
-					}
 				}
 			}
 		}
