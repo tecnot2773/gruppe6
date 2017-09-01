@@ -34,11 +34,7 @@ body {
 	width: 80%;
 	margin: 0 auto;
 }
-.container div {
-	width: 80%;
-	display: inline-block;
-}
- 
+
 header {
   background: #f2f2f2;
 }
@@ -99,36 +95,9 @@ nav a::before {
 nav a:hover::before {
   width: 100%;
 }
-
-#griddiv-left-upper {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 49%;
-float: left;
-margin-bottom: 13px;
-margin-right: 5px;
-}
-#griddiv-left-lower {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 100%;
-}
-#griddiv-right-upper {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 50%;
-
-margin-bottom: 13px;
-}
-#griddiv-right-lower {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 50%;
-
+#heading {
+padding-top:  81px;
+	
 }
 #griddiv-nav-top {
 background-color: white;
@@ -148,12 +117,18 @@ padding-bottom: 50px;
 padding-left: 50px;
 padding-right: 50px;
 }
-#rowend-left-upper {
-padding-top:  50px;
+#griddiv-left {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 100%;
+padding-top: 25px;
+padding-bottom: 50px;
 padding-left: 50px;
 padding-right: 50px;
-padding-bottom: 225px;
+text-align:center;
 }
+
 #rowresult {
 padding-top:  50px;
 padding-left: 50px; 
