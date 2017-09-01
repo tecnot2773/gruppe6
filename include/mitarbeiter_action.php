@@ -12,6 +12,7 @@
 	
 	if ($action == "add")
 	{
+		echo "bin eh da";
 		$code = $_POST["text-code"];
 		$namehighway = $_POST["text-namehighway"];
 		$namejunction = $_POST["text-namejunction"];
@@ -28,21 +29,22 @@
 		
 		//Start Check TollgateCode
 		$query_getTollgateCode = "SELECT code FROM mautstelle";
-			$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-			while ($data = mysqli_fetch_array($result_getTollgateCode)){
-				$tollgateCode = $data['code'];
-				if ($tollgateCode == $code){
-					$checkTollgateCode = "true";
-					break 1;
-				}
-				else{
-					$checkTollgateCode = "false";
-				}
+		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+		while ($data = mysqli_fetch_array($result_getTollgateCode)){
+			$tollgateCode = $data['code'];
+			if ($tollgateCode == $code){
+				$checkTollgateCode = "true";
+				break 1;
 			}
-			//End Check TollgateCode
+			else{
+				$checkTollgateCode = "false";
+			}
+		}
+		//End Check TollgateCode
 		if($checkTollgateCode == "true"){
 			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
 				$wrongLat = "FALSE";
+				echo "correct Latitude";
 			}
 			else
 			{
@@ -53,6 +55,7 @@
 			if(wrongLat == "FALSE"){
 				if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){
 					$wrongLon = "FALSE";
+					echo "correct Logitude";
 				}
 				else
 				{
