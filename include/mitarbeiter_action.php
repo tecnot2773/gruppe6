@@ -59,7 +59,6 @@
 				if($wrongLon == "FALSE"){
 				
 					$query_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
-					echo $query_sql_add;
 					mysqli_query($conn,$query_sql_add);
 					echo "Mautstelle erfolgreich hinzugefügt";
 				}
