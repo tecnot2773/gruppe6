@@ -31,7 +31,9 @@
 				</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
-
+						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
+					</div>
+					<div id="buttondiv_rowend" class="row">
 						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
 					</div>
 				</div>
