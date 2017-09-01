@@ -5,7 +5,7 @@
 	
 	//Add new tollgate
 	$action= $_POST["selection"];
-	
+	$noAction = "False";
 	if ($action == "add")
 	{
 		$code = $_POST["text-code"];
@@ -27,6 +27,7 @@
 		
 		mysqli_query($conn,$quary_sql_add);
 	}
+	else{$noAction = "TRUE";}
 	
 	//add new vehicle entry
 	if ($action == "entry")
@@ -103,7 +104,7 @@
 			}
 		}
 	}
-	
+	else{$noAction = "TRUE";}
 	//add new vehicle exit and update 
 	if ($action == "exit")
 	{
@@ -216,6 +217,11 @@
 			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
 			}
 		}
+	}
+	else{$noAction = "TRUE";}
+	
+	if ($noAction == "TRUE"){
+		echo "Es wurde keine Action ausgewählt";
 	}
 	class Mitarbeiter_Error
 	{
