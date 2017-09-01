@@ -12,7 +12,6 @@
 	
 	if ($action == "add")
 	{
-		echo "bin eh da";
 		$code = $_POST["text-code"];
 		$namehighway = $_POST["text-namehighway"];
 		$namejunction = $_POST["text-namejunction"];
@@ -38,8 +37,8 @@
 			}
 			else{
 				$checkTollgateCode = "true";
-				break 1;
 				echo "Hallo";
+				break 1;
 			}
 		}
 		echo "TOLLGATE CHECK BEENDET";
