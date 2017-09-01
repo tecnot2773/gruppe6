@@ -149,6 +149,7 @@ width: 100%;
 #placeholder {
 padding-top: 20px;
 width: 100%;
+display: inline-block;
 }
 a.linkbutton {
     -webkit-appearance: button;
