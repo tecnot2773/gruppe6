@@ -91,6 +91,7 @@
 							}
 							if($checkTollgateCode == "FALSE"){
 								echo "MautstellenCode ist nicht in der Datenbank";
+								$GLOBALS[$checkTollgateCode];
 							}
 						}
 						?>
