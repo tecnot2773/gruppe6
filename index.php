@@ -46,8 +46,8 @@
 						<?php
 						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							include_once 'include/calculation.php';
-							$Code1 = $_POST["text-startstation"];
-							$Code2 = $_POST["text-endstation"];
+							$code1 = $_POST["text-startstation"];
+							$code2 = $_POST["text-endstation"];
 
 							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";
 							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode1);
