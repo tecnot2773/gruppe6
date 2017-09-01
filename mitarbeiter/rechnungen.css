@@ -133,6 +133,15 @@ padding-top:  50px;
 padding-left: 50px; 
 padding-right: 50px;
 }
+#buttondiv_line {
+width: 100%;
+border-bottom: 1px solid black;
+}
+#buttondiv_rowend {
+padding-top:  2px;
+padding-bottom: 5px;
+width: 100%;
+}
 a.linkbutton {
     -webkit-appearance: button;
     -moz-appearance: button;

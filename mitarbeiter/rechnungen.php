@@ -92,9 +92,9 @@
 									while ($data6= mysqli_fetch_array($result_get_highwayname_exit)){
 									
 										echo "<tr class='userlistoutput'>";
-										echo "<td width='70px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>";
+										echo "<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>";
 										
-										echo "<td width='70px'>" . $data2['kennzeichen'] . "</td>";
+										echo "<td width='45px'>" . $data2['kennzeichen'] . "</td>";
 										echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data4['zeitstempel'] . "</td>";
