@@ -36,7 +36,7 @@
 		<!--main contents          -->
 		<div id="main-area" class="container">
 			<div id="heading" class="page-header">
-
+				<h1></h1>
 			</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
