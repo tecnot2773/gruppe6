@@ -48,23 +48,54 @@
 							include_once 'include/calculation.php';
 							$Code1 = $_POST["text-startstation"];
 							$Code2 = $_POST["text-endstation"];
-							$sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE code = $Code1";
-							$sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE code = $Code2";
-							
-							$result1 = mysqli_query($conn,$sql_Code1);
 
-							while ($data = mysqli_fetch_assoc($result1)){
-							$db_latitude1 = $data['lat'];
-							$db_longitude1 = $data['lon'];
+							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";
+							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode1);
+							$rows = mysqli_num_rows($result_getTollgateCode);
+							if ($rows == 0){
+							$checkTollgateCode = "FALSE";
+								echo "checktollgadeCode FALSE";
+								echo "MautstellenCode ist nicht in der Datenbank";
 							}
-							$result2 = mysqli_query($conn,$sql_Code2);
+							if($rows >= 1){
+								$checkTollgateCode = "TRUE";
+							}
+							if($checkTollgateCode == "TRUE"){
+								$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code2";
+								$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+								$rows = mysqli_num_rows($result_getTollgateCode);
+								if ($rows == 0){
+								$checkTollgateCode = "FALSE";
+									echo "checktollgadeCode FALSE";
+									echo "MautstellenCode ist nicht in der Datenbank";
+								}
+								if($rows >= 1){
+									$checkTollgateCode = "TRUE";
+								}
+								if($checkTollgateCode == "TRUE"){
+									$sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE code = $Code1";
+									$sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE code = $Code2";
+									
+									$result1 = mysqli_query($conn,$sql_Code1);
 
-							while ($data = mysqli_fetch_assoc($result2)){
-							$db_latitude2 = $data['lat'];
-							$db_longitude2 = $data['lon'];
+									while ($data = mysqli_fetch_assoc($result1)){
+									$db_latitude1 = $data['lat'];
+									$db_longitude1 = $data['lon'];
+									}
+									$result2 = mysqli_query($conn,$sql_Code2);
+
+									while ($data = mysqli_fetch_assoc($result2)){
+									$db_latitude2 = $data['lat'];
+									$db_longitude2 = $data['lon'];
+									}
+									$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
+									echo "Die Entfernung beträgt: ".$distance." km";
+								}
+								
 							}
-							$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
-							echo "Die Entfernung beträgt: ".$distance." km";
+							if($checkTollgateCode == "FALSE"){
+								echo "MautstellenCode ist nicht in der Datenbank";
+							}
 						}
 						?>
 						<br>
