@@ -6,6 +6,10 @@
 	//Add new tollgate
 	$action= $_POST["selection"];
 	
+	if(empty($action)){
+		echo "Es wurde keine Aktion ausgewählt";
+	}
+	
 	if ($action == "add")
 	{
 		$code = $_POST["text-code"];
@@ -22,10 +26,27 @@
 		$lat_insert = mysqli_real_escape_string ($conn, $lat_insert);
 		$lon_insert = mysqli_real_escape_string ($conn, $lon_insert);
 		
-		
-		$quary_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
-		
-		mysqli_query($conn,$quary_sql_add);
+		$query_getTollgateCode = "SELECT code FROM mautstelle";
+			$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+			while ($data = mysqli_fetch_array($result_getTollgateCode)){
+				$code = $data['code'];
+				if ($tollgateCode == $code){
+					$checkTollgateCode = "true";
+					break 1;
+				}
+				else{
+					$checkTollgateCode = "false";
+				}
+			}
+			//End Check TollgateCode
+		if($checkTollgateCode == "true"){
+			$quary_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
+			mysqli_query($conn,$quary_sql_add);
+			echo "Mautstelle erfolgreich hinzugefügt";
+		}
+		if($checkTollgateCode == "false"){
+			echo "MautstellenCode bereits vorhanden";
+		}
 	}
 	
 	//add new vehicle entry
@@ -97,13 +118,13 @@
 
 				$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
 				mysqli_query($conn, $quary_sql_entry_distance);
+				echo "Neue Einfahrt verbucht";
 			}
 			if($checkTollgateCode == "false"){
 				echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
 			}
 		}
 	}
-	
 	//add new vehicle exit and update 
 	if ($action == "exit")
 	{
@@ -211,6 +232,7 @@
 				
 				$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
 				mysqli_query($conn, $quary_add_rechnung);
+				echo "Neue Ausfahrt verbucht und Rechnung erstellt"
 			}
 			if($checkTollgateCode == "false"){
 			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";

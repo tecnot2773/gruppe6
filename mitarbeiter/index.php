@@ -35,12 +35,7 @@
 					</div>
 					<div id="buttondiv_line" class="row"></div>
 					<div id="buttondiv_rowend" class="row">
-					<?php
-					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-						include_once '../include/mitarbeiter_action.php';
-					}
-					?>
-						<center>STATUS JUNGE <center>
+						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/mitarbeiter_action.php';} ?><center>
 					</div>
 				</div>
 				<div id="griddiv-left-upper" class="test">
