@@ -12,6 +12,7 @@
 	
 	if ($action == "add")
 	{
+		echo "bin eh da";
 		$code = $_POST["text-code"];
 		$namehighway = $_POST["text-namehighway"];
 		$namejunction = $_POST["text-namejunction"];
