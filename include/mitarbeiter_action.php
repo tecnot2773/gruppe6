@@ -100,7 +100,7 @@
 		//Start Check if license plate is on Highway
 		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = $plate AND faehrtAusID = NULL";
 		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
-		echo $resultPlateFromRoute;
+		echo $query_getPlateFromRoute;
 		if (isset($resultPlateFromRoute)){
 			$plateCheck = "TRUE";
 			echo "Kennzeichen Gefunden";
