@@ -36,7 +36,7 @@
 		
 		$quary_getTollgateCode = "SELECT code FROM mautstelle";
 		$result_getTollgateCode = mysqli_query($conn, $quary_getTollgateCode);
-		while ($data3 = mysqli_fetch_array($conn, $result_getTollgateCode){
+		while ($data3 = mysqli_fetch_array($result_getTollgateCode){
 			$tollgateCode = $data3['code'];
 			if ($tollgateCode == code_entrytollgate){
 				$checkTollgateCode = "true";
