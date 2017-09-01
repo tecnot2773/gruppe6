@@ -165,6 +165,9 @@ padding-left: 50px;
 padding-right: 50px;
 padding-bottom: 8px;
 width: 100%;
+}
+#buttondiv_line {
+width: 100%;
 border-bottom: 1px solid black;
 }
 #buttondiv_rowend {
