@@ -98,7 +98,7 @@
 		$exit_time = $_POST["text-time-exit"];
 		
 		//Start Check if license plate is on Highway
-		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID = NULL";
+		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";
 		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
 		echo $query_getPlateFromRoute;
 		$rows = mysqli_num_rows($resultPlateFromRoute);
