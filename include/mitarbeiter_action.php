@@ -47,8 +47,8 @@
 		}
 		else
 		{
-			echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time";
 			$entry_time = date("Y-m-d H:i:s");
+			echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time";
 		}
 		
 		$entry_time = mysqli_real_escape_string($conn, $entry_time);
@@ -89,8 +89,8 @@
 		}
 		else
 		{
-			echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time";
 			$exit_time = date("Y-m-d H:i:s");
+			echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time";
 		}
 		$exit_time = mysqli_real_escape_string($conn, $exit_time);
 		$plate = mysqli_real_escape_string ($conn, $plate);
