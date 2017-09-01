@@ -40,7 +40,7 @@
 						include_once '../include/mitarbeiter_action.php';
 					}
 					?>
-						STATUS JUNGE
+						<center>STATUS JUNGE <center>
 					</div>
 				</div>
 				<div id="griddiv-left-upper" class="test">
