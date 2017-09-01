@@ -47,7 +47,7 @@
 		}
 		else
 		{
-			echo "Falsche Zeitangabe - Zeitangabe wurde zu aktueller Zeit geändert";
+			echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time";
 			$entry_time = date("Y-m-d H:i:s");
 		}
 		
@@ -78,10 +78,19 @@
 		$exit_time = $_POST["text-time-exit"];
 
 		if (empty($exit_time)){
-		$exit_time = date("Y-m-d H:i:s");
+			$exit_time = date("Y-m-d H:i:s");
 		}
 		else{
 			$exit_time = $exit_time;
+		}
+		
+		if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
+			echo "Richtiges Zeitangabe";
+		}
+		else
+		{
+			echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time";
+			$exit_time = date("Y-m-d H:i:s");
 		}
 		$exit_time = mysqli_real_escape_string($conn, $exit_time);
 		$plate = mysqli_real_escape_string ($conn, $plate);
