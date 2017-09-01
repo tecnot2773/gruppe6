@@ -91,12 +91,9 @@
 							}
 							if($checkTollgateCode == "FALSE"){
 								echo "MautstellenCode ist nicht in der Datenbank";
-								$GLOBALS[$checkTollgateCode];
 							}
 						}
-						?>
-						<br>
-						<?php
+						echo "<br>";
 						if($checkTollgateCode == "TRUE"){
 							if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								include 'include/price_calculation.php';
