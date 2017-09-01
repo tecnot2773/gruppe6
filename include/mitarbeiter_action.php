@@ -6,7 +6,7 @@
 	//Add new tollgate
 	$action= $_POST["selection"];
 	
-	if($action != "add" || != "entry"  || != "exit"){
+	if(empty($action)){
 		echo "Es wurde keine Aktion ausgewählt";
 	}
 	
