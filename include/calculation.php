@@ -1,5 +1,5 @@
 <?php
-
+	namespace my\error;
 	
 	include_once 'db.php';
 	
