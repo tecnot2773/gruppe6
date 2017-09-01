@@ -50,8 +50,8 @@
 			}
 			else
 			{
-				echo "Latitude hat falsches Format";
 				$wrongLat = "TRUE";
+				echo "Latitude hat falsches Format";
 			}
 			
 			if(wrongLat == "FALSE"){
@@ -61,8 +61,8 @@
 				}
 				else
 				{
-					echo "Longitude hat falsches Format";
 					$wrongLon = "TRUE";
+					echo "Longitude hat falsches Format";
 				}
 			
 				if(wrongLon == "FALSE"){
