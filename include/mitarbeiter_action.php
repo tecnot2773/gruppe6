@@ -1,5 +1,4 @@
 <?php
-	namespace my\error;
 	//Create connection
 	include_once 'db.php';
 	
@@ -258,9 +257,5 @@
 			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
 			}
 		}
-	}
-	class Mitarbeiter_Error
-	{
-		
 	}
 ?>
