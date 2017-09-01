@@ -34,59 +34,72 @@
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		
-		//Start Check TollgateCode
-		$query_getTollgateCode = "SELECT code FROM mautstelle";
-		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-		while ($data = mysqli_fetch_array($result_getTollgateCode)){
-			$tollgateCode = $data['code'];
-			if ($tollgateCode == $code_entrytollgate){
-				$checkTollgateCode = "true";
-				break 1;
-			}
-			else{
-				$checkTollgateCode = "false";
-			}
+		query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";
+		$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
+		$rows = mysqli_num_rows($resultPlateFromRoute);
+		if ($rows == 0){
+			echo "Kennzeichen ist bereits auf einer Autobahn";
+			$plateCheck = "FALSE";
 		}
-		//End Check TollgateCode
+		if ($rows >= 1){
+			$plateCheck = "TRUE";
+		}
+		if($plateCheck == "TRUE"){
 		
-		if($checkTollgateCode == "true"){
-			//Start Check Time
-			if (empty($entry_time)){
-				$entry_time = date("Y-m-d H:i:s");
+			//Start Check TollgateCode
+			$query_getTollgateCode = "SELECT code FROM mautstelle";
+			$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+			while ($data = mysqli_fetch_array($result_getTollgateCode)){
+				$tollgateCode = $data['code'];
+				if ($tollgateCode == $code_entrytollgate){
+					$checkTollgateCode = "true";
+					break 1;
+				}
+				else{
+					$checkTollgateCode = "false";
+				}
 			}
-			else{
-				$entry_time = $entry_time;
-			}
+			//End Check TollgateCode
 			
-			if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
-			}
-			else
-			{
-				$entry_time = date("Y-m-d H:i:s");
-				echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time geändert";
-			}
-			//End Check Time
-			
-			$entry_time = mysqli_real_escape_string($conn, $entry_time);
-			$plate = mysqli_real_escape_string ($conn, $plate);
-			$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
-			
-			$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
-			$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
-			while ($data = mysqli_fetch_array($result_entrytollgate)){
-			$id_entrytollgate = $data['ID'];
-			}
-			
-			$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
-			mysqli_query($conn, $quary_sql_entry);
-			
-			$entry_id = mysqli_insert_id ($conn);	//get ID from last INSERT
+			if($checkTollgateCode == "true"){
+				//Start Check Time
+				if (empty($entry_time)){
+					$entry_time = date("Y-m-d H:i:s");
+				}
+				else{
+					$entry_time = $entry_time;
+				}
+				
+				if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
+				}
+				else
+				{
+					$entry_time = date("Y-m-d H:i:s");
+					echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time geändert";
+				}
+				//End Check Time
+				
+				$entry_time = mysqli_real_escape_string($conn, $entry_time);
+				$plate = mysqli_real_escape_string ($conn, $plate);
+				$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
+				
+				$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
+				$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
+				while ($data = mysqli_fetch_array($result_entrytollgate)){
+				$id_entrytollgate = $data['ID'];
+				}
+				
+				$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
+				mysqli_query($conn, $quary_sql_entry);
+				
+				$entry_id = mysqli_insert_id ($conn);	//get ID from last INSERT
 
-			$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
-			mysqli_query($conn, $quary_sql_entry_distance);
-		}
-		if($checkTollgateCode == "false"){
-			echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
+				$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
+				mysqli_query($conn, $quary_sql_entry_distance);
+			}
+			if($checkTollgateCode == "false"){
+				echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
+			}
 		}
 	}
 	
@@ -106,7 +119,6 @@
 			$plateCheck = "FALSE";
 		}
 		if ($rows >= 1){
-			echo "Kennzeichen Gefunden";
 			$plateCheck = "TRUE";
 		}
 		if($plateCheck == "TRUE"){
