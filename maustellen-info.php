@@ -13,6 +13,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 		<link href="/mautstellen-info.css" type="text/css" rel="stylesheet" />
 		<link href="/textbox.css" type="text/css" rel="stylesheet" />
+		<title>Mautstationen Liste</title>
 	</head>
 	<body>
 		<!--navbar -->

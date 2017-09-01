@@ -160,10 +160,22 @@ padding-left: 50px;
 padding-right: 50px;
 }
 #buttondiv_rowstart {
-padding-top:  50px;
-padding-left: 50px;
-padding-right: 50px;
-padding-bottom: 35px;
+padding-top:  25px;
+padding-bottom: 8px;
+width: 100%;
+}
+#buttondiv_line {
+width: 100%;
+border-bottom: 1px solid black;
+}
+#buttondiv_rowend {
+padding-top:  2px;
+padding-bottom: 5px;
+width: 100%;
+}
+#placeholder {
+padding-top: 20px;
+width: 100%;
 }
 a.linkbutton {
     -webkit-appearance: button;

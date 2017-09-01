@@ -27,7 +27,7 @@
 		<form action="/index.php" method="post">
 			<div id="main-area" class="container">
 				<div id="heading" class="page-header">
-					<h1>Berechnen Sie hier die Kosten für Ihre Route durch Deutschland :-)</h1>
+					<h1>Berechnen Sie hier die Kosten für Ihre Route durch Deutschland</h1>
 				</div>
 				<div id="griddiv-left" class="test">
 					<div id="rowstart" class="row">
@@ -46,34 +46,59 @@
 						<?php
 						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							include_once 'include/calculation.php';
-							$Code1 = $_POST["text-startstation"];
-							$Code2 = $_POST["text-endstation"];
-							$sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE code = $Code1";
-							$sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE code = $Code2";
-							
-							$result1 = mysqli_query($conn,$sql_Code1);
+							$code1 = $_POST["text-startstation"];
+							$code2 = $_POST["text-endstation"];
 
-							while ($data = mysqli_fetch_assoc($result1)){
-							$db_latitude1 = $data['lat'];
-							$db_longitude1 = $data['lon'];
+							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";
+							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+							$rows = mysqli_num_rows($result_getTollgateCode);
+							if ($rows == 0){
+							$checkTollgateCode = "FALSE";
 							}
-							$result2 = mysqli_query($conn,$sql_Code2);
+							if($rows >= 1){
+								$checkTollgateCode = "TRUE";
+							}
+							if($checkTollgateCode == "TRUE"){
+								$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code2";
+								$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+								$rows = mysqli_num_rows($result_getTollgateCode);
+								if ($rows == 0){
+								$checkTollgateCode = "FALSE";
+								}
+								if($rows >= 1){
+									$checkTollgateCode = "TRUE";
+								}
+								if($checkTollgateCode == "TRUE"){
+									$sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE code = $code1";
+									$sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE code = $code2";
+									
+									$result1 = mysqli_query($conn,$sql_Code1);
 
-							while ($data = mysqli_fetch_assoc($result2)){
-							$db_latitude2 = $data['lat'];
-							$db_longitude2 = $data['lon'];
+									while ($data = mysqli_fetch_assoc($result1)){
+									$db_latitude1 = $data['lat'];
+									$db_longitude1 = $data['lon'];
+									}
+									$result2 = mysqli_query($conn,$sql_Code2);
+
+									while ($data = mysqli_fetch_assoc($result2)){
+									$db_latitude2 = $data['lat'];
+									$db_longitude2 = $data['lon'];
+									}
+									$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
+									echo "Die Entfernung beträgt: ".$distance." km";
+								}
+								
 							}
-							$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
-							echo "Die Entfernung beträgt: ".$distance." km";
-						}
-						?>
-						<br>
-						<?php
-						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-							include 'include/price_calculation.php';
-							
-							$price = price::get_price("$distance");
-							echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
+							if($checkTollgateCode == "FALSE"){
+								echo "MautstellenCode ist nicht in der Datenbank";
+							}
+							echo "<br>";
+							if($checkTollgateCode == "TRUE"){
+									include 'include/price_calculation.php';
+									
+									$price = price::get_price("$distance");
+									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
+							}
 						}
 						?>
 					</div>

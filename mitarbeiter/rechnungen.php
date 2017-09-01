@@ -2,7 +2,7 @@
  include_once '../include/db.php';
  
  
- $query_get_bill = "SELECT id, kosten, streckeID FROM rechnung";
+ $query_get_bill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";
  $result_bill = mysqli_query($conn,$query_get_bill);
 
  
@@ -18,6 +18,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
 		<link href="/mitarbeiter/rechnungen.css" type="text/css" rel="stylesheet" />
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
+		<title>Rechnungen</title>
 	</head>
 	<body>
 		<!--navbar -->
@@ -35,9 +36,25 @@
 		</header>
 		<!--main contents          -->
 		<div id="main-area" class="container">
-			<div id="heading" class="page-header">
-
-			</div>
+				<div id="placeholder" class="test">
+				</div>
+				<div id="griddiv-nav-top" class="test">
+					<div id="buttondiv_rowstart" class="row">
+						<center>
+							<a href="index.php" class="linkbutton">Übersicht</a>
+							<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
+						</center>
+					</div>
+					<div id="buttondiv_line" class="row"></div>
+					<div id="buttondiv_rowend" class="row">
+					<?php
+					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+						include_once '../include/mitarbeiter_action.php';
+					}
+					?>
+						<center>...<center>
+					</div>
+				</div>
 			<div id="griddiv-left" class="test">
 			   <?php
 				echo "<table border='1'>
@@ -77,9 +94,9 @@
 									while ($data6= mysqli_fetch_array($result_get_highwayname_exit)){
 									
 										echo "<tr class='userlistoutput'>";
-										echo "<td width='70px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>";
+										echo "<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>";
 										
-										echo "<td width='70px'>" . $data2['kennzeichen'] . "</td>";
+										echo "<td width='45px'>" . $data2['kennzeichen'] . "</td>";
 										echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data4['zeitstempel'] . "</td>";

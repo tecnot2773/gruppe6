@@ -26,13 +26,18 @@
 		<!--main contents          -->
 		<form action="/mitarbeiter/index.php" method="post">
 			<div id="main-area" class="container">
-				<div id="heading" class="page-header">
-					<h1></h1>
+				<div id="placeholder" class="test">
 				</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
-
-						<a href="rechnungen.php" class="linkbutton">Rechnungen anzeigen</a>
+						<center>
+							<a href="index.php" class="linkbutton">Übersicht</a>
+							<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
+						</center>
+					</div>
+					<div id="buttondiv_line" class="row"></div>
+					<div id="buttondiv_rowend" class="row">
+						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/mitarbeiter_action.php';} ?><center>
 					</div>
 				</div>
 				<div id="griddiv-left-upper" class="test">
@@ -72,11 +77,6 @@
 					<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
 					<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
-					<?php
-					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-						include_once '../include/mitarbeiter_action.php';
-					}
-					?>
 					</div>
 					<div id="resultstring" class="alert alert-info">
 
@@ -85,7 +85,7 @@
 				<div id="griddiv-left-lower" class="test">
 					
 					<div id="buttondiv_rowstart" class="row">
-						<input class="button" type="submit" name="execute" value="Ausführen"> 
+					<center><input class="button" type="submit" name="execute" value="Ausführen"></center> 
 					</div>
 				</div>
 

@@ -5,6 +5,10 @@
 	//Add new tollgate
 	$action= $_POST["selection"];
 	
+	if(empty($action)){
+		echo "Es wurde keine Aktion ausgewählt";
+	}
+	
 	if ($action == "add")
 	{
 		$code = $_POST["text-code"];
@@ -20,13 +24,47 @@
 		$junctionNumber = mysqli_real_escape_string ($conn, $junctionNumber);
 		$lat_insert = mysqli_real_escape_string ($conn, $lat_insert);
 		$lon_insert = mysqli_real_escape_string ($conn, $lon_insert);
-		
-		
-		$quary_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
-		
-		mysqli_query($conn,$quary_sql_add);
+		//Start Check TollgateCode
+		$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code";
+		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+			$rows = mysqli_num_rows($result_getTollgateCode);
+			if ($rows == 0){
+				$checkTollgateCode = "TRUE";
+			}
+			if ($rows >= 1){
+				$checkTollgateCode = "FALSE";
+				echo "MautstellenCode ist bereits in der Datenbank";
+			}
+		//End Check TollgateCode
+		if($checkTollgateCode == "TRUE"){
+			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
+				$wrongLat = "FALSE";
+			}
+			else
+			{
+				$wrongLat = "TRUE";
+				echo "Latitude hat falsches Format";
+			}
+			
+			if($wrongLat == "FALSE"){
+				if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){
+					$wrongLon = "FALSE";
+				}
+				else
+				{
+					$wrongLon = "TRUE";
+					echo "Longitude hat falsches Format";
+				}
+			
+				if($wrongLon == "FALSE"){
+				
+					$query_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
+					mysqli_query($conn,$query_sql_add);
+					echo "Mautstelle erfolgreich hinzugefügt";
+				}
+			}
+		}
 	}
-	
 	//add new vehicle entry
 	if ($action == "entry")
 	{
@@ -52,16 +90,16 @@
 			while ($data = mysqli_fetch_array($result_getTollgateCode)){
 				$tollgateCode = $data['code'];
 				if ($tollgateCode == $code_entrytollgate){
-					$checkTollgateCode = "true";
+					$checkTollgateCode = "TRUE";
 					break 1;
 				}
 				else{
-					$checkTollgateCode = "false";
+					$checkTollgateCode = "FALSE";
 				}
 			}
 			//End Check TollgateCode
 			
-			if($checkTollgateCode == "true"){
+			if($checkTollgateCode == "TRUE"){
 				//Start Check Time
 				if (empty($entry_time)){
 					$entry_time = date("Y-m-d H:i:s");
@@ -96,13 +134,13 @@
 
 				$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
 				mysqli_query($conn, $quary_sql_entry_distance);
+				echo "Neue Einfahrt verbucht";
 			}
-			if($checkTollgateCode == "false"){
+			if($checkTollgateCode == "FALSE"){
 				echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
 			}
 		}
 	}
-	
 	//add new vehicle exit and update 
 	if ($action == "exit")
 	{
@@ -128,16 +166,16 @@
 			while ($data = mysqli_fetch_array($result_getTollgateCode)){
 				$tollgateCode = $data['code'];
 				if ($tollgateCode == $code_exittollgate){
-					$checkTollgateCode = "true";
+					$checkTollgateCode = "TRUE";
 					break 1;
 				}
 				else{
-					$checkTollgateCode = "false";
+					$checkTollgateCode = "FALSE";
 				}
 			}
 			//End Check TollgateCode
 			
-			if($checkTollgateCode == "true"){				
+			if($checkTollgateCode == "TRUE"){				
 				if (empty($exit_time)){
 					$exit_time = date("Y-m-d H:i:s");
 				}
@@ -210,11 +248,11 @@
 				
 				$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
 				mysqli_query($conn, $quary_add_rechnung);
+				echo "Neue Ausfahrt verbucht und Rechnung erstellt";
 			}
-			if($checkTollgateCode == "false"){
-				echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
+			if($checkTollgateCode == "FALSE"){
+			echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
 			}
 		}
 	}
-
 ?>
