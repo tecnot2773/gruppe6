@@ -95,10 +95,7 @@ nav a::before {
 nav a:hover::before {
   width: 100%;
 }
-#heading {
-padding-top:  81px;
-	
-}
+
 #griddiv-nav-top {
 background-color: white;
 opacity: 0.8;
