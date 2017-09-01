@@ -30,8 +30,10 @@
 				</div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
-						<a href="index.php" class="linkbutton">Übersicht</a>
-						<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
+						<center>
+							<a href="index.php" class="linkbutton">Übersicht</a>
+							<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
+						</center>
 					</div>
 					<div id="buttondiv_line" class="row"></div>
 					<div id="buttondiv_rowend" class="row">
