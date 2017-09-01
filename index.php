@@ -50,7 +50,7 @@
 							$code2 = $_POST["text-endstation"];
 
 							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";
-							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode1);
+							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
 							$rows = mysqli_num_rows($result_getTollgateCode);
 							if ($rows == 0){
 							$checkTollgateCode = "FALSE";
