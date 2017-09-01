@@ -193,10 +193,6 @@
 				$db_latitude2 = $data['lat'];
 				$db_longitude2 = $data['lon'];
 				}
-				if($checkTollgateCode == "false"){
-				echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
-				}
-			
 			
 				//calculation
 				include_once 'calculation.php';
@@ -214,7 +210,10 @@
 				
 				$quary_add_rechnung = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$kosten', '$strecke_id')";
 				mysqli_query($conn, $quary_add_rechnung);
-			}	
+			}
+			if($checkTollgateCode == "false"){
+				echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
+			}
 		}
 	}
 
