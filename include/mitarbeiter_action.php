@@ -33,6 +33,7 @@
 			$tollgateCode = $data['code'];
 			echo $code;
 			if ($tollgateCode == $code){
+				echo $tollgateCode;
 				$checkTollgateCode = "FALSE";
 				echo "checktollgadeCode False";
 			}
