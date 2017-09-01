@@ -38,6 +38,21 @@
 			<div id="heading" class="page-header">
 
 			</div>
+				<div id="griddiv-nav-top" class="test">
+					<div id="buttondiv_rowstart" class="row">
+						<a href="index.php" class="linkbutton">Übersicht</a>
+						<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
+					</div>
+					<div id="buttondiv_line" class="row"></div>
+					<div id="buttondiv_rowend" class="row">
+					<?php
+					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+						include_once '../include/mitarbeiter_action.php';
+					}
+					?>
+						<center>STATUS JUNGE <center>
+					</div>
+				</div>
 			<div id="griddiv-left" class="test">
 			   <?php
 				echo "<table border='1'>

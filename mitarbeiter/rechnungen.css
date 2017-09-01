@@ -99,6 +99,13 @@ nav a:hover::before {
 padding-top:  81px;
 	
 }
+#griddiv-nav-top {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 100%;
+margin-bottom: 18px;
+}
 #griddiv-left {
 background-color: white;
 opacity: 0.8;
