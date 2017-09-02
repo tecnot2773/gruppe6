@@ -13,7 +13,7 @@
 		<!--navbar -->
 		<header>
 			<div class="container">
-				<img src="images/logo.png" alt="logo" class="logo">
+				<a href = "/index.php"<img src="images/logo.png" alt="logo" class="logo">
 			<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
