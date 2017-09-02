@@ -57,7 +57,7 @@
 				</div>
 				<div id="griddiv-right-upper" class="test">
 					<div id="rowstart" class="row">
-						<input type="radio" name="selection" value="entry">Einfahrt<br>
+						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
 					
 					<div id="rowend" class="row">
