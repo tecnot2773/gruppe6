@@ -14,8 +14,10 @@
 		<header>
 			<div class="container">
 				<!-- <img src="images/logo.png" alt="logo" class="logo"> -->
-				<a href="/index.php" <img src="images/logo.png" width='300' height='40' /></a>
-			<nav>
+				<a href="/index.php">
+				<img src="images/logo.png" alt="logo" class="logo" />
+				</a>
+				<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
 						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
