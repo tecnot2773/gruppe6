@@ -48,8 +48,10 @@
 						</center>
 					</div>
 					<div id="buttondiv_line" class="row"></div>
+					<p></p>
 					<div id="buttondiv_rowend" class="row">
-						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST'){ include_once '../include/mitarbeiter_action.php'; }?><center>
+					<center><center>
+					<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'){ include_once '../include/mitarbeiter_action.php'; }?>
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
