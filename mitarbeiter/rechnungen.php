@@ -84,7 +84,7 @@
 							$result_get_tollgateid_exit = mysqli_query($conn, $query_get_tollgateid_exit);
 							while ($data4 = mysqli_fetch_array($result_get_tollgateid_exit)){
 								$db_get_tollgate_exit2 = $data4['mautstelleID'];
-														
+								
 								$query_get_highwayname_entry = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_get_tollgate_entry2";
 								$result_get_highwayname_entry = mysqli_query($conn, $query_get_highwayname_entry);
 								while ($data5 = mysqli_fetch_array($result_get_highwayname_entry)){
