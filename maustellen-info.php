@@ -40,7 +40,6 @@
 			   <?php
 				echo "<table border='1'>
 				<tr>
-				<th>ID</th>
 				<th>Code</th>
 				<th>Autobahn</th>
 				<th>Kreuz Name</th>
