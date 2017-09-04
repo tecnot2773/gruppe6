@@ -63,7 +63,7 @@
 				<th>Autobahn Einfahrt</th>
 				<th>Autobahn Ausfahrt</th>
 				<th>Ausfahrt Zeit</th>
-				<th>Kosten in Euro</th>
+				<th>Kosten</th>
 				</tr>";
 
 				while($data1 = mysqli_fetch_array($result_bill)){
@@ -99,7 +99,7 @@
 										echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data4['zeitstempel'] . "</td>";
-										echo "<td width='70px'>" . $data1['kosten'] . "</td>";
+										echo "<td width='70px'>" . $data1['kosten'] . Euro . "</td>";
 										echo "</tr>";
 									}
 								}
