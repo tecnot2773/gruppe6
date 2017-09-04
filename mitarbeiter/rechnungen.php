@@ -99,7 +99,7 @@
 										echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data4['zeitstempel'] . "</td>";
-										echo "<td width='70px'>" . $data1['kosten'] . '&nbsp;' € . "</td>";
+										echo "<td width='70px'>" . $data1['kosten'] . &nbsp; . € . "</td>";
 										echo "</tr>";
 									}
 								}
