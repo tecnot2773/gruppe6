@@ -54,7 +54,7 @@
 						include_once '../include/mitarbeiter_action.php';
 					}
 					?>
-						<center>...<center>
+						<center> <center>
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
