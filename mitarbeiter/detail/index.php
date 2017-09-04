@@ -116,7 +116,7 @@ while ($data6 = mysqli_fetch_array($exitTollgateInfo)){
           </tr>
           <tr>
             <td colspan="4" class="grand total">Summe</td>
-            <td class="grand total"><?php echo $costs ?>€</td>
+            <td class="grand total"><?php echo $costs ?> €</td>
           </tr>
         </tbody>
       </table>

@@ -48,13 +48,10 @@
 						</center>
 					</div>
 					<div id="buttondiv_line" class="row"></div>
+					<p></p>
 					<div id="buttondiv_rowend" class="row">
-					<?php
-					if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-						include_once '../include/mitarbeiter_action.php';
-					}
-					?>
-						<center>...<center>
+					<center><center>
+					<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'){ include_once '../include/mitarbeiter_action.php'; }?>
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
@@ -66,7 +63,7 @@
 				<th>Autobahn Einfahrt</th>
 				<th>Autobahn Ausfahrt</th>
 				<th>Ausfahrt Zeit</th>
-				<th>Kosten in Euro</th>
+				<th>Kosten</th>
 				</tr>";
 
 				while($data1 = mysqli_fetch_array($result_bill)){
@@ -87,7 +84,7 @@
 							$result_get_tollgateid_exit = mysqli_query($conn, $query_get_tollgateid_exit);
 							while ($data4 = mysqli_fetch_array($result_get_tollgateid_exit)){
 								$db_get_tollgate_exit2 = $data4['mautstelleID'];
-														
+								
 								$query_get_highwayname_entry = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_get_tollgate_entry2";
 								$result_get_highwayname_entry = mysqli_query($conn, $query_get_highwayname_entry);
 								while ($data5 = mysqli_fetch_array($result_get_highwayname_entry)){
@@ -102,7 +99,7 @@
 										echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
 										echo "<td width='70px'>" . $data4['zeitstempel'] . "</td>";
-										echo "<td width='70px'>" . $data1['kosten'] . "</td>";
+										echo "<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>";
 										echo "</tr>";
 									}
 								}
@@ -115,6 +112,5 @@
 			</div>
 		</div>
 		</div>
-		<!-- JAVASCRIPT  -->
 	</body>
 </html>
