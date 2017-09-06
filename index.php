@@ -44,7 +44,7 @@
 					<div id="rowstart" class="row">
 						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
-						<br><br>
+						<br><br><br>
 						<?php
 						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							include_once 'include/calculation.php';
@@ -97,7 +97,7 @@
 							if($checkTollgateCode == "FALSE"){
 								echo "MautstellenCode ist nicht in der Datenbank";
 							}
-							echo "<br>";
+
 							if($checkTollgateCode == "TRUE"){
 									include 'include/price_calculation.php';
 									
