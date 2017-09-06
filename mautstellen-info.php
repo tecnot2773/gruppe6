@@ -40,7 +40,7 @@
 			<div id="griddiv-search" class="container">		
 				<div id="rowstart" class="row">		
 					<input id="text-search-autobahn" name="text-search-autobahn" class="enjoy-css" type="text" placeholder="Autobahn Nummer eingeben">
-					<input id="text-search-kreuz" name="text-search-kreuz" class="enjoy-css" type="text" placeholder="Name des Kreuzes"> <br><br>
+					<input id="text-search-kreuz" name="text-search-kreuz" class="enjoy-css" type="text" placeholder="Name des Kreuzes">
 					<input class="button" type="submit" name="submit" value="Suchen">  					
 				</div>						
  			</div>	
