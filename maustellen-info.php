@@ -73,7 +73,7 @@
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					$junctionName = $_POST["text-nameKreuz"];
 						
-					$query_getTollgateInfo = "SELECT FROM mautstelle WHERE nameKreuz = $junctionName";
+					$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%'";
 					$restult_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);
 					
 					while($data = mysqli_fetch_array($result_getTollgateInfo)){
