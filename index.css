@@ -110,6 +110,12 @@ border-radius: 20px;
 width: 49%;
 float: right;
 }
+griddiv-search {
+background-color: white;
+opacity: 0.8;
+border-radius:20px;
+widht:49%;
+}
 #rowstart {
 padding-top:  50px;
 padding-left: 50px;
