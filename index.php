@@ -107,6 +107,15 @@
 					<div id="rowend" class="row">
 						 
 					</div>
+					<div id="griddiv-search" class="test">
+						<div id="rowstart" class="row">
+						
+							<input id="text-nameKreuz" name="text-nameKreuz" class="enjoy-css" type="text" placeholder="Name des Kreuzes"> <br><br>
+							
+							<input class="button" name="search" value="Suchen" type="search">
+							
+							</div id="rowend" class="row">
+							</div>					
 					<div id="resultstring" class="alert alert-info">
 
 					</div>
