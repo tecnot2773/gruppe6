@@ -105,6 +105,10 @@
 									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
 							}
 						}
+						else
+						{
+							echo "<br>" //empty line, we need the same height all the time!
+						}
 						?>
 					</div>
 					<div id="rowend" class="row">
