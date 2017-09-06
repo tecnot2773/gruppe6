@@ -43,7 +43,7 @@
 				<div id="griddiv-right" class="test">
 					<div id="rowstart" class="row">
 						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
-						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/maustellen-info.php">hier</a>.
+						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
 						<br><br>
 						<?php
 						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
