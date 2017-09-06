@@ -107,7 +107,7 @@
 						}
 						else
 						{
-							echo "<br>" //empty line, we need the same height all the time!
+							echo "<br>"; //empty line, we need the same height all the time!
 						}
 						?>
 					</div>
