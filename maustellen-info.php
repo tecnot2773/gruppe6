@@ -32,7 +32,12 @@
 			</div>
 		</header>
 		<!--main contents          -->
- 		<div id="griddiv-search" class="container">		
+		<form action="/index.php" method="post">
+		<div id="main-area" class="container">
+			<div id="heading" class="page-header">
+
+			</div>
+			 		<div id="griddiv-search" class="container">		
  			<div id="rowstart" class="row">		
  			<input id="text-search" name="text-search" class="enjoy-css" type="text" placeholder="Name des Kreuzes"> <br><br>		
  			</div>		
@@ -40,10 +45,7 @@
  			<input class="button" type="submit" name="submit" value="Suchen">  						      		
  			</div>					
  			</div>	
-		<div id="main-area" class="container">
-			<div id="heading" class="page-header">
 
-			</div>
 			<div id="griddiv-left" class="test">
 			   <?php
 			   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -90,6 +92,7 @@
 			</div>
 
 		</div>
+		</form>
 		</div>
 		<!-- JAVASCRIPT  -->
 	</body>
