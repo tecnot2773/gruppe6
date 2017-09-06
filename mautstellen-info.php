@@ -32,12 +32,7 @@
 			</div>
 		</header>
 		<!--main contents          -->
-		<form action="/mautstellen-info.php" method="post">
-		<div id="main-area" class="container">
-			<div id="heading" class="page-header">
-
-			</div>
-			 		<div id="griddiv-search" class="container">		
+ 		<div id="griddiv-search" class="container">		
  			<div id="rowstart" class="row">		
  			<input id="text-search" name="text-search" class="enjoy-css" type="text" placeholder="Name des Kreuzes"> <br><br>		
  			</div>		
@@ -45,7 +40,10 @@
  			<input class="button" type="submit" name="submit" value="Suchen">  						      		
  			</div>					
  			</div>	
+		<div id="main-area" class="container">
+			<div id="heading" class="page-header">
 
+			</div>
 			<div id="griddiv-left" class="test">
 			   <?php
 			   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -73,7 +71,7 @@
 
 
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-					$junctionName = $_POST["text-nameKreuz"];
+					$junctionName = $_POST["text-search"];
 						
 					$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%'";
 					$restult_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);
@@ -92,7 +90,6 @@
 			</div>
 
 		</div>
-		</form>
 		</div>
 		<!-- JAVASCRIPT  -->
 	</body>
