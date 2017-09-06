@@ -57,13 +57,13 @@
 					<th>Kreuz Nummer</th>
 					</tr>";
 
-					while($row = mysqli_fetch_array($result))
+					while($data = mysqli_fetch_array($result))
 					{
 							echo "<tr class='userlistoutput'>";
-							echo "<td width='120px'>" . $row['code'] . "</td>";
-							echo "<td width='120px'>" . $row['nameAutobahn'] . "</td>";
-							echo "<td width='120px'>" . $row['nameKreuz'] . "</td>";
-							echo "<td width='120px'>" . $row['kreuzNummer'] . "</td>";
+							echo "<td width='120px'>" . $data['code'] . "</td>";
+							echo "<td width='120px'>" . $data['nameAutobahn'] . "</td>";
+							echo "<td width='120px'>" . $data['nameKreuz'] . "</td>";
+							echo "<td width='120px'>" . $data['kreuzNummer'] . "</td>";
 							echo "</tr>";
 				   }
 			   }
@@ -80,10 +80,10 @@
 					
 					while($data = mysqli_fetch_array($result_getTollgateInfo)){
 						echo "<tr class='userlistoutput'>";
-						echo "<td width='120px'>" . $row['code'] . "</td>";
-						echo "<td width='120px'>" . $row['nameAutobahn'] . "</td>";
-						echo "<td width='120px'>" . $row['nameKreuz'] . "</td>";
-						echo "<td width='120px'>" . $row['kreuzNummer'] . "</td>";
+						echo "<td width='120px'>" . $data['code'] . "</td>";
+						echo "<td width='120px'>" . $data['nameAutobahn'] . "</td>";
+						echo "<td width='120px'>" . $data['nameKreuz'] . "</td>";
+						echo "<td width='120px'>" . $data['kreuzNummer'] . "</td>";
 						echo "</tr>";
 					}
 				}
