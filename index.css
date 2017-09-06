@@ -116,20 +116,21 @@ padding-left: 50px;
 padding-right: 50px;
 }
 #rowend {
-padding-bottom: 50px;
+padding-top: 15px;
 padding-left: 50px;
 padding-right: 50px;
 }
-#rowresult {
-padding-top:  50px;
-padding-left: 50px; 
+#buttonrow {
+padding-top: 15px;
+padding-bottom: 50px;
+padding-left: 50px;
 padding-right: 50px;
 }
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 5px 148px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

@@ -36,7 +36,9 @@
 						<input id="text-startstation" name="text-startstation" class="enjoy-css" type="text" placeholder="Code von Start-Mautstelle"> 
 					</div>
 					<div id="rowend" class="row">
-						<input id="text-endstation" name="text-endstation" class="enjoy-css" type="text" placeholder="Code von End-Mautstelle"><br>
+						<input id="text-endstation" name="text-endstation" class="enjoy-css" type="text" placeholder="Code von End-Mautstelle"><br>				
+					</div>
+					<div id="buttonrow" class="row">
 						<input class="button" type="submit" name="submit" value="Berechnen">  						
 					</div>
 				</div>
