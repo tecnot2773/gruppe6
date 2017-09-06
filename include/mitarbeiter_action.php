@@ -27,14 +27,14 @@
 		//Start Check TollgateCode
 		$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code";
 		$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-			$rows = mysqli_num_rows($result_getTollgateCode);
-			if ($rows == 0){
-				$checkTollgateCode = "TRUE";
-			}
-			if ($rows >= 1){
-				$checkTollgateCode = "FALSE";
-				echo "MautstellenCode ist bereits in der Datenbank";
-			}
+		$rows = mysqli_num_rows($result_getTollgateCode);
+		if ($rows == 0){
+			$checkTollgateCode = "TRUE";
+		}
+		if ($rows >= 1){
+			$checkTollgateCode = "FALSE";
+			echo "MautstellenCode ist bereits in der Datenbank";
+		}
 		//End Check TollgateCode
 		if($checkTollgateCode == "TRUE"){
 			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
@@ -72,7 +72,10 @@
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
 		$plateLength = strlen($plate); 
-		if($plateLength <= 11){
+		if($plateLength > 12){
+			echo "Kennzeichen ist zu lang";
+		}
+		if($plateLength <= 12){
 			$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";
 			$resultPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
 			$rows = mysqli_num_rows($resultPlateFromRoute);
@@ -125,7 +128,7 @@
 					$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
 					$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
 					while ($data = mysqli_fetch_array($result_entrytollgate)){
-					$id_entrytollgate = $data['ID'];
+						$id_entrytollgate = $data['ID'];
 					}
 					
 					$quary_sql_entry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entry_time', '$id_entrytollgate')";
