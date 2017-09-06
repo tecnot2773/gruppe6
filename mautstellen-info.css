@@ -118,6 +118,8 @@ width: auto;
 text-align: center;
 margin-top: -42px;
 margin-bottom: 25px;
+padding-left: 50px;
+padding-right: 50px;
 }
 .button {
     background-color: #4CAF50; /* Green */
