@@ -39,7 +39,7 @@
 			</div>
 			 		<div id="griddiv-search" class="container">		
  			<div id="rowstart" class="row">		
- 			<input id="text-search-kreuz" name="text-search-kreuz" class="enjoy-css" type="text" placeholder="Name des Kreuzes"> <br><br>		
+ 			<input id="text-search-kreuz" name="text-search-kreuz" class="enjoy-css" type="text" placeholder="Name des Kreuzes">	
 			<input id="text-search-autobahn" name="text-search-autobahn" class="enjoy-css" type="text" placeholder="Autobahn Nummer eingeben"> <br><br>
  			</div>		
  			<div id="rowend" class="row">		
@@ -74,7 +74,8 @@
 
 
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-					$junctionName = $_POST["text-search"];
+					$junctionName = $_POST["text-search-kreuz"];
+					$highwayName = $_POST["text-search-autobahn"];
 					echo "<table border='1'>
 					<tr>
 					<th>Code</th>
@@ -83,7 +84,7 @@
 					<th>Kreuz Nummer</th>
 					</tr>";
 					
-					$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%'";
+					$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%' AND nameAutobahn LIKE '%highwayName%'";
 					$result_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);
 					
 					while($data = mysqli_fetch_array($result_getTollgateInfo)){
