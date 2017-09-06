@@ -32,41 +32,53 @@
 			</div>
 		</header>
 		<!--main contents          -->
-		
-		<div id="griddiv-search" class="container">
-			<div id="rowstart" class="row">
-			<input id="text-search" name="text-search" class="enjoy-css" type="text" placeholder="Name des Kreuzes"> <br><br>
-			</div>
-			<div id="rowend" class="row">
-			<input class="button" type="submit" name="submit" value="Suchen">  						
-			</div>			
-			</div>		
 		<div id="main-area" class="container">
 			<div id="heading" class="page-header">
 
 			</div>
 			<div id="griddiv-left" class="test">
 			   <?php
-				echo "<table border='1'>
-				<tr>
-				<th>Code</th>
-				<th>Autobahn</th>
-				<th>Kreuz Name</th>
-				<th>Kreuz Nummer</th>
-				</tr>";
+			   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+					echo "<table border='1'>
+					<tr>
+					<th>Code</th>
+					<th>Autobahn</th>
+					<th>Kreuz Name</th>
+					<th>Kreuz Nummer</th>
+					</tr>";
 
-				while($row = mysqli_fetch_array($result))
-				{
+					while($row = mysqli_fetch_array($result))
+					{
+							echo "<tr class='userlistoutput'>";
+							echo "<td width='120px'>" . $row['code'] . "</td>";
+							echo "<td width='120px'>" . $row['nameAutobahn'] . "</td>";
+							echo "<td width='120px'>" . $row['nameKreuz'] . "</td>";
+							echo "<td width='120px'>" . $row['kreuzNummer'] . "</td>";
+							echo "</tr>";
+				   }
+			   }
+			   echo "</table>";
+			   ?>
+			   <?php
+
+
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					$junctionName = $_POST["text-nameKreuz"];
+						
+					$query_getTollgateInfo = "SELECT FROM mautstelle WHERE nameKreuz = $junctionName";
+					$restult_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);
+					
+					while($data = mysqli_fetch_array($result_getTollgateInfo)){
 						echo "<tr class='userlistoutput'>";
-						//echo "<td width='120px'>" . $row['id'] . "</td>";
 						echo "<td width='120px'>" . $row['code'] . "</td>";
 						echo "<td width='120px'>" . $row['nameAutobahn'] . "</td>";
 						echo "<td width='120px'>" . $row['nameKreuz'] . "</td>";
 						echo "<td width='120px'>" . $row['kreuzNummer'] . "</td>";
 						echo "</tr>";
-			   }
-			   echo "</table>";
-			   ?>
+					}
+				}
+				echo "</table>";
+				?>
 			</div>
 
 		</div>
