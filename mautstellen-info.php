@@ -76,6 +76,10 @@
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					$junctionName = $_POST["text-search-kreuz"];
 					$highwayName = $_POST["text-search-autobahn"];
+					
+					$junctionName = mysqli_real_escape_string ($conn, $junctionName);
+					$highwayName = mysqli_real_escape_string ($conn, $highwayName);
+					
 					echo "<table border='1'>
 					<tr>
 					<th>Code</th>

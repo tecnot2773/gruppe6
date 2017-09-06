@@ -50,6 +50,9 @@
 							include_once 'include/calculation.php';
 							$code1 = $_POST["text-startstation"];
 							$code2 = $_POST["text-endstation"];
+							
+							$code1 = mysqli_real_escape_string ($conn, $code1);
+							$code2 = mysqli_real_escape_string ($conn, $code2);
 
 							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";
 							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);

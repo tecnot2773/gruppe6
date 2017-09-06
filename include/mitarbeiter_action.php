@@ -71,6 +71,11 @@
 		$plate = $_POST["text-plate-entry"];
 		$code_entrytollgate = $_POST["text-CodeEntry"];
 		$entry_time = $_POST["text-time-entry"];
+		
+		$entry_time = mysqli_real_escape_string($conn, $entry_time);
+		$plate = mysqli_real_escape_string ($conn, $plate);
+		$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
+		
 		$plateLength = strlen($plate); 
 		if($plateLength > 12){
 			echo "Kennzeichen ist zu lang";
@@ -120,11 +125,7 @@
 						echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time geändert";
 					}
 					//End Check Time
-					
-					$entry_time = mysqli_real_escape_string($conn, $entry_time);
-					$plate = mysqli_real_escape_string ($conn, $plate);
-					$code_entrytollgate = mysqli_real_escape_string ($conn, $code_entrytollgate);
-					
+
 					$quary_get_TollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $code_entrytollgate";
 					$result_entrytollgate = mysqli_query($conn, $quary_get_TollgateEntryId);
 					while ($data = mysqli_fetch_array($result_entrytollgate)){
@@ -152,6 +153,10 @@
 		$plate = $_POST["text-plate-exit"];
 		$code_exittollgate = $_POST["text-CodeExit"];
 		$exit_time = $_POST["text-time-exit"];
+		
+		$exit_time = mysqli_real_escape_string($conn, $exit_time);
+		$plate = mysqli_real_escape_string ($conn, $plate);
+		$code_exittollgate = mysqli_real_escape_string ($conn, $code_exittollgate);
 		
 		//Start Check if license plate is on Highway
 		$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";
@@ -195,9 +200,6 @@
 					$exit_time = date("Y-m-d H:i:s");
 					echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert";
 				}
-				$exit_time = mysqli_real_escape_string($conn, $exit_time);
-				$plate = mysqli_real_escape_string ($conn, $plate);
-				$code_exittollgate = mysqli_real_escape_string ($conn, $code_exittollgate);
 				
 				$quary_get_TollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exittollgate";
 				$result_exittollgate = mysqli_query($conn, $quary_get_TollgateExitId);
