@@ -113,11 +113,11 @@ text-align:center;
 #griddiv-search {
 background-color: white;
 opacity: 0.8;
-border-radius: 5px;
-width: 100%;
+border-radius: 20px;
+width: 108%;
 text-align: center;
-margin-top: 10px;
-margin-bottom: -50px;
+margin-top: -49px;
+margin-bottom: 15px;
 }
 
 #rowstart {
