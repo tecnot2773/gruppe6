@@ -49,7 +49,6 @@
 				while($row = mysqli_fetch_array($result))
 				{
 						echo "<tr class='userlistoutput'>";
-						//echo "<td width='120px'>" . $row['id'] . "</td>";
 						echo "<td width='120px'>" . $row['code'] . "</td>";
 						echo "<td width='120px'>" . $row['nameAutobahn'] . "</td>";
 						echo "<td width='120px'>" . $row['nameKreuz'] . "</td>";
