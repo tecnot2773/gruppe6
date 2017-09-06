@@ -32,7 +32,7 @@
 			</div>
 		</header>
 		<!--main contents          -->
-		<form action="/index.php" method="post">
+		<form action="/mautstellen-info.php" method="post">
 		<div id="main-area" class="container">
 			<div id="heading" class="page-header">
 
