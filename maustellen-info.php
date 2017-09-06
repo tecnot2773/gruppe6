@@ -32,6 +32,15 @@
 			</div>
 		</header>
 		<!--main contents          -->
+		
+		<div id="griddiv-search" class="container">
+			<div id="rowstart" class="row">
+			<input id="text-search" name="text-search" class="enjoy-css" type="text" placeholder="Name des Kreuzes"> <br><br>
+			</div>
+			<div id="rowend" class="row">
+			<input class="button" type="submit" name="submit" value="Suchen">  						
+			</div>			
+			</div>		
 		<div id="main-area" class="container">
 			<div id="heading" class="page-header">
 
