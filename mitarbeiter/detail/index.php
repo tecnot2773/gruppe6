@@ -2,6 +2,8 @@
 include '../../include/db.php';
 
 $bill_id = $_GET["id"];
+$bill_id = mysqli_real_escape_string ($conn, $bill_id);
+
 
 $query_getBillData = "SELECT kosten, streckeID FROM rechnung WHERE id = $bill_id";
 $billData = mysqli_query($conn, $query_getBillData);
