@@ -59,7 +59,6 @@
 				if($wrongLon == "FALSE"){
 				
 					$query_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
-					echo $query_sql_add;
 					mysqli_query($conn,$query_sql_add);
 					echo "Mautstelle erfolgreich hinzugefügt";
 				}
@@ -134,6 +133,7 @@
 				$entry_id = mysqli_insert_id ($conn);	//get ID from last INSERT
 
 				$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
+				echo $quary_sql_entry_distance;
 				mysqli_query($conn, $quary_sql_entry_distance);
 				echo "Neue Einfahrt verbucht";
 			}
