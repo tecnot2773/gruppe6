@@ -36,7 +36,9 @@
 						<input id="text-startstation" name="text-startstation" class="enjoy-css" type="text" placeholder="Code von Start-Mautstelle"> 
 					</div>
 					<div id="rowend" class="row">
-						<input id="text-endstation" name="text-endstation" class="enjoy-css" type="text" placeholder="Code von End-Mautstelle">
+						<input id="text-endstation" name="text-endstation" class="enjoy-css" type="text" placeholder="Code von End-Mautstelle"><br>				
+					</div>
+					<div id="buttonrow" class="row">
 						<input class="button" type="submit" name="submit" value="Berechnen">  						
 					</div>
 				</div>
@@ -44,7 +46,7 @@
 					<div id="rowstart" class="row">
 						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
-						<br><br>
+						<br><br><br>
 						<?php
 						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							include_once 'include/calculation.php';
@@ -97,13 +99,17 @@
 							if($checkTollgateCode == "FALSE"){
 								echo "MautstellenCode ist nicht in der Datenbank";
 							}
-							echo "<br>";
+
 							if($checkTollgateCode == "TRUE"){
 									include 'include/price_calculation.php';
 									
 									$price = price::get_price("$distance");
 									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
 							}
+						}
+						else
+						{
+							echo "<br>"; //empty line, we need the same height all the time!
 						}
 						?>
 					</div>
