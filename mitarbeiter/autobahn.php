@@ -65,12 +65,12 @@
 
 				while($data1 = mysqli_fetch_array($result_get_route)){
 					$db_entryID = $data1['faehrtEinID'];
-					
+					echo test1;
 					$query_get_tollgateEntry = "SELECT zeitstempel, mautstelleID FROM faehrtEin WHERE id = $db_entryID";
 					$result_get_tollgateEntry = mysqli_query($conn, $query_get_tollgateEntry);
 					while($data2 = mysqli_fetch_array($result_get_tollgateEntry)){
 						$db_tollgateID = $data2['mautstelleID'];
-						
+						echo test2;
 						$query_get_tollgateName = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_tollgateID";
 						$result_get_tollgateName = mysqli_query($conn, $query_get_tollgateName);
 						while($data3 = mysqli_fetch_array($result_get_tollgateName)){
