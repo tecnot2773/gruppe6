@@ -1,7 +1,7 @@
 <?php
  include_once '../include/db.php';
  
- $query_get_route = "SELECT id, kennzeichen, faehrtEinID FROM strecke WHERE faehrtAusID = NULL";
+ $query_get_route = "SELECT id, kennzeichen, faehrtEinID FROM strecke WHERE faehrtAusID IS NULL";
  $result_get_route = mysqli_query($conn,$query_get_route);
  
  //$result = utf8ize($result);
