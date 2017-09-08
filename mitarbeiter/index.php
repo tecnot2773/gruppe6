@@ -35,6 +35,7 @@
 						<center>
 							<a href="index.php" class="linkbutton">Übersicht</a>
 							<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
+							<a href="autobahn.php" class="linkbutton">Auf der Autobahn</a>
 						</center>
 					</div>
 					<div id="buttondiv_line" class="row"></div>
