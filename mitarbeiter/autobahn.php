@@ -12,7 +12,7 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="content-Type" content="text/html; charset=UTF-8" />  
+
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
 		<link href="/mitarbeiter/autobahn.css" type="text/css" rel="stylesheet" />
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
