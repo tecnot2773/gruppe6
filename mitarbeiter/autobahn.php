@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
 		<link href="/mitarbeiter/autobahn.css" type="text/css" rel="stylesheet" />
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
-		<title>Rechnungen</title>
+		<title>Auf der Autobahn</title>
 	</head>
 	<body>
 		<!--navbar -->
@@ -65,12 +65,10 @@
 
 				while($data1 = mysqli_fetch_array($result_get_route)){
 					$db_entryID = $data1['faehrtEinID'];
-					echo test1;
 					$query_get_tollgateEntry = "SELECT zeitstempel, mautstelleID FROM faehrtEin WHERE id = $db_entryID";
 					$result_get_tollgateEntry = mysqli_query($conn, $query_get_tollgateEntry);
 					while($data2 = mysqli_fetch_array($result_get_tollgateEntry)){
 						$db_tollgateID = $data2['mautstelleID'];
-						echo test2;
 						$query_get_tollgateName = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_tollgateID";
 						$result_get_tollgateName = mysqli_query($conn, $query_get_tollgateName);
 						while($data3 = mysqli_fetch_array($result_get_tollgateName)){
@@ -78,7 +76,7 @@
 						echo "<tr class='userlistoutput'>";
 						
 						echo "<td width='45px'>" . $data1['id'] . "</td>"; 
-						echo "<td width='45px'>" . $data2['kennzeichen'] . "</td>";
+						echo "<td width='45px'>" . $data1['kennzeichen'] . "</td>";
 						echo "<td width='70px'>" . $data3['nameAutobahn'] . "<br>". $data3['nameKreuz'] . "</td>";
 						echo "<td width='70px'>" . $data2['zeitstempel'] . "</td>";
 						echo "</tr>";
