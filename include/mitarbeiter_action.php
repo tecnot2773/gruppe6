@@ -139,7 +139,7 @@
 
 					$quary_sql_entry_distance = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
 					mysqli_query($conn, $quary_sql_entry_distance);
-					echo "Neue Einfahrt verbucht";
+					echo "Neue Einfahrt mit Kennzeichen $plate verbucht";
 				}
 				if($checkTollgateCode == "FALSE"){
 					echo "Falscher MautstellenCode - Keine Einfahrt verbucht";
