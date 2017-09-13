@@ -4,6 +4,7 @@
  $result = utf8ize($result);
  
  while($data = mysqli_fetch_array($result)){
+	 echo $data['code'];
  }
  
  
