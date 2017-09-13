@@ -4,7 +4,10 @@
  $result = utf8ize($result);
  
  while($data = mysqli_fetch_array($result)){
-	 echo $data['code'];
+	echo $data['code'];
+	$http_content = file_get_contents("https://www.openstreetmap.org/node/".$data['code']);
+	echo $http_content;
+	die();
  }
  
  
