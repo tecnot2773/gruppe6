@@ -5,11 +5,13 @@
  
  while($data = mysqli_fetch_array($result)){
 	$http_content = file_get_contents("https://www.openstreetmap.org/node/".$data['code']);
-	
-	// Works in PHP 5.2.2 and later.
 	preg_match('/ title="highway=motorway".*<bdi>(.*)<\/bdi>\ \(/', $http_content, $matches);
+	$autobahn = str_replace(' ', '', $matches[1]);
 
-	print_r($matches[1]);
+	mysqli_query($conn,"UPDATE `mautstelle` SET `nameAutobahn` = 'A2".$autobahn."' WHERE `mautstelle`.`code` = ".$data['code']);
+
+
+	
 	die();
  }
  
