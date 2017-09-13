@@ -96,18 +96,18 @@
 								}
 								
 							}
-							if($checkTollgateCode == "FALSE"){
-								echo "MautstellenCode ist nicht in der Datenbank";
+							if($checkTollgateCode == "FALSE"){												//if checktollgateCode == FALSE 
+								echo "MautstellenCode ist nicht in der Datenbank";							//echo error message
 							}
 
-							if($checkTollgateCode == "TRUE"){
-									include 'include/price_calculation.php';
+							if($checkTollgateCode == "TRUE"){												//if checktollgateCode == TRUE
+									include 'include/price_calculation.php';								//include price_calculation.php
 									
-									$price = price::get_price("$distance");
-									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
+									$price = price::get_price("$distance");									//hand over variable to price function
+									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";		//echo price from function
 							}
 						}
-						else
+						else	
 						{
 							echo "<br>"; //empty line, we need the same height all the time!
 						}
