@@ -1,12 +1,10 @@
 ﻿<?php
- include_once '../include/db.php';
+ include_once '../include/db.php';																	//include db.php
  
  
- $query_get_bill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";
- $result_bill = mysqli_query($conn,$query_get_bill);
+ $query_getBill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";					//query getBill
+ $result_getBill = mysqli_query($conn,$query_getBill);												//execute query and save
 
- 
- //$result = utf8ize($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,31 +65,31 @@
 				<th>Kosten</th>
 				</tr>";
 
-				while($data1 = mysqli_fetch_array($result_bill)){
-					$db_distanceID = $data1['streckeID'];
+				while($data1 = mysqli_fetch_array($result_getBill)){																		//fetch getBill
+					$db_distanceID = $data1['streckeID'];																					//save streckeID in db_distanceID	
 
-					$query_get_distance = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $db_distanceID";
-					$result_get_distance = mysqli_query($conn, $query_get_distance);
-					while ($data2 = mysqli_fetch_array($result_get_distance)){
-						$db_get_tollgate_entry = $data2['faehrtEinID'];
-						$db_get_tollgate_exit = $data2['faehrtAusID'];
+					$query_getDistance = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $db_distanceID";	//query getDistance
+					$result_getDistance = mysqli_query($conn, $query_getDistance);															//execute query and save
+					while ($data2 = mysqli_fetch_array($result_getDistance)){																//fetch getDistance
+						$db_getTollgateEntry = $data2['faehrtEinID'];																		//save faehrtEinID in db_getTollgateEntry
+						$db_getTollgateExit = $data2['faehrtAusID'];																		//save faehrtAusID in db_getTollgateExit
 						
-						$query_get_tollgateid_entry = "SELECT mautstelleID FROM faehrtEin WHERE id = $db_get_tollgate_entry";
-						$result_get_tollgateid_entry = mysqli_query($conn, $query_get_tollgateid_entry);
-						while ($data3 = mysqli_fetch_array($result_get_tollgateid_entry)){
-							$db_get_tollgate_entry2 = $data3['mautstelleID'];
+						$query_getTollgateidEntry = "SELECT mautstelleID FROM faehrtEin WHERE id = $db_getTollgateEntry";					//query getTollgateidEntry
+						$result_getTollgateidEntry = mysqli_query($conn, $query_getTollgateidEntry);										//execute query and save
+						while ($data3 = mysqli_fetch_array($result_getTollgateidEntry)){													//fetch getTollgateidEntry
+							$db_getTollgateEntry2 = $data3['mautstelleID'];																	//save mautstelleID in getTollgateidEntry2
 						
-							$query_get_tollgateid_exit = "SELECT zeitstempel,mautstelleID FROM faehrtAus WHERE id = $db_get_tollgate_exit";
-							$result_get_tollgateid_exit = mysqli_query($conn, $query_get_tollgateid_exit);
-							while ($data4 = mysqli_fetch_array($result_get_tollgateid_exit)){
-								$db_get_tollgate_exit2 = $data4['mautstelleID'];
+							$query_getTollgateidExit = "SELECT zeitstempel,mautstelleID FROM faehrtAus WHERE id = $db_getTollgateExit";	
+							$result_getTollgateidExit = mysqli_query($conn, $query_getTollgateidExit);
+							while ($data4 = mysqli_fetch_array($result_getTollgateidExit)){
+								$db_getTollgateExit2 = $data4['mautstelleID'];
 								
-								$query_get_highwayname_entry = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_get_tollgate_entry2";
-								$result_get_highwayname_entry = mysqli_query($conn, $query_get_highwayname_entry);
-								while ($data5 = mysqli_fetch_array($result_get_highwayname_entry)){
-									$query_get_highwayname_exit = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_get_tollgate_exit2";
-									$result_get_highwayname_exit = mysqli_query($conn, $query_get_highwayname_exit);
-									while ($data6= mysqli_fetch_array($result_get_highwayname_exit)){
+								$query_getHighwaynameEntry = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_getTollgateEntry2";
+								$result_getHighwaynameEntry = mysqli_query($conn, $query_getHighwaynameEntry);
+								while ($data5 = mysqli_fetch_array($result_getHighwaynameEntry)){
+									$query_get_HighwaynameExit = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_getTollgateExit2";
+									$result_getHighwaynameExit = mysqli_query($conn, $query_get_HighwaynameExit);
+									while ($data6= mysqli_fetch_array($result_getHighwaynameExit)){
 									
 									echo "<tr class='userlistoutput'>";
 									echo "<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>";
