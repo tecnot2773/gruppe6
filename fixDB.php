@@ -6,7 +6,11 @@
  while($data = mysqli_fetch_array($result)){
 	echo $data['code'];
 	$http_content = file_get_contents("https://www.openstreetmap.org/node/".$data['code']);
-	echo $http_content;
+	
+	// Works in PHP 5.2.2 and later.
+	preg_match('/ title="highway=motorway".*<bdi>(.*)<\/bdi>\ \(/', $http_content, $matches);
+
+	print_r($matches);
 	die();
  }
  
