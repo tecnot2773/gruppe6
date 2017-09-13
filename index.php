@@ -48,16 +48,16 @@
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
 						<br><br><br>
 						<?php
-						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-							include_once 'include/calculation.php';
-							$code1 = $_POST["text-startstation"];
-							$code2 = $_POST["text-endstation"];
+						if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD == POST
+							include_once 'include/calculation.php';											//include calculaction.php
+							$code1 = $_POST["text-startstation"];											//write input from text-startstation in code1
+							$code2 = $_POST["text-endstation"];												//write input from text-endstation in code2
 							
-							$code1 = mysqli_real_escape_string ($conn, $code1);
-							$code2 = mysqli_real_escape_string ($conn, $code2);
+							$code1 = mysqli_real_escape_string ($conn, $code1);								//escape string "code1"
+							$code2 = mysqli_real_escape_string ($conn, $code2);								//escape string "code2"
 
-							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";
-							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
+							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";		//SQL query getTollgateCode
+							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);			//
 							$rows = mysqli_num_rows($result_getTollgateCode);
 							if ($rows == 0){
 							$checkTollgateCode = "FALSE";
