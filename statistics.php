@@ -13,14 +13,14 @@ echo  <br>;
 $query_entryNumber = "SELECT * FROM faehrtEin";
 $result_entryNumber = mysqli_query($conn,$query_entryNumber);
 $entryNumberRows = mysqli_num_rows($result_entryNumber);
-echo "Es sind insgesamt ${entryNumberRows} Einfahrten verbucht"; <br>
+echo "Es sind insgesamt ${entryNumberRows} Einfahrten verbucht";
 
 $query_exitNumber = "SELECT * FROM faehrtAus";
 $result_exitNumber = mysqli_query($conn,$query_exitNumber);
 $exitNumberRows = mysqli_num_rows($result_exitNumber);
-echo "Es sind insgesamt ${exitNumberRows} Ausfahrten verbucht"; <br>
+echo "Es sind insgesamt ${exitNumberRows} Ausfahrten verbucht";
 $onTheRoad = $entryNumberRows - $exitNumberRows;
-echo "Derzeit sind also ${onTheRoad} Fahrzeuge auf der Autobahn"; <br>
+echo "Derzeit sind also ${onTheRoad} Fahrzeuge auf der Autobahn";
 ?>
 
 </html>
