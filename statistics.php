@@ -24,5 +24,10 @@ $currentDay = date("Y-m-d");
 $query_getDailyExit = "SELECT * FROM faehrtAus WHERE zeitstempel = $currentDay%";
 $result_getDailyExit = mysqli_query($conn,$query_getDailyExit);
 $dailyExitRows = mysqli_num_rows($result_getDailyExit);
-echo "Heute sind ${dailyExitRows} Autos über die Autobahn gefahren" . "<br>" . PHP_EOL;
+echo "Heute sind ${dailyExitRows} Autos über die Autobahn gefahren." . "<br>" . PHP_EOL;
+
+$query_getMonthlyExit = "SELECT * FROM faehrtAus WHERE zeitstempel = $currentMonth%";
+$result_getMonthlyExit = mysqli_query($conn,$query_getMonthlyExit);
+$monthlyExitRows = mysqli_num_rows($result_getMonthlyExit);
+echo "Diesen Monat sind ${monthlyExitRows} Autos über die Autobahn gefahren." . "<br>" . PHP_EOL;
 ?>
