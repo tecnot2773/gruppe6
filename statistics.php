@@ -1,5 +1,5 @@
 ﻿<?php
-include_once '/include/db.php';
+include_once 'include/db.php';
 
 $query_tollgateNumber = "SELECT * FROM mautstelle";
 $result_tollgateNumber = mysqli_query($conn,$query_tollgateNumber);
