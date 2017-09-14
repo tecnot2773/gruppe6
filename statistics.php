@@ -18,10 +18,10 @@ echo "Es sind insgesamt ${exitNumberRows} Ausfahrten verbucht" . "<br>" . PHP_EO
 $onTheRoad = $entryNumberRows - $exitNumberRows;
 echo "Derzeit sind also ${onTheRoad} Fahrzeuge auf der Autobahn" . "<br>" . PHP_EOL;
 
-$currentMonth = date("Y.m");
-$currentDay = date("Y.m.d");
+$currentMonth = date("Y-m");
+$currentDay = date("Y-m-d");
 
-$query_getDailyExit = "SELECT * FROM faehrtAus WHERE zeitstempel = $currentDay";
+$query_getDailyExit = "SELECT * FROM faehrtAus WHERE zeitstempel = $currentDay%";
 $result_getDailyExit = mysqli_query($conn,$query_getDailyExit);
 $dailyExitRows = mysqli_num_rows($result_getDailyExit);
 echo "Heute sind ${dailyExitRows} Autos über die Autobahn gefahren" . "<br>" . PHP_EOL;
