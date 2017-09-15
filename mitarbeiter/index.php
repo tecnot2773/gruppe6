@@ -80,9 +80,6 @@
 						<?php //<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br> ?>
 						<select name="text-plate-exit">
 							<option selected="selected"></option>
-							<option value="abc">abc</option>
-							<option value="def">def</option>
-							<option value="hij">hij</option>
 							<?php 
 								include_once '../include/db.php';
 								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";
