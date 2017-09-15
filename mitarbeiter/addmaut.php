@@ -45,7 +45,7 @@
 						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/newTollgate.php';} ?><center>
 					</div>
 				</div>
-				<div id="griddiv-main " class="test">
+				<div id="griddiv-main" class="test">
 						<input id="text-code" name="text-code" class="enjoy-css" type="text" placeholder="Code/Kürzel">
 						<input id="text-namehighway" name="text-namehighway" class="enjoy-css" type="text" placeholder="Name Autobahn">
 						<input id="text-namejunction" name="text-namejunction" class="enjoy-css" type="text" placeholder="Name Kreuz">
