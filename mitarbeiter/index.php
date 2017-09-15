@@ -19,6 +19,7 @@
 			<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
+						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
 						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
 						<li><a href="/impressum.html">Impressum</a></li>
 					</ul>
