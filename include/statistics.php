@@ -39,4 +39,6 @@ echo "<table border='1'>
 echo "<tr class='userlistoutput'>";
 echo "<td width='700px'> Es sind ${tollgateNumberRows} Mautstellen in der Datenbank. </td>";
 echo "</tr>"
+
+echo "</table>";
 ?>
