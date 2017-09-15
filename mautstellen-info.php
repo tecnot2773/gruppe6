@@ -87,7 +87,7 @@
 					<th>Kreuz Nummer</th>
 					</tr>";
 					
-					$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%' AND nameAutobahn LIKE '%$highwayName%'";		//SQL query getTollgateInfo
+					$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName' AND nameAutobahn LIKE '%$highwayName%'";		//SQL query getTollgateInfo
 					$result_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);			//execute query and save
 					
 					while($data = mysqli_fetch_array($result_getTollgateInfo)){						//fetch getTollgateInfo
