@@ -44,26 +44,39 @@
 						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/mitarbeiter_action.php';} ?><center>
 					</div>
 				</div>
-								<div id="griddiv-left" class="test">
+				<div id="griddiv-left" class="test">
 					<div id="rowstart" class="row">
-						<input id="text-startstation" name="text-startstation" class="enjoy-css" type="text" placeholder="Code von Start-Mautstelle"> 
+						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
+					
 					<div id="rowend" class="row">
-						<input id="text-endstation" name="text-endstation" class="enjoy-css" type="text" placeholder="Code von End-Mautstelle"><br>				
-					</div>
-					<div id="buttonrow" class="row">
-						<input class="button" type="submit" name="submit" value="Berechnen">  						
+					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
+					<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
+					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
+					
 					</div>
 				</div>
 				<div id="griddiv-right" class="test">
 					<div id="rowstart" class="row">
-						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
-						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
-						<br><br><br>
+						<input type="radio" name="selection" value="exit">Ausfahrt<br>
 					</div>
+					
 					<div id="rowend" class="row">
-						 
+						<select name="text-plate-exit" class="enjoy-css">
+							<option selected="selected"></option>
+							<?php 
+								include_once '../include/db.php';																	//create db connection
+								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
+								$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
+								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
+									echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>';		//use echo to execute html in php
+								}
+							?>
+						</select> <br><br>
+						<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
+						<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
 					</div>
+					
 					<div id="resultstring" class="alert alert-info">
 
 					</div>
