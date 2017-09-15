@@ -1,0 +1,243 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html *
+{/*
+   font-size: 1em !important;
+   color: #000 !important;
+   font-family: Verdana !important; 
+   font-weight: 300;
+   */
+}
+body {
+  height: 100%;
+	
+  background: url(../images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow-x:hidden;
+  background-color: transparent;
+  /* The html and body elements cannot have any padding or margin. */
+}
+/* Wrapper for page content to push down footer */
+
+body {
+	margin: 0;
+	/*background: #222;*/
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+.container div {
+	width: 80%;
+	display: inline-block;
+}
+ 
+header {
+  background: #f2f2f2;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  /*background-color: #444;*/
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+#griddiv-left-upper {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 49%;
+float: left;
+margin-bottom: 13px;
+margin-right: 5px;
+}
+#griddiv-left-lower {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 100%;
+margin-top: 25px;
+}
+#griddiv-right-upper {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 50%;
+
+margin-bottom: 13px;
+}
+#griddiv-right-lower {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 50%;
+
+}
+#griddiv-nav-top {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 100%;
+margin-bottom: 18px;
+}
+#griddiv-left {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 49%;
+float: left;
+}
+#griddiv-right {
+background-color: white;
+opacity: 0.8;
+border-radius: 20px;
+width: 49%;
+float: right;
+}
+#rowstart {
+padding-top:  50px;
+padding-left: 50px;
+padding-right: 50px;
+}
+#rowend {
+padding-top: 25px;
+padding-bottom: 50px;
+padding-left: 50px;
+padding-right: 50px;
+}
+#rowend-left-upper {
+padding-top:  50px;
+padding-left: 50px;
+padding-right: 50px;
+padding-bottom: 225px;
+}
+#rowresult {
+padding-top:  50px;
+padding-left: 50px; 
+padding-right: 50px;
+}
+#buttondiv_rowstart {
+padding-top:  25px;
+padding-bottom: 8px;
+width: 100%;
+}
+#buttondiv_line {
+width: 100%;
+border-bottom: 1px solid black;
+}
+#buttondiv_rowend {
+padding-top:  2px;
+padding-bottom: 5px;
+width: 100%;
+}
+#placeholder {
+padding-top: 20px;
+width: 100%;
+}
+a.linkbutton {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+	border-radius: 12px;
+}
+a.linkbutton:hover {
+    background-color: #008CBA;
+    color: white;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+	border-radius: 12px;
+}
+
+.button:hover {
+    background-color: #008CBA;
+    color: white;
+}
