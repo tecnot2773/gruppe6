@@ -39,7 +39,22 @@ echo "<table border='1'>
 echo "<tr class='userlistoutput'>";
 echo "<td width='350px'> Mautstellen in der Datenbank </td>";
 echo "<td width='350px'> ${tollgateNumberRows} </td>";
-echo "</tr>"
+echo "</tr>";
+echo "<td width='350px'> Insgesamte Einfahrten </td>";
+echo "<td width='350px'> ${entryNumberRows} </td>";
+echo "</tr>";
+echo "<td width='350px'> Insgesamte Ausfahrten </td>";
+echo "<td width='350px'> ${exitNumberRows} </td>";
+echo "</tr>";
+echo "<td width='350px'> Mautstellen in der Datenbank </td>";
+echo "<td width='350px'> ${tollgateNumberRows} </td>";
+echo "</tr>";
+echo "<td width='350px'> Mautstellen in der Datenbank </td>";
+echo "<td width='350px'> ${tollgateNumberRows} </td>";
+echo "</tr>";
+echo "<td width='350px'> Mautstellen in der Datenbank </td>";
+echo "<td width='350px'> ${tollgateNumberRows} </td>";
+echo "</tr>";
 
 echo "</table>";
 ?>
