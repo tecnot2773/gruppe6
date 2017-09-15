@@ -77,7 +77,6 @@
 					</div>
 					
 					<div id="rowend" class="row">
-						<?php //<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br> ?>
 						<select name="text-plate-exit">
 							<option selected="selected"></option>
 							<?php 
