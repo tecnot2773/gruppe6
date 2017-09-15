@@ -83,6 +83,13 @@
 						<option value="abc">abc</option>
 						<option value="def">def</option>
 						<option value="hij">hij</option>
+						<?php 
+						$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";
+						$resutl_getPlate mysqli_query($conn,$query_getPlate);
+						while($data = mysqli_fetch_array($result_getPlate)){
+							echo '<option value="' . $data['kennzeichen'] . "</option>"
+						}
+						?>
 					</select> <br><br>
 					<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
 					<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
