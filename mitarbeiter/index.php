@@ -77,26 +77,25 @@
 					</div>
 					
 					<div id="rowend" class="row">
-					<?php //<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br> ?>
-					<select name="text-plate-entry">
-						<option selected="selected"></option>
-						<option value="abc">abc</option>
-						<option value="def">def</option>
-						<option value="hij">hij</option>
-						<?php 
-						include_once '../include/db.php';
-						$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";
-						$result_getPlate = mysqli_query($conn,$query_getPlate);
-						while($data = mysqli_fetch_array($result_getPlate)){
-							echo '<option value="' . $data['kennzeichen'] . "</option>";
-						}
-						?>
-					</select> <br><br>
-					
-					
-					<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
-					<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
+						<?php //<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br> ?>
+						<select name="text-plate-entry">
+							<option selected="selected"></option>
+							<option value="abc">abc</option>
+							<option value="def">def</option>
+							<option value="hij">hij</option>
+							<?php 
+								include_once '../include/db.php';
+								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";
+								$result_getPlate = mysqli_query($conn,$query_getPlate);
+								while($data = mysqli_fetch_array($result_getPlate)){
+									echo '<option value="' . $data['kennzeichen'] . "</option>";
+								}
+							?>
+						</select> <br><br>
+						<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
+						<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
 					</div>
+					
 					<div id="resultstring" class="alert alert-info">
 
 					</div>
