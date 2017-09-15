@@ -84,7 +84,7 @@
 						<option value="def">def</option>
 						<option value="hij">hij</option>
 						<?php 
-						include_once 'db.php';
+						include_once '../include/db.php';
 						$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";
 						$result_getPlate = mysqli_query($conn,$query_getPlate);
 						while($data = mysqli_fetch_array($result_getPlate)){
