@@ -100,36 +100,21 @@ nav a:hover::before {
   width: 100%;
 }
 
-#griddiv-left-upper {
+#griddiv-main {
 background-color: white;
 opacity: 0.8;
 border-radius: 20px;
-width: 49%;
-float: left;
 margin-bottom: 13px;
 margin-right: 5px;
+padding-top: 25px;
+padding-left: 25px;
 }
-#griddiv-left-lower {
+#griddiv-submit {
 background-color: white;
 opacity: 0.8;
 border-radius: 20px;
 width: 100%;
 margin-top: 25px;
-}
-#griddiv-right-upper {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 50%;
-
-margin-bottom: 13px;
-}
-#griddiv-right-lower {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 50%;
-
 }
 #griddiv-nav-top {
 background-color: white;
@@ -137,40 +122,6 @@ opacity: 0.8;
 border-radius: 20px;
 width: 100%;
 margin-bottom: 18px;
-}
-#griddiv-left {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-}
-#griddiv-right {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 49%;
-float: right;
-}
-#rowstart {
-padding-top:  50px;
-padding-left: 50px;
-padding-right: 50px;
-}
-#rowend {
-padding-top: 25px;
-padding-bottom: 50px;
-padding-left: 50px;
-padding-right: 50px;
-}
-#rowend-left-upper {
-padding-top:  50px;
-padding-left: 50px;
-padding-right: 50px;
-padding-bottom: 225px;
-}
-#rowresult {
-padding-top:  50px;
-padding-left: 50px; 
-padding-right: 50px;
 }
 #buttondiv_rowstart {
 padding-top:  25px;
