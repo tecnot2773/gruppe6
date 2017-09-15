@@ -62,7 +62,14 @@
 					</div>
 					
 					<div id="rowend" class="row">
-					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
+					<?php //<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br> ?>
+					<select name="text-plate-entry">
+						<option selected="selected"></option>
+						<option value="abc">abc</option>
+						<option value="def">def</option>
+						<option value="hij">hij</option> 
+					<input type="submit">
+					</select>
 					<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
 					
