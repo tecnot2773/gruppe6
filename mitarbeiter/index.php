@@ -80,11 +80,11 @@
 						<select name="text-plate-exit">
 							<option selected="selected"></option>
 							<?php 
-								include_once '../include/db.php';
-								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";
-								$result_getPlate = mysqli_query($conn,$query_getPlate);
-								while($data = mysqli_fetch_array($result_getPlate)){
-									echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>';
+								include_once '../include/db.php';																	//create db connection
+								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
+								$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
+								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
+									echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>';		//use echo to execute html in php
 								}
 							?>
 						</select> <br><br>
