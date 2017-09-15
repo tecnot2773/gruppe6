@@ -43,7 +43,7 @@
 					</div>
 					<div id="buttondiv_line" class="row"></div>
 					<div id="buttondiv_rowend" class="row">
-						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/entryExit.php';} ?><center>
+						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/newTollgate.php';} ?><center>
 					</div>
 				</div>
 				<div id="griddiv-left" class="test">
