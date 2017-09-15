@@ -29,8 +29,7 @@
 		<!--main contents          -->
 		<form action="/mitarbeiter/addmaut.php" method="post">
 			<div id="main-area" class="container">
-				<div id="placeholder" class="test">
-				</div>
+				<div id="placeholder" class="test"></div>
 				<div id="griddiv-nav-top" class="test">
 					<div id="buttondiv_rowstart" class="row">
 						<center>
@@ -53,7 +52,6 @@
 						<input id="text-junctionNumber" name="text-junctionNumber" class="enjoy-css" type="text" placeholder="Kreuz Nummer"><br><br>
 						<input id="text-lat" name="text-lat" class="enjoy-css" type="text" placeholder="LAT"><br><br>
 						<input id="text-lon" name="text-lon" class="enjoy-css" type="text" placeholder="LON"><br><br>
-					</div>
 				</div>
 				<div id="griddiv-left-lower" class="test">
 					
@@ -61,7 +59,6 @@
 					<center><input class="button" type="submit" name="execute" value="Ausführen"></center> 
 					</div>
 				</div>
-
 			</div>
 		</form>
 	</body>
