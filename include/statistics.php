@@ -34,10 +34,11 @@ echo "Diesen Monat sind ${monthlyExitRows} Autos über die Autobahn gefahren." .
 echo "<table border='1'>
 <tr>
 <th>Statistiken</th>
+<th>" "</th>
 </tr>";
-
 echo "<tr class='userlistoutput'>";
-echo "<td width='700px'> Es sind ${tollgateNumberRows} Mautstellen in der Datenbank. </td>";
+echo "<td width='350px'> Mautstellen in der Datenbank </td>";
+echo "<td width='350px'> ${tollgateNumberRows} </td>";
 echo "</tr>"
 
 echo "</table>";
