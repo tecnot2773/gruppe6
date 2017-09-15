@@ -44,20 +44,7 @@
 						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/mitarbeiter_action.php';} ?><center>
 					</div>
 				</div>
-				<div id="griddiv-left-upper" class="test">
-					<div id="rowstart" class="row">
-						<input type="radio" name="selection" value="add">Mautstation hinzufügen<br>
-					</div>
-					<div id="rowend-left-upper" class="row">
-						<input id="text-code" name="text-code" class="enjoy-css" type="text" placeholder="Code/Kürzel"><br><br>
-						<input id="text-namehighway" name="text-namehighway" class="enjoy-css" type="text" placeholder="Name Autobahn"><br><br>
-						<input id="text-namejunction" name="text-namejunction" class="enjoy-css" type="text" placeholder="Name Kreuz"><br><br>
-						<input id="text-junctionNumber" name="text-junctionNumber" class="enjoy-css" type="text" placeholder="Kreuz Nummer"><br><br>
-						<input id="text-lat" name="text-lat" class="enjoy-css" type="text" placeholder="LAT"><br><br>
-						<input id="text-lon" name="text-lon" class="enjoy-css" type="text" placeholder="LON"><br><br>
-					</div>
-				</div>
-				<div id="griddiv-right-upper" class="test">
+				<div id="griddiv-left" class="test">
 					<div id="rowstart" class="row">
 						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
@@ -68,11 +55,8 @@
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
 					
 					</div>
-					<div id="resultstring" class="alert alert-info">
-
-					</div>
 				</div>
-				<div id="griddiv-right-lower" class="test">
+				<div id="griddiv-right" class="test">
 					<div id="rowstart" class="row">
 						<input type="radio" name="selection" value="exit">Ausfahrt<br>
 					</div>
@@ -90,7 +74,7 @@
 							?>
 						</select> <br><br>
 						<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
-						<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
+						<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS				
 					</div>
 					
 					<div id="resultstring" class="alert alert-info">
