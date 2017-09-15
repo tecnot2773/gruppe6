@@ -68,7 +68,7 @@
 						<option value="abc">abc</option>
 						<option value="def">def</option>
 						<option value="hij">hij</option> 
-					<input type="submit">
+					<input type="submit"><br><br>
 					</select>
 					<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
