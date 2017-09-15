@@ -88,7 +88,6 @@
 								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";
 								$result_getPlate = mysqli_query($conn,$query_getPlate);
 								while($data = mysqli_fetch_array($result_getPlate)){
-									$plate = $data['kennzeichen']
 									echo '<option value="' . $data['kennzeichen'] . '">"' . $data['kennzeichen']. '"</option>';
 								}
 							?>
