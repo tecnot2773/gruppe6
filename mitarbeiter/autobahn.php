@@ -52,8 +52,6 @@
 					<p></p>
 					<div id="buttondiv_rowend" class="row">
 					<center><center>
-					<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'){ include_once '../include/mitarbeiter_action.php'; } //if REQUEST_METHOD == POST include mitarbeiter_action.php
-					?>	
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
