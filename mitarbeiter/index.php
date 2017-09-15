@@ -62,13 +62,7 @@
 					</div>
 					
 					<div id="rowend" class="row">
-					<?php //<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br> ?>
-					<select name="text-plate-entry">
-						<option selected="selected"></option>
-						<option value="abc">abc</option>
-						<option value="def">def</option>
-						<option value="hij">hij</option>
-					</select> <br><br>
+					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
 					
@@ -83,7 +77,13 @@
 					</div>
 					
 					<div id="rowend" class="row">
-					<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
+					<?php //<input id="text-plate-exit" name="text-plate-exit" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br> ?>
+					<select name="text-plate-entry">
+						<option selected="selected"></option>
+						<option value="abc">abc</option>
+						<option value="def">def</option>
+						<option value="hij">hij</option>
+					</select> <br><br>
 					<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
 					<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">YYYY-MM-DD HH:MM:SS<br><br>					
 					</div>
