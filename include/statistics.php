@@ -30,4 +30,13 @@ $query_getMonthlyExit = "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$curren
 $result_getMonthlyExit = mysqli_query($conn,$query_getMonthlyExit);
 $monthlyExitRows = mysqli_num_rows($result_getMonthlyExit);
 echo "Diesen Monat sind ${monthlyExitRows} Autos über die Autobahn gefahren." . "<br>" . PHP_EOL;
+
+echo "<table border='1'>
+<tr>
+<th>Statistiken</th>
+</tr>";
+
+echo "<tr class='userlistoutput'>";
+echo "<td width='700px'> Es sind ${tollgateNumberRows} Mautstellen in der Datenbank. </td>";
+echo "</tr>"
 ?>
