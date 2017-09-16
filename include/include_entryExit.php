@@ -181,7 +181,7 @@
 				}
 			
 				//calculation
-				include_once 'calculation.php';
+				include_once 'include_calculation.php';
 
 					$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
 					
