@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
-			    <?php include_once '../include/onHighway.php'; ?>
+				<?php include_once '../include/include_onHighway.php'; ?>
 			</div>
 		</div>
 		</div>

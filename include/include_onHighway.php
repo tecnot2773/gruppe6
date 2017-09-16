@@ -1,5 +1,5 @@
 <?php
- include_once 'db.php';																		//include db.php
+ include_once 'include_db.php';																		//include db.php
  
  $query_getRoute = "SELECT id, kennzeichen, faehrtEinID FROM strecke WHERE faehrtAusID IS NULL";		//query getRoute
  $result_getRoute = mysqli_query($conn,$query_getRoute);												//execute Query and save

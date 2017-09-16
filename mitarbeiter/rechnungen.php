@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
-			   <?php include_once '../include/bill.php'; ?>
+				<?php include_once '../include/include_bill.php'; ?>
 			</div>
 		</div>
 		</div>

@@ -1,6 +1,6 @@
 <?php
 	//Create connection
-	include_once 'db.php';
+	include_once 'include_db.php';
 	
 	//Add new tollgate
 	$action= $_POST["selection"];

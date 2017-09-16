@@ -49,7 +49,7 @@
 						<br><br><br>
 						<?php
 						if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD == POST
-							include_once 'include/calculation.php';											//include calculaction.php
+							include_once 'include/include_calculation.php';											//include calculaction.php
 							$code1 = $_POST["text-startstation"];											//write input from text-startstation in code1
 							$code2 = $_POST["text-endstation"];												//write input from text-endstation in code2
 							

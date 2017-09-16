@@ -42,7 +42,7 @@
 					</div>
 					<div id="buttondiv_line" class="row"></div>
 					<div id="buttondiv_rowend" class="row">
-						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/entryExit.php';} ?><center>
+						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?><center>
 					</div>
 				</div>
 				<div id="griddiv-left" class="test">
@@ -66,7 +66,7 @@
 						<select name="text-plate-exit" class="enjoy-css">
 							<option selected="selected"></option>
 							<?php 
-								include_once '../include/db.php';																	//create db connection
+								include_once '../include/include_db.php';																	//create db connection
 								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
 								$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
 								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate

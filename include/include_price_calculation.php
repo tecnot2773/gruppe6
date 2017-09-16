@@ -4,7 +4,6 @@
 	{		
 		public static function get_price($distance)
 		{
-			//include_once 'db.php';
 			$servername = "localhost";
 			$username = "mysql";
 			$password = "dbcodepw12";

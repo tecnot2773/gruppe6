@@ -1,5 +1,5 @@
 <?php
-include_once 'db.php';																										//include db.php
+include_once 'include_db.php';																										//include db.php
  
 $query_getBill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";												//query getBill
 $result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save

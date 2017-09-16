@@ -1,5 +1,5 @@
 <?php
-include '../../include/db.php';
+include '../../include/include_db.php';
 
 $bill_id = $_GET["id"];
 $bill_id = mysqli_real_escape_string ($conn, $bill_id);

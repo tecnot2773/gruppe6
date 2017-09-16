@@ -1,5 +1,5 @@
 <?php
-	include_once 'db.php';
+	include_once 'include_db.php';
 	
 	$code = $_POST["text-code"];
 	$namehighway = $_POST["text-namehighway"];
