@@ -50,7 +50,6 @@
 						<?php include_once 'include/include_userAction.php'; ?>
 					</div>
 					<div id="rowend" class="row">
-						 
 					</div>
 					<div id="resultstring" class="alert alert-info">
 
