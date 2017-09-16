@@ -57,11 +57,12 @@
 						$entry_time = $entry_time;
 					}
 					
-					if (preg_match("/^(\d{4})([.])(\d{2})([.])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
+					//if (preg_match("/^(\d{4})([.])(\d{2})([.])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){
+					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entry_time)){	
 					}
 					else
 					{
-						$entry_time = date("Y.m.d H:i:s");
+						$entry_time = date("d.m.Y H:i:s");
 						echo "Falsche Zeitangabe - Zeitangabe wurde zu $entry_time geändert";
 					}
 					//End Check Time
@@ -127,13 +128,13 @@
 			
 			if($checkTollgateCode == "TRUE"){				
 				if (empty($exit_time)){
-					$exit_time = date("Y-m-d H:i:s");
+					$exit_time = date("d-m-Y H:i:s");
 				}
 				else{
 					$exit_time = $exit_time;
 				}
 				
-				if (preg_match("/^(\d{4})([.])(\d{2})([.])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
+				if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
 				}
 				else
 				{
