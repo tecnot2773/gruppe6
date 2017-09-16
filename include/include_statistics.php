@@ -14,8 +14,8 @@ $result_exitNumber = mysqli_query($conn,$query_exitNumber);
 $exitNumberRows = mysqli_num_rows($result_exitNumber);
 $onTheRoad = $entryNumberRows - $exitNumberRows;
 
-$currentMonth = date("Y-m");
-$currentDay = date("Y-m-d");
+$currentMonth = date("Y.m");
+$currentDay = date("Y.m.d");
 
 $query_getDailyExit = "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$currentDay%'";
 $result_getDailyExit = mysqli_query($conn,$query_getDailyExit);
