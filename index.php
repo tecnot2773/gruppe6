@@ -101,7 +101,7 @@
 							}
 
 							if($checkTollgateCode == "TRUE"){												//if checktollgateCode == TRUE
-									include 'include/price_calculation.php';								//include price_calculation.php
+									include 'include/include_price_calculation.php';								//include price_calculation.php
 									
 									$price = price::get_price("$distance");									//hand over variable to price function
 									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";		//echo price from function
