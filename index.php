@@ -29,7 +29,7 @@
 		<form action="/index.php" method="post">
 			<div id="main-area" class="container">
 				<div id="heading" class="page-header">
-					<h1>Berechnen Sie hier die Kosten für Ihre Route durch Deutschland</h1>
+					<h1>Berechnen Sie hier die Kosten für Ihre Route durch Deutschland :)</h1>
 				</div>
 				<div id="griddiv-left" class="test">
 					<div id="rowstart" class="row">
