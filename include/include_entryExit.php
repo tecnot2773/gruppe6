@@ -129,6 +129,7 @@
 			if($checkTollgateCode == "TRUE"){				
 				if (empty($exit_time)){
 					$exit_time = date("d-m-Y H:i:s");
+					echo $exit_time;
 				}
 				else{
 					$exit_time = $exit_time;
