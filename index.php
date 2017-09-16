@@ -92,7 +92,8 @@
 									$db_longitude2 = $data['lon'];											//save lon in db_longitude2
 									}	
 									$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");		//hand over variables to distance function 
-									echo "Die Entfernung beträgt: ".$distance." km";						//echo distance from function 
+									echo "Die Entfernung beträgt: ".$distance." km";						//echo distance from function
+									echo "<br>";
 								}
 								
 							}
