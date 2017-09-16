@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD == POST
 	include_once 'include/include_calculation.php';											//include calculaction.php
 	$code1 = $_POST["text-startstation"];											//write input from text-startstation in code1
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD 
 			$db_longitude2 = $data['lon'];											//save lon in db_longitude2
 			}	
 			$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");		//hand over variables to distance function 
-			echo "Die Entfernung beträgt: ".$distance." km";						//echo distance from function
+			echo "Die Entfernung betrÃ¤gt: ".$distance." km";						//echo distance from function
 			echo "<br>";
 		}
 		
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD 
 			include_once 'include/include_price_calculation.php';								//include price_calculation.php
 			
 			$price = price::get_price("$distance");									//hand over variable to price function
-			echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";		//echo price from function
+			echo "Der Preis fÃ¼r diese Entfernung betrÃ¤gt: ".$price." Euro.";		//echo price from function
 	}
 }
 else	
