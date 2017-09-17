@@ -47,7 +47,7 @@
 						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
 						<br><br><br>
-					<?phpinclude_once'include/include_userAction.php'; ?>
+					<?php include_once'include/include_userAction.php'; ?>
 					</div>
 					<div id="rowend" class="row">
 					</div>
