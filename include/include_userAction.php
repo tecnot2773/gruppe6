@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD 
 			
 			include_once 'include/include_price_calculation.php';					//include price_calculation.php
 			$price = price::get_price("$distance");									//hand over variable to price function
-			echo "&nbsp Der Preis für diese Entfernung beträgt: ".$price." Euro.";		//echo price from function
+			echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";		//echo price from function
 			echo "<br> <br>";
 		}
 		
