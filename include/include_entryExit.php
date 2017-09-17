@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	//Create connection
 	include_once 'include_db.php';
 	
