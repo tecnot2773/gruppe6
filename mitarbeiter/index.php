@@ -64,7 +64,6 @@
 					
 					<div id="rowend" class="row">
 						<select name="text-plate-exit" class="enjoy-css">
-							<option selected="selected"></option>
 							<option value="" disabled selected hidden>Kennzeichen</option>
 							<?php 
 								include_once '../include/include_db.php';																	//create db connection
