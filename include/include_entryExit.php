@@ -51,7 +51,7 @@
 				if($checkTollgateCode == "TRUE"){
 					//Start Check Time
 					if (empty($entry_time)){
-						$entry_time = date("Y.m.d H:i:s");
+						$entry_time = date("d.m.Y H:i:s");
 					}
 					else{
 						$entry_time = $entry_time;
