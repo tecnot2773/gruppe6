@@ -59,6 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD 
 }
 else	
 {
-	echo "<br>"; //empty line, we need the same height all the time!
+	echo "<br> <br> <br>"; //empty line, we need the same height all the time!
 }
 ?>
