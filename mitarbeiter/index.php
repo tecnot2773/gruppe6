@@ -65,6 +65,7 @@
 					<div id="rowend" class="row">
 						<select name="text-plate-exit" class="enjoy-css">
 							<option selected="selected"></option>
+							<option value="" disabled selected>Select something...</option>
 							<?php 
 								include_once '../include/include_db.php';																	//create db connection
 								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
