@@ -44,7 +44,7 @@
 					</div>
 					<div id="buttondiv_line" class="row"></div>
 					<div id="buttondiv_rowend" class="row">
-						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_newTollgate.php';} ?><center>
+						<center><?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { include_once '../include/include_newTollgate.php';} ?><center>
 					</div>
 				</div>
 				<div id="griddiv-main" class="test">
