@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
+		<link href="/css/addmaut.css" type="text/css" rel="stylesheet" />
 		<link href="/css/griddiv-nav.css" type="text/css" rel="stylesheet" />
 		<link href="/css/buttons.css" type="text/css" rel="stylesheet" />
 		<link href="/css/settings.css" type="text/css" rel="stylesheet" />
