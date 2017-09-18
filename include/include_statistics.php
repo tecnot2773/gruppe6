@@ -14,14 +14,14 @@ $result_exitNumber = mysqli_query($conn,$query_exitNumber);
 $exitNumberRows = mysqli_num_rows($result_exitNumber);
 $onTheRoad = $entryNumberRows - $exitNumberRows;
 
-$currentMonth = date("Y.m");
-$currentDay = date("Y.m.d");
+$currentDay = date("d.m.Y");
+$currentMonth = date("m.Y");
 
 $query_getDailyExit = "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$currentDay%'";
 $result_getDailyExit = mysqli_query($conn,$query_getDailyExit);
 $dailyExitRows = mysqli_num_rows($result_getDailyExit);
 
-$query_getMonthlyExit = "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$currentMonth%'";
+$query_getMonthlyExit = "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '%$currentMonth%'";
 $result_getMonthlyExit = mysqli_query($conn,$query_getMonthlyExit);
 $monthlyExitRows = mysqli_num_rows($result_getMonthlyExit);
 
