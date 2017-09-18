@@ -45,12 +45,14 @@
 					</div>
 				</div>
 				<div id="griddiv-main" class="test">
+					<div id="rowstart" class="row">
 						<input id="text-code" name="text-code" class="enjoy-css" type="text" placeholder="Code/Kürzel">
 						<input id="text-namehighway" name="text-namehighway" class="enjoy-css" type="text" placeholder="Name Autobahn">
 						<input id="text-namejunction" name="text-namejunction" class="enjoy-css" type="text" placeholder="Name Kreuz">
 						<input id="text-junctionNumber" name="text-junctionNumber" class="enjoy-css" type="text" placeholder="Kreuz Nummer">
 						<input id="text-lat" name="text-lat" class="enjoy-css" type="text" placeholder="LAT">
 						<input id="text-lon" name="text-lon" class="enjoy-css" type="text" placeholder="LON">
+					</div>
 				</div>
 				<div id="griddiv-submit" class="test">
 					<div id="buttondiv_rowstart" class="row">
