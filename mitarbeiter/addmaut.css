@@ -3,10 +3,7 @@ background-color: white;
 opacity: 0.8;
 border-radius: 20px;
 }
-#placeholder {
-padding-top: 20px;
-width: 100%;
-}
+
 #rowstart {
 padding-left: 15px;
 padding-right: 15px;
@@ -20,13 +17,3 @@ border-radius: 20px;
 width: 100%;
 margin-top: 25px;
 }
-#buttondiv_line {
-width: 100%;
-border-bottom: 1px solid black;
-}
-#buttondiv_rowend {
-padding-top:  2px;
-padding-bottom: 5px;
-width: 100%;
-}
-
