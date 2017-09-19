@@ -1,12 +1,16 @@
 ﻿<?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {											//if REQUEST_METHOD == GET
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {								//if REQUEST_METHOD == GET
+
+	include_once 'include/include_db.php';																				//include db.php
+	$query_getTollgate = "SELECT id,code,nameAutobahn,nameKreuz,kreuzNummer FROM mautstelle ORDER BY nameAutobahn ACS";					//SQL query getTollgate
+	$result_getTollgate = mysqli_query($conn,$query_getTollgate);												//execute query and save
+
 	echo "<table border='1'>
 	<tr>
 	<th>Code</th>
 	<th>Autobahn</th>
 	<th>Kreuz Name</th>
 	<th>Kreuz Nummer</th>
-	<th>Asfasd</th>
 	</tr>";
 
 	while($data = mysqli_fetch_array($result_getTollgate))							//fetch arry getTollgate
@@ -37,8 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//if REQUEST_METHOD == POS
 	<th>Kreuz Nummer</th>
 	</tr>";
 	
-	$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%' AND nameAutobahn LIKE '%$highwayName'";		//SQL query getTollgateInfo
-	$result_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);			//execute query and save
+	$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%' AND nameAutobahn LIKE '%$highwayName' ORDER BY nameAutobahn ACS";		//SQL query getTollgateInfo
+	$
+		
+	Info = mysqli_query($conn, $query_getTollgateInfo);			//execute query and save
 	
 	while($data = mysqli_fetch_array($result_getTollgateInfo)){						//fetch getTollgateInfo
 		echo "<tr class='userlistoutput'>";
