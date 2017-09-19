@@ -1,5 +1,5 @@
 <?php
- include_once 'include/db.php';
+ /*include_once 'include/db.php';
  $result = mysqli_query($conn,"SELECT id,code,nameAutobahn,nameKreuz,kreuzNummer FROM mautstelle");
  $result = utf8ize($result);
  
@@ -11,5 +11,5 @@
 	mysqli_query($conn,"UPDATE `mautstelle` SET `nameAutobahn` = '".$autobahn."' WHERE `mautstelle`.`code` = ".$data['code']);
  }
  
- 
+ */
 ?>

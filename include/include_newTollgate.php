@@ -1,5 +1,5 @@
 <?php
-	include_once 'include_db.php';
+	include_once 'include_db.php';														//create DB connection
 	
 	$code = $_POST["text-code"];
 	$namehighway = $_POST["text-namehighway"];
@@ -27,7 +27,7 @@
 	}
 	//End Check TollgateCode
 	if($checkTollgateCode == "TRUE"){
-		if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){
+		if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lat_insert)){				//check if coordiante is in correct format
 			$wrongLat = "FALSE";
 		}
 		else
@@ -37,7 +37,7 @@
 		}
 		
 		if($wrongLat == "FALSE"){
-			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){
+			if (preg_match("/^(\d{1,2})([.])(\d{1,10})$/", $lon_insert)){			//check if coordiante is in correct format
 				$wrongLon = "FALSE";
 			}
 			else
@@ -49,7 +49,7 @@
 			if($wrongLon == "FALSE"){
 			
 				$query_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
-				mysqli_query($conn,$query_sql_add);
+				mysqli_query($conn,$query_sql_add);									//add new Tollgate
 				echo "Mautstelle erfolgreich hinzugefügt";
 			}
 		}

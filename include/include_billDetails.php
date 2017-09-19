@@ -1,10 +1,10 @@
 ﻿<?php
-include 'include_db.php';
+include 'include_db.php';																								//create DB connection
 
-$bill_id = $_GET["id"];
+$bill_id = $_GET["id"];																									//get id from html
 $bill_id = mysqli_real_escape_string ($conn, $bill_id);
 
-
+																														//get some data from database that is needed in the Bill
 $query_getBillData = "SELECT kosten, streckeID FROM rechnung WHERE id = $bill_id";
 $billData = mysqli_query($conn, $query_getBillData);
 while ($data1 = mysqli_fetch_array($billData)){
