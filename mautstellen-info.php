@@ -1,8 +1,3 @@
-<?php
- include_once 'include/include_db.php';																				//include db.php
- $query_getTollgate = "SELECT id,code,nameAutobahn,nameKreuz,kreuzNummer FROM mautstelle";					//SQL query getTollgate
- $result_getTollgate = mysqli_query($conn,$query_getTollgate);												//execute query and save
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
