@@ -10,35 +10,35 @@
 	{
 		$plate = $_POST["text-plate-entry"];																								//get text-plate-entry and save in plate
 		$codeEntryTollgate = $_POST["text-CodeEntry"];																						//get text-codeEntry and save in codeEntryTollgate
-		$entryTime = $_POST["text-time-entry"];																							//get text-time-entry and save in time
+		$entryTime = $_POST["text-time-entry"];																								//get text-time-entry and save in time
+			
+		$entryTime = mysqli_real_escape_string($conn, $entryTime);																			//escape entryTime
+		$plate = mysqli_real_escape_string ($conn, $plate);																					//escape plate
+		$codeEntryTollgate = mysqli_real_escape_string ($conn, $codeEntryTollgate);															//escape code
 		
-		$entryTime = mysqli_real_escape_string($conn, $entryTime);
-		$plate = mysqli_real_escape_string ($conn, $plate);
-		$codeEntryTollgate = mysqli_real_escape_string ($conn, $codeEntryTollgate);
-		
-		$plateLength = strlen($plate); 
-		if($plateLength > 12){
+		$plateLength = strlen($plate); 																										//get plate length
+		if($plateLength > 12){																												//skip everything if plate is > 12 
 			echo "Kennzeichen ist zu lang";
 		}
-		if($plateLength <= 12){
-			$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";
+		if($plateLength <= 12){																												//do if plate is <= 12
+			$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";				//query get Plate
 			$result_getPlateFromRoute = mysqli_query($conn, $query_getPlateFromRoute);
-			$rows = mysqli_num_rows($result_getPlateFromRoute);
-			if ($rows == 0){
-				$plateCheck = "TRUE";
+			$rows = mysqli_num_rows($result_getPlateFromRoute);																				//get Rows from result
+			if ($rows == 0){																												//if rows == 0 this plate is not already on the road
+				$plateCheck = "TRUE";																										//check = True
 			}
-			if ($rows >= 1){
+			if ($rows >= 1){																												//if rows >= 1 this plate is already is on the road
 				echo "Kennzeichen ist bereits auf einer Autobahn";
-				$plateCheck = "FALSE";
+				$plateCheck = "FALSE";																										//check = FALSE
 			}
-			if($plateCheck == "TRUE"){
+			if($plateCheck == "TRUE"){																										// if plate is not on the road
 			
 				//Start Check db_tollgateCode
-				$query_getTollgateCode = "SELECT code FROM mautstelle";
+				$query_getTollgateCode = "SELECT code FROM mautstelle";																		//get code
 				$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
 				while ($data = mysqli_fetch_array($result_getTollgateCode)){
 					$db_tollgateCode = $data['code'];
-					if ($db_tollgateCode == $codeEntryTollgate){
+					if ($db_tollgateCode == $codeEntryTollgate){																			//check if Tollgate exists
 						$checkTollgateCode = "TRUE";
 						break 1;
 					}
@@ -48,19 +48,19 @@
 				}
 				//End Check db_tollgateCode
 				
-				if($checkTollgateCode == "TRUE"){
+				if($checkTollgateCode == "TRUE"){																							//if Tollgate exists do 
 					//Start Check Time
-					if (empty($entryTime)){
-						$entryTime = date("d.m.Y H:i:s");
+					if (empty($entryTime)){																									//check if time is empty
+						$entryTime = date("d.m.Y H:i:s");																					//if time is empty insert current time
 					}
 					else{
 						$entryTime = $entryTime;
 					}
-					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){	
+					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
 					}
 					else
 					{
-						$entryTime = date("d.m.Y H:i:s");
+						$entryTime = date("d.m.Y H:i:s");																					//if time format is not correct, replace with current time
 						echo "Falsche Zeitangabe - Zeitangabe wurde zu $entryTime geändert";
 					}
 					//End Check Time
@@ -87,7 +87,7 @@
 		}
 	}
 	//add new vehicle exit and update 
-	if ($action == "exit")
+	if ($action == "exit")																													//do if action = exit
 	{
 		$plate = $_POST["text-plate-exit"];
 		$code_exitTollgate = $_POST["text-CodeExit"];
@@ -149,7 +149,7 @@
 				$query_sqlExit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$db_exitTollgateId')";
 				mysqli_query($conn, $query_sqlExit);
 				
-				$exit_id = mysqli_insert_id ($conn);	//get ID from last INSERT
+				$exit_id = mysqli_insert_id ($conn);																						//get ID from last INSERT
 				
 				$query_sqlExitRoute = "UPDATE strecke SET faehrtAusID = '$exit_id' WHERE faehrtAusID IS NULL and kennzeichen = '$plate'";
 				mysqli_query($conn, $query_sqlExitRoute);
@@ -179,11 +179,11 @@
 				}
 			
 				//calculation
-				include_once 'include_calculation.php';
+				include_once 'include_calculation.php';																						//include price calculation
 
-					$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
+					$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");						//hand over coordiates to distance function
 					
-					$query_updateRoute = "UPDATE strecke SET kilometer = $distance WHERE faehrtEinID = $db_EntryId and faehrtAusID = $exit_id";
+					$query_updateRoute = "UPDATE strecke SET kilometer = $distance WHERE faehrtEinID = $db_EntryId and faehrtAusID = $exit_id";		//update strecke
 					mysqli_query($conn, $query_updateRoute);
 					
 				//add Rechnung
