@@ -1,7 +1,7 @@
 ﻿<?php
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {								//if REQUEST_METHOD == GET
 
-	include_once 'include/include_db.php';																				//include db.php
+	include_once 'include_db.php';																				//include db.php
 	$query_getTollgate = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)";					//SQL query getTollgate
 	$result_getTollgate = mysqli_query($conn,$query_getTollgate);												//execute query and save
 
@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {								//if REQUEST_METHOD == GET
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//if REQUEST_METHOD == POST
+	include_once 'include_db.php';	
 	$junctionName = $_POST["text-search-kreuz"];									//save text-search-kreuz in junctionName
 	$highwayName = $_POST["text-search-autobahn"];									//save text-search-autobahn in highwayName
 	
