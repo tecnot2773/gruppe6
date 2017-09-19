@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {											//if REQUEST_METHOD == GET
 	<th>Autobahn</th>
 	<th>Kreuz Name</th>
 	<th>Kreuz Nummer</th>
+	<th>Asfasd</th>
 	</tr>";
 
 	while($data = mysqli_fetch_array($result_getTollgate))							//fetch arry getTollgate
