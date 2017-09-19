@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//if REQUEST_METHOD == POS
 	
 	$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%' AND nameAutobahn LIKE '%$highwayName' ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)";		//SQL query getTollgateInfo
 	echo $query_getTollgateInfo;
+	echo $junctionName;
 	$result_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);			//execute query and save
 	
 	while($data = mysqli_fetch_array($result_getTollgateInfo)){						//fetch getTollgateInfo
