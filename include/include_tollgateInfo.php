@@ -33,20 +33,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//if REQUEST_METHOD == POS
 	
 	$junctionName = mysqli_real_escape_string ($conn, $junctionName);				//escape junctionName
 	$highwayName = mysqli_real_escape_string ($conn, $highwayName);					//escape highwayName
-	
-	echo "<table border='1'>
-	<tr>
-	<th>Code</th>
-	<th>Autobahn</th>
-	<th>Kreuz Name</th>
-	<th>Kreuz Nummer</th>
-	</tr>";
+
 	
 	$query_getTollgateInfo = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle WHERE nameKreuz Like '%$junctionName%' AND nameAutobahn LIKE '%$highwayName' ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)";		//SQL query getTollgateInfo
 	$result_getTollgateInfo = mysqli_query($conn, $query_getTollgateInfo);			//execute query and save
 	
 	$rows = mysqli_num_rows($result_getTollgateInfo);
 	if ($rows > 0){
+		echo "<table border='1'>
+		<tr>
+		<th>Code</th>
+		<th>Autobahn</th>
+		<th>Kreuz Name</th>
+		<th>Kreuz Nummer</th>
+		</tr>";
 	
 		while($data = mysqli_fetch_array($result_getTollgateInfo)){						//fetch getTollgateInfo
 			echo "<tr class='userlistoutput'>";
