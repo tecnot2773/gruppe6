@@ -39,7 +39,7 @@ while($data1 = mysqli_fetch_array($result_getBill)){																		//fetch ge
 					$result_getHighwaynameExit = mysqli_query($conn, $query_get_HighwaynameExit);
 					while ($data6= mysqli_fetch_array($result_getHighwaynameExit)){
 					
-					echo "<tr class='userlistoutput'>";
+					echo "<tr class='userlistoutput'>";																		//html chart with output
 					echo "<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>";
 					
 					echo "<td width='45px'>" . $data2['kennzeichen'] . "</td>";

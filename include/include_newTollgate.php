@@ -17,7 +17,7 @@
 	//Start Check TollgateCode
 	$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code";
 	$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-	$rows = mysqli_num_rows($result_getTollgateCode);
+	$rows = mysqli_num_rows($result_getTollgateCode);								//get rows from prvious sql query, if rows = 0 the code is not used
 	if ($rows == 0){
 		$checkTollgateCode = "TRUE";
 	}

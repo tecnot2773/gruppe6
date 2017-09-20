@@ -1,5 +1,5 @@
 ﻿<?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {								//if REQUEST_METHOD == GET
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {																		//if REQUEST_METHOD == GET
 
 	include_once 'include_db.php';																				//include db.php
 	$query_getTollgate = "SELECT code, nameAutobahn, nameKreuz, kreuzNummer FROM mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)";					//SQL query getTollgate
