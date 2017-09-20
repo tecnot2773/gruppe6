@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//if REQUEST_METHOD == POS
 			echo "<td width='120px'>" . $data['kreuzNummer'] . "</td>";					//echo kreuzNummer
 			echo "</tr>";
 		}
+		echo "</table>";
 	}
-	echo "</table>";
 	else{
 		echo "Die Suche hat keine Ergebnisse ergeben.";
 	}
