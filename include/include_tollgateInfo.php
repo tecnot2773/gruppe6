@@ -48,18 +48,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//if REQUEST_METHOD == POS
 	$rows = mysqli_num_rows($result_getTollgateInfo);
 	if ($rows > 0){
 	
-	while($data = mysqli_fetch_array($result_getTollgateInfo)){						//fetch getTollgateInfo
-		echo "<tr class='userlistoutput'>";
-		echo "<td width='120px'>" . $data['code'] . "</td>";						//echo code
-		echo "<td width='120px'>" . $data['nameAutobahn'] . "</td>";				//echo nameAutobahn
-		echo "<td width='120px'>" . $data['nameKreuz'] . "</td>";					//echo nameKreuz
-		echo "<td width='120px'>" . $data['kreuzNummer'] . "</td>";					//echo kreuzNummer
-		echo "</tr>";
+		while($data = mysqli_fetch_array($result_getTollgateInfo)){						//fetch getTollgateInfo
+			echo "<tr class='userlistoutput'>";
+			echo "<td width='120px'>" . $data['code'] . "</td>";						//echo code
+			echo "<td width='120px'>" . $data['nameAutobahn'] . "</td>";				//echo nameAutobahn
+			echo "<td width='120px'>" . $data['nameKreuz'] . "</td>";					//echo nameKreuz
+			echo "<td width='120px'>" . $data['kreuzNummer'] . "</td>";					//echo kreuzNummer
+			echo "</tr>";
+		}
 	}
-}
-echo "</table>";
-}
-else{
-	echo "Die Suche hat keine Ergebnisse ergeben.";
+	echo "</table>";
+	else{
+		echo "Die Suche hat keine Ergebnisse ergeben.";
+	}
 }
 ?>
