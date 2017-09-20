@@ -187,12 +187,12 @@
 					mysqli_query($conn, $query_updateRoute);
 					
 				//add Rechnung
-				$query_getCost = "SELECT db_costs FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
+				$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
 				$db_costs = mysqli_fetch_assoc(mysqli_query($conn, $query_getCost))['db_costs'];
 				$query_getRouteId = "SELECT id FROM strecke WHERE faehrtEinID = $db_EntryId and faehrtAusID = $exit_id and kennzeichen = '$plate'";
 				$db_routeId = mysqli_fetch_assoc(mysqli_query($conn, $query_getRouteId))['id'];
 				
-				$query_insertBill = "INSERT INTO rechnung (db_costs, streckeID) VALUES ('$db_costs', '$db_routeId')";
+				$query_insertBill = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$db_costs', '$db_routeId')";
 				mysqli_query($conn, $query_insertBill);
 				echo "Neue Ausfahrt verbucht und Rechnung erstellt";
 			}
