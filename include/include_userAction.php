@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//Check if REQUEST_METHOD 
 	}
 	if($checkTollgateCode == "FALSE"){												//if checktollgateCode == FALSE 
 		echo "MautstellenCode ist nicht in der Datenbank";							//echo error message
+		echo "<br> <br>";
 	}
 }
 else	
