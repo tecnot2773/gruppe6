@@ -50,7 +50,7 @@
 			
 				$query_sql_add = "INSERT INTO mautstelle (code, nameAutobahn, nameKreuz, kreuzNummer, lat, lon) VALUES ('$code', '$namehighway', '$namejunction', '$junctionNumber', '$lat_insert', '$lon_insert')";
 				mysqli_query($conn,$query_sql_add);									//add new Tollgate
-				echo "Mautstelle erfolgreich hinzugefügt";
+				echo "Mautstelle erfolgreich hinzugefÃ¼gt";
 			}
 		}
 	}
