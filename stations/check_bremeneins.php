@@ -12,11 +12,8 @@
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	
 	
-	print_r($songs);
-	echo "<br>";
-	echo "<br>";
 	for ($i = 0; $i <= 4; $i++) {
-		echo($songs[$i]);
+		echo($songs[0][$i]);
 		echo "<br>";
 	}
 	die();
