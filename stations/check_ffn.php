@@ -30,5 +30,6 @@
 		$time = time();
 		include_once "plays.php";
 		echo "done ffn";
+		echo "<br>";
 	}
 ?>
