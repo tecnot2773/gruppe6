@@ -3,11 +3,13 @@ include_once 'db.php';
 
 $songname = $_GET["songname"];
 $timestamp = $_GET["time"];
-$station = $_GET["stationID"];
+$stationname = $_GET["station"];
 
 $currentMonth = date("Y-m");
 $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
+
+$station = mysqli_query($conn, "SELECT id FROM stations WHERE name = '$staion'");
 
 $query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
 $result_getSongId = mysqli_query($conn, query_getSongId);
