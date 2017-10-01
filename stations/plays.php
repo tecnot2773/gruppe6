@@ -24,6 +24,7 @@ if ($rows_getSongid == 0){
 else{
 	while($data = mysqli_fetch_array($result_getSongId)){
 		$db_songId = $data['id'];
+		echo $db_songId;
 	}
 }
 
