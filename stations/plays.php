@@ -27,13 +27,13 @@ else{
 	}
 }
 echo "test567";
-/*if (empty($timestamp)){
+if (empty($timestamp)){
 	echo "test345";
 	$timestamp = date("Y-m-d H:i:s");
 	echo "test123";
 }
-*/
-echo $station;
+
+//echo $station;
 echo $db_songId;
 echo $timestamp;
 $query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$timestamp')";
