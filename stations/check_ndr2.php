@@ -25,7 +25,7 @@
 	
 	$http_content = file_get_contents("https://www.ndr.de/ndr2/programm/titelliste1202.html");
 	preg_match('/<span class="title">(.*)/', $http_content, $songs);
-	preg_match('/<span class="artist">(.*)/', $http_content, $artists);
+	preg_match('/<span class="artist">(.{1,30})/', $http_content, $artists);
 	
 	$artistName = strtolower(strip_tags($artists[0]));
 	$artistname = mysqli_real_escape_string($conn, $artistName);
