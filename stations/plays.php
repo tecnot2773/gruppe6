@@ -77,10 +77,10 @@ $save_mostPlaysDuring = 0;
 WHILE($runs > 0){
 	$runs = $runs - 1;
 	if($runs >= 10){
-	$day = $currentMonth . "-" . $runs;
+	$day = $currentDay . " :" . $runs;
 	}
 	else{
-		$day = $currentMonth . "-0" . $runs;
+		$day = $currentDay . " :0" . $runs;
 	}
 	echo $day;
 	$query_mostPlaysDuring = "	SELECT COUNT(`songId`)
