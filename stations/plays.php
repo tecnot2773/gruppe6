@@ -8,6 +8,7 @@ $stationname = $_GET["station"];
 $currentMonth = date("Y-m");
 $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
+echo $currentHour;
 $currentSeconds = date("Y-m-d H:i:s");
 
 $getstation = mysqli_query($conn, "SELECT id FROM station WHERE name = '$stationname'");
