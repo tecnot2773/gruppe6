@@ -19,7 +19,7 @@
 	  character_set_server = 'utf8'";
 	$conn->query($strQuery);  
 
-	include_once "check_ffn.php"
-	include_once "check_ndr2.php"
-	include_once "check_njoy.php"
+	include_once "check_ffn.php";
+	include_once "check_ndr2.php";
+	include_once "check_njoy.php";
 ?> 
