@@ -10,7 +10,7 @@ $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
 $currentSeconds = date("Y-m-d H:i:s");
 
-$station = mysqli_query($conn, "SELECT id FROM stations WHERE name = '$stationname'");
+$station = mysqli_query($conn, "SELECT id FROM station WHERE name = '$stationname'");
 
 $query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
 $result_getSongId = mysqli_query($conn, $query_getSongId);
