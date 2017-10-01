@@ -34,11 +34,12 @@
 	$query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$timestamp')";
 	mysqli_query($conn, $query_insertPlays);
 
-	$query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%'";
+	$query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%' AND songId = '$db_songId'";
 	$result_checkPlaysHour = mysqli_query($conn, $query_checkPlaysHour);
 	$playsHourRows = mysqli_num_rows($result_checkPlaysHour);
 
-	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentDay%'";
+	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentDay%' AND songId = '$db_songId'";
+	echo $query_checkPlaysDay
 	$result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 	$playsDayRows = mysqli_num_rows($result_checkPlaysDay);
 
