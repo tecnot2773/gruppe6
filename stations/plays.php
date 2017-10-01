@@ -5,6 +5,7 @@ $songname = $_GET["songname"];
 $timestamp = $_GET["time"];
 $station = $_GET["stationID"];
 
+$currentMonth = date("Y-m");
 $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
 
@@ -55,5 +56,26 @@ $query_getPlaysDAY = "	SELECT `songId`,
 $mostPlaysDAY = mysqli_query($conn, $query_getPlaysDAY);
 mysqli_query($conn,"UPDATE station SET mostPlayedSong = '$mostPlaysDAY' WHERE id = '$station'");
 
+$runs = "24";
 
+WHILE($runs > 0){
+	$runs = $runs - 1;
+	if($runs >= 10){
+	$day = $currentMonth . "-" . $runs;
+	}
+	else{
+		$day = $currentMonth . "-0" . $runs;
+	}
+	$query_mostPlaysDuring = "	SELECT COUNT(`songId`)
+								FROM `plays`
+								WHERE `stationId` = '$station' AND timestamp LIKE '$day%'";
+	$mostPlaysDuring = mysqli_query($conn, $query_mostPlaysDuring);
+	if($mostPlaysDuring > $save_mostPlaysDuring){
+		$save_mostPlaysDuring = $mostPlaysDuring;
+		$saveTime = $runs;
+	}
+
+}
+$asd = "$saveTime und ++$saveTime Uhr"
+mysqli_query($conn, "UPDATE station SET mostPlaysDuring = '$asd' WHERE id = '$station'");
 ?>
