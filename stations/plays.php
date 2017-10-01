@@ -2,7 +2,7 @@
 include_once 'db.php';
 
 $songname = $_GET["songname"];
-$timestamp = $_GET["time"];
+$time = $_GET["time"];
 $stationname = $_GET["station"];
 
 $currentMonth = date("Y-m");
@@ -31,6 +31,7 @@ else{
 		$db_songId = $data['id'];
 	}
 }
+$timestamp = date("Y-m-d H:i:s", $time);
 if (empty($timestamp)){
 	$timestamp = date("Y-m-d H:i:s");
 }
