@@ -32,14 +32,14 @@
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	if(mysqli_num_rows($result_getSongId) >= 0){ //Grösser oder gleich? Sicher?
 		while ($data = mysqli_fetch_array($result_getSongId)){
-			$db_songId = $data['id'];
+			$db_currentSongId = $data['id'];
 		}
-		$query_getLastSong = "SELECT FROM plays WHERE stationId = $station and songId = $db_songId";
+		$query_getLastSong = "SELECT FROM plays WHERE stationId = $station and songId = $db_currentSongId";
 		$result_getLastSong = mysqli_query($conn, $query_getLastSong);
 		while ($data = mysqli_fetch_array($result_getLastSong)){
-			$db_songId2 = $data['id'];
+			$db_lastSongId = $data['id'];
 		}
-		if($db_songId == $db_songId2){
+		if($db_currentSongId == $db_lastSongId){
 			$time = time();
 			fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r");
 		}
