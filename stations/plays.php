@@ -38,7 +38,6 @@ mysqli_query($conn, $query_insertPlays);
 $query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%'";
 $result_checkPlaysHour = mysqli_query($conn, $query_checkPlaysHour);
 $playsHourRows = mysqli_num_rows($result_checkPlaysHour);
-echo $playsHourRows;
 
 $query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentDay%'";
 $result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
@@ -47,7 +46,6 @@ $playsDayRows = mysqli_num_rows($result_checkPlaysDay);
 $dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'");
 $dailystatsRows = mysqli_num_rows($dailystatsExists);
 if($dailystatsRows == 0){
-	echo $currentSeconds;
 	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");
 }
 
@@ -88,6 +86,7 @@ WHILE($runs > 0){
 	while($data = mysqli_fetch_array($getMostPlaysDuring)){
 		$mostPlaysDuring = $data['COUNT(`songId`)'];
 	}
+	echo $mostPlaysDuring;
 	if($mostPlaysDuring > $save_mostPlaysDuring){
 		$save_mostPlaysDuring = $mostPlaysDuring;
 		$saveTime = $runs;
@@ -95,5 +94,6 @@ WHILE($runs > 0){
 
 }
 $asd = "$saveTime und ++$saveTime Uhr";
+echo $asd;
 mysqli_query($conn, "UPDATE dailyStats SET mostPlaysDuring = '$asd' WHERE stationId = '$station'");
 ?>
