@@ -1,4 +1,5 @@
 <?php
+
 	$station = 1;
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
@@ -29,4 +30,5 @@
 		$time = time();
 		include_once "plays.php";
 	}
+	echo "done ffn";
 ?>
