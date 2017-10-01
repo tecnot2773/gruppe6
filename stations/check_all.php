@@ -24,4 +24,5 @@
 	include_once "check_ndr2.php";
 	include_once "check_njoy.php";
 	include_once "check_bremennext.php";
+	include_once "check_1live.php";
 ?> 
