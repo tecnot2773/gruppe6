@@ -19,12 +19,11 @@
 	  character_set_server = 'utf8'";
 	$conn->query($strQuery);  
 	
-	
 	$station = 1;
 	
 	$http_content = file_get_contents("https://www.ffn.de/musik/playlist/");
 	preg_match('/<p class="title">(.*)/', $http_content, $songs);
-	preg_match('/<p class="title">(.*)/', $http_content, $artists);
+	echo(strtolower(strip_tags($songs[0])));
 	$songName = ($songs[0]);
 	echo "<br>";
 	echo($artists[0]);
@@ -45,5 +44,4 @@
 			fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r");
 		}
 	}
-	
 ?>
