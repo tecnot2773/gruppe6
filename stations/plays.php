@@ -85,6 +85,6 @@ WHILE($runs > 0){
 	}
 
 }
-$asd = "$saveTime und ++$saveTime Uhr"
+$asd = "$saveTime und ++$saveTime Uhr";
 mysqli_query($conn, "UPDATE dailyStats SET mostPlaysDuring = '$asd' WHERE stationId = '$station'");
 ?>
