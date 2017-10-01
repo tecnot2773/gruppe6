@@ -29,7 +29,7 @@
 	
 	
 	$songName = strtolower(strip_tags($songs[0]));
-	$songname = mysqli_real_escape_string($conn, $songname);
+	$songName = mysqli_real_escape_string($conn, $songName);
 
 	$query_getSongId = "SELECT id FROM song WHERE name = '$songName'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
@@ -45,7 +45,6 @@
 	}
 	if($db_currentSongId == $db_lastSongId){
 		$time = time();
-		//fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r")
 		$songname = $songName;
 		include_once "plays.php";
 		}
