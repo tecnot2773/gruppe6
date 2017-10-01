@@ -1,7 +1,7 @@
 <?php
 	$station = 1;
 	$db_currentSongId = 0;
-	$db_lastSongId = 0;
+	$db_lastSongId = 1;
 	
 	$http_content = file_get_contents("https://www.ffn.de/musik/playlist/");
 	preg_match('/<p class="title">(.*)/', $http_content, $songs);
@@ -25,7 +25,7 @@
 			$db_lastSongId = $data['songId'];
 		}
 	}
-	if($db_currentSongId != $db_lastSongId){
+	if($db_currentSongId == $db_lastSongId){
 		$time = time();
 		echo "123";
 		include_once "plays.php";
