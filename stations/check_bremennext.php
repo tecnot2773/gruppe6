@@ -9,9 +9,12 @@
 	$artistName = (explode(": ",$songs[1])[0]); //Artist
 	$songName  = (explode(": ",$songs[1])[1]); //Songname
 	
+	$artistName = strtolower(strip_tags($artistName));
 	$artistname = mysqli_real_escape_string($conn, $artistName);
 	
+	$songName = strtolower(strip_tags($songName));
 	$songname = mysqli_real_escape_string($conn, $songName);
+	
 	$query_getSongId = "SELECT id FROM song WHERE name = '$songName'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	if(mysqli_num_rows($result_getSongId) >= 1){ 
