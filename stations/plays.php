@@ -19,12 +19,10 @@ if ($rows_getSongid == 0){
 	$query_insertSong = "INSERT INTO song (name) VALUES ('$songname')";
 	mysqli_query($conn, $query_insertSong);
 	$db_songId = mysqli_query($conn, $query_getSongId);
-	echo "ok";
 }
 else{
 	while($data = mysqli_fetch_array($result_getSongId)){
 		$db_songId = $data['id'];
-		echo $db_songId;
 	}
 }
 
@@ -46,7 +44,7 @@ $query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AN
 $result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 $playsDayRows = mysqli_num_rows($result_checkPlaysDay);
 
-$dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = $station and timestamp LIKE $currentDay%");
+$dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'");
 $dailystatsRows = mysqli_num_rows($dailystatsExists);
 if($dailystatsRows == 0){
 	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp) VALUES ('$station', '$currentSeconds'");
