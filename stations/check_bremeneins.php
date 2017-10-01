@@ -1,6 +1,6 @@
 <?php
 
-	$station = 5;
+	$station = 6;
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
 	$date = date(Y-m-d);
@@ -8,8 +8,15 @@
 	$minute = date (i);
 	$http_content = file_get_contents("http://www.radiobremen.de/bremeneins/musik/titelsuche/?wrapurl=%2Fbremeneins%2Fmusik%2Ftitelsuche%2F&selectdate=". $date. "&stunde=" . $hour . "&minute=" . $minute);
 	echo "http://www.radiobremen.de/bremeneins/musik/titelsuche/?wrapurl=%2Fbremeneins%2Fmusik%2Ftitelsuche%2F&selectdate=". $date. "&stunde=" . $hour . "&minute=" . $minute;
-	preg_match('/top44_table_zelle right bottom">(.+?)(?=<)/', $http_content, $songs);
+	preg_match('/<td style=\"vertical-align:top\;\">(.*)<\/td>\s*\<\/tr\>/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
+	
+	
+	for ($i = 1; $i <= 4; $i++) {
+		echo(songs[i]);
+		echo "<br>";
+	}
+	die();
 	
 	$artistName = strtolower(strip_tags($artists[1]));
 	$artistname = mysqli_real_escape_string($conn, $artistName);
