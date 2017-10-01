@@ -46,6 +46,6 @@
 		$time = time();
 		//fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r")
 		$songname = $songName;
-		include_once "plays.php"
+		include_once "plays.php";
 		}
 ?>
