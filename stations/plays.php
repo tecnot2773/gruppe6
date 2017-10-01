@@ -8,7 +8,6 @@ $stationname = $_GET["station"];
 $currentMonth = date("Y-m");
 $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
-echo $currentHour;
 $currentSeconds = date("Y-m-d H:i:s");
 
 $getstation = mysqli_query($conn, "SELECT id FROM station WHERE name = '$stationname'");
@@ -31,7 +30,6 @@ else{
 }
 if (empty($timestamp)){
 	$timestamp = date("Y-m-d H:i:s");
-	echo "23";
 }
 
 $query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$timestamp')";
@@ -50,7 +48,7 @@ $dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationI
 $dailystatsRows = mysqli_num_rows($dailystatsExists);
 if($dailystatsRows == 0){
 	echo $currentSeconds;
-	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp) VALUES ('$station', '$currentSeconds')");
+	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");
 }
 
 if($playsHourRows >= 1){
