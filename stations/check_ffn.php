@@ -44,6 +44,8 @@
 	}
 	if($db_currentSongId == $db_lastSongId){
 		$time = time();
-		fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r");
-	}
+		//fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r")
+		$songname = $songName;
+		include_once "plays.php"
+		}
 ?>
