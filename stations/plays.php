@@ -4,6 +4,7 @@ include_once 'db.php';
 $songname = $_GET["songname"];
 $timestamp = $_GET["time"];
 $stationname = $_GET["station"];
+echo $timestamp;
 
 $currentMonth = date("Y-m");
 $currentDay = date("Y-m-d");
