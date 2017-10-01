@@ -10,11 +10,11 @@
 	$currentHour = date("Y-m-d H");
 	$currentSeconds = date("Y-m-d H:i:s");
 
-	$query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
+	$query_getSongId = "SELECT id FROM song WHERE name = '$songname' AND artist = '$artistname'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	$rows_getSongid = mysqli_num_rows($result_getSongId);
 	if ($rows_getSongid == 0){
-		$query_insertSong = "INSERT INTO song (name) VALUES ('$songname')";
+		$query_insertSong = "INSERT INTO song (name, artist) VALUES ('$songname', '$artistname)";
 		mysqli_query($conn, $query_insertSong);
 		$get_songId = mysqli_query($conn, $query_getSongId);
 		while($data = mysqli_fetch_array($get_songId)){
