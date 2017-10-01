@@ -27,6 +27,9 @@ else{
 	$time = date("Y-m-d H:i:s", $timestamp);
 }
 
+$query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$time')";
+mysqli_query($conn, $query_insertPlays);
+
 $query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%'";
 $result_checkPlaysHour = mysqli_query($conn, $query_checkPlaysHour);
 $playsHourRows = mysqli_num_rows($result_checkPlaysHour);
@@ -41,9 +44,6 @@ if($playsHourRows >= 1){
 elseif($playsDayRows >= 1){
 	mysqli_query($conn, "UPDATE station SET replaysPerDay = '$newReplaysPerDay' WHERE id = '$station'");
 }
-
-$query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$time')";
-mysqli_query($conn, $query_insertPlays);
 
 $query_getPlaysDAY = "	SELECT `songId`,
 						COUNT(`songId`) AS `value_occurrence` 
