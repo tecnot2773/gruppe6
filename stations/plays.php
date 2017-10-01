@@ -8,8 +8,9 @@ $stationname = $_GET["station"];
 $currentMonth = date("Y-m");
 $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
+$currentSeconds = date("Y-m-d H:i:s");
 
-$station = mysqli_query($conn, "SELECT id FROM stations WHERE name = '$staion'");
+$station = mysqli_query($conn, "SELECT id FROM stations WHERE name = '$station'");
 
 $query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
 $result_getSongId = mysqli_query($conn, query_getSongId);
@@ -41,11 +42,16 @@ $query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AN
 $result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 $playsDayRows = mysqli_num_rows($result_checkPlaysDay);
 
+$dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = $station and timestamp LIKE $currentDay%");
+if(mysqli_num_rows($dailystatsExists) = 0){
+	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp) VALUES ('$station', '$currentSeconds');
+}
+
 if($playsHourRows >= 1){
-	mysqli_query($conn, "UPDATE station SET replaysPerDay = '$newReplaysPerDay', replaysPerHour = '$newReplaysPerHour' WHERE id = '$station'");
+	mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = '$newReplaysPerDay', replaysPerHour = '$newReplaysPerHour' WHERE stationId = '$station'");
 }
 elseif($playsDayRows >= 1){
-	mysqli_query($conn, "UPDATE station SET replaysPerDay = '$newReplaysPerDay' WHERE id = '$station'");
+	mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = '$newReplaysPerDay' WHERE stationId = '$station'");
 }
 
 $query_getPlaysDAY = "	SELECT `songId`,
@@ -56,7 +62,7 @@ $query_getPlaysDAY = "	SELECT `songId`,
 						ORDER BY `value_occurrence` DESC
 						LIMIT    1";
 $mostPlaysDAY = mysqli_query($conn, $query_getPlaysDAY);
-mysqli_query($conn,"UPDATE station SET mostPlayedSong = '$mostPlaysDAY' WHERE id = '$station'");
+mysqli_query($conn,"UPDATE dailyStats SET mostPlayedSong = '$mostPlaysDAY' WHERE stationId = '$station'");
 
 $runs = "24";
 
@@ -79,5 +85,5 @@ WHILE($runs > 0){
 
 }
 $asd = "$saveTime und ++$saveTime Uhr"
-mysqli_query($conn, "UPDATE station SET mostPlaysDuring = '$asd' WHERE id = '$station'");
+mysqli_query($conn, "UPDATE dailyStats SET mostPlaysDuring = '$asd' WHERE stationId = '$station'");
 ?>
