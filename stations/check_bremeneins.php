@@ -13,9 +13,12 @@
 	
 	
 	for ($i = 0; $i <= 4; $i++) {
-		echo($songs[0][$i]);
-		echo "<br>";
+		if(strlen($songs[0][$i] > 1)
+		{
+			$lastIDinArray=$i;
+		}
 	}
+	echo($songs[0][$lastIDinArray]);
 	die();
 	
 	$artistName = strtolower(strip_tags($artists[1]));
