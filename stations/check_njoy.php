@@ -4,7 +4,7 @@
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
 	
-	$http_content = file_get_contents("https://www.ndr.de/ndr2/programm/titelliste1202.html");
+	$http_content = file_get_contents("https://www.n-joy.de/musik/titelliste/index.html");
 	preg_match('/<span class="title">(.+?)(?=<)/', $http_content, $songs);
 	preg_match('/<span class="artist">(.+?)(?=<)/', $http_content, $artists);
 	

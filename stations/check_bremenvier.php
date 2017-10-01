@@ -4,7 +4,7 @@
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
 	
-	$http_content = file_get_contents("https://www.ndr.de/ndr2/programm/titelliste1202.html");
+	$http_content = file_get_contents("http://www.radiobremen.de/bremenvier/musik/titelsuche/index.html");
 	preg_match('/top44_table_zelle right bottom">(.+?)(?=<)/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	
