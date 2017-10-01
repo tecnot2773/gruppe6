@@ -25,10 +25,11 @@ else{
 		$db_songId = $data['id'];
 		echo $db_songId;
 	}
-	echo "test123";
 }
 if (empty($timestamp)){
+	echo "test345";
 	$timestamp = date("Y-m-d H:i:s");
+	echo "test123";
 }
 echo $station;
 echo $db_songId;
