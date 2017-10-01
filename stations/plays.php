@@ -50,7 +50,6 @@ if($dailystatsRows == 0){
 }
 
 if($playsHourRows >= 1){
-	SELECT 
 	mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = replaysPerDay + 1, replaysPerHour = replaysPerHour +1 WHERE stationId = '$station'");
 }
 elseif($playsDayRows >= 1){
