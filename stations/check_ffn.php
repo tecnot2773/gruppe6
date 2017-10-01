@@ -49,6 +49,4 @@
 		$time = time();
 		include_once "plays.php";
 	}
-	echo $songname;
-	echo $artistname;
 ?>
