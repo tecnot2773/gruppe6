@@ -5,7 +5,7 @@
 	$db_lastSongId = 0;
 	
 	$http_content = file_get_contents("http://www.radiobremen.de/bremennext/titelsuche/titelsuche120.html");
-	preg_match('/<span class="tracktime">(.*)<\/span>(.*)\s*<\/strong>/', $http_content, $songs);
+	preg_match('/<span class="tracktime">.*<\/span>(.*)\s*<\/strong>/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	echo($songs[0]);
 	
