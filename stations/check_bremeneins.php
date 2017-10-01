@@ -9,7 +9,7 @@
 	$http_content = file_get_contents("http://www.radiobremen.de/bremeneins/musik/titelsuche/?wrapurl=%2Fbremeneins%2Fmusik%2Ftitelsuche%2F&selectdate=". $date. "&stunde=" . $hour . "&minute=" . $minute);
 
 	preg_match_all('/<td style=\"vertical-align:top\;\">(.*)<\/td>\s*\<\/tr\>/', $http_content, $songs);
-	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
+	preg_match_all('/<td style=\"vertical-align:top\;\">(.*)<\/td>\s*<td/', $http_content, $artists);
 	
 	
 	for ($i = 0; $i <= 4; $i++) {
@@ -20,7 +20,9 @@
 			$lastIDinArray=$i;
 		}
 	}
-	echo($songs[0][$lastIDinArray]);
+	echo(strtolower(strip_tags($songs[0][$lastIDinArray])));//SONGNAME
+	echo "<br>";
+	echo(strtolower(strip_tags($artists[0][$lastIDinArray]))); //ARTIST
 	die();
 	
 	$artistName = strtolower(strip_tags($artists[1]));
