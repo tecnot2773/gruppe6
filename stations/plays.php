@@ -63,7 +63,10 @@ $query_getPlaysDAY = "	SELECT `songId`,
 						GROUP BY `songId`
 						ORDER BY `value_occurrence` DESC
 						LIMIT    1";
-$mostPlaysDAY = mysqli_query($conn, $query_getPlaysDAY);
+$getmostPlaysDAY = mysqli_query($conn, $query_getPlaysDAY);
+while($data = mysqli_fetch_array($getmostPlaysDAY)){
+	$mostPlaysDAY = $data['songId'];
+}
 mysqli_query($conn,"UPDATE dailyStats SET mostPlayedSong = '$mostPlaysDAY' WHERE stationId = '$station'");
 
 $runs = "24";
