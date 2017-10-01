@@ -9,8 +9,6 @@
 	preg_match('/<h6 class="artist"(.+?)(?=<)/', $http_content, $artists);
 	
 	$artistName = strtolower(strip_tags($artists[0]));
-	echo $artists[0];
-	echo $artists[1];
 	$artistname = mysqli_real_escape_string($conn, $artistName);
 	
 	$songName = strtolower(strip_tags($songs[0]));
