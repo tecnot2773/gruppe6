@@ -30,13 +30,13 @@
 	
 	$songName = strtolower(strip_tags($songs[0]));
 
-	$query_getSongId = "SELECT id FROM song WHERE name = $songName";
+	$query_getSongId = "SELECT id FROM song WHERE name = '$songName'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	if(mysqli_num_rows($result_getSongId) >= 1){ 
 		while ($data = mysqli_fetch_array($result_getSongId)){
 			$db_currentSongId = $data['id'];
 		}
-		$query_getLastSong = "SELECT FROM plays WHERE stationId = $station and songId = $db_currentSongId";
+		$query_getLastSong = "SELECT FROM plays WHERE stationId = '$station' and songId = '$db_currentSongId'";
 		$result_getLastSong = mysqli_query($conn, $query_getLastSong);
 		while ($data = mysqli_fetch_array($result_getLastSong)){
 			$db_lastSongId = $data['id'];
