@@ -82,6 +82,7 @@ WHILE($runs > 0){
 	else{
 		$day = $currentMonth . "-0" . $runs;
 	}
+	echo $day "<br>";
 	$query_mostPlaysDuring = "	SELECT COUNT(`songId`)
 								FROM `plays`
 								WHERE `stationId` = '$station' AND timestamp LIKE '$day%'";
@@ -89,7 +90,6 @@ WHILE($runs > 0){
 	while($data = mysqli_fetch_array($getMostPlaysDuring)){
 		$mostPlaysDuring = $data['COUNT(`songId`)'];
 	}
-	echo $mostPlaysDuring;
 	if($mostPlaysDuring > $save_mostPlaysDuring){
 		$save_mostPlaysDuring = $mostPlaysDuring;
 		$saveTime = $runs;
