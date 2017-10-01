@@ -25,7 +25,7 @@
 			$db_lastSongId = $data['songId'];
 		}
 	}
-	if($db_currentSongId == $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0)){
+	if($db_currentSongId == $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 		$time = time();
 		echo "123";
 		include_once "plays.php";
