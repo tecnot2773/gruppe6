@@ -13,7 +13,7 @@
 	
 	
 	for ($i = 0; $i <= 4; $i++) {
-		if(strlen($songs[0][$i]) > 1)
+		if(strlen($songs[0][$i]) > 2)
 		{
 			$lastIDinArray=$i;
 		}
