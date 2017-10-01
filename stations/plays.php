@@ -43,7 +43,8 @@ $result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 $playsDayRows = mysqli_num_rows($result_checkPlaysDay);
 
 $dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = $station and timestamp LIKE $currentDay%");
-if(mysqli_num_rows($dailystatsExists) = 0){
+$dailystatsRows = mysqli_num_rows($dailystatsExists);
+if($dailystatsRows= 0){
 	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp) VALUES ('$station', '$currentSeconds')";
 }
 
