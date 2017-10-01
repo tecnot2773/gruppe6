@@ -2,7 +2,7 @@
 	
 	$station = 3;
 	$db_currentSongId = 0;
-	$db_lastSongId = 0;
+	$db_lastSongId = 1;
 	
 	$http_content = file_get_contents("https://www.ndr.de/ndr2/programm/titelliste1202.html");
 	preg_match('/<span class="title">(.+?)(?=<)/', $http_content, $songs);
