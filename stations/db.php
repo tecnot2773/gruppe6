@@ -1,7 +1,7 @@
  <?php
 
 	$servername = "localhost";														//server name
-	$username = "stationssql";															//login name
+	$username = "stationssql";														//login name
 	$password = "veve113ppe";														//login password
 
 	// Create connection
