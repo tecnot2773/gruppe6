@@ -39,7 +39,6 @@
 	$playsHourRows = mysqli_num_rows($result_checkPlaysHour);
 
 	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentDay%' AND songId = '$db_songId'";
-	echo $query_checkPlaysDay;
 	$result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 	$playsDayRows = mysqli_num_rows($result_checkPlaysDay);
 
