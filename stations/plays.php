@@ -35,6 +35,7 @@
 	mysqli_query($conn, $query_insertPlays);
 
 	$query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%' AND songId = '$db_songId'";
+	echo $query_checkPlaysHour;
 	$result_checkPlaysHour = mysqli_query($conn, $query_checkPlaysHour);
 	$playsHourRows = mysqli_num_rows($result_checkPlaysHour);
 
