@@ -20,16 +20,12 @@
 		}
 	}
 	
-	echo(strtolower(strip_tags($songs[0][$lastIDinArray])));//SONGNAME
-	echo "<br>";
-	echo(strtolower(strip_tags($artists[0][$lastIDinArray]))); //ARTIST
-	die();
+	$songName = (strtolower(strip_tags($songs[0][$lastIDinArray])));//SONGNAME
+	$artistName = (strtolower(strip_tags($artists[0][$lastIDinArray]))); //ARTIST
 	
-	$artistName = strtolower(strip_tags($artists[1]));
 	$artistname = mysqli_real_escape_string($conn, $artistName);
-	
-	$songName = strtolower(strip_tags($songs[1]));
 	$songname = mysqli_real_escape_string($conn, $songName);
+	
 	$query_getSongId = "SELECT id FROM song WHERE name = '$songName'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	if(mysqli_num_rows($result_getSongId) >= 1){ 
@@ -45,7 +41,7 @@
 	if($db_currentSongId =! $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 		$time = time();
 		include "plays.php";
-		echo "done bremenvier";
+		echo "done bremeneins";
 		echo "<br>";
 	}
 ?>

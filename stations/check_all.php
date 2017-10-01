@@ -26,4 +26,5 @@
 	include_once "check_bremennext.php";
 	include_once "check_1live.php";
 	include_once "check_wdr2.php";
+	include_once "check_bremeneins.php";
 ?> 
