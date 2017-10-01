@@ -31,6 +31,7 @@ else{
 }
 if (empty($timestamp)){
 	$timestamp = date("Y-m-d H:i:s");
+	echo "23";
 }
 
 $query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$timestamp')";
