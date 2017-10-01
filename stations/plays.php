@@ -27,10 +27,7 @@ else{
 }
 
 if (empty($timestamp)){
-	$time = date("Y-m-d H:i:s");
-}
-else{
-	$time = $timestamp;
+	$timestamp = date("Y-m-d H:i:s");
 }
 echo $station;
 echo $db_songId;
