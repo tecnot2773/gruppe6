@@ -34,6 +34,7 @@ else{
 }
 
 $query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$time')";
+echo $query_insertPlays;
 mysqli_query($conn, $query_insertPlays);
 
 $query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%'";
