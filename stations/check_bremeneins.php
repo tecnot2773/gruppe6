@@ -8,7 +8,7 @@
 	$minute = date ("i");
 	$http_content = file_get_contents("http://www.radiobremen.de/bremeneins/musik/titelsuche/?wrapurl=%2Fbremeneins%2Fmusik%2Ftitelsuche%2F&selectdate=". $date. "&stunde=" . $hour . "&minute=" . $minute);
 
-	preg_match('/<td style=\"vertical-align:top\;\">(.*)<\/td>\s*\<\/tr\>/g', $http_content, $songs);
+	preg_match_all('/<td style=\"vertical-align:top\;\">(.*)<\/td>\s*\<\/tr\>/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	
 	
