@@ -11,7 +11,7 @@
 	preg_match('/<td style=\"vertical-align:top\;\">(.*)<\/td>\s*\<\/tr\>/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	
-	
+	echo "<br>;
 	for ($i = 1; $i <= 4; $i++) {
 		echo($songs[$i]);
 		echo "<br>";
