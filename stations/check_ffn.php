@@ -27,6 +27,7 @@
 	}
 	if($db_currentSongId != $db_lastSongId){
 		$time = time();
+		echo "123";
 		include_once "plays.php";
 	}
 ?>
