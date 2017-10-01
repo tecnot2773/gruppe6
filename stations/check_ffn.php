@@ -30,7 +30,7 @@
 
 	$query_getSongId = "SELECT id FROM song WHERE name = $songName";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
-	if(mysqli_num_rows($result_getSongId) >= 0){ //Grösser oder gleich? Sicher?
+	if(mysqli_num_rows($result_getSongId) >= 1){ 
 		while ($data = mysqli_fetch_array($result_getSongId)){
 			$db_currentSongId = $data['id'];
 		}
@@ -39,9 +39,9 @@
 		while ($data = mysqli_fetch_array($result_getLastSong)){
 			$db_lastSongId = $data['id'];
 		}
-		if($db_currentSongId == $db_lastSongId){
-			$time = time();
-			fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r");
-		}
+	}
+	if($db_currentSongId == $db_lastSongId){
+		$time = time();
+		fopen("https://gruppe6.torutec.eu/stations/plays.php?songname=" . $songName . "&station=" . $station . "&time=" . $time, "r");
 	}
 ?>
