@@ -13,9 +13,10 @@
 	
 	
 	for ($i = 0; $i <= 4; $i++) {
-		if(strlen($songs[0][$i]) != "")
+		$loopSong = strtolower(strip_tags($songs[0][$i]));
+		if(strlen($loopSong) > 1)
 		{
-			echo($songs[0][$i]."<br>");
+			echo($loopSong."<br>");
 			$lastIDinArray=$i;
 		}
 	}
