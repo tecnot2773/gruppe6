@@ -16,10 +16,10 @@
 		$loopSong = strtolower(strip_tags($songs[0][$i]));
 		if(strlen($loopSong) > 4)
 		{
-			echo(strlen($loopSong).$loopSong."<br>");
 			$lastIDinArray=$i;
 		}
 	}
+	
 	echo(strtolower(strip_tags($songs[0][$lastIDinArray])));//SONGNAME
 	echo "<br>";
 	echo(strtolower(strip_tags($artists[0][$lastIDinArray]))); //ARTIST
