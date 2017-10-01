@@ -8,10 +8,10 @@
 	preg_match('/<span class="title">(.+?)(?=<)/', $http_content, $songs);
 	preg_match('/<span class="artist">(.+?)(?=<)/', $http_content, $artists);
 	
-	$artistName = strtolower(strip_tags($artists[0]));
+	$artistName = strtolower(strip_tags($artists[1]));
 	$artistname = mysqli_real_escape_string($conn, $artistName);
 	
-	$songName = strtolower(strip_tags($songs[0]));
+	$songName = strtolower(strip_tags($songs[1]));
 	$songname = mysqli_real_escape_string($conn, $songName);
 
 	$query_getSongId = "SELECT id FROM song WHERE name = '$songName'";
