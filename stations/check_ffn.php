@@ -23,10 +23,11 @@
 	
 	$http_content = file_get_contents("https://www.ffn.de/musik/playlist/");
 	preg_match('/<p class="title">(.*)/', $http_content, $songs);
-	echo(strtolower(strip_tags($songs[0])));
-	$songName = ($songs[0]);
-	echo "<br>";
-	echo($artists[0]);
+
+	
+	
+	$songName = strtolower(strip_tags($songs[0]));
+
 	$query_getSongId = "SELECT id FROM song WHERE name = $songName";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	$rows_getSongId = mysqli_num_rows($result_getSongId);
