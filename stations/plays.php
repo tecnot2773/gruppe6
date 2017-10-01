@@ -11,7 +11,10 @@ $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
 $currentSeconds = date("Y-m-d H:i:s");
 
-$station = mysqli_query($conn, "SELECT id FROM station WHERE name = '$stationname'");
+$getstation = mysqli_query($conn, "SELECT id FROM station WHERE name = '$stationname'");
+while($data = mysqli_fetch_array($getstation)){
+	$station = $data['id'];
+}
 
 $query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
 $result_getSongId = mysqli_query($conn, $query_getSongId);
@@ -26,11 +29,8 @@ else{
 		$db_songId = $data['id'];
 	}
 }
-echo "test567";
 if (empty($timestamp)){
-	echo "test345";
 	$timestamp = date("Y-m-d H:i:s");
-	echo "test123";
 }
 
 //echo $station;
