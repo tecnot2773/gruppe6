@@ -2,7 +2,7 @@
 
 	$station = 2;
 	$db_currentSongId = 0;
-	$db_lastSongId = 1;
+	$db_lastSongId = 0;
 	
 	$http_content = file_get_contents("http://www.radiobremen.de/bremenvier/musik/titelsuche/index.html");
 	preg_match('/top44_table_zelle right bottom">(.+?)(?=<)/', $http_content, $songs);
@@ -26,7 +26,7 @@
 			$db_lastSongId = $data['songId'];
 		}
 	}
-	if($db_currentSongId == $db_lastSongId){
+	if($db_currentSongId =! $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 		$time = time();
 		include_once "plays.php";
 	}
