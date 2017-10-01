@@ -10,10 +10,10 @@ $currentDay = date("Y-m-d");
 $currentHour = date("Y-m-d H");
 $currentSeconds = date("Y-m-d H:i:s");
 
-$station = mysqli_query($conn, "SELECT id FROM stations WHERE name = '$station'");
+$station = mysqli_query($conn, "SELECT id FROM stations WHERE name = '$stationname'");
 
 $query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
-$result_getSongId = mysqli_query($conn, query_getSongId);
+$result_getSongId = mysqli_query($conn, $query_getSongId);
 if (empty($result_getSongId)){
 	$query_insertSong = "INSERT INTO song (name) VALUES ('$songname')";
 	$db_songId = mysqli_insert_id($conn);
@@ -28,7 +28,7 @@ if (empty($timestamp)){
 	$time = date("Y-m-d H:i:s");
 }
 else{
-	$time = date("Y-m-d H:i:s", $timestamp);
+	$time = $timestamp;
 }
 
 $query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$time')";
