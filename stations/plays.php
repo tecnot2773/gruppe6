@@ -17,6 +17,7 @@ $result_getSongId = mysqli_query($conn, $query_getSongId);
 $rows_getSongid = mysqli_num_rows($result_getSongId);
 if ($rows_getSongid == 0){
 	$query_insertSong = "INSERT INTO song (name) VALUES ('$songname')";
+	mysqli_query($conn, $query_insertSong);
 	$db_songId = mysqli_query($conn, $query_getSongId);
 	echo "ok";
 }
