@@ -70,7 +70,7 @@ while($data = mysqli_fetch_array($getmostPlaysDAY)){
 mysqli_query($conn,"UPDATE dailyStats SET mostPlayedSong = '$mostPlaysDAY' WHERE stationId = '$station'");
 
 $runs = "24";
-
+$save_mostPlaysDuring = 0;
 WHILE($runs > 0){
 	$runs = $runs - 1;
 	if($runs >= 10){
