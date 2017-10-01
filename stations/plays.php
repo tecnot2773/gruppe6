@@ -47,7 +47,7 @@ $dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationI
 $dailystatsRows = mysqli_num_rows($dailystatsExists);
 if($dailystatsRows == 0){
 	echo $currentSeconds;
-	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp) VALUES ('$station', '$currentSeconds'");
+	mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp) VALUES ('$station', '$currentSeconds')";
 }
 
 if($playsHourRows >= 1){
