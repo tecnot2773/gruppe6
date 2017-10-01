@@ -48,5 +48,7 @@
 	if($db_currentSongId == $db_lastSongId){
 		$time = time();
 		include_once "plays.php";
-		}
+	}
+	echo $songname;
+	echo $artistname;
 ?>
