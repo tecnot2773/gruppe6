@@ -31,8 +31,8 @@ if (empty($timestamp)){
 }
 echo $station;
 echo $db_songId;
-echo $time;
-$query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$time')";
+echo $timestamp;
+$query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$timestamp')";
 echo $query_insertPlays;
 mysqli_query($conn, $query_insertPlays);
 
