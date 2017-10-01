@@ -7,11 +7,11 @@
 	$http_content = file_get_contents("http://www.radiobremen.de/bremennext/titelsuche/titelsuche120.html");
 	preg_match('/\<span class=\"tracktime\"\>.*\<\/span\>(.*)\s*\<\/strong\>/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
-	echo(explode(": ",$songs[1])[0]);
+	echo(explode(": ",$songs[1])[0]); //Artist
 	echo "<br>";
-	echo(explode(": ",$songs[1])[1]);
+	echo(explode(": ",$songs[1])[1]); //Songname
 	
-	die();
+	die(); //abbruch
 	$artistName = strtolower(strip_tags($artists[1]));
 	$artistname = mysqli_real_escape_string($conn, $artistName);
 	
