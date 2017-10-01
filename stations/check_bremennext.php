@@ -8,6 +8,7 @@
 	preg_match('/\<span class=\"tracktime\"\>.*\<\/span\>(.*)\s*\<\/strong\>/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	echo(explode(": ",$songs[1])[0]);
+	echo "<br>";
 	echo(explode(": ",$songs[1])[1]);
 	
 	die();
