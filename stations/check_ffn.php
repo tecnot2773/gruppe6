@@ -4,8 +4,8 @@
 	$db_lastSongId = 0;
 	
 	$http_content = file_get_contents("https://www.ffn.de/musik/playlist/");
-	preg_match('/<p class="title">(.*)/', $http_content, $songs);
-	preg_match('/<h6 class="artist"(.*)/', $http_content, $artists);
+	preg_match('/<p class="title">(.+?)(?=<)/', $http_content, $songs);
+	preg_match('/<h6 class="artist"(.+?)(?=<)/', $http_content, $artists);
 	
 	$artistName = strtolower(strip_tags($artists[0]));
 	$artistname = mysqli_real_escape_string($conn, $artistName);
@@ -27,7 +27,6 @@
 	}
 	if($db_currentSongId =! $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 		$time = time();
-		echo "123";
 		include_once "plays.php";
 	}
 ?>
