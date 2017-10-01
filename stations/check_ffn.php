@@ -29,6 +29,7 @@
 	
 	
 	$songName = strtolower(strip_tags($songs[0]));
+	$songname = mysqli_real_escape_string($conn, $songname);
 
 	$query_getSongId = "SELECT id FROM song WHERE name = '$songName'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
