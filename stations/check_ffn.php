@@ -30,8 +30,7 @@
 
 	$query_getSongId = "SELECT id FROM song WHERE name = $songName";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
-	$rows_getSongId = mysqli_num_rows($result_getSongId);
-	if($rows_getSongId >= 0){
+	if(mysqli_num_rows($result_getSongId) >= 0){ //Grösser oder gleich? Sicher?
 		while ($data = mysqli_fetch_array($result_getSongId)){
 			$db_songId = $data['id'];
 		}
