@@ -29,6 +29,6 @@
 	if($db_currentSongId =! $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 		$time = time();
 		include_once "plays.php";
+		echo "done ffn";
 	}
-	echo "done ffn";
 ?>
