@@ -82,7 +82,6 @@ WHILE($runs > 0){
 	else{
 		$day = $currentDay . " 0" . $runs;
 	}
-	echo $day;
 	$query_mostPlaysDuring = "	SELECT COUNT(`songId`)
 								FROM `plays`
 								WHERE `stationId` = '$station' AND timestamp LIKE '$day%'";
