@@ -27,11 +27,12 @@ else{
 	}
 }
 echo "test567";
-if (empty($timestamp)){
+/*if (empty($timestamp)){
 	echo "test345";
 	$timestamp = date("Y-m-d H:i:s");
 	echo "test123";
 }
+*/
 echo $station;
 echo $db_songId;
 echo $timestamp;
