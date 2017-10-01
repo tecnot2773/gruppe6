@@ -15,7 +15,7 @@
 	for ($i = 0; $i <= 4; $i++) {
 		if(strlen($songs[0][$i]) > 1)
 		{
-			echo("yes<br>");
+			echo(strlen($songs[0][$i])."<br>");
 			$lastIDinArray=$i;
 		}
 	}
