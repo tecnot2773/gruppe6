@@ -49,7 +49,7 @@
 			$replays = $data['value_occurrence'];
 			$replaysPerHour = $replays + $replays;
 		}
-		mysqli_query($conn, "UPDATE hourlyStats SET replaysPerHour = '$replaysPerHour' WHERE stationId = '$station'");									//replaysPerHour+1
+		mysqli_query($conn, "UPDATE hourlyStats SET replaysPerHour = '$replaysPerHour' WHERE stationId = '$station' AND timestamp LIKE '$currentHour%'");									//replaysPerHour+1
 	}
 	//Daily Stats
 	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%' AND songId = '$db_songId'";		//Check if Current song was played during current Day
@@ -89,7 +89,7 @@
 			$replaysPerDay = $replays + $replays;
 		}
 		
-		$query_updatehourlyStats = "UPDATE dailyStats SET replaysPerDay = $replaysPerDay, replaysPerHour = $calc_replays WHERE stationId = '$station'";
+		$query_updatehourlyStats = "UPDATE dailyStats SET replaysPerDay = $replaysPerDay, replaysPerHour = $calc_replays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'";
 		echo $calc_replays;
 		echo $rows_getHourlyStats;
 		mysqli_query($conn, $query_updatehourlyStats);
