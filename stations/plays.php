@@ -34,7 +34,7 @@
 	$hourlystatsRows = mysqli_num_rows($hourlyStatsExists);
 	echo $hourlystatsRows;
 	if($hourlystatsRows == 0){
-		mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0')");
+		mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");
 	}
 
 	if($playsHourRows >= 1){
