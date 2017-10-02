@@ -46,7 +46,7 @@
 		$result_getReplaysHour = mysqli_query($conn, $query_getReplaysHour);
 		while($data = mysqli_fetch_array($result_getReplaysHour)){
 			$replays = $data['value_occurrence'];
-			$replaysPerHour = $replays + $replays;
+			$replaysPerHour = $replaysPerHour + $replays;
 		}
 		mysqli_query($conn, "UPDATE hourlyStats SET replaysPerHour = '$replaysPerHour' WHERE stationId = '$station' AND timestamp LIKE '$currentHour%'");									//replaysPerHour+1
 	}
@@ -86,7 +86,7 @@
 		$result_getReplaysDay = mysqli_query($conn, $query_getReplaysDay);
 		while($data = mysqli_fetch_array($result_getReplaysDay)){
 			$replays = $data['value_occurrence'];
-			$replaysPerDay = $replays + $replays;
+			$replaysPerDay = $replaysPerDay + $replays;
 		}
 		
 		$query_updatehourlyStats = "UPDATE dailyStats SET replaysPerDay = $replaysPerDay, replaysPerHour = $calc_replays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'";
