@@ -12,7 +12,7 @@
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1])));
 	echo $songname;
 	echo $artistname;
-	$query_getSongId = "SELECT id FROM song WHERE name = `$songname`";
+	$query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	if(mysqli_num_rows($result_getSongId) >= 1){ 
 		while ($data = mysqli_fetch_array($result_getSongId)){
