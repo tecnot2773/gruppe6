@@ -32,7 +32,7 @@
 		while ($data = mysqli_fetch_array($result_getSongId)){
 			$db_currentSongId = $data['id'];
 		}
-		$query_getLastSong = "SELECT songId FROM plays WHERE `stationId` = '$station' ORDER BY `timestamp` LIMIT 1";
+		$query_getLastSong = "SELECT songId FROM plays WHERE `stationId` = '$station' ORDER BY `timestamp` DESC LIMIT 1";
 		$result_getLastSong = mysqli_query($conn, $query_getLastSong);
 		while ($data = mysqli_fetch_array($result_getLastSong)){
 			$db_lastSongId = $data['songId'];

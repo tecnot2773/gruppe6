@@ -1,10 +1,5 @@
 <?php
-	/*include_once 'db.php';
 
-	$songname = $_GET["songname"];
-	$time = $_GET["time"];
-	$station = $_GET["station"];
-	*/
 	$currentMonth = date("Y-m");
 	$currentDay = date("Y-m-d");
 	$currentHour = date("Y-m-d H");
