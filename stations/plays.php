@@ -65,7 +65,9 @@
 		}
 		$calc_replays = $calc_replays / $rows_getHourlyStats;																							//calculate average
 		$calc_replays = round($calc_replays, 2);
-		mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = replaysPerDay + 1, SET replaysPerHour = $calc_replays WHERE stationId = '$station'");
+		$query_updatehourlyStats = "UPDATE dailyStats SET replaysPerDay = replaysPerDay + 1, SET replaysPerHour = $calc_replays WHERE stationId = '$station'";
+		echo $query_updatehourlyStats;
+		mysqli_query($conn, $query_updatehourlyStats);
 	}
 
 	$query_getPlaysDAY = "	SELECT `songId`,
