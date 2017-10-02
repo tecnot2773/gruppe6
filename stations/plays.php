@@ -84,7 +84,6 @@
 							WHERE `stationId`= '1' AND timestamp LIKE '$currentDay%'
 							GROUP BY `songId`
 							HAVING `value_occurrence` > 1";
-		echo $query_getReplaysDay . "<br>";
 		$result_getReplaysDay = mysqli_query($conn, $query_getReplaysDay);
 		while($data = mysqli_fetch_array($result_getReplaysDay)){
 			$replays = $data['value_occurrence'];
@@ -92,7 +91,6 @@
 		}
 		
 		$query_updatehourlyStats = "UPDATE dailyStats SET replaysPerDay = $replaysPerDay, replaysPerHour = $calc_replays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'";
-		echo $query_updatehourlyStats;
 		mysqli_query($conn, $query_updatehourlyStats);
 	}
 
