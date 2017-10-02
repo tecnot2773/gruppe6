@@ -26,7 +26,7 @@
 		$timestamp = date("Y-m-d H:i:s");
 	}
 	//Hourly Stats
-	$query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%' AND songId = '$db_songId'";		//Check if Current song was played during current hour
+	$query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '$currentHour%' AND songId = '$db_songId'";		//Check if Current song was played during current hour
 	$result_checkPlaysHour = mysqli_query($conn, $query_checkPlaysHour);
 	$playsHourRows = mysqli_num_rows($result_checkPlaysHour);																							//Get Rows																	
 	
@@ -40,7 +40,7 @@
 		mysqli_query($conn, "UPDATE hourlyStats SET replaysPerHour = replaysPerHour +1 WHERE stationId = '$station'");									//replaysPerHour+1
 	}
 	//Daily Stats
-	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentDay%' AND songId = '$db_songId'";		//Check if Current song was played during current Day
+	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%' AND songId = '$db_songId'";		//Check if Current song was played during current Day
 	$result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 	$playsDayRows = mysqli_num_rows($result_checkPlaysDay);																								//Get Rows
 	//Insert current play
