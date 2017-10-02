@@ -30,4 +30,8 @@
 		echo "done bremenext";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei bremennext";
+		echo "<br>";
+	}
 ?>
