@@ -14,12 +14,12 @@
 	if(preg_match('/\w+(.+?)(?=&)(.+?)(?<=;)/', $artistname)){
 		$pattern = '/\w+(.+?)(?=&)(.+?)(?<=;)/';
 		$replacement = '${2}&';
-		preg_replace($pattern, $replacement, $artistname);
+		$artistname= preg_replace($pattern, $replacement, $artistname);
 	}
 	if(preg_match('/\w+(.+?)(?=&)(.+?)(?<=;)/', $songname)){
 		$pattern = '/\w+(.+?)(?=&)(.+?)(?<=;)/';
 		$replacement = '${2}&';
-		preg_replace($pattern, $replacement, $songname);
+		$songname = preg_replace($pattern, $replacement, $songname);
 	}
 	
 	$query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
