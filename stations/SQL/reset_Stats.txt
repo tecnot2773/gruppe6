@@ -1,3 +1,5 @@
 DELETE FROM `dailyStats`;
 ALTER TABLE `dailyStats` AUTO_INCREMENT = 1;
+DELETE FROM `hourlyStats`;
+ALTER TABLE `hourlyStats` AUTO_INCREMENT = 1;
 DELETE FROM `plays`;
