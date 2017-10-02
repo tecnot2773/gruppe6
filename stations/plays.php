@@ -63,6 +63,7 @@
 			$calc_replays = $calc_replays + $db_replaysPerHour;																							//add
 		}
 		$calc_replays = $calc_replays / $rows_getHourlyStats;																							//calculate average
+		$calc_replays = round($calc_replays, 2);
 		mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = replaysPerDay + 1, SET replaysPerHour = $calc_replays WHERE stationId = '$station'");
 	}
 
