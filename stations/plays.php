@@ -55,7 +55,7 @@
 	
 	
 	if($playsDayRows >= 1){																																//if current song was played during current Day
-		$query_getHourlyStats = "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%";					//get replaysperhour from hourlystats
+		$query_getHourlyStats = "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'";					//get replaysperhour from hourlystats
 		echo $query_getHourlyStats;
 		$result_getHourlyStats = mysqli_query($conn, $query_getHourlyStats);
 		$rows_getHourlyStats = mysqli_num_rows($result_getHourlyStats);
