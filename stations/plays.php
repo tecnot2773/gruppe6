@@ -43,6 +43,7 @@
 							WHERE `stationId`= '1' AND timestamp LIKE '$currentHour%'
 							GROUP BY `songId`
 							HAVING `value_occurrence` > 1";
+		echo $query_getReplaysHour;
 		$result_getReplaysHour = mysqli_query($conn, $query_getReplaysHour);
 		while($data = mysqli_fetch_array($result_getReplaysHour)){
 			$replays = $data['value_occurrence'];
