@@ -36,7 +36,7 @@
 		mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");	//Insert new hourlystats with current timestamp
 	}
 
-	if($playsHourRows >= 1)																																//if current song was played this hour
+	if($playsHourRows >= 1){																															//if current song was played this hour
 		$query_getReplaysHour = "SELECT `songId`,
 							COUNT(`songId`) AS `value_occurrence` 
 							FROM `plays`
