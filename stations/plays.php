@@ -37,6 +37,7 @@
 	}
 
 	if($playsHourRows >= 1){																															//if current song was played this hour
+		$replaysPerHour = 0;
 		$query_getReplaysHour = "SELECT `songId`,
 							COUNT(`songId`) AS `value_occurrence` 
 							FROM `plays`
@@ -67,6 +68,7 @@
 	
 	if($playsDayRows >= 1){																																//if current song was played during current Day
 		$calc_replays = 0;
+		$replaysPerDay = 0;
 		$query_getHourlyStats = "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'";					//get replaysperhour from hourlystats
 		$result_getHourlyStats = mysqli_query($conn, $query_getHourlyStats);
 		$rows_getHourlyStats = mysqli_num_rows($result_getHourlyStats);
