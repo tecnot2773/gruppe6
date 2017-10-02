@@ -28,4 +28,8 @@
 		echo "done ffn $songname";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei ffn";
+		echo "<br>";
+	}
 ?>

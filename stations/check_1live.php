@@ -40,4 +40,8 @@
 		echo "done 1live";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei 1Live";
+		echo "<br>";
+	}
 ?>

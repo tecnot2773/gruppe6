@@ -29,4 +29,8 @@
 		echo "done bremenvier";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei bremenvier";
+		echo "<br>";
+	}
 ?>

@@ -29,4 +29,8 @@
 		echo "done wdr2";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei wdr2";
+		echo "<br>";
+	}
 ?>

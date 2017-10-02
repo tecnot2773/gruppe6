@@ -29,4 +29,8 @@
 		echo "done ndr2";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei ndr2";
+		echo "<br>";
+	}
 ?>

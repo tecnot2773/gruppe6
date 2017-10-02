@@ -44,4 +44,8 @@
 		echo "done bremeneins";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei bremen eins";
+		echo "<br>";
+	}
 ?>

@@ -29,4 +29,8 @@
 		echo "done njoy";
 		echo "<br>";
 	}
+	else{
+		echo "Kein neuer Song bei njoy";
+		echo "<br>";
+	}
 ?>
