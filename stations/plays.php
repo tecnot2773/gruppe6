@@ -32,7 +32,6 @@
 	
 	$hourlyStatsExists = mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'");
 	$hourlystatsRows = mysqli_num_rows($hourlyStatsExists);
-	echo $hourlystatsRows;
 	if($hourlystatsRows == 0){
 		mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");
 	}
