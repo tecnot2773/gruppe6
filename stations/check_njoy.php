@@ -23,6 +23,9 @@
 			$db_lastSongId = $data['songId'];
 		}
 	}
+	echo("Current song: ".$db_currentSongId);
+	echo("Last song: ".$db_lastSongId);
+	echo("Count: ".mysqli_num_rows($result_getSongId));
 	if($db_currentSongId != $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 		$time = time();
 		include "plays.php";
