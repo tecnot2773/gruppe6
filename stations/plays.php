@@ -25,11 +25,21 @@
 	if (empty($timestamp)){
 		$timestamp = date("Y-m-d H:i:s");
 	}
-
+	//Hourly Stats
 	$query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentHour%' AND songId = '$db_songId'";
 	$result_checkPlaysHour = mysqli_query($conn, $query_checkPlaysHour);
 	$playsHourRows = mysqli_num_rows($result_checkPlaysHour);
+	
+	$hourlyStatsExists = mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'");
+	$hourlystatsRows = mysqli_num_rows($hourlyStatsExists);
+	if($hourlystatsRows == 0){
+		mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0')");
+	}
 
+	if($playsHourRows >= 1){
+		mysqli_query($conn, "UPDATE hourlyStats SET replaysPerHour = replaysPerHour +1 WHERE stationId = '$station'");
+	}
+	//Daily Stats
 	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '%$currentDay%' AND songId = '$db_songId'";
 	$result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 	$playsDayRows = mysqli_num_rows($result_checkPlaysDay);
@@ -37,17 +47,23 @@
 	$query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$timestamp')";
 	mysqli_query($conn, $query_insertPlays);
 
-	$dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'");
+	$dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'");
 	$dailystatsRows = mysqli_num_rows($dailystatsExists);
 	if($dailystatsRows == 0){
 		mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");
 	}
-
-	if($playsHourRows >= 1){
-		mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = replaysPerDay + 1, replaysPerHour = replaysPerHour +1 WHERE stationId = '$station'");
-	}
-	elseif($playsDayRows >= 1){
-		mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = replaysPerDay + 1 WHERE stationId = '$station'");
+	
+	
+	if($playsDayRows >= 1){
+		$query_getHourlyStats = "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%";
+		$result_getHourlyStats = mysqli_query($conn, $query_getHourlyStats);
+		$rows_getHourlyStats = mysqli_num_rows($result_getHourlyStats);
+		while($data = mysqli_fetch_array($result_getHourlyStats)){
+			$db_replaysPerHour = $data['replaysPerHour'];
+			$calc_replays = $calc_replays + $db_replaysPerHour;
+		}
+		$calc_replays = $calc_replays / $rows_getHourlyStats;
+		mysqli_query($conn, "UPDATE dailyStats SET replaysPerDay = replaysPerDay + 1, SET replaysPerHour = $calc_replays WHERE stationId = '$station'");
 	}
 
 	$query_getPlaysDAY = "	SELECT `songId`,
