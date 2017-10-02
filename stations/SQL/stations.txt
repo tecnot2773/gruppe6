@@ -1,0 +1,12 @@
+DELETE FROM `station` WHERE `id` BETWEEN 1 AND 100;
+ALTER TABLE `station` AUTO_INCREMENT = 1;
+INSERT INTO `station` (name) VALUES
+('ffn'),
+('bremen vier'),
+('ndr2'),
+('n-joy'),
+('bremen eins'),
+('bremen next'),
+('1live'),
+('wdr 2'),
+('ndr 1');

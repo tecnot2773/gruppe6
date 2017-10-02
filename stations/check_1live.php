@@ -1,6 +1,6 @@
 <?php
 
-	$station = 8;
+	$station = 7;
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
 	
