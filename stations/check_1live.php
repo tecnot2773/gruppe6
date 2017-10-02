@@ -11,13 +11,13 @@
 	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1])));
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1])));
 
-	if(preg_match('/\w+(.+?)(?=&)(.+?)(?<=;)/', $artistname)){
-		$pattern = '/\w+(.+?)(?=&)(.+?)(?<=;)/';
+	if(preg_match('/\w+(.+?)(?=&)(.+?)(?<=;).+/', $artistname)){
+		$pattern = '/\w+(.+?)(?=&)(.+?)(?<=;).+/';
 		$replacement = '${2}&';
 		$artistname= preg_replace($pattern, $replacement, $artistname);
 	}
-	if(preg_match('/\w+(.+?)(?=&)(.+?)(?<=;)/', $songname)){
-		$pattern = '/\w+(.+?)(?=&)(.+?)(?<=;)/';
+	if(preg_match('/\w+(.+?)(?=&)(.+?)(?<=;).+/', $songname)){
+		$pattern = '/\w+(.+?)(?=&)(.+?)(?<=;).+/';
 		$replacement = '${2}&';
 		$songname = preg_replace($pattern, $replacement, $songname);
 	}
