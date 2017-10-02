@@ -11,17 +11,27 @@
 	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1])));
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1])));
 
-	if(preg_match('/(?=&)(.+?)(?<=;)/', $artistname)){
-		$pattern = '/(?=&)(.+?)(?<=;)/';
+	if(preg_match('/(?=&amp)(.+?)(?<=;)/', $artistname)){
+		$pattern = '/(?=&amp)(.+?)(?<=;)/';
 		$replacement = '&';
 		$artistname = preg_replace($pattern, $replacement, $artistname);
 	}
-	if(preg_match('/(?=&)(.+?)(?<=;)/', $songname)){
-		$pattern = '/(?=&)(.+?)(?<=;)/';
+	if(preg_match('/(?=&amp)(.+?)(?<=;)/', $songname)){
+		$pattern = '/(?=&amp)(.+?)(?<=;)/';
 		$replacement = '&';
 		$songname = preg_replace($pattern, $replacement, $songname);
 	}
-	
+	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $artistname)){
+		$pattern = '/(?=&#039)(.+?)(?<=;)/';
+		$replacement = "'";
+		$artistname = preg_replace($pattern, $replacement, $artistname);
+	}
+	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $songname)){
+		$pattern = '/(?=&#039)(.+?)(?<=;)/';
+		$replacement = "'";
+		$songname = preg_replace($pattern, $replacement, $songname);
+	}
+echo $songname;
 	$query_getSongId = "SELECT id FROM song WHERE name = '$songname'";
 	$result_getSongId = mysqli_query($conn, $query_getSongId);
 	if(mysqli_num_rows($result_getSongId) >= 1){ 
