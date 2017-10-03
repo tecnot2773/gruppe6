@@ -41,13 +41,13 @@
 		$query_getReplaysHour = "SELECT `songId`,
 							COUNT(`songId`) AS `value_occurrence` 
 							FROM `plays`
-							WHERE `stationId`= '1' AND timestamp LIKE '$currentHour%'
+							WHERE `stationId`= '$station' AND timestamp LIKE '$currentHour%'
 							GROUP BY `songId`
 							HAVING `value_occurrence` > 1";
 		$result_getReplaysHour = mysqli_query($conn, $query_getReplaysHour);
 		while($data = mysqli_fetch_array($result_getReplaysHour)){
 			$replays = $data['value_occurrence'];
-			$replaysPerHour = $replaysPerHour + $replays;
+			$replaysPerHour = $replaysPerHour + ($replays - 1);
 		}
 		mysqli_query($conn, "UPDATE hourlyStats SET replaysPerHour = '$replaysPerHour' WHERE stationId = '$station' AND timestamp LIKE '$currentHour%'");									//replaysPerHour+1
 	}
@@ -81,13 +81,13 @@
 		$query_getReplaysDay = "SELECT `songId`,
 							COUNT(`songId`) AS `value_occurrence` 
 							FROM `plays`
-							WHERE `stationId`= '1' AND timestamp LIKE '$currentDay%'
+							WHERE `stationId`= '$station' AND timestamp LIKE '$currentDay%'
 							GROUP BY `songId`
 							HAVING `value_occurrence` > 1";
 		$result_getReplaysDay = mysqli_query($conn, $query_getReplaysDay);
 		while($data = mysqli_fetch_array($result_getReplaysDay)){
 			$replays = $data['value_occurrence'];
-			$replaysPerDay = $replaysPerDay + $replays;
+			$replaysPerDay = $replaysPerDay + ($replays - 1);
 		}
 		
 		$query_updatehourlyStats = "UPDATE dailyStats SET replaysPerDay = $replaysPerDay, replaysPerHour = $calc_replays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'";
