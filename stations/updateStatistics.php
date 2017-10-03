@@ -78,6 +78,7 @@
 		$save_mostPlaysDuring = 0;
 		$calc_mostPlaysDuring = 0;
 		$saveTime = "";
+		$mostPlaysDuring = 0;
 		WHILE($runs > 0){
 			$runs = $runs - 1;
 			if($runs >= 10){																											//if runs >= 10
