@@ -31,7 +31,6 @@
 		$replacement = "`";
 		$songname = preg_replace($pattern, $replacement, $songname);
 	}
-	echo $artistname . $songname;
 	if(empty($artistname) OR empty($songname)){
 		die();
 	}else{
