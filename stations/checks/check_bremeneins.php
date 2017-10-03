@@ -26,7 +26,7 @@
 	$artistname = mysqli_real_escape_string($conn, $artistName);
 	$songname = mysqli_real_escape_string($conn, $songName);
 	if(empty($artistname) OR empty($songname)){
-		die();
+		
 	}else{
 		$query_getSongId = "SELECT id FROM song WHERE name = '$songname' AND artist = '$artistname'";
 		$result_getSongId = mysqli_query($conn, $query_getSongId);

@@ -1,7 +1,6 @@
 <?php
 	include_once "db.php";
 	for($i = 1; $i <= 9; $i++){
-		echo $i;
 		$station = $i;
 		
 		$currentMonth = date("Y-m");																												//get current Year, Month

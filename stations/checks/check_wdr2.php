@@ -32,7 +32,7 @@
 		$songname = preg_replace($pattern, $replacement, $songname);
 	}
 	if(empty($artistname) OR empty($songname)){
-		die();
+		
 	}else{
 		$query_getSongId = "SELECT id FROM song WHERE name = '$songname' AND artist = '$artistname'";
 		$result_getSongId = mysqli_query($conn, $query_getSongId);
