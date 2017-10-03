@@ -8,12 +8,12 @@
 		while($data = mysqli_fetch_array($result_getLastPlayTime)){
 			$db_lastTimestamp = $data['timestamp'];
 		}
-
+		$result_getStationName = mysqli_query($conn, "SELECT name FROM station WHERE id = '$station'");
+		while($data = mysqli_fetch_array($result_getStationName)){
+			$stationName = $data['name'];
+		}	
 		if(mysqli_num_rows($result_getLastPlayTime)==1){
-			$result_getStationName = mysqli_query($conn, "SELECT name FROM station WHERE id = '$station'");
-			while($data = mysqli_fetch_array($result_getStationName)){
-				$stationName = $data['name'];
-			}			
+		
 			echo $stationName . " hat um " . $db_lastTimestamp  . " das letzte mal die Playlist aktualisiert." . "<br>";
 		}
 		elseif(mysqli_num_rows($result_getLastPlayTime)==0){
