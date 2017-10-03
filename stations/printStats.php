@@ -12,8 +12,8 @@
 			$stationName = $data['name'];
 		}	
 		if(mysqli_num_rows($result_getLastPlayTime)==1){
-			$lastTimestamp = date("H:i:s",strtotime($db_lastTimestamp));
-			echo $stationName . " hat um " . $lastTimestamp  . " das letzte mal die Playlist aktualisiert." . "<br>";
+			$lastTimestamp = date("H:i",strtotime($db_lastTimestamp));
+			echo $stationName . " hat um " . $lastTimestamp  . "Uhr das letzte mal die Playlist aktualisiert." . "<br>";
 		}
 		elseif(mysqli_num_rows($result_getLastPlayTime)==0){
 			echo $stationName . " hat in den letzten 10 Minuten nicht die Playlist aktualisiert." . "<br>";
