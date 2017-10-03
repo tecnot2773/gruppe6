@@ -15,7 +15,7 @@
 			echo $stationName . " hat um " . $db_lastTimestamp  . " das letzte mal die Playlist aktualisiert." . "<br>";
 		}
 		else{
-			echo $stationName . " hat in den letzten 10 Minuten nicht die Playlist aktualisiert.";
+			echo $stationName . " hat in den letzten 10 Minuten nicht die Playlist aktualisiert." . "<br>";
 		}
 	}
 ?>
