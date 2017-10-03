@@ -23,12 +23,12 @@
 	}
 	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $artistname)){
 		$pattern = '/(?=&#039)(.+?)(?<=;)/';
-		$replacement = "'";
+		$replacement = "`";
 		$artistname = preg_replace($pattern, $replacement, $artistname);
 	}
 	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $songname)){
 		$pattern = '/(?=&#039)(.+?)(?<=;)/';
-		$replacement = "'";
+		$replacement = "`";
 		$songname = preg_replace($pattern, $replacement, $songname);
 	}
 	echo $artistname . $songname;
