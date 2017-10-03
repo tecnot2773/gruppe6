@@ -31,5 +31,6 @@
 	if($doStats >= 1){
 		include_once "updateStatistics.php";
 		echo "Stats updated";
+		echo $doStats;
 	}
 ?> 

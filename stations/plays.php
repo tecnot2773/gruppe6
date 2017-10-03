@@ -38,6 +38,6 @@
 
 	
 	if($playsHourRows >= 1 OR $playsDayRows >= 1){
-		$doStats = 1;
+		$doStats = $doStats++;
 	}
 ?>
