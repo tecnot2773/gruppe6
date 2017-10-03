@@ -28,4 +28,7 @@
 	include_once "check_wdr2.php";
 	include_once "check_bremeneins.php";
 	include_once "check_ndr1.php";
+	if($doStats >= 1){
+		include_once "updateStatistics.php";
+	}
 ?> 

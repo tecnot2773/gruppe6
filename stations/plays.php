@@ -28,4 +28,16 @@
 	//Insert current play
 	$query_insertPlays = "INSERT INTO plays (stationId, songId, timestamp) VALUES ('$station', '$db_songId', '$timestamp')";							//Insert current song into Plays
 	mysqli_query($conn, $query_insertPlays);
+	
+	$query_checkPlaysHour = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '$currentHour%' AND songId = '$db_songId'";		//Check if Current song was played during current hour
+	$result_checkPlaysHour = mysqli_query($conn, $query_checkPlaysHour);
+	$playsHourRows = mysqli_num_rows($result_checkPlaysHour);																							//Get Rows
+	$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%' AND songId = '$db_songId'";			//Check if Current song was played during current Day
+	$result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
+	$playsDayRows = mysqli_num_rows($result_checkPlaysDay);																								//Get Rows
+
+	
+	if($playsHourRows >= 1 OR $playsDayRows >= 1){
+		$doStats = 1;
+	}
 ?>
