@@ -110,6 +110,7 @@
 		$runs = "24";																																		//get time where most replays where inserted
 		$save_mostPlaysDuring = 0;
 		$calc_mostPlaysDuring = 0;
+		$saveTime = "";
 		WHILE($runs > 0){
 			$runs = $runs - 1;
 			if($runs >= 10){																											//if runs >= 10
@@ -129,9 +130,11 @@
 				$mostPlaysDuring = $data['value_occurrence'];																			//fetch count
 				$mostPlaysDuring = $calc_mostPlaysDuring + $mostPlaysDuring;
 			}
-			if($mostPlaysDuring > $save_mostPlaysDuring){																				//if this hour has more replays than the hours before
-				$save_mostPlaysDuring = $mostPlaysDuring;																				//overwrite
-				$saveTime = $runs;																										//save time
+			if($mostPlaysDuring != 0){
+				if($mostPlaysDuring > $save_mostPlaysDuring){																				//if this hour has more replays than the hours before
+					$save_mostPlaysDuring = $mostPlaysDuring;																				//overwrite
+					$saveTime = $runs;																										//save time
+				}
 			}
 
 		}
