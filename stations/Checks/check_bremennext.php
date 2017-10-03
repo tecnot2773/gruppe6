@@ -49,7 +49,7 @@
 		}
 		if($db_currentSongId != $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 			$time = time();
-			include "..\plays.php";
+			include "../plays.php";
 			echo "done bremenext";
 			echo "<br>";
 		}
