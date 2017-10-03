@@ -1,4 +1,5 @@
 <?php
+	include_once "db.php";
 	for($i = 1; $i <= 9; $i++){
 		$station = $i;
 		
