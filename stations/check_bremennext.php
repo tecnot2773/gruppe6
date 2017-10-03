@@ -8,6 +8,27 @@
 	preg_match('/\<span class=\"tracktime\"\>.*\<\/span\>(.*)\s*\<\/strong\>/', $http_content, $songs);
 	$artistName = (explode(": ",$songs[1])[0]); //Artist
 	$songName  = (explode(": ",$songs[1])[1]); //Songname
+
+	if(preg_match('/(?=&amp)(.+?)(?<=;)/', $artistname)){
+		$pattern = '/(?=&amp)(.+?)(?<=;)/';
+		$replacement = '&';
+		$artistname = preg_replace($pattern, $replacement, $artistname);
+	}
+	if(preg_match('/(?=&amp)(.+?)(?<=;)/', $songname)){
+		$pattern = '/(?=&amp)(.+?)(?<=;)/';
+		$replacement = '&';
+		$songname = preg_replace($pattern, $replacement, $songname);
+	}
+	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $artistname)){
+		$pattern = '/(?=&#039)(.+?)(?<=;)/';
+		$replacement = "'";
+		$artistname = preg_replace($pattern, $replacement, $artistname);
+	}
+	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $songname)){
+		$pattern = '/(?=&#039)(.+?)(?<=;)/';
+		$replacement = "'";
+		$songname = preg_replace($pattern, $replacement, $songname);
+	}
 	
 	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artistName)));
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songName)));
