@@ -12,7 +12,7 @@
 			while($data = mysqli_fetch_array($result_getStationName)){
 				$stationName = $data['name'];
 			}			
-			echo $stationName . " hat um " . $db_lastTimestamp  . "das letzte mal die Playlist aktualisiert." . "<br>";
+			echo $stationName . " hat um " . $db_lastTimestamp  . " das letzte mal die Playlist aktualisiert." . "<br>";
 		}
 		else{
 			echo $stationName . " hat in den letzten 10 Minuten nicht die Playlist aktualisiert.";
