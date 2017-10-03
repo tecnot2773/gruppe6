@@ -19,5 +19,6 @@
 		elseif(mysqli_num_rows($result_getLastPlayTime)==0){
 			echo $stationName . " hat in den letzten 10 Minuten nicht die Playlist aktualisiert." . "<br>";
 		}
+		unset($result_getLastPlayTime);
 	}
 ?>
