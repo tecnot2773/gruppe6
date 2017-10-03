@@ -9,7 +9,7 @@
 		}
 		if(mysqli_num_rows($result_getLastPlayTime)==1){
 			$stationName = mysqli_query($conn, "SELECT name FROM station WHERE id = '$station'");
-			echo $stationName . "hat um " . $db_timestamp  . "das letzte mal die Playlist aktualisiert." . "<br>";
+			echo $stationName . "hat um " . $db_lastTimestamp  . "das letzte mal die Playlist aktualisiert." . "<br>";
 		}
 	}
 ?>
