@@ -7,12 +7,6 @@
 		$currentDay = date("Y-m-d");																												//get current Year, Month, Day
 		$currentHour = date("Y-m-d H");																												//get current Year, Month, Day, Hour
 		$currentSeconds = date("Y-m-d H:i:s");																										//get current Year, Month, Day, Hour, Minute, Sekonds
-		
-		$hourlyStatsExists = mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'");				//Check if hourlystats exitst for current hour
-		$hourlystatsRows = mysqli_num_rows($hourlyStatsExists);
-		if($hourlystatsRows == 0){																															//if not
-			mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");	//Insert new hourlystats with current timestamp
-		}
 
 		$replaysPerHour = 0;
 		$query_getReplaysHour = "SELECT `songId`,
@@ -27,12 +21,6 @@
 			$replaysPerHour = $replaysPerHour + ($replays - 1);
 		}
 		mysqli_query($conn, "UPDATE hourlyStats SET replaysPerHour = '$replaysPerHour' WHERE stationId = '$station' AND timestamp LIKE '$currentHour%'");									//replaysPerHour+1
-
-		$dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'");					//Check if dailystats exitst for current day
-		$dailystatsRows = mysqli_num_rows($dailystatsExists);
-		if($dailystatsRows == 0){																															//if not
-			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
-		}
 
 		$calc_replays = 0;
 		$replaysPerDay = 0;

@@ -36,10 +36,21 @@
 		$query_checkPlaysDay = "SELECT songId FROM plays WHERE stationId = '$station' AND timestamp LIKE '$currentDay%' AND songId = '$db_songId'";			//Check if Current song was played during current Day
 		$result_checkPlaysDay = mysqli_query($conn, $query_checkPlaysDay);
 		$playsDayRows = mysqli_num_rows($result_checkPlaysDay);																								//Get Rows
-
 		
+		$dailystatsExists = mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'");					//Check if dailystats exitst for current day
+		$dailystatsRows = mysqli_num_rows($dailystatsExists);
+		if($dailystatsRows == 0){																															//if not
+			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
+		}
+		
+		$hourlyStatsExists = mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'");				//Check if hourlystats exitst for current hour
+		$hourlystatsRows = mysqli_num_rows($hourlyStatsExists);
+		if($hourlystatsRows == 0){																															//if not
+			mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");	//Insert new hourlystats with current timestamp
+		}		
 		if($playsHourRows >= 1 OR $playsDayRows >= 1){
 			$doStats = $doStats++;
 		}
+
 	}
 ?>
