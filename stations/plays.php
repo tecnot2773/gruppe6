@@ -105,7 +105,7 @@
 	while($data = mysqli_fetch_array($getmostPlaysDAY)){
 		$mostPlaysDAY = $data['songId'];
 	}
-	mysqli_query($conn,"UPDATE dailyStats SET mostPlayedSong = '$mostPlaysDAY' WHERE stationId = '$station'");											//update dailystats with most played song
+	mysqli_query($conn,"UPDATE dailyStats SET mostPlayedSong = '$mostPlaysDAY' WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'");											//update dailystats with most played song
 
 	$runs = "24";																																		//get time where most replays where inserted
 	$save_mostPlaysDuring = 0;
@@ -135,5 +135,5 @@
 		}
 
 	}
-	mysqli_query($conn, "UPDATE dailyStats SET mostReplaysDuring = '$saveTime' WHERE stationId = '$station'");						//update dailystats with mostReplaysDuring
+	mysqli_query($conn, "UPDATE dailyStats SET mostReplaysDuring = '$saveTime' WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'");						//update dailystats with mostReplaysDuring
 ?>
