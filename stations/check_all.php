@@ -30,5 +30,6 @@
 	include_once "check_ndr1.php";
 	if($doStats >= 1){
 		include_once "updateStatistics.php";
+		echo "Stats updated";
 	}
 ?> 
