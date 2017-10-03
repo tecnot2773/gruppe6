@@ -18,7 +18,7 @@
 	  character_set_database = 'utf8', 
 	  character_set_server = 'utf8'";
 	$conn->query($strQuery);  
-
+	$doStats = 0;
 	include_once "check_ffn.php";
 	include_once "check_bremenvier.php";
 	include_once "check_ndr2.php";
