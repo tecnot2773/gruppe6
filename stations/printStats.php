@@ -8,7 +8,6 @@
 					$db_lastTimestamp = $data['timestamp'];
 		}
 		if(mysqli_num_rows($result_getLastPlayTime)==1){
-			echo $db_lastTimestamp;
 			$result_getStationName = mysqli_query($conn, "SELECT name FROM station WHERE id = '$station'");
 		while($data = mysqli_fetch_array($result_getStationName)){
 					$stationName = $data['name'];
