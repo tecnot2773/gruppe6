@@ -39,9 +39,11 @@
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));																							//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 		$station = $i;
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM monthlyStats WHERE stationId = '$station' and timestamp BETWEEN '$monday' AND '$sunday'")) == 0){
+			mysqli_query($conn, "INSERT INTO monthlyStats (stationId, timestamp, replaysPerMonth, replaysPerWeek, score) VALUES ('$station', '$currentSeconds',  '0', '0', '0')");
+		}
 		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM weeklyStats WHERE stationId = '$station' and timestamp BETWEEN '$monday' AND '$sunday'")) == 0){
 			mysqli_query($conn, "INSERT INTO weeklyStats (stationId, timestamp, replaysPerWeek, replaysPerDay, score) VALUES ('$station', '$currentSeconds',  '0', '0', '0')");
-			echo "123";
 		}
 		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'")) == 0){					//Check if dailystats exitst for current day																														//if not
 			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
