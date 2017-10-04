@@ -18,7 +18,7 @@
 		
 		
 		
-		echo"<tr>"
+		echo"<tr>";
                   echo"<td>" . $db_stationName . "</td>";
                   echo"<td>0</td>";
                   echo"<td>54</td>";
