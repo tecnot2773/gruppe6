@@ -28,6 +28,7 @@
 		$station = $i;
 		$replaysPerMonth = 0;
 		$query_replaysPerDay = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp BETWEEN 'firstOfMonth' AND 'lastOfMonth'";
+		echo $query_replaysPerDay. "<br>";
 		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
 		while($data = mysqli_fetch_array($result_replaysPerDay)){
 			$db_replaysPerDay = $data['replaysPerDay'];
