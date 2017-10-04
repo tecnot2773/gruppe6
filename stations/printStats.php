@@ -1,6 +1,7 @@
 <?php
 	include_once "db.php";
-	for($i = 1; $i <= 9; $i++){
+	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));
+	for($i = 1; $i <= $max; $i++){							
 		$station = $i;
 		$time = date("Y-m-d H:i:s",strtotime("-10 minutes",strtotime(date("Y-m-d H:i:s"))));
 		$result_getLastPlayTime = mysqli_query($conn, "SELECT * FROM plays WHERE stationId = '$station' AND timestamp > '$time%' ORDER BY timestamp DESC LIMIT 1");
