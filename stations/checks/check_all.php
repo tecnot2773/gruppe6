@@ -33,16 +33,19 @@
 	$currentDay = date("Y-m-d");			
 	$currentHour = date("Y-m-d H");			
 	$currentSeconds = date("Y-m-d H:i:s");	
+	$monday = date( 'Y-m-d', strtotime( 'monday this week' ) );
+	$sunday = date( 'Y-m-d', strtotime( 'sunday this week' ) );
 	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));																							//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 		$station = $i;
-		$dailystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'"));			//Check if dailystats exitst for current day
-		if($dailystatsRows == 0){																																	//if not
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM weeklyStats WHERE stationId = '$station' and timestamp BETWEEN '$monday' AND '$sunday'")) == 0){
+			mysqli_query($conn, "INSERT INTO weeklyStats (stationId, timestamp, replaysPerWeek, replaysPerDay, score) VALUES ('$station', '$currentSeconds',  '0', '0', '0')");
+		}
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'")) == 0){					//Check if dailystats exitst for current day																														//if not
 			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
-		}		
-		$hourlystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'"));		//Check if hourlystats exitst for current hour
-		if($hourlystatsRows == 0){																																	//if not
+		}			
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'")) == 0){					//Check if hourlystats exitst for current hour																														//if not
 			mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");			//Insert new hourlystats with current timestamp
 		}
 		else{break;}
