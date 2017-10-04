@@ -3,7 +3,8 @@
 	include_once "db.php";
 	$currentMonth = date("Y-m");
 	
-	$firstAndLastOfMonth = mysqli_query($conn,"SELECT
+	$firstAndLastOfMonth = mysqli_query($conn,"
+	SELECT
 	DATE_SUB(
 		LAST_DAY(
 			DATE_ADD(NOW(), INTERVAL 0 MONTH)
