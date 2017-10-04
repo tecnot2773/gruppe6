@@ -24,7 +24,7 @@
             <a class="nav-link" href="/stations/ui/index.html">Start</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/stations/ui/stats.html">Statistiken<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/stations/ui/stats.php">Statistiken<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Nicht klicken</a>
