@@ -19,11 +19,6 @@
 	  character_set_server = 'utf8'";
 	$conn->query($strQuery);  
 	
-	$currentMonth = date("Y-m");			
-	$currentDay = date("Y-m-d");			
-	$currentHour = date("Y-m-d H");			
-	$currentSeconds = date("Y-m-d H:i:s");	
-	
 	include_once "check_ffn.php";
 	include_once "check_bremenvier.php";
 	include_once "check_ndr2.php";
@@ -33,6 +28,12 @@
 	include_once "check_wdr2.php";
 	include_once "check_bremeneins.php";
 	include_once "check_ndr1.php";
+	
+	$currentMonth = date("Y-m");			
+	$currentDay = date("Y-m-d");			
+	$currentHour = date("Y-m-d H");			
+	$currentSeconds = date("Y-m-d H:i:s");	
+	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));																							//check how many stations we have
 	for($i = 1; $i <= $max; $i++){				
 		$dailystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'"));			//Check if dailystats exitst for current day
