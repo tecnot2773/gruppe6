@@ -5,7 +5,7 @@
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 		$station = $i;
-		$replaysPerWeek = 0;
+		$replaysPerMonth = 0;
 		$query_replaysPerDay = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$currentMonth%'";
 		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
 		while($data = mysqli_fetch_array($result_replaysPerDay)){
