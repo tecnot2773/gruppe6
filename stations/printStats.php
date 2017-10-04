@@ -28,7 +28,6 @@
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){							
 		$station = $i;
-		echo $firstOfMonth . "<br>". $lastOfMonth;
 		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE id = '$station'");
 		while($data = mysqli_fetch_array($getstationName)){
 			$db_stationName = $data['name'];
@@ -46,7 +45,7 @@
 		while($data = mysqli_fetch_array($getReplaysPerWeek)){
 			$db_replaysPerWeek = $data['replaysPerWeek'];
 		}
-		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM montlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfThisMonth' AND '$lastOfMonth'");
+		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM montlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		while($data = mysqli_fetch_array($getReplaysPerMonth)){
 			$db_replaysPerMonth = $data['replaysPerMonth'];
 		}
