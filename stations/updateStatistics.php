@@ -60,7 +60,7 @@
 		$getmostPlaysDAY = mysqli_query($conn, $query_getPlaysDAY);
 		while($data = mysqli_fetch_array($getmostPlaysDAY)){
 			$mostPlaysDAY = $data['songId'];
-			$db_mostPlayedCount = $data['COUNT(`songId`)'];
+			$db_mostPlayedCount = $data['value_occurrence'];
 		}
 		mysqli_query($conn,"UPDATE dailyStats SET mostPlayedSong = '$mostPlaysDAY', count = '$db_mostPlayedCount' WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'");											//update dailystats with most played song
 
