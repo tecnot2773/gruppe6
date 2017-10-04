@@ -15,7 +15,7 @@
 		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerWeek = '$replaysPerWeek' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		//ReplaysPerDay Average
 		$days = mysqli_num_rows($result_replaysPerDay);
-		$avgReplaysPerDay = replaysPerWeek / $days;
+		$avgReplaysPerDay = $replaysPerWeek / $days;
 		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerDay = '$avgReplaysPerDay' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		
 		$result_getMostPlayedSong = (mysqli_query($conn, "SELECT `songId`, COUNT(`songId`) AS `value_occurrence` FROM `plays` WHERE `stationId`= '1' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1) GROUP BY `songId` ORDER BY `value_occurrence` DESC LIMIT 1"));
