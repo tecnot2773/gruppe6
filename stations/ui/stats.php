@@ -59,7 +59,7 @@
 				  </tr>
 				</thead>
 				<tbody>
-				  <?php inlcude_once "../printStats.php"; ?>
+				  <?php include_once "../printStats.php"; ?>
 				</tbody>
 			  </table>
 			  </div>
