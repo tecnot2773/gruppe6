@@ -42,9 +42,9 @@
 			$doStats++;
 		}
 		if($doStats >= 1){
-		include_once "../updateStatistics.php";
-		echo "Stats updated" . "<br>";
-		echo $doStats;
-	}
+			include_once "../updateStatistics.php";
+			echo "Stats updated" . "<br>";
+			echo $doStats;
+		}
 	}
 ?>

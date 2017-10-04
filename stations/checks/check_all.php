@@ -18,6 +18,12 @@
 	  character_set_database = 'utf8', 
 	  character_set_server = 'utf8'";
 	$conn->query($strQuery);  
+	
+	$currentMonth = date("Y-m");			
+	$currentDay = date("Y-m-d");			
+	$currentHour = date("Y-m-d H");			
+	$currentSeconds = date("Y-m-d H:i:s");	
+	
 	include_once "check_ffn.php";
 	include_once "check_bremenvier.php";
 	include_once "check_ndr2.php";
