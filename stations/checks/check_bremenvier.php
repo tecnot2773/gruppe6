@@ -8,6 +8,12 @@
 	preg_match('/top44_table_zelle right bottom">(.+?)(?=<)/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	
+	if ( ! isset($artists[1])) {
+		$artists[1] = null;
+	}
+	if ( ! isset($songs[1])) {
+		$songs[1] = null;
+	}	
 	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1])));
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1])));
 	if(empty($artistname) OR empty($songname)){
