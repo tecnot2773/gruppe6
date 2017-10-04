@@ -42,9 +42,9 @@
 			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
 		}		
 		$hourlystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'"));		//Check if hourlystats exitst for current hour
-		echo $hourlystatsRows ." durchlauf " .  $i . " " . $currentHour . "<br>";
 		if($hourlystatsRows == 0){																																	//if not
 			mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");			//Insert new hourlystats with current timestamp
-		}	
+		}
+		else{break;}
 	}
 ?> 
