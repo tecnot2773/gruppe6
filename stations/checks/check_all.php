@@ -18,7 +18,6 @@
 	  character_set_database = 'utf8', 
 	  character_set_server = 'utf8'";
 	$conn->query($strQuery);  
-	$doStats = 0;
 	include_once "check_ffn.php";
 	include_once "check_bremenvier.php";
 	include_once "check_ndr2.php";
@@ -28,9 +27,15 @@
 	include_once "check_wdr2.php";
 	include_once "check_bremeneins.php";
 	include_once "check_ndr1.php";
-	if($doStats >= 1){
-		include_once "../updateStatistics.php";
-		echo "Stats updated";
-		echo $doStats;
+	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));																							//check how many stations we have
+	for($i = 1; $i <= $max; $i++){				
+		$dailystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'"));			//Check if dailystats exitst for current day
+		if($dailystatsRows == 0){																																	//if not
+			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
+		}		
+		$hourlystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'"));		//Check if hourlystats exitst for current hour
+		if($hourlystatsRows == 0){																																	//if not
+			mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");			//Insert new hourlystats with current timestamp
+		}	
 	}
 ?> 

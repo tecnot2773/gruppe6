@@ -1,6 +1,7 @@
 <?php
 	include_once "db.php";
-	for($i = 1; $i <= 9; $i++){
+	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
+	for($i = 1; $i <= $max; $i++){
 		$station = $i;
 		
 		$currentMonth = date("Y-m");																												//get current Year, Month
