@@ -13,6 +13,6 @@
 			$db_replaysPerDay = $data['replaysPerDay'];
 			$replaysPerWeek = $replaysPerDay + $db_replaysPerDay;
 		}
-		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerWeek = '$replaysPerWeek' WHERE stationId = '$station' AND timestamp BETWEEN '$monday' AND '$sunday'")
+		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerWeek = '$replaysPerWeek' WHERE stationId = '$station' AND timestamp BETWEEN '$monday' AND '$sunday'");
 	}
 ?>
