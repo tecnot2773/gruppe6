@@ -36,13 +36,12 @@
 	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));																							//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
-		$hourlystatsRows = 0;
-		$dailystatsRows = 0;
+		$station = $i;
 		$dailystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'"));			//Check if dailystats exitst for current day
 		if($dailystatsRows == 0){																																	//if not
 			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
 		}		
-		$hourlystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '2017-10-04%'"));		//Check if hourlystats exitst for current hour
+		$hourlystatsRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM hourlyStats WHERE stationId = '$station' and timestamp LIKE '$currentHour%'"));		//Check if hourlystats exitst for current hour
 		echo $hourlystatsRows ." durchlauf " .  $i . " " . $currentHour . "<br>";
 		if($hourlystatsRows == 0){																																	//if not
 			mysqli_query($conn, "INSERT INTO hourlyStats (stationId, timestamp, replaysPerHour, score) VALUES ('$station', '$currentSeconds', '0', '0')");			//Insert new hourlystats with current timestamp
