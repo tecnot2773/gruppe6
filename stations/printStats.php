@@ -15,15 +15,11 @@
 			$db_stationName = $data['name'];
 		}
 		$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentHour'");
-		echo("Data: <br>");
-		echo("Station: ".$station."<br>");
-		echo("Hour: ".$currentHour."<br>");
 		print_r(mysqli_fetch_array($getReplaysPerHour));
 		while($data = mysqli_fetch_array($getReplaysPerHour)){
 			$db_replaysPerHour = $data['replaysPerHour'];
 		}
 		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'");
-		echo("SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay'");
 		while($data = mysqli_fetch_array($getReplaysPerDay)){
 			$db_replaysPerDay = $data['replaysPerDay'];
 		}
