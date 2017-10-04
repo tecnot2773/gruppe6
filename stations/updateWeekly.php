@@ -16,7 +16,8 @@
 		//ReplaysPerDay Average
 		$days = mysqli_num_rows($result_replaysPerDay);
 		$avgReplaysPerDay = $replaysPerWeek / $days;
-		$avgReplaysPerDay= round($avgReplaysPerDay, 2);
+		$avgReplaysPerDay = round($avgReplaysPerDay, 2);
+		$avgReplaysPerDay = number_format($avgReplaysPerDay, 2);
 		echo $avgReplaysPerDay. "<br>";
 		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerDay = '$avgReplaysPerDay' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		
