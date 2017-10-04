@@ -8,7 +8,7 @@
 	preg_match('/top44_table_zelle right bottom">(.+?)(?=<)/', $http_content, $songs);
 	preg_match('/top44_table_zelle  bottom">(.+?)(?=<)/', $http_content, $artists);
 	
-	if ( ! isset($artists[1])) {
+	if ( ! isset($artists[1])) {		//if isset is false
 		$artists[1] = null;
 	}
 	if ( ! isset($songs[1])) {
