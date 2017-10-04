@@ -43,11 +43,11 @@
 		while($data = mysqli_fetch_array($getReplaysPerDay)){
 			$db_replaysPerDay = $data['replaysPerDay'];
 		}
-		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '1' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
+		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		while($data = mysqli_fetch_array($getReplaysPerWeek)){
 			$db_replaysPerWeek = $data['replaysPerWeek'];
 		}
-		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM montlyStats WHERE stationId = '1' AND timestamp BETWEEN '$firstOfThisMonth' AND '$lastOfMonth'");
+		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM montlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfThisMonth' AND '$lastOfMonth'");
 		while($data = mysqli_fetch_array($getReplaysPerMonth)){
 			$db_replaysPerMonth = $data['replaysPerMonth'];
 		}
