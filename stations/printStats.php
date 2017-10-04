@@ -18,7 +18,6 @@
 		while($data = mysqli_fetch_array($getReplaysPerHour)){
 			$db_replaysPerHour = $data['replaysPerHour'];
 		}
-		echo $db_replaysPerHour;
 		
 		
 		
