@@ -24,7 +24,8 @@
 		$result_getMostPlayedSong = (mysqli_query($conn, "SELECT `songId`, COUNT(`songId`) AS `value_occurrence` FROM `plays` WHERE `stationId`= '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1) GROUP BY `songId` ORDER BY `value_occurrence` DESC LIMIT 1"));
 		while($data = mysqli_fetch_array($result_getMostPlayedSong)){
 			$db_mostPlayed = $data['songId'];
+			$db_mostPlayedCount = $data['COUNT(`songId`)'];
 		}
-		mysqli_query($conn, "UPDATE weeklyStats SET mostPlayedSong = '$db_mostPlayed' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
+		mysqli_query($conn, "UPDATE weeklyStats SET mostPlayedSong = '$db_mostPlayed', count = '$db_mostPlayedCount' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 	}
 ?>
