@@ -21,12 +21,11 @@
 	LAST_DAY(
 		DATE_ADD(NOW(), INTERVAL 0 MONTH)
 	)AS lastOfThisMonth");
-	
+	print_r(mysqli_fetch_array($firstAndLastOfMonth));
 	while($data = mysqli_fetch_array($firstAndLastOfMonth)){
 		$firstOfMonth = $data['firstOfThisMonth'];
 		$lastOfMonth = $data['lastOfThisMonth'];
 	}
-	echo $replaysPerMonth .  $lastOfMonth . "<br>";
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){							
 		$station = $i;
