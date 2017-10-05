@@ -31,6 +31,7 @@
 		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE id = '$station'");
 		while($data = mysqli_fetch_array($getstationName)){
 			$db_stationName = $data['name'];
+			$stationName = strtoupper($db_stationName);
 		}
 		$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentHour%'");
 		//print_r(mysqli_fetch_array($getReplaysPerHour)); //DEBUG
@@ -58,7 +59,7 @@
 		
 		
 		echo"<tr>";
-                  echo"<td>" . $db_stationName . "</td>";
+                  echo"<td>" . $stationName . "</td>";
                   echo"<td>" . $db_replaysPerHour . "</td>";
                   echo"<td>" . $db_replaysPerDay . "</td>";
                   echo"<td>" . $db_replaysPerWeek . "</td>";
