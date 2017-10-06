@@ -45,6 +45,7 @@
 			include_once "../updateStatistics.php";
 			include_once "../updateWeekly.php";
 			include_once "../updateMonthly.php";
+			include_once "../updateYearly.php";
 			echo "Stats updated" . "<br>";
 			echo $doStats;
 		}
