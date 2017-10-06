@@ -29,13 +29,11 @@
 		$lastOfMonth = $data['lastOfThisMonth'];
 	}
 	
-	$query_getStationOrder = "SELECT `IDs` FROM station s JOIN yearlyStats yS ON s.IDs = yS.stationId where yS.timestamp LIKE '$currentYear%' order by yS.replaysPerMonth DESC";
+	$query_getStationOrder = "SELECT `IDs` FROM station s JOIN yearlyStats yS ON s.IDs = yS.stationId where yS.timestamp LIKE '$currentYear%' order by yS.replaysPerMonth ASC";
 	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
-	print_r($result_getStationOrder);
 	while($data = mysqli_fetch_array($result_getStationOrder)){
 		$i = $data['IDs'];					
 		$station = $i;
-		echo $station . "<br>";
 		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE IDs = '$station'");
 		while($data = mysqli_fetch_array($getstationName)){
 			$db_stationName = $data['name'];
