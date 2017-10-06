@@ -38,9 +38,9 @@
 		while($data = mysqli_fetch_array($getReplaysPerHour)){
 			$db_replaysPerHour = $data['replaysPerHour'];
 		}
-		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'");
+		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM weeklyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		while($data = mysqli_fetch_array($getReplaysPerDay)){
-			$db_replaysPerDay = $data['replaysPerDay'];
+			$db_avgReplaysPerDay = $data['replaysPerDay'];
 		}
 		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		while($data = mysqli_fetch_array($getReplaysPerWeek)){
@@ -61,7 +61,7 @@
 		echo"<tr>";
                   echo"<td>" . $stationName . "</td>";
                   echo"<td>" . $db_replaysPerHour . "</td>";
-                  echo"<td>" . $db_replaysPerDay . "</td>";
+                  echo"<td>" . $db_avgReplaysPerDay . "</td>";
                   echo"<td>" . $db_replaysPerWeek . "</td>";
                   echo"<td>" . $db_replaysPerMonth . "</td>";
 			echo"</tr>";
