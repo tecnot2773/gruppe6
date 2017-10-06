@@ -15,6 +15,7 @@
 			$db_replaysPerMonth = $data['replaysPerMonth'];
 			$avgReplaysPerMonth = $avgReplaysPerMonth + $db_replaysPerMonth;
 		}
+		echo $avgReplaysPerMonth . "<br>";
 		$days = mysqli_num_rows($result_replaysPerMonth);
 		$avgReplaysPerMonth = $avgReplaysPerMonth / $days;
 		$avgReplaysPerMonth = round($avgReplaysPerMonth, 2);
