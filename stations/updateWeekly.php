@@ -6,15 +6,22 @@
 		//ReplaysPerWeek
 		$replaysPerWeek = 0;
 		$station = $i;
-		$query_replaysPerDay = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)";
-		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
-		while($data = mysqli_fetch_array($result_replaysPerDay)){
-			$db_replaysPerDay = $data['replaysPerDay'];
-			$replaysPerWeek = $replaysPerWeek + $db_replaysPerDay;
+		$query_dailyStats = "SELECT id FROM dailyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)";		//get entry this week
+		$query_replays = "	SELECT `songId`,
+							COUNT(`songId`) AS `value_occurrence` 
+							FROM `plays`
+							WHERE `stationId`= '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)
+							GROUP BY `songId`
+							HAVING `value_occurrence` > 1";																				//get replays this week
+		$result_dailyStats = mysqli_query($conn, $query_dailyStats);
+		$result_replays = mysqli_query($conn, $query_replays);
+		while($data = mysqli_fetch_array($query_replays)){
+			$db_replays = $data['value_occurrence'];
+			$replaysPerWeek = $replaysPerWeek + $db_replays;
 		}
 		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerWeek = '$replaysPerWeek' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		//ReplaysPerDay Average
-		$days = mysqli_num_rows($result_replaysPerDay);
+		$days = mysqli_num_rows($query_dailyStats);
 		$avgReplaysPerDay = $replaysPerWeek / $days;
 		$avgReplaysPerDay = round($avgReplaysPerDay, 2);
 		$avgReplaysPerDay = number_format($avgReplaysPerDay, 2);

@@ -1,29 +1,8 @@
 <?php
-	$servername = "localhost";														//server name
-	$username = "stationssql";														//login name
-	$password = "veve113ppe";														//login password
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password);
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);							//error log
-	}
-	$conn->select_db("stations");													//selet Database
-	
-	$strQuery = "SET character_set_results = 'utf8', 
-	  character_set_client = 'utf8', 
-	  character_set_connection = 'utf8', 
-	  character_set_database = 'utf8', 
-	  character_set_server = 'utf8'";
-	$conn->query($strQuery);  
-
-
 
 	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
 	$yearStart = date('Y-m-d', strtotime('Jan 01'));
 	$currentSeconds = date("Y-m-d H:i:s");
-	echo $yearEnd . "<br>" . $yearStart;
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 				$station = $i;
