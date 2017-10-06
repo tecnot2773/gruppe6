@@ -4,7 +4,9 @@
 	$currentMonth = date("Y-m");			
 	$currentDay = date("Y-m-d");			
 	$currentHour = date("Y-m-d H");			
-	$currentSeconds = date("Y-m-d H:i:s");	
+	$currentSeconds = date("Y-m-d H:i:s");
+	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
+	$yearStart = date('Y-m-d', strtotime('Jan 01'));
 	$firstAndLastOfMonth = mysqli_query($conn,"
 	SELECT
 	DATE_SUB(
@@ -46,9 +48,9 @@
 		while($data = mysqli_fetch_array($getReplaysPerWeek)){
 			$db_avgReplaysPerWeek = $data['replaysPerWeek'];
 		}
-		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM monthlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
+		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
 		while($data = mysqli_fetch_array($getReplaysPerMonth)){
-			$db_replaysPerMonth = $data['replaysPerMonth'];
+			$db_avgReplaysPerMonth = $data['replaysPerMonth'];
 		}
 		
 		
@@ -63,7 +65,7 @@
                   echo"<td>" . $db_avgReplaysPerHour . "</td>";
                   echo"<td>" . $db_avgReplaysPerDay . "</td>";
                   echo"<td>" . $db_avgReplaysPerWeek . "</td>";
-                  echo"<td>" . $db_replaysPerMonth . "</td>";
+                  echo"<td>" . $db_avgReplaysPerMonth . "</td>";
 			echo"</tr>";
 	}
 ?>
