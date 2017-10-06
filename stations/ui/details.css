@@ -1,0 +1,34 @@
+.information-box {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.information-left {
+    color: #D9534F;
+    float: left;
+    padding: 15px;
+    width: 100px;
+	box-sizing: content-box;
+}
+.information-middle {
+
+    color: #5CB85C;
+    float: left;
+    padding: 15px;
+    width: 100px;
+	box-sizing: content-box;
+}
+.information-right {
+    color: #337AB7;
+    float: left;
+    padding: 15px;
+    width: 100px;
+	box-sizing: content-box;
+}
+@media (min-width: 750px) {
+	.information-middle {
+		border-left: 1px solid #CACACA;
+		border-right: 1px solid #CACACA;
+	}
+}

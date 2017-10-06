@@ -10,3 +10,7 @@ body {
   background-color: transparent;
   /* The html and body elements cannot have any padding or margin. */
 }
+.jumbotron {
+    background-color: white;
+	opacity: 0.9;
+}
