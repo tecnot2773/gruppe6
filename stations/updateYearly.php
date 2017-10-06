@@ -31,14 +31,17 @@
 			mysqli_query($conn, "INSERT INTO yearlyStats (stationId, timestamp, replaysPerMonth) VALUES ('$station', '$currentSeconds', '0')");
 		}
 
-		$avgReplaysPerMonth = 0;
+		$avgReplaysPerYear = 0;
 		
 		$query_replaysPerDay = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'";
 		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
 		while($data = mysqli_fetch_array($result_replaysPerDay)){
 			$db_replaysPerDay = $data['replaysPerDay'];
-			$avgReplaysPerYear = $avgReplaysPerMonth + $db_replaysPerDay;
+			$avgReplaysPerYear = $avgReplaysPerYear + $db_replaysPerDay;
 		}
+		$days = mysqli_num_rows($result_replaysPerDay);
+		$avgReplaysPerYear = $avgReplaysPerYear / $days;
+		$avgReplaysPerYear = round($avgReplaysPerYear, 2);
 		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerYear = '$avgReplaysPerYear' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
 	}
 ?>
