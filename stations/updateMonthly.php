@@ -51,6 +51,7 @@
 		$days = mysqli_num_rows($result_replaysPerDay);
 		$avgReplaysPerWeek = $db_replaysPerDay / $days;
 		$avgReplaysPerWeek = round($avgReplaysPerWeek, 2);
+		$avgReplaysPerWeek = number_format($avgReplaysPerWeek, 2);
 		mysqli_query($conn, "UPDATE monthlyStats SET replaysPerWeek = '$avgReplaysPerWeek' WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		
 		$result_getMostPlayedSong = (mysqli_query($conn, "SELECT `songId`, COUNT(`songId`) AS `value_occurrence` FROM `plays` WHERE `stationId`= '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth' GROUP BY `songId` ORDER BY `value_occurrence` DESC LIMIT 1"));
