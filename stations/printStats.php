@@ -36,7 +36,7 @@
 		$i = $data['IDs'];					
 		$station = $i;
 		echo $station . "<br>";
-		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE id = '$station'");
+		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE IDs = '$station'");
 		while($data = mysqli_fetch_array($getstationName)){
 			$db_stationName = $data['name'];
 			$stationName = strtoupper($db_stationName);
