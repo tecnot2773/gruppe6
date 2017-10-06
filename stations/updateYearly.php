@@ -42,6 +42,6 @@
 		$days = mysqli_num_rows($result_replaysPerDay);
 		$avgReplaysPerYear = $avgReplaysPerYear / $days;
 		$avgReplaysPerYear = round($avgReplaysPerYear, 2);
-		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerYear = '$avgReplaysPerYear' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
+		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerMonth = '$avgReplaysPerYear' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
 	}
 ?>
