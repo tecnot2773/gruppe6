@@ -17,7 +17,6 @@
 		}
 		$Months = mysqli_num_rows($result_replaysPerMonth);
 		$avgReplaysPerMonth = $avgReplaysPerMonth / $Months;
-		echo $avgReplaysPerMonth . "<br>";
 		$avgReplaysPerMonth = round($avgReplaysPerMonth, 2);
 		$avgReplaysPerMonth = number_format($avgReplaysPerMonth, 2);
 		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerMonth = '$avgReplaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
