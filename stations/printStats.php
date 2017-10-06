@@ -55,9 +55,13 @@
 		}else{															//if no data is available from last month
 			$db_avgReplaysPerWeek = "keine Daten vorhanden";
 		}
-		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
-		while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get data from this year
-			$db_avgReplaysPerMonth = $data['replaysPerMonth'];
+		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '1' AND YEAR(`timestamp`) = YEAR(CURRENT_DATE - INTERVAL 1 Year) AND Year(`timestamp`) = Year(CURRENT_DATE - INTERVAL 1 Year)");
+		if(mysqli_num_rows($getReplaysPerMonth) >= 1){		
+			while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get data from this year
+				$db_avgReplaysPerMonth = $data['replaysPerMonth'];
+			}
+		}else{
+			$db_avgReplaysPerMonth = "keine Daten vorhanden";
 		}
 		
 		
@@ -69,7 +73,6 @@
 		
 		echo"<tr>";
                   echo"<td>" . $stationName . "</td>";
-                  echo"<td>" . " RAUS JUNGE " . "</td>";
                   echo"<td>" . $db_avgReplaysPerDay . "</td>";
                   echo"<td>" . $db_avgReplaysPerWeek . "</td>";
                   echo"<td>" . $db_avgReplaysPerMonth . "</td>";

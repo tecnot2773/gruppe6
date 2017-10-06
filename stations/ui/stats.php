@@ -52,7 +52,6 @@
 				<thead>
 				  <tr>
 					<th>Radiosender</th>
-					<th>WpS</th>
 					<th>WpT</th>
 					<th>WpW</th>
 					<th>WpM</th>
