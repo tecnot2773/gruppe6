@@ -28,16 +28,28 @@
 	for($i = 1; $i <= $max; $i++){
 		$station = $i;
 		$replaysPerMonth = 0;
-		$query_replaysPerDay = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'";
-		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
-		while($data = mysqli_fetch_array($result_replaysPerDay)){
-			$db_replaysPerDay = $data['replaysPerDay'];
-			$replaysPerMonth = $replaysPerMonth + $db_replaysPerDay;
+		$db_replaysPerDay = 0;
+		$query_replays = "	SELECT `songId`,
+							COUNT(`songId`) AS `value_occurrence` 
+							FROM `plays`
+							WHERE `stationId`= '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'
+							GROUP BY `songId`
+							HAVING `value_occurrence` > 1";	
+		$result_replays = mysqli_query($conn,$query_replays);
+		while($data = mysqli_fetch_array($result_replays)){
+			$db_replays = $data['value_occurrence'];
+			$replaysPerMonth = $replaysPerMonth + ($db_replays -1);
 		}
 		mysqli_query($conn, "UPDATE monthlyStats SET replaysPerMonth = '$replaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
+		
+		$query_replaysPerDay = "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'";
+		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
+		while($data = mysqli_fetch_array($result_replaysPerDay)){
+			$db_replaysPerDay = $data['replaysPerWeek'];
+		}
 		//ReplaysPerDay Average
 		$days = mysqli_num_rows($result_replaysPerDay);
-		$avgReplaysPerWeek = $replaysPerMonth / $days;
+		$avgReplaysPerWeek = $db_replaysPerDay / $days;
 		$avgReplaysPerWeek = round($avgReplaysPerWeek, 2);
 		mysqli_query($conn, "UPDATE monthlyStats SET replaysPerWeek = '$avgReplaysPerWeek' WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		

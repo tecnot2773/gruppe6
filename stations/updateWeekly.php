@@ -7,14 +7,14 @@
 		$replaysPerWeek = 0;
 		$replaysPerDay = 0;
 		$station = $i;
-		$query_dailyStats = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)";		//get entry this week
+		$query_dailyStats = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)";		//get entry this weeklyStats
+		$result_dailyStats = mysqli_query($conn, $query_dailyStats);
 		$query_replays = "	SELECT `songId`,
 							COUNT(`songId`) AS `value_occurrence` 
 							FROM `plays`
 							WHERE `stationId`= '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)
 							GROUP BY `songId`
 							HAVING `value_occurrence` > 1";																				//get replays this week
-		$result_dailyStats = mysqli_query($conn, $query_dailyStats);
 		$result_replays = mysqli_query($conn, $query_replays);
 		while($data = mysqli_fetch_array($result_replays)){
 			$db_replays = $data['value_occurrence'];
