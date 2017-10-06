@@ -13,16 +13,17 @@
 		}
 		$avgReplaysPerMonth = 0;
 		
-		$query_replaysPerMonth = "SELECT replaysPerMonth FROM monthlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'";
+		$query_replaysPerMonth = "SELECT replaysPerMonth FROM monthlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'";				//SELECT replaysPerMonth from monthlyStats
 		$result_replaysPerMonth = mysqli_query($conn, $query_replaysPerMonth);
 		while($data = mysqli_fetch_array($result_replaysPerMonth)){
-			$db_replaysPerMonth = $data['replaysPerMonth'];
+			$db_replaysPerMonth = $data['replaysPerMonth'];							//fetch replaysPerMonth
 			$avgReplaysPerMonth = $avgReplaysPerMonth + $db_replaysPerMonth;
 		}
+		//calc average Replays Per Month
 		$Months = mysqli_num_rows($result_replaysPerMonth);
 		$avgReplaysPerMonth = $avgReplaysPerMonth / $Months;
-		$avgReplaysPerMonth = round($avgReplaysPerMonth, 2);
-		$avgReplaysPerMonth = number_format($avgReplaysPerMonth, 2);
-		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerMonth = '$avgReplaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
+		$avgReplaysPerMonth = round($avgReplaysPerMonth, 2);						//round to 2 decimal place
+		$avgReplaysPerMonth = number_format($avgReplaysPerMonth, 2);        		//number_format(VALUE, decimal place value)
+		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerMonth = '$avgReplaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");		//Update yearlyStats
 	}
 ?>

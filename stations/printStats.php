@@ -22,7 +22,7 @@
 	
 	LAST_DAY(
 		DATE_ADD(NOW(), INTERVAL 0 MONTH)
-	)AS lastOfThisMonth");
+	)AS lastOfThisMonth");											//get first and last day of this month
 	while($data = mysqli_fetch_array($firstAndLastOfMonth)){
 		$firstOfMonth = $data['firstOfThisMonth'];
 		$lastOfMonth = $data['lastOfThisMonth'];
@@ -36,11 +36,11 @@
 			$stationName = strtoupper($db_stationName);
 		}
 		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM weeklyStats WHERE stationId = '1' AND `timestamp` >= curdate() - INTERVAL DAYOFWEEK(curdate())+6 DAY AND `timestamp` < curdate() - INTERVAL DAYOFWEEK(curdate())-1 DAY");
-		if(mysqli_num_rows($getReplaysPerDay) >= 1 ){
+		if(mysqli_num_rows($getReplaysPerDay) >= 1 ){					
 			while($data = mysqli_fetch_array($getReplaysPerDay)){		//get Stats from last week
 				$db_avgReplaysPerDay = $data['replaysPerDay'];
 			}
-		}else{
+		}else{															//if no data is available from last week
 			$db_avgReplaysPerDay = "keine Daten vorhanden";
 		}
 		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM monthlyStats WHERE stationId = '$station' AND YEAR(`timestamp`) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(`timestamp`) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)");
@@ -48,11 +48,11 @@
 			while($data = mysqli_fetch_array($getReplaysPerWeek)){		//get Stats from last Month
 				$db_avgReplaysPerWeek = $data['replaysPerWeek'];
 			}
-		}else{
+		}else{															//if no data is available from last month
 			$db_avgReplaysPerWeek = "keine Daten vorhanden";
 		}
 		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
-		while($data = mysqli_fetch_array($getReplaysPerMonth)){
+		while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get data from this year
 			$db_avgReplaysPerMonth = $data['replaysPerMonth'];
 		}
 		
