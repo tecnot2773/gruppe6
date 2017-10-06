@@ -1,6 +1,7 @@
 <?php
 	include_once "db.php";
 	
+	$currentYear = date("Y");
 	$currentMonth = date("Y-m");			
 	$currentDay = date("Y-m-d");			
 	$currentHour = date("Y-m-d H");			
@@ -28,7 +29,7 @@
 		$lastOfMonth = $data['lastOfThisMonth'];
 	}
 	
-	$query_getStationOrder = "SELECT * FROM station s join yearlyStats yS on s.id = yS.stationId where yS.replaysPerMonth > 1 AND yS.timestamp LIKE '2017%' order by yS.replaysPerMonth DESC";
+	$query_getStationOrder = "SELECT `IDs` FROM station s JOIN yearlyStats yS ON s.IDs = yS.stationId where yS.timestamp LIKE '$currentYear%' order by yS.replaysPerMonth DESC";
 	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
 	print_r($result_getStationOrder);
 	while($data = mysqli_fetch_array($result_getStationOrder)){
