@@ -27,8 +27,11 @@
 		$firstOfMonth = $data['firstOfThisMonth'];
 		$lastOfMonth = $data['lastOfThisMonth'];
 	}
-	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
-	for($i = 1; $i <= $max; $i++){							
+	
+	$query_getStationOrder = "SELECT * FROM station s join yearlyStats yS on s.id = yS.stationId where yS.replaysPerMonth > 1 AND yS.timestamp LIKE '2017%' order by yS.replaysPerMonth DESC";
+	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
+	while($data = mysqli_fetch_array($result_getStationOrder)){
+		$i = $data['id'];					
 		$station = $i;
 		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE id = '$station'");
 		while($data = mysqli_fetch_array($getstationName)){
