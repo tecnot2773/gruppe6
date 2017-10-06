@@ -7,21 +7,19 @@
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 				$station = $i;
-				if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM yearlyStats WHERE stationId = '$station' and timestamp BETWEEN '$yearStart' AND '$yearEnd'")) == 0){
-			mysqli_query($conn, "INSERT INTO yearlyStats (stationId, timestamp, replaysPerMonth) VALUES ('$station', '$currentSeconds', '0')");
 		}
 
-		$avgReplaysPerYear = 0;
+		$avgReplaysPerMonth = 0;
 		
-		$query_replaysPerDay = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'";
+		$query_replaysPerDay = "SELECT replaysPerMonth FROM monthlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'";
 		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
 		while($data = mysqli_fetch_array($result_replaysPerDay)){
-			$db_replaysPerDay = $data['replaysPerDay'];
-			$avgReplaysPerYear = $avgReplaysPerYear + $db_replaysPerDay;
+			$db_replaysPerMonth = $data['replaysPerMonth'];
+			$avgReplaysPerMonth = $avgReplaysPerMonth + $db_replaysPerMonth;
 		}
 		$days = mysqli_num_rows($result_replaysPerDay);
-		$avgReplaysPerYear = $avgReplaysPerYear / $days;
-		$avgReplaysPerYear = round($avgReplaysPerYear, 2);
-		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerMonth = '$avgReplaysPerYear' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
+		$avgReplaysPerMonth = $avgReplaysPerMonth / $days;
+		$avgReplaysPerMonth = round($avgReplaysPerMonth, 2);
+		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerMonth = '$avgReplaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");
 	}
 ?>
