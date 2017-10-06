@@ -5,6 +5,7 @@
 	for($i = 1; $i <= $max; $i++){
 		//ReplaysPerWeek
 		$replaysPerWeek = 0;
+		$replaysPerDay = 0;
 		$station = $i;
 		$query_dailyStats = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)";		//get entry this week
 		$query_replays = "	SELECT `songId`,
