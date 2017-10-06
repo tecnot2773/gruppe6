@@ -25,10 +25,11 @@
 	$currentSeconds = date("Y-m-d H:i:s");	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
+				$station = $i;
 				if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM yearlyStats WHERE stationId = '$station' and timestamp BETWEEN '$yearStart' AND '$yearEnd'")) == 0){
 			mysqli_query($conn, "INSERT INTO yearlyStats (stationId, timestamp, replaysPerMonth) VALUES ('$station', '$currentSeconds', '0')");
 		}
-		$station = $i;
+
 		$avgReplaysPerMonth = 0;
 		
 		$query_replaysPerDay = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'";
