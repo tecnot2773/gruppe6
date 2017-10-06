@@ -1,12 +1,21 @@
 <?php
 
 	include_once "db.php";
+
+	$monday = date( 'Y-m-d', strtotime( 'monday this week' ) );
+	$sunday = date( 'Y-m-d', strtotime( 'sunday this week' ) );
+	$currentSeconds = date("Y-m-d H:i:s");	
+	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
+		$station = $i;
+		
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM weeklyStats WHERE stationId = '$station' and timestamp BETWEEN '$monday' AND '$sunday'")) == 0){
+			mysqli_query($conn, "INSERT INTO weeklyStats (stationId, timestamp, replaysPerWeek, replaysPerDay, score) VALUES ('$station', '$currentSeconds',  '0', '0', '0')");		//Insert now weeklyStats if no exsits for this week
+		}
 		//ReplaysPerWeek
 		$replaysPerWeek = 0;
 		$replaysPerDay = 0;
-		$station = $i;
 		$query_dailyStats = "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)";		//get entry this weeklyStats
 		$result_dailyStats = mysqli_query($conn, $query_dailyStats);
 		$query_replays = "	SELECT `songId`,

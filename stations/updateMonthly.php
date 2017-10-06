@@ -1,7 +1,7 @@
 <?php
 
 	include_once "db.php";
-	$currentMonth = date("Y-m");
+	$currentSeconds = date("Y-m-d H:i:s");	
 	
 	$firstAndLastOfMonth = mysqli_query($conn,"
 	SELECT
@@ -27,6 +27,9 @@
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 		$station = $i;
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM monthlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'")) == 0){	
+			mysqli_query($conn, "INSERT INTO monthlyStats (stationId, timestamp, replaysPerMonth, replaysPerWeek, score) VALUES ('$station', '$currentSeconds',  '0', '0', '0')");			//Insert now monthlyStats if no exsits for this month
+		}
 		$replaysPerMonth = 0;
 		$db_replaysPerDay = 0;
 		$query_replays = "	SELECT `songId`,
