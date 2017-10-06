@@ -22,7 +22,8 @@
 
 	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
 	$yearStart = date('Y-m-d', strtotime('Jan 01'));
-	$currentSeconds = date("Y-m-d H:i:s");	
+	$currentSeconds = date("Y-m-d H:i:s");
+	echo $yearEnd . "<br>" . $yearStart;
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 				$station = $i;
