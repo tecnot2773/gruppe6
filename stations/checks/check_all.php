@@ -35,10 +35,15 @@
 	$currentSeconds = date("Y-m-d H:i:s");	
 	$monday = date( 'Y-m-d', strtotime( 'monday this week' ) );
 	$sunday = date( 'Y-m-d', strtotime( 'sunday this week' ) );
+	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
+	$yearStart = date('Y-m-d', strtotime('Jan 01'));
 	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));																							//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 		$station = $i;
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM yearlyStats WHERE stationId = '$station' and timestamp BETWEEN '$yearStart' AND '$yearEnd'")) == 0){
+			mysqli_query($conn, "INSERT INTO yearlyStats (stationId, timestamp, replaysPerMonth) VALUES ('$station', '$currentSeconds', '0')");
+		}
 		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM monthlyStats WHERE stationId = '$station' and timestamp LIKE '$currentMonth%'")) == 0){
 			mysqli_query($conn, "INSERT INTO monthlyStats (stationId, timestamp, replaysPerMonth, replaysPerWeek, score) VALUES ('$station', '$currentSeconds',  '0', '0', '0')");
 		}
