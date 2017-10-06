@@ -30,6 +30,7 @@
 	
 	$query_getStationOrder = "SELECT * FROM station s join yearlyStats yS on s.id = yS.stationId where yS.replaysPerMonth > 1 AND yS.timestamp LIKE '2017%' order by yS.replaysPerMonth DESC";
 	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
+	print_r $result_getStationOrder;
 	while($data = mysqli_fetch_array($result_getStationOrder)){
 		$i = $data['id'];					
 		$station = $i;
