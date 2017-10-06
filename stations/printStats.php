@@ -33,18 +33,18 @@
 			$db_stationName = $data['name'];
 			$stationName = strtoupper($db_stationName);
 		}
-		$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentHour%'");
+		$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'");
 		//print_r(mysqli_fetch_array($getReplaysPerHour)); //DEBUG
 		while($data = mysqli_fetch_array($getReplaysPerHour)){
-			$db_replaysPerHour = $data['replaysPerHour'];
+			$db_avgReplaysPerHour = $data['replaysPerHour'];
 		}
 		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM weeklyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		while($data = mysqli_fetch_array($getReplaysPerDay)){
 			$db_avgReplaysPerDay = $data['replaysPerDay'];
 		}
-		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
+		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM monthlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		while($data = mysqli_fetch_array($getReplaysPerWeek)){
-			$db_replaysPerWeek = $data['replaysPerWeek'];
+			$db_avgReplaysPerWeek = $data['replaysPerWeek'];
 		}
 		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM monthlyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		while($data = mysqli_fetch_array($getReplaysPerMonth)){
@@ -60,9 +60,9 @@
 		
 		echo"<tr>";
                   echo"<td>" . $stationName . "</td>";
-                  echo"<td>" . $db_replaysPerHour . "</td>";
+                  echo"<td>" . $db_avgReplaysPerHour . "</td>";
                   echo"<td>" . $db_avgReplaysPerDay . "</td>";
-                  echo"<td>" . $db_replaysPerWeek . "</td>";
+                  echo"<td>" . $db_avgReplaysPerWeek . "</td>";
                   echo"<td>" . $db_replaysPerMonth . "</td>";
 			echo"</tr>";
 	}
