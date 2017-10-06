@@ -1,5 +1,6 @@
 <?php
 
+	include_once "db.php";
 	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
 	$yearStart = date('Y-m-d', strtotime('Jan 01'));
 	$currentSeconds = date("Y-m-d H:i:s");
