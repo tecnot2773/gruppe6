@@ -33,7 +33,7 @@
 	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
 	print_r($result_getStationOrder);
 	while($data = mysqli_fetch_array($result_getStationOrder)){
-		$i = $data['id'];					
+		$i = $data['IDs'];					
 		$station = $i;
 		echo $station . "<br>";
 		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE id = '$station'");
