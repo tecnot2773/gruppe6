@@ -17,7 +17,7 @@
 		$result_replays = mysqli_query($conn, $query_replays);
 		while($data = mysqli_fetch_array($result_replays)){
 			$db_replays = $data['value_occurrence'];
-			$replaysPerWeek = $replaysPerWeek + $db_replays;
+			$replaysPerWeek = $replaysPerWeek + ($db_replays - 1);
 		}
 		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerWeek = '$replaysPerWeek' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		//ReplaysPerDay Average
