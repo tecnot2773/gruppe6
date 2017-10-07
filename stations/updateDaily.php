@@ -50,12 +50,7 @@
 			else{																														//if runs < 10
 				$day = $currentDay . " 0" . $runs;																						//make 0 and whitespace between date and time
 			}
-			$query_mostPlaysDuring = "	SELECT `songId`,
-										COUNT(`songId`) AS `value_occurrence` 
-										FROM `plays`
-										WHERE `stationId`= '$station' AND timestamp LIKE '$day%'
-										GROUP BY `songId`
-										HAVING `value_occurrence` > 1";																	//count replays on $runs hour
+			$query_mostPlaysDuring = "	SELECT `songId`, COUNT(`songId`) AS `value_occurrence` FROM `plays` WHERE `stationId`= '$station' AND timestamp LIKE '$day%' GROUP BY `songId` HAVING `value_occurrence` > 1";			//count replays on $runs hour
 			$getMostPlaysDuring = mysqli_query($conn, $query_mostPlaysDuring);
 			while($data = mysqli_fetch_array($getMostPlaysDuring)){
 				$mostPlaysDuring = $data['value_occurrence'];																			//fetch count

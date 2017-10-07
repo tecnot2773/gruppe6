@@ -43,7 +43,7 @@
 			$db_replays = $data['value_occurrence'];						
 			$replaysPerMonth = $replaysPerMonth + ($db_replays -1);				//fetch data and add (-1 because replays are listed as 2 Plays but it is only 1 is replay)
 		}
-		mysqli_query($conn, "UPDATE monthlyStats SET replaysPwerMonth = '$replaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
+		mysqli_query($conn, "UPDATE monthlyStats SET replaysPerMonth = '$replaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		
 		$query_replaysPerDay = "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'";
 		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
