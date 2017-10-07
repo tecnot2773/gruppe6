@@ -39,7 +39,7 @@
 			$db_stationName = $data['name'];
 			$stationName = strtoupper($db_stationName);
 		}
-		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM weeklyStats WHERE stationId = '$station' AND `timestamp` >= curdate() - INTERVAL DAYOFWEEK(curdate())+6 DAY AND `timestamp` < curdate() - INTERVAL DAYOFWEEK(curdate())-1 DAY");
+		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM weeklyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 		if(mysqli_num_rows($getReplaysPerDay) >= 1 ){					
 			while($data = mysqli_fetch_array($getReplaysPerDay)){		//get Stats from last week
 				$db_avgReplaysPerDay = $data['replaysPerDay'];
@@ -47,7 +47,7 @@
 		}else{															//if no data is available from last week
 			$db_avgReplaysPerDay = "keine Daten vorhanden";
 		}
-		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM monthlyStats WHERE stationId = '$station' AND YEAR(`timestamp`) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(`timestamp`) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)");
+		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM monthlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 		if(mysqli_num_rows($getReplaysPerWeek) >= 1){
 			while($data = mysqli_fetch_array($getReplaysPerWeek)){		//get Stats from last Month
 				$db_avgReplaysPerWeek = $data['replaysPerWeek'];
@@ -55,7 +55,7 @@
 		}else{															//if no data is available from last month
 			$db_avgReplaysPerWeek = "keine Daten vorhanden";
 		}
-		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND YEAR(`timestamp`) = YEAR(CURRENT_DATE - INTERVAL 1 Year) AND Year(`timestamp`) = Year(CURRENT_DATE - INTERVAL 1 Year)");
+		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 		if(mysqli_num_rows($getReplaysPerMonth) >= 1){		
 			while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get data from last year
 				$db_avgReplaysPerMonth = $data['replaysPerMonth'];
