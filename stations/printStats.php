@@ -57,7 +57,7 @@
 		}
 		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND YEAR(`timestamp`) = YEAR(CURRENT_DATE - INTERVAL 1 Year) AND Year(`timestamp`) = Year(CURRENT_DATE - INTERVAL 1 Year)");
 		if(mysqli_num_rows($getReplaysPerMonth) >= 1){		
-			while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get data from this year
+			while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get data from last year
 				$db_avgReplaysPerMonth = $data['replaysPerMonth'];
 			}
 		}else{
