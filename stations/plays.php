@@ -42,7 +42,7 @@
 			$doStats++;
 		}
 		if($doStats >= 1){
-			include_once "../updateStatistics.php";
+			include_once "../updateHourly.php";
 			echo "Stats updated" . "<br>";
 			echo $doStats;
 		}
