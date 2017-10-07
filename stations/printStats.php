@@ -8,6 +8,7 @@
 	$currentSeconds = date("Y-m-d H:i:s");
 	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
 	$yearStart = date('Y-m-d', strtotime('Jan 01'));
+	$lastDay = date_modify($currentDay, -1 Day);
 	$firstAndLastOfMonth = mysqli_query($conn,"
 	SELECT
 	DATE_SUB(
@@ -31,6 +32,10 @@
 	
 	$query_getStationOrder = "SELECT `IDs` FROM station s JOIN dailyStats yS ON s.IDs = yS.stationId where yS.timestamp LIKE '$currentDay%' order by yS.replaysPerDay ASC";
 	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
+	if(mysqli_num_rows($result_getStationOrder) == 0){
+		$query_getStationOrder = "SELECT `IDs` FROM station s JOIN dailyStats yS ON s.IDs = yS.stationId where yS.timestamp LIKE '$lastDay%' order by yS.replaysPerDay ASC";
+		$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
+	}
 	while($data = mysqli_fetch_array($result_getStationOrder)){
 		$i = $data['IDs'];					
 		$station = $i;
