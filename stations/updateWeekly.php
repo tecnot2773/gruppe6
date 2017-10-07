@@ -38,7 +38,7 @@
 		}
 		$avgReplaysPerDay = $replaysPerDay / $days;
 		$avgReplaysPerDay = round($avgReplaysPerDay, 2);					//round to 2 decimal place
-		$avgReplaysPerDay = number_format($avgReplaysPerDay, 2);			//number_format(VALUE, decimal place value)
+		$avgReplaysPerDay = number_format($avgReplaysPerDay, 2, '.', '');			//number_format(VALUE, decimal place value)
 		mysqli_query($conn, "UPDATE weeklyStats SET replaysPerDay = '$avgReplaysPerDay' WHERE stationId = '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1)");
 		//get Most Played Song
 		$result_getMostPlayedSong = (mysqli_query($conn, "SELECT `songId`, COUNT(`songId`) AS `value_occurrence` FROM `plays` WHERE `stationId`= '$station' AND YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1) GROUP BY `songId` ORDER BY `value_occurrence` DESC LIMIT 1"));

@@ -23,7 +23,7 @@
 		$Months = mysqli_num_rows($result_replaysPerMonth);
 		$avgReplaysPerMonth = $avgReplaysPerMonth / $Months;
 		$avgReplaysPerMonth = round($avgReplaysPerMonth, 2);						//round to 2 decimal place
-		$avgReplaysPerMonth = number_format($avgReplaysPerMonth, 2);        		//number_format(VALUE, decimal place value)
+		$avgReplaysPerMonth = number_format($avgReplaysPerMonth, 2, '.', '');        		//number_format(VALUE, decimal place value)
 		mysqli_query($conn, "UPDATE yearlyStats SET replaysPerMonth = '$avgReplaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$yearStart' AND '$yearEnd'");		//Update yearlyStats
 	}
 ?>

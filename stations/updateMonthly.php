@@ -54,7 +54,7 @@
 		$days = mysqli_num_rows($result_replaysPerDay);
 		$avgReplaysPerWeek = $db_replaysPerDay / $days;
 		$avgReplaysPerWeek = round($avgReplaysPerWeek, 2);					//round to 2 decimal place
-		$avgReplaysPerWeek = number_format($avgReplaysPerWeek, 2);          //number_format(VALUE, decimal place value)
+		$avgReplaysPerWeek = number_format($avgReplaysPerWeek, 2, '.', '');          //number_format(VALUE, decimal place value)
 		echo $avgReplaysPerWeek ."<br>";
 		mysqli_query($conn, "UPDATE monthlyStats SET replaysPerWeek = '$avgReplaysPerWeek' WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		//get Most played Song
