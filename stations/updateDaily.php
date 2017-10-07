@@ -5,7 +5,9 @@
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
 		$station = $i;
-
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM dailyStats WHERE stationId = '$station' and timestamp LIKE '$currentDay%'")) == 0){					//Check if dailystats exitst for current day																														//if not
+			mysqli_query($conn, "INSERT INTO dailyStats (stationId, timestamp, replaysPerHour, replaysPerDay, mostReplaysDuring, score) VALUES ('$station', '$currentSeconds', '0', '0', '0', '0')");	//Insert new daiylstats with current timestamp
+		}	
 		$calc_replays = 0;
 		$replaysPerDay = 0;
 		$query_getHourlyStats = "SELECT replaysPerHour FROM hourlyStats WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'";					//get replaysperhour from hourlystats
