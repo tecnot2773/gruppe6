@@ -1,6 +1,7 @@
 <?php
 	include_once "db.php";
 	$currentDay = date("Y-m-d");																												//get current Year, Month, Day
+	$currentSeconds = date("Y-m-d H:i:s");
 	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
