@@ -8,7 +8,8 @@
 	$currentSeconds = date("Y-m-d H:i:s");
 	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
 	$yearStart = date('Y-m-d', strtotime('Jan 01'));
-	$lastDay = strtotime('-1 Day', $currentDay);
+	$lastDay = strtotime('-1 Day');
+	echo $lastDay. "<br>";
 	$firstAndLastOfMonth = mysqli_query($conn,"
 	SELECT
 	DATE_SUB(
