@@ -9,7 +9,6 @@
 	$yearEnd = date('Y-m-d', strtotime('Dec 31'));
 	$yearStart = date('Y-m-d', strtotime('Jan 01'));
 	$lastDay = date('Y-m-d',(strtotime ( '-1 day' , strtotime ( $currentDay) ) ));
-	echo $lastDay. "<br>";
 	$firstAndLastOfMonth = mysqli_query($conn,"
 	SELECT
 	DATE_SUB(
