@@ -31,11 +31,11 @@
 		$lastOfMonth = $data['lastOfThisMonth'];
 	}
 	
-	$query_getStationOrder = "SELECT `IDs` FROM station s JOIN dailyStats yS ON s.IDs = yS.stationId where yS.timestamp LIKE '$currentDay%' order by yS.replaysPerDay ASC";
-	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
+	$query_getStationOrder = "SELECT `IDs` FROM station s JOIN weeklyStats wS ON s.IDs = wS.stationId where YEARWEEK(`timestamp`, 1) = YEARWEEK(CURDATE(), 1) order by wS.replaysPerDay ASC";
+	$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);		//this week data
 	if(mysqli_num_rows($result_getStationOrder) == 0){
-		$query_getStationOrder = "SELECT `IDs` FROM station s JOIN dailyStats yS ON s.IDs = yS.stationId where yS.timestamp LIKE '$lastDay%' order by yS.replaysPerDay ASC";
-		$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);
+		$query_getStationOrder = "SELECT `IDs` FROM station s JOIN weeklyStats wS ON s.IDs = wS.stationId where `timestamp` >= curdate() - INTERVAL DAYOFWEEK(curdate())+6 DAY AND `timestamp` < curdate() - INTERVAL DAYOFWEEK(curdate())-1 DAY order by wS.replaysPerDay ASC";
+		$result_getStationOrder = mysqli_query($conn,$query_getStationOrder);	//last week data if this week has no entry
 	}
 	while($data = mysqli_fetch_array($result_getStationOrder)){
 		$i = $data['IDs'];					
