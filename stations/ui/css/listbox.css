@@ -8,4 +8,5 @@ div.visitorh4.list-group-item-heading {
 }
 .list-group-item-text {
 	white-space: pre-line;
+	word-wrap: break-word;
 }
