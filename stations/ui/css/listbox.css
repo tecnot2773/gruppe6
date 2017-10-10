@@ -3,4 +3,9 @@ body { margin-top:20px; }
 .fa { font-size: 50px;text-align: right;position: absolute;top: 7px;right: 27px;outline: none; }
 div { transition: all .3s ease;-webkit-transition: all .3s ease;-moz-transition: all .3s ease;-o-transition: all .3s ease; }
 /* Visitor */
-div.visitorh4.list-group-item-heading { color:#E48A07; }
+div.visitorh4.list-group-item-heading { 
+	color:#E48A07; 
+}
+.list-group-item-text {
+	white-space: pre-line;
+}
