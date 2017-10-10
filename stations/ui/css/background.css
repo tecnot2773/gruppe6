@@ -1,7 +1,7 @@
 body {
   height: 100%;
 	
-  background: url(images/bg.jpg) no-repeat center center fixed; 
+  background: url(/images/bg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -12,5 +12,5 @@ body {
 }
 .jumbotron {
     background-color: white;
-	opacity: 0.9;
+	opacity: 0.98;
 }
