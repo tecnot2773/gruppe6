@@ -75,11 +75,11 @@
 		
 		
 		
-			"<tr>";
-                  "<td>" . $stationName . "</td>";
-                  "<td>" . $db_avgReplaysPerDay . "</td>";
-                  "<td>" . $db_avgReplaysPerWeek . "</td>";
-                  "<td>" . $db_avgReplaysPerMonth . "</td>";
-			"</tr>";
+			echo "<tr>";
+				echo "<td>" . $stationName . "</td>";
+                echo "<td>" . $db_avgReplaysPerDay . "</td>";
+                echo "<td>" . $db_avgReplaysPerWeek . "</td>";
+                echo "<td>" . $db_avgReplaysPerMonth . "</td>";
+			echo "</tr>";
 	}	
 ?>
