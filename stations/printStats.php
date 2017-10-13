@@ -81,5 +81,6 @@
                 echo "<td>" . $db_avgReplaysPerWeek . "</td>";
                 echo "<td>" . $db_avgReplaysPerMonth . "</td>";
 			echo "</tr>";
+			echo "\r\n";
 	}	
 ?>
