@@ -1,0 +1,27 @@
+#bottom {
+    border-top: 1px solid;
+    border-bottom: none;
+	padding-top: 50px;
+}
+#top {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+#heading {
+	position: relative;
+	float: left;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%);
+}
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.heading-text {
+	
+	font: 2.4em Georgia,serif;
+	letter-spacing: 2px;
+	font-weight: lighter;
+	color: #58583b;
+}
