@@ -75,12 +75,12 @@
 		
 		
 		
-			echo "\t\t\t\t<tr>\n";
-				echo "\t\t\t\t\t<td>" . $stationName . "</td>\n";
-                echo "\t\t\t\t\t<td>" . $db_avgReplaysPerDay . "</td>\n";
-                echo "\t\t\t\t\t<td>" . $db_avgReplaysPerWeek . "</td>\n";
-                echo "\t\t\t\t\t<td>" . $db_avgReplaysPerMonth . "</td>\n";
-			echo "\t\t\t\t</tr>\n";
+			echo "\t\t\t\t <tr>\r\n";
+				echo "\t\t\t\t\t <td>" . $stationName . "</td>\r\n";
+                echo "\t\t\t\t\t <td>" . $db_avgReplaysPerDay . "</td>\r\n";
+                echo "\t\t\t\t\t <td>" . $db_avgReplaysPerWeek . "</td>\r\n";
+                echo "\t\t\t\t\t <td>" . $db_avgReplaysPerMonth . "</td>\r\n";
+			echo "\t\t\t\t </tr>\r\n";
 			echo "\r\n";
 	}	
 ?>
