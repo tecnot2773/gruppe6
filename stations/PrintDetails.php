@@ -48,7 +48,7 @@
 		echo $db_avgReplaysPerMonth . "\r\n" . "<br>";
 	}
 	$type = "weekChart";
-	if($type == weekChart){
+	if($type == "weekChart"){
 		$monday = date('Y-m-d', strtotime('monday last week'));
 		$time = strtotime($monday);
 		$chart = "";
