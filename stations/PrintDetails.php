@@ -59,7 +59,7 @@
 				$chart = $chart . $db_DayChart . ", ";
 			}
 		}
-		rtrim($chart, ", ");
+		$chart = rtrim($chart, ", ");
 		echo $chart;
 	}
 ?>
