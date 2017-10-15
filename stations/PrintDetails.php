@@ -57,7 +57,7 @@
 			$getReplaysPerDayChart = mysqli_query($conn, "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$day'")
 			while($data = mysqli_fetch_array($getReplaysPerDayChart)){
 				$db_DayChart = $data['replaysPerDay'];
-				$chart . = $db_DayChart;
+				$chart . = $db_DayChart . ", ";
 			}
 		}
 		echo $chart . "\r\n" . "<br>";
