@@ -67,7 +67,7 @@
 		for ($i = 0; $i <= 11; $i++){
 			$month = date('Y-m', strtotime("first day of january last year +$i Month"));
 			$getReplaysPerMonthChart = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND timestamp LIKE '$month%'");
-			if(mysqli_num_rows($getReplaysPerMonthChart >= 1)){
+			if(mysqli_num_rows($getReplaysPerMonthChart) >= 1){
 				while($data = mysqli_fetch_array($getReplaysPerMonthChart)){
 					$db_MonthChart = $data['replaysPerMonth'];
 					$monthChart = $monthChart . $db_MonthChart . ", ";
