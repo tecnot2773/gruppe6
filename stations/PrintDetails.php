@@ -52,7 +52,6 @@
 		$chart = "";
 		for($i = 0; $i <= 6; $i++){
 			$day = date('Y-m-d', strtotime("monday last week +$i Days"));
-			echo $day . "<br>";
 			$getReplaysPerDayChart = mysqli_query($conn, "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$day%'");
 			while($data = mysqli_fetch_array($getReplaysPerDayChart)){
 				$db_DayChart = $data['replaysPerDay'];
@@ -60,6 +59,6 @@
 			}
 		}
 		$chart = rtrim($chart, ", ");
-		echo $chart;
+		echo $chart . "<br>";
 	}
 ?>
