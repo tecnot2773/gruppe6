@@ -54,12 +54,13 @@
 		$chart = "";
 		for($i = 0; $i <= 6; $i++){
 			$day = date('Y-m-d', strtotime('+ {$i} Days', $time));
+			echo $day . "<br>";
 			$getReplaysPerDayChart = mysqli_query($conn, "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$day'");
 			while($data = mysqli_fetch_array($getReplaysPerDayChart)){
 				$db_DayChart = $data['replaysPerDay'];
 				$chart = $chart . $db_DayChart . ", ";
 			}
 		}
-		echo $chart . "\r\n" . "<br>";
+		echo $chart;
 	}
 ?>
