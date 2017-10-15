@@ -47,4 +47,19 @@
 		echo $db_avgReplaysPerWeek . "\r\n" . "<br>";
 		echo $db_avgReplaysPerMonth . "\r\n" . "<br>";
 	}
+	$type = "weekChart";
+	if($type == weekChart){
+		$monday = date('Y-m-d', strtotime('monday last week'));
+		$time = strtotime($monday);
+		
+		for($i = 0; $i <= 6; i++){
+			$day = date('Y-m-d', strtotime('+ {$i} Days', $time));
+			$getReplaysPerDayChart = mysqli_query($conn, "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$day'")
+			while($data = mysqli_fetch_array($getReplaysPerDayChart)){
+				$db_DayChart = $data['replaysPerDay'];
+				$chart . = $db_DayChart;
+			}
+		}
+		echo $chart . "\r\n" . "<br>";
+	}
 ?>
