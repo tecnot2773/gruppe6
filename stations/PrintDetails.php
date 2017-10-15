@@ -4,7 +4,7 @@
 	$station = "1";
 	$type = "stationName";
 	if($type == "stationName"){
-		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE IDs = '$station'");
+		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE IDs = '$station'");		//get Station Name from Id
 		while($data = mysqli_fetch_array($getstationName)){
 			$db_stationName = $data['name'];
 			$stationName = strtoupper($db_stationName);
@@ -49,16 +49,30 @@
 	}
 	$type = "weekChart";
 	if($type == "weekChart"){
-		$chart = "";
+		$weekChart = "";
 		for($i = 0; $i <= 6; $i++){
-			$day = date('Y-m-d', strtotime("monday last week +$i Days"));
+			$day = date('Y-m-d', strtotime("monday last week +$i Days"));		//get monday last week + i
 			$getReplaysPerDayChart = mysqli_query($conn, "SELECT replaysPerDay FROM dailyStats WHERE stationId = '$station' AND timestamp LIKE '$day%'");
 			while($data = mysqli_fetch_array($getReplaysPerDayChart)){
 				$db_DayChart = $data['replaysPerDay'];
-				$chart = $chart . $db_DayChart . ", ";
+				$weekChart = $weekChart . $db_DayChart . ", ";		//build string
 			}
 		}
-		$chart = rtrim($chart, ", ");
-		echo $chart . "<br>";
+		$weekChart = rtrim($weekChart, ", ");			//trim string
+		echo $weekChart . "<br>";
+	}
+	$type = "yearChart";
+	if($type == "yearChart"){
+		$monthChart = "";
+		for ($i = 0; $i <= 11; $i++){
+			$month = date('Y-m', strtotime("first day of january last year +$i Month"));
+			$getReplaysPerMonthChart = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND timestamp LIKE '$month%'");
+			while($data = mysqli_fetch_array($getReplaysPerMonthChart)){
+				$db_MonthChart = $data['replaysPerMonth'];
+				$monthChart = $monthChart . $db_MonthChart . ", ";
+			}
+		}
+		$monthChart = rtrim($monthChart, ", ");			//trim string
+		echo $monthChart . "<br>";
 	}
 ?>
