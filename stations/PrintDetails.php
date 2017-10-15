@@ -3,7 +3,7 @@
 
 	$station = "1";
 	$type = "stationName";
-	if($type == stationName){
+	if($type == "stationName"){
 		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE IDs = '$station'");
 		while($data = mysqli_fetch_array($getstationName)){
 			$db_stationName = $data['name'];
@@ -12,7 +12,7 @@
 		echo $stationName . "\r\n" . "<br>";
 	}
 	$type = "avgStats";
-	if($type == avgStats){
+	if($type == "avgStats"){
 		$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM dailyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 		while($data = mysqli_fetch_array($getReplaysPerHour)){			//get Stats from last insert
 			$db_avgReplaysPerHour = $data['replaysPerHour'];
