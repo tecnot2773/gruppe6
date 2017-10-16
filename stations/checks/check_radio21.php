@@ -5,11 +5,11 @@
 	$db_lastSongId = 0;
 	
 	$http_content = file_get_contents("http://www.radio21.de/musik/musiksuche.html");
-	preg_match('/(?=>\s)..(.+?)(?= <)/', $http_content, $songs);
-	preg_match('/(?=>\s)..(.+?)(?= <)/', $http_content, $artists);
+	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $songs);
+	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $artists);
 	print_r ($songs);
-	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1])));
-	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[2])));
+	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1][1])));
+	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[2][1])));
 	if(empty($artistname) OR empty($songname)){
 		
 	}else{
@@ -25,7 +25,7 @@
 				$db_lastSongId = $data['songId'];
 			}
 		}
-		if($db_currentSongId != $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
+		/*if($db_currentSongId != $db_lastSongId OR mysqli_num_rows($result_getSongId) == 0){
 			$time = time();
 			include "../plays.php";
 			echo "done radio21";
@@ -35,5 +35,7 @@
 			echo "Kein neuer Song bei radio21";
 			echo "<br>";
 		}
+		*/
 	}
+	echo $songname . "<br>" . $artistname;
 ?>
