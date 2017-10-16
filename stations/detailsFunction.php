@@ -14,8 +14,6 @@
 			echo $stationName;
 			}
 		}
-		
-		
 		public static function getHour($station, $conn)
 		{
 			$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM dailyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
@@ -25,40 +23,45 @@
 				echo $db_avgReplaysPerHour;
 			}
 		}
-		/*
-		$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM weeklyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
-		if(mysqli_num_rows($getReplaysPerDay) >= 1 ){					
-			while($data = mysqli_fetch_array($getReplaysPerDay)){		//get Stats from last insert
-				$db_avgReplaysPerDay = $data['replaysPerDay'];
+		public static function getDay($station, $conn)
+		{
+			$getReplaysPerDay = mysqli_query($conn, "SELECT replaysPerDay FROM weeklyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
+			if(mysqli_num_rows($getReplaysPerDay) >= 1 ){					
+				while($data = mysqli_fetch_array($getReplaysPerDay)){		//get Stats from last insert
+					$db_avgReplaysPerDay = $data['replaysPerDay'];
+				}
+			}else{															//if no data is available from last insert
+				$db_avgReplaysPerDay = "keine Daten vorhanden";
 			}
-		}else{															//if no data is available from last insert
-			$db_avgReplaysPerDay = "keine Daten vorhanden";
+			
+			echo $db_avgReplaysPerDay;
 		}
-		$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM monthlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
-		if(mysqli_num_rows($getReplaysPerWeek) >= 1){
-			while($data = mysqli_fetch_array($getReplaysPerWeek)){		//get Stats from last insert
-				$db_avgReplaysPerWeek = $data['replaysPerWeek'];
+		public static function getDay($station, $conn)
+		{
+			$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM monthlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
+			if(mysqli_num_rows($getReplaysPerWeek) >= 1){
+				while($data = mysqli_fetch_array($getReplaysPerWeek)){		//get Stats from last insert
+					$db_avgReplaysPerWeek = $data['replaysPerWeek'];
+				}
+			}else{															//if no data is available  from last insert
+				$db_avgReplaysPerWeek = "keine Daten vorhanden";
 			}
-		}else{															//if no data is available  from last insert
-			$db_avgReplaysPerWeek = "keine Daten vorhanden";
+			
+			echo $db_avgReplaysPerWeek;
 		}
-		$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
-		if(mysqli_num_rows($getReplaysPerMonth) >= 1){		
-			while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get Stats from last insert
-				$db_avgReplaysPerMonth = $data['replaysPerMonth'];
+		public static function getDay($station, $conn)
+		{
+			$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
+			if(mysqli_num_rows($getReplaysPerMonth) >= 1){		
+				while($data = mysqli_fetch_array($getReplaysPerMonth)){			//get Stats from last insert
+					$db_avgReplaysPerMonth = $data['replaysPerMonth'];
+				}
+			}else{
+				$db_avgReplaysPerMonth = "keine Daten vorhanden";
 			}
-		}else{
-			$db_avgReplaysPerMonth = "keine Daten vorhanden";
+			
+			echo $db_avgReplaysPerMonth;
 		}
-		echo $db_avgReplaysPerHour;
-		echo $db_avgReplaysPerDay;
-		echo $db_avgReplaysPerWeek;
-		echo $db_avgReplaysPerMonth;
-		*/
 	}
-		
-		
-		
-
 	
 ?>

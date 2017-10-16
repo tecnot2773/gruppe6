@@ -61,6 +61,14 @@
 										<?php include_once "../detailsFunction.php"; Details::getHour($stationId, $conn); ?>
 									</h4>
 									<p class="list-group-item-text">
+										Wiederholungen<br>pro Stunde
+									</p>
+								</div>
+								<div class="list-group-item visitor">
+									<h4 class="list-group-item-heading count">
+										1000
+									</h4>
+									<p class="list-group-item-text">
 										Wiederholungen<br>pro Tag
 									</p>
 								</div>
@@ -78,14 +86,6 @@
 									</h4>
 									<p class="list-group-item-text">
 										Wiederholungen<br>pro Monat
-									</p>
-								</div>
-								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
-										1000
-									</h4>
-									<p class="list-group-item-text">
-										Wiederholungen<br>pro Tag
 									</p>
 								</div>
 							</div>
