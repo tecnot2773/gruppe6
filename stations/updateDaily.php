@@ -46,7 +46,8 @@
 		$start = 0;
 		$saveTime = "";
 		$mostPlaysDuring = 0;
-		WHILE($runs < 24){
+		WHILE($runs < 23){
+			$runs++;
 			$start = $runs;
 			$runs = $runs + 3;
 			if($runs >= 10){																											//if runs >= 10
@@ -70,7 +71,6 @@
 					$saveTime = $runs + 1;																								//save time
 				}
 			}
-			$runs++;
 		}
 		mysqli_query($conn, "UPDATE dailyStats SET mostReplaysDuring = '$saveTime' WHERE stationId = '$station' AND timestamp LIKE '$currentDay%'");						//update dailystats with mostReplaysDuring
 	}
