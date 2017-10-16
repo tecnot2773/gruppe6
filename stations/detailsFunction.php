@@ -4,7 +4,7 @@
 	class Details
 	{
 		
-		public static function getName($stationId)
+		public static function getName($stationId, $conn)
 		{
 			$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE IDs = '$stationId'");		//get Station Name from Id
 			while($data = mysqli_fetch_array($getstationName)){
@@ -16,7 +16,7 @@
 		}
 		
 		
-		public static function getHour($stationId)
+		public static function getHour($stationId, $conn)
 		{
 			$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM dailyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 			while($data = mysqli_fetch_array($getReplaysPerHour)){			//get Stats from last insert
