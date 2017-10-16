@@ -57,7 +57,7 @@
 							<div class="list-group">
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										1000
+										500
 									</h4>
 									<p class="list-group-item-text">
 										Wiederholungen<br>pro Tag
