@@ -1,4 +1,4 @@
-var station_id = document.getElementById('station_id')[0].innerHTML;
+var station_id = document.getElementById('station_id').innerHTML;
 alert(station_id);
 var weeklyChart = document.getElementById('weeklyChart').getContext('2d');
 var monthlyChart = document.getElementById('monthlyChart').getContext('2d');
