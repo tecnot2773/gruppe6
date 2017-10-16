@@ -62,7 +62,7 @@
 			}
 		}
 		$weekChart = rtrim($weekChart, ", ");			//trim string
-		echo $weekChart . "<br>";
+		echo $weekChart;
 	}
 	if($type == "yearChart"){
 		$monthChart = "";
@@ -80,6 +80,6 @@
 			}
 		}
 		$monthChart = rtrim($monthChart, ", ");			//trim string
-		echo $monthChart . "<br>";
+		echo $monthChart;
 	}
 ?>
