@@ -39,7 +39,7 @@ var weeklyChart = new Chart(weeklyChart, {
   data: {
     labels: ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'],
     datasets: [{
-      label: 'apples',
+      label: 'Wiederholungen',
       data: JSON.parse("[" + httpGet("https://gruppe6.torutec.eu/stations/PrintDetails.php?type=weekChart&station=" + station_id) + "]"),
       backgroundColor: "rgba(153,51,255,0.4)"
     }]
@@ -52,7 +52,7 @@ var monthlyChart = new Chart(monthlyChart, {
   data: {
     labels: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
     datasets: [{
-      label: 'apples',
+      label: 'Wiederholungen',
       data: JSON.parse("[" + httpGet("https://gruppe6.torutec.eu/stations/PrintDetails.php?type=yearChartChart&station=" + station_id) + "]"),
       backgroundColor: "rgba(153,51,255,0.4)"
     }]
