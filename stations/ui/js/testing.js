@@ -6,7 +6,7 @@ $('.count').each(function () {
         duration: 4000,
         easing: 'swing',
         step: function (now) {
-            $(this).text(now);
+            $(this).text(Math.round(now * 100) / 100);
         }
     });
 });
