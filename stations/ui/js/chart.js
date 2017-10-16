@@ -13,10 +13,14 @@ var option = {
   legend: {
   display: false},
   responsive: true,
+  scaleBeginAtZero: true,
   maintainAspectRatio: false,
   scales: {
     yAxes: [{
-      stacked: true,
+		stacked: true,
+		ticks: {
+				beginAtZero:true
+		}
       gridLines: {
         display: true,
         color: "rgba(255,99,132,0.2)"
