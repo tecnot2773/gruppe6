@@ -1,3 +1,4 @@
+alert($('station_id').text());
 var weeklyChart = document.getElementById('weeklyChart').getContext('2d');
 var monthlyChart = document.getElementById('monthlyChart').getContext('2d');
 var option = {
