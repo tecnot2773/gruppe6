@@ -43,6 +43,7 @@
 		$runs = "-1";																																		//get time where most replays where inserted
 		$save_mostPlaysDuring = 0;
 		$calc_mostPlaysDuring = 0;
+		$start = 0;
 		$saveTime = "";
 		$mostPlaysDuring = 0;
 		WHILE($runs <= 24){
@@ -50,12 +51,15 @@
 			$start = $runs;
 			$runs = $runs + 3;
 			if($runs >= 10){																											//if runs >= 10
-				$end = $currentDay . " " . $runs;																							//make whitespace between date and time
+				$end = $currentDay . " " . $runs;																						//make whitespace between date and time
+				$start = $currentDay . " " . $start;
 			}
 			else{																														//if runs < 10
 				$end = $currentDay . " 0" . $runs;																						//make 0 and whitespace between date and time
+				$start = $currentDay . " " . $start;
 			}
 			$query_mostPlaysDuring = "	SELECT `songId`, COUNT(`songId`) AS `value_occurrence` FROM `plays` WHERE `stationId`= '$station' AND timestamp BETWEEN '$start%' AND '$end%' GROUP BY `songId` HAVING `value_occurrence` > 1";			//count replays on $runs hour
+			echo $query_mostPlaysDuring . "<br>";
 			$getMostPlaysDuring = mysqli_query($conn, $query_mostPlaysDuring);
 			while($data = mysqli_fetch_array($getMostPlaysDuring)){
 				$mostPlaysDuring = $data['value_occurrence'];																			//fetch count
@@ -64,7 +68,7 @@
 			if($mostPlaysDuring != 0){
 				if($mostPlaysDuring > $save_mostPlaysDuring){																				//if this hour has more replays than the hours before
 					$save_mostPlaysDuring = $mostPlaysDuring;																				//overwrite
-					$saveTime = $runs;																										//save time
+					$saveTime = $start;																										//save time
 				}
 			}
 
