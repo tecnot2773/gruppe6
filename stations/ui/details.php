@@ -56,7 +56,7 @@
 						<div class="col-sm-3">
 							<div class="list-group">
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
+									<h4 class="list-group-item-heading countDaily">
 										1000
 									</h4>
 									<p class="list-group-item-text">
@@ -64,7 +64,7 @@
 									</p>
 								</div>
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
+									<h4 class="list-group-item-heading countWeekly">
 										1000
 									</h4>
 									<p class="list-group-item-text">
@@ -72,7 +72,7 @@
 									</p>
 								</div>
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
+									<h4 class="list-group-item-heading countMonthly">
 										1000
 									</h4>
 									<p class="list-group-item-text">
@@ -80,11 +80,11 @@
 									</p>
 								</div>
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
+									<h4 class="list-group-item-heading countYearly">
 										1000
 									</h4>
 									<p class="list-group-item-text">
-										Wiederholungen<br>pro Tag
+										Wiederholungen<br>pro Jahr
 									</p>
 								</div>
 							</div>
