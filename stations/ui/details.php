@@ -47,6 +47,7 @@
 			<div class="jumbotron">
 					<div class="row" id="heading">
 						<p class="heading-text">FFN</p>
+						<p class="heading-text"><?php echo($_GET['station']);?></p>
 					</div>
 			</div>
 			<div class="jumbotron">
