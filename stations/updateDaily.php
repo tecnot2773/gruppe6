@@ -46,7 +46,7 @@
 		$start = 0;
 		$saveTime = "";
 		$mostPlaysDuring = 0;
-		WHILE($runs <= 24){
+		WHILE($runs < 24){
 			$runs++;
 			$start = $runs;
 			$runs = $runs + 3;
@@ -68,7 +68,7 @@
 			if($mostPlaysDuring != 0){
 				if($mostPlaysDuring > $save_mostPlaysDuring){																				//if this hour has more replays than the hours before
 					$save_mostPlaysDuring = $mostPlaysDuring;																				//overwrite
-					$saveTime = $runs + 1;																										//save time
+					$saveTime = $runs + 1;																								//save time
 				}
 			}
 
