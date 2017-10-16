@@ -1,5 +1,5 @@
 <?php
-
+	include_once "../db.php";
 	$station = 10;
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
@@ -8,8 +8,8 @@
 	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $songs);
 	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $artists);
 	print_r ($songs);
-	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1][1])));
-	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[2][1])));
+	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[0][1])));
+	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1][1])));
 	if(empty($artistname) OR empty($songname)){
 		
 	}else{
