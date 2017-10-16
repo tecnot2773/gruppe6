@@ -13,8 +13,8 @@
 			$stationName = strtoupper($db_stationName);
 			
 			echo $stationName;
+			}
 		}
-		
 	}
 	
 ?>
