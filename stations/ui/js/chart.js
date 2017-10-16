@@ -1,5 +1,4 @@
 var station_id = document.getElementById('station_id').innerHTML;
-alert(station_id);
 var weeklyChart = document.getElementById('weeklyChart').getContext('2d');
 var monthlyChart = document.getElementById('monthlyChart').getContext('2d');
 var option = {
@@ -22,7 +21,9 @@ var option = {
     }]
   }
 };
-
+var $HTMLdata = file_get_contents("https://gruppe6.torutec.eu/stations/PrintDetails.php?type=weekChart&station=" + station_id);
+var dataArray = JSON.parse("[" + HTMLdata + "]");
+alert(dataArray);
 var weeklyChart = new Chart(weeklyChart, {
   type: 'line',
   options: option,
