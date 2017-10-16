@@ -4,7 +4,7 @@
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
 	
-	$http_content = file_get_contents("https://www.radio21.de/titelabfrage/titelabfragesnippet.php");
+	$http_content = file_get_contents("http://www.radio21.de/titelabfrage/titelabfragesnippet.php");
 	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $songs);
 	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $artists);
 	print_r ($songs);
