@@ -75,7 +75,7 @@
 		
 		
 			echo "\t\t\t\t <tr>\r\n";
-			echo "\t\t\t\t\t <td><a href=\"/stations/ui/details.php?stationname=%22" . stationName . "%22&amp;stationid=%22" . "1" . "%22\">BREMEN EINS</a>" . $stationName . "&</td>\r\n";
+			echo "\t\t\t\t\t <td><a href=\"/stations/ui/details.php?stationname=%22" . $stationName . "%22&amp;stationid=%22" . "1" . "%22\">" . $stationName . "</a></td>\r\n";
             echo "\t\t\t\t\t <td>" . $db_avgReplaysPerDay . "</td>\r\n";
             echo "\t\t\t\t\t <td>" . $db_avgReplaysPerWeek . "</td>\r\n";
             echo "\t\t\t\t\t <td>" . $db_avgReplaysPerMonth . "</td>\r\n";
