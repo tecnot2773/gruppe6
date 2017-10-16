@@ -1,15 +1,17 @@
 <?php
 
-	$station = 11;
+	$station = 12;
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
 	
-	$http_content = file_get_contents("http://iris-rsh.loverad.io/flow.json?station=2&count=2&_=1508178220099");
+	$http_content = file_get_contents("http://www.jumpradio.de/XML/titellisten/jump_onair.json");
 	$json = json_decode($http_content, true); // decode the JSON into an associative array
 	
 
-	$artistname = mysqli_real_escape_string($conn,strtolower($json['result']['entry'][0]['song']['entry'][0]['artist']['entry'][0]['name']));
-	$songname = mysqli_real_escape_string($conn,strtolower($json['result']['entry'][0]['song']['entry'][0]['title']));
+	$artistname = mysqli_real_escape_string($conn,strtolower($json['Songs'][0]['title']));
+	$songname = mysqli_real_escape_string($conn,strtolower($json['Songs'][0]['interpret']));
+	echo ($songname);
+	echo ($artistname);
 	if(empty($artistname) OR empty($songname)){
 		
 	}else{
