@@ -30,6 +30,8 @@ var option = {
   }
 };
 var HTMLdata = httpGet("https://gruppe6.torutec.eu/stations/PrintDetails.php?type=weekChart&station=" + station_id);
+print(HTMLdata);
+print("[" + HTMLdata + "]");
 var dataArray = JSON.parse("[" + HTMLdata + "]");
 alert(dataArray);
 var weeklyChart = new Chart(weeklyChart, {
