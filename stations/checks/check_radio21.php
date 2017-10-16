@@ -10,6 +10,7 @@
 	print_r ($songs);
 	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[0][1])));
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1][1])));
+	echo $songname . "<br>" . $artistname;
 	if(empty($artistname) OR empty($songname)){
 		
 	}else{
@@ -37,5 +38,4 @@
 		}
 		*/
 	}
-	echo $songname . "<br>" . $artistname;
 ?>
