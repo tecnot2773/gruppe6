@@ -20,7 +20,7 @@ var option = {
 		stacked: true,
 		ticks: {
 				beginAtZero:true
-		}
+		},
       gridLines: {
         display: true,
         color: "rgba(255,99,132,0.2)"
