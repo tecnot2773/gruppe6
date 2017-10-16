@@ -46,8 +46,8 @@
 		<div class="container">
 			<div class="jumbotron">
 					<div class="row" id="heading">
-						<p id="station_id" class="heading-text"><?php $stationId = $_GET['stationid']; echo $stationId;?></p>
-						<p class="heading-text"><?php include_once "../getName.php"; Name::getName($stationId); ?></p>
+						<p id="station_id" class="heading-text"><?php $stationId = $_GET['stationid']; echo $stationId; include_once "../db.php";?></p>
+						<p class="heading-text"><?php include_once "../detailsFunction.php.php"; Details::getName($stationId); ?></p>
 					<!-- Javascipript variable parsing -->
 					</div>
 			</div>
@@ -58,7 +58,7 @@
 							<div class="list-group">
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										500
+										<?php include_once "../detailsFunction.php.php"; Details::getHour($stationId); ?>
 									</h4>
 									<p class="list-group-item-text">
 										Wiederholungen<br>pro Tag
