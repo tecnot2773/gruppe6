@@ -64,7 +64,7 @@
 			if($mostPlaysDuring != 0){
 				if($mostPlaysDuring > $save_mostPlaysDuring){																				//if this hour has more replays than the hours before
 					$save_mostPlaysDuring = $mostPlaysDuring;																				//overwrite
-					$saveTime = $runs;																										//save time
+					$saveTime = $start;																										//save time
 				}
 			}
 
