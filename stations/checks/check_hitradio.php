@@ -3,13 +3,11 @@
 	$station = 13;
 	$db_currentSongId = 0;
 	$db_lastSongId = 0;
-	echo("https://www.antenne.com/services/program-info/history/antenne/Antenne/0/" . date('H') . "/" . date('i'));
-	die();
 	$http_content = file_get_contents("https://www.antenne.com/services/program-info/history/antenne/Antenne/0/" . date('H') . "/" . date('i'));
 	$json = json_decode($http_content, true); // decode the JSON into an associative array
 	
-	$artistname = mysqli_real_escape_string($conn,strtolower($json['Songs'][0]['title']));
-	$songname = mysqli_real_escape_string($conn,strtolower($json['Songs'][0]['interpret']));
+	$artistname = mysqli_real_escape_string($conn,strtolower($json[0]['track']['title']));
+	$songname = mysqli_real_escape_string($conn,strtolower($json[0]['track']['artist']));
 	
 	if(empty($artistname) OR empty($songname)){
 		

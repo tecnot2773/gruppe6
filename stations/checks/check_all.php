@@ -30,7 +30,7 @@
 	include_once "check_ndr1.php";
 	include_once "check_rsh.php";
 	include_once "check_mdrjump.php";
-	
+	include_once "check_hitradio.php";
 	$currentDay = date("Y-m-d");			
 	$currentHour = date("Y-m-d H");			
 	$currentSeconds = date("Y-m-d H:i:s");	
