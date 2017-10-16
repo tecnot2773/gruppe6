@@ -16,7 +16,7 @@
 		}
 		
 		
-		public static function getHour($stationId, $conn)
+		public static function getHour($station, $conn)
 		{
 			$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM dailyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 			while($data = mysqli_fetch_array($getReplaysPerHour)){			//get Stats from last insert

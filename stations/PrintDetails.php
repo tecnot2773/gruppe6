@@ -1,6 +1,9 @@
 <?php
 	include_once "db.php";
 
+	$station = $_GET['station'];		
+	$type = $_GET['type'];
+	
 	if($type == "weekChart"){
 		$weekChart = "";
 		for($i = 0; $i <= 6; $i++){
