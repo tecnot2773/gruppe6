@@ -36,7 +36,7 @@
 			
 			echo $db_avgReplaysPerDay;
 		}
-		public static function getDay($station, $conn)
+		public static function getWeek($station, $conn)
 		{
 			$getReplaysPerWeek = mysqli_query($conn, "SELECT replaysPerWeek FROM monthlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 			if(mysqli_num_rows($getReplaysPerWeek) >= 1){
@@ -49,7 +49,7 @@
 			
 			echo $db_avgReplaysPerWeek;
 		}
-		public static function getDay($station, $conn)
+		public static function getMonth($station, $conn)
 		{
 			$getReplaysPerMonth = mysqli_query($conn, "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 			if(mysqli_num_rows($getReplaysPerMonth) >= 1){		

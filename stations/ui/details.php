@@ -66,7 +66,7 @@
 								</div>
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										1000
+										<?php include_once "../detailsFunction.php"; Details::getDay($stationId, $conn); ?>
 									</h4>
 									<p class="list-group-item-text">
 										Wiederholungen<br>pro Tag
@@ -74,7 +74,7 @@
 								</div>
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										1000
+										<?php include_once "../detailsFunction.php"; Details::getWeek($stationId, $conn); ?>
 									</h4>
 									<p class="list-group-item-text">
 										Wiederholungen<br>pro Woche
@@ -82,7 +82,7 @@
 								</div>
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										1000
+										<?php include_once "../detailsFunction.php"; Details::getMonth($stationId, $conn); ?>
 									</h4>
 									<p class="list-group-item-text">
 										Wiederholungen<br>pro Monat
