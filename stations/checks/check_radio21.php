@@ -7,7 +7,7 @@
 	$http_content = file_get_contents("http://www.radio21.de/musik/musiksuche.html");
 	preg_match('/(?=>\s)..(.+?)(?= <)/', $http_content, $songs);
 	preg_match('/(?=>\s)..(.+?)(?= <)/', $http_content, $artists);
-	
+	print_r ($songs);
 	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1])));
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[2])));
 	if(empty($artistname) OR empty($songname)){
