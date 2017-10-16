@@ -46,8 +46,9 @@
 		<div class="container">
 			<div class="jumbotron">
 					<div class="row" id="heading">
-						<p class="heading-text"><?php include_once " ../getName.php"; echo Name::getName($stationid);?></p>
-						<p id="station_id" class="heading-text"><?php echo($_GET['stationid']);?></p> <!-- Javascipript variable parsing -->
+						<p id="station_id" class="heading-text"><?php $stationId = $_GET['stationid']);?></p>
+						<p class="heading-text"><?php include_once " ../getName.php"; Name::getName($stationId); ?></p>
+					<!-- Javascipript variable parsing -->
 					</div>
 			</div>
 			<div class="jumbotron">

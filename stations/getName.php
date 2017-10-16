@@ -12,7 +12,7 @@
 			$db_stationName = $data['name'];
 			$stationName = strtoupper($db_stationName);
 			
-			return $stationName;
+			echo $stationName;
 		}
 		
 	}
