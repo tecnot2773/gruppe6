@@ -51,10 +51,12 @@
 			$start = $runs;
 			$runs = $runs + 3;
 			if($runs >= 10){																											//if runs >= 10
-				$end = $currentDay . " " . $runs;																							//make whitespace between date and time
+				$end = $currentDay . " " . $runs;																						//make whitespace between date and time
+				$start = $currentDay . " " . $start;
 			}
 			else{																														//if runs < 10
 				$end = $currentDay . " 0" . $runs;																						//make 0 and whitespace between date and time
+				$start = $currentDay . " " . $start;
 			}
 			$query_mostPlaysDuring = "	SELECT `songId`, COUNT(`songId`) AS `value_occurrence` FROM `plays` WHERE `stationId`= '$station' AND timestamp BETWEEN '$start%' AND '$end%' GROUP BY `songId` HAVING `value_occurrence` > 1";			//count replays on $runs hour
 			echo $query_mostPlaysDuring . "<br>";
