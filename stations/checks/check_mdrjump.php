@@ -12,6 +12,7 @@
 	$songname = mysqli_real_escape_string($conn,strtolower($json['Songs'][0]['interpret']));
 	echo ($songname);
 	echo ($artistname);
+	die();
 	if(empty($artistname) OR empty($songname)){
 		
 	}else{
