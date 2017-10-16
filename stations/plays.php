@@ -43,7 +43,6 @@
 		}
 		if($doStats >= 1){
 			include_once "../updateHourly.php";
-			echo "Stats updated" . "<br>";
 			echo $doStats;
 		}
 	}
