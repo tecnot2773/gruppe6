@@ -9,7 +9,7 @@
 			$db_stationName = $data['name'];
 			$stationName = strtoupper($db_stationName);
 		}
-		echo $stationName . "\r\n" . "<br>";
+		echo $stationName;
 	}
 	if($type == "avgStats"){
 		$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM dailyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
@@ -41,10 +41,10 @@
 		}else{
 			$db_avgReplaysPerMonth = "keine Daten vorhanden";
 		}
-		echo $db_avgReplaysPerHour . "\r\n" . "<br>";
-		echo $db_avgReplaysPerDay . "\r\n" . "<br>";
-		echo $db_avgReplaysPerWeek . "\r\n" . "<br>";
-		echo $db_avgReplaysPerMonth . "\r\n" . "<br>";
+		echo $db_avgReplaysPerHour;
+		echo $db_avgReplaysPerDay;
+		echo $db_avgReplaysPerWeek;
+		echo $db_avgReplaysPerMonth;
 	}
 	if($type == "weekChart"){
 		$weekChart = "";
