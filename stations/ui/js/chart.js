@@ -29,11 +29,7 @@ var option = {
     }]
   }
 };
-var HTMLdata = httpGet("https://gruppe6.torutec.eu/stations/PrintDetails.php?type=weekChart&station=" + station_id);
-alert(HTMLdata);
-alert("[" + HTMLdata + "]");
-var dataArray = JSON.parse("[" + HTMLdata + "]");
-alert(dataArray);
+var dataArray = JSON.parse("[" + httpGet("https://gruppe6.torutec.eu/stations/PrintDetails.php?type=weekChart&station=" + station_id) + "]");
 var weeklyChart = new Chart(weeklyChart, {
   type: 'line',
   options: option,
@@ -41,7 +37,7 @@ var weeklyChart = new Chart(weeklyChart, {
     labels: ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'],
     datasets: [{
       label: 'apples',
-      data: [12, 19, 3, 17, 6, 3, 7],
+      data: dataArray,
       backgroundColor: "rgba(153,51,255,0.4)"
     }]
   }
