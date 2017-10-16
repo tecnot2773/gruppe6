@@ -6,12 +6,13 @@
 	
 	$http_content = file_get_contents("http://iris-rsh.loverad.io/flow.json?station=2&count=2&_=1508178220099");
 	$json = json_decode($http_content, true); // decode the JSON into an associative array
-	echo ($json['result']['entry'][0]['song']['entry'][0]['title']);
-	echo ($json['result']['entry'][0]['song']['entry'][0]['artist']['entry'][0]['name']);
 	
-	die();
-	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1])));
-	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1])));
+	echo ($json['result']['entry'][0]['song']['entry'][0]['title']); //Titel
+	echo ($json['result']['entry'][0]['song']['entry'][0]['artist']['entry'][0]['name']); //Artist
+																						// lg jörn
+	
+	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($json['result']['entry'][0]['song']['entry'][0]['artist']['entry'][0]['name'])));
+	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($json['result']['entry'][0]['song']['entry'][0]['title'])));
 	if(empty($artistname) OR empty($songname)){
 		
 	}else{
