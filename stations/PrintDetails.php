@@ -1,8 +1,8 @@
 <?php
 	include_once "db.php";
 
-	$station = "1";
-	$type = "stationName";
+	$station = $_GET['station'];
+	$type = $_GET['type'];
 	if($type == "stationName"){
 		$getstationName = mysqli_query($conn,"SELECT name FROM station WHERE IDs = '$station'");		//get Station Name from Id
 		while($data = mysqli_fetch_array($getstationName)){
@@ -11,7 +11,6 @@
 		}
 		echo $stationName . "\r\n" . "<br>";
 	}
-	$type = "avgStats";
 	if($type == "avgStats"){
 		$getReplaysPerHour = mysqli_query($conn, "SELECT replaysPerHour FROM dailyStats WHERE stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 		while($data = mysqli_fetch_array($getReplaysPerHour)){			//get Stats from last insert
@@ -47,7 +46,6 @@
 		echo $db_avgReplaysPerWeek . "\r\n" . "<br>";
 		echo $db_avgReplaysPerMonth . "\r\n" . "<br>";
 	}
-	$type = "weekChart";
 	if($type == "weekChart"){
 		$weekChart = "";
 		for($i = 0; $i <= 6; $i++){
@@ -66,7 +64,6 @@
 		$weekChart = rtrim($weekChart, ", ");			//trim string
 		echo $weekChart . "<br>";
 	}
-	$type = "yearChart";
 	if($type == "yearChart"){
 		$monthChart = "";
 		for ($i = 0; $i <= 11; $i++){
