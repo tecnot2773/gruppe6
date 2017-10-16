@@ -5,7 +5,8 @@
 	$db_lastSongId = 0;
 	$http_content = file_get_contents("https://api.antenne.de/1.0.0/antenneservices/webradio/getsummary?callback=AntenneCallbackWebradio&context=antenne-de&_=1508183532431");
 	$json = json_decode($http_content, true); // decode the JSON into an associative array
-	echo($json['object']['now']['song']);
+	echo '<pre>' . print_r($json, true) . '</pre>';
+	//echo($json['object']['now']['song']);
 	die();
 	$artistname = mysqli_real_escape_string($conn,strtolower($json['object']['now']['song']));
 	$songname = mysqli_real_escape_string($conn,strtolower($json['object']['now']['artist']));
