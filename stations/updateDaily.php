@@ -43,6 +43,7 @@
 		$runs = "-1";																																		//get time where most replays where inserted
 		$save_mostPlaysDuring = 0;
 		$calc_mostPlaysDuring = 0;
+		$start = 0;
 		$saveTime = "";
 		$mostPlaysDuring = 0;
 		WHILE($runs <= 24){
