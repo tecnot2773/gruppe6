@@ -46,8 +46,8 @@
 		<div class="container">
 			<div class="jumbotron">
 					<div class="row" id="heading">
-						<p class="heading-text">FFN</p>
-						<p id="station_id" class="heading-text"><?php echo($_GET['station']);?></p>
+						<p class="heading-text"><?php echo($_GET['stationname']);?></p>
+						<p id="station_id" class="heading-text"><?php echo($_GET['stationid']);?></p>
 					</div>
 			</div>
 			<div class="jumbotron">
