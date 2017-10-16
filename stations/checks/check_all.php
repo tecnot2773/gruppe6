@@ -28,7 +28,9 @@
 	include_once "check_wdr2.php";
 	include_once "check_bremeneins.php";
 	include_once "check_ndr1.php";
-			
+	include_once "check_rsh.php";
+	include_once "check_mdrjump.php";
+	
 	$currentDay = date("Y-m-d");			
 	$currentHour = date("Y-m-d H");			
 	$currentSeconds = date("Y-m-d H:i:s");	
