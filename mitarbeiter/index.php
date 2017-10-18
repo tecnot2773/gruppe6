@@ -55,8 +55,10 @@
 					
 
 					<div id="rowend" class="row">
-						<select name="autobahn-number" class="enjoy-css">
-							<option value="" disabled selected hidden> Autobahnnummer</option></select> <br> <br>
+						<select name="highway-number" class="enjoy-css">
+							<option value="" disabled selected hidden> Autobahnnummer</option>
+							<?php include_once '../include/include_tollgate.php'; Tollgate::getHighway(); ?>
+							</select> <br> <br>
 							</div>
 					<div id="rowend" class="row">
 						<select name="entry-point" class="enjoy-css">
