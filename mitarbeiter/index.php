@@ -51,6 +51,7 @@
 						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
 					
+<<<<<<< HEAD
 					<div id="rowend" class="row">		
 						<select name="highway-number" class="enjoy-css">
 							<option value="" disabled selected hidden> Autobahnnummer</option>
@@ -61,6 +62,19 @@
 									
 					<select name="entry-point" class="enjoy-css">
 						<option value="" disabled selected hidden> Kreuzname </option>
+=======
+					<div id="rowend" class="row">
+					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
+					
+
+					
+					<select name="autobahn-number" class="row">
+						<option value="" disabled selected hidden> Autobahnnummer</option></select> <br> <br>
+					<select name="entry-point" class="row">
+						<option value="" disabled selected hidden> Kreuzname </option></select> <br><br>
+						
+						
+>>>>>>> parent of 36d4ca9... *
 						
 						</select> <br><br>
 					
