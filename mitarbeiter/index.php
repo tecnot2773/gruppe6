@@ -54,13 +54,14 @@
 					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					
 
+					<div id="rowend" class="row">
 					
-					<select name="autobahn-number" class="row">
+					<select name="autobahn-number" class="enjoy-css">
 						<option value="" disabled selected hidden> Autobahnnummer</option></select> <br> <br>
 					<select name="entry-point" class="row">
 						<option value="" disabled selected hidden> Kreuzname </option></select> <br><br>
 						
-						
+						</div>
 						
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>					
 					
