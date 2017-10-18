@@ -58,6 +58,8 @@
 					
 					<select name="autobahn-number" class="enjoy-css">
 						<option value="" disabled selected hidden> Autobahnnummer</option></select> <br> <br>
+						</div>
+						<div id="rowend" class="enjoy-css">
 					<select name="entry-point" class="row">
 						<option value="" disabled selected hidden> Kreuzname </option></select> <br><br>
 						
