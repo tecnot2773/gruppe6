@@ -1,5 +1,5 @@
-﻿<?php
-	include '../include/include_db.php';
+<?php
+
 	class Tollgate
 	{
 		public static function getHighway()
