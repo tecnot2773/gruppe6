@@ -1,14 +1,16 @@
  <?php
-	function utf8ize($d)															//funtion to convert DB select into UTF8 (currently not used)
-	{
-		if (is_array($d)) {
-			foreach ($d as $k => $v) {
-				$d[$k] = utf8ize($v);
+	if (! function_exists(utf8ize()){
+		function utf8ize($d)															//funtion to convert DB select into UTF8 (currently not used)
+		{
+			if (is_array($d)) {
+				foreach ($d as $k => $v) {
+					$d[$k] = utf8ize($v);
+				}
+			} else if (is_string ($d)) {
+				return utf8_encode($d);
 			}
-		} else if (is_string ($d)) {
-			return utf8_encode($d);
+			return $d;
 		}
-		return $d;
 	}
 	
 	$servername = "localhost";														//server name
