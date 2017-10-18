@@ -50,21 +50,50 @@
 						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
 					
+<<<<<<< HEAD
 					<div id="rowend" class="row">
 					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					
 
 					<div id="rowend" class="row">
+=======
+<<<<<<< HEAD
+					<div id="rowend" class="row">		
+>>>>>>> origin/master
 						<select name="highway-number" class="enjoy-css">
 							<option value="" disabled selected hidden> Autobahnnummer</option>
 							<?php include_once '../include/include_tollgate.php'; Tollgate::getHighway(); ?>
 							</select> <br> <br>
+<<<<<<< HEAD
 							</div>
 					<div id="rowend" class="row">
 						<select name="entry-point" class="enjoy-css">
 							<option value="" disabled selected hidden> Kreuzname </option></select> <br><br>
 						</div>
+=======
+					
+					<center><input class="button" type="submit" name="Highway-execute" value="OK"></center> 
+									
+					<select name="entry-point" class="enjoy-css">
+						<option value="" disabled selected hidden> Kreuzname </option>
+=======
+					<div id="rowend" class="row">
+					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
+					
+
+					
+					<select name="autobahn-number" class="row">
+						<option value="" disabled selected hidden> Autobahnnummer</option></select> <br> <br>
+					<select name="entry-point" class="row">
+						<option value="" disabled selected hidden> Kreuzname </option></select> <br><br>
 						
+						
+>>>>>>> parent of 36d4ca9... *
+>>>>>>> origin/master
+						
+						</select> <br><br>
+					
+					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>					
 					
 					</div>
