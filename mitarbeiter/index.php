@@ -51,21 +51,20 @@
 						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
 					
-					<div id="rowend" class="row">
-					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
-					
-
-					
+					<div id="rowend" class="row">		
 						<select name="highway-number" class="enjoy-css">
 							<option value="" disabled selected hidden> Autobahnnummer</option>
 							<?php include_once '../include/include_tollgate.php'; Tollgate::getHighway($conn); ?>
 							</select> <br> <br>
 					
-					
-						<select name="entry-point" class="enjoy-css">
-							<option value="" disabled selected hidden> Kreuzname </option></select> <br><br>
-					
+					<center><input class="button" type="submit" name="Highway-execute" value="OK"></center> 
+									
+					<select name="entry-point" class="enjoy-css">
+						<option value="" disabled selected hidden> Kreuzname </option>
 						
+						</select> <br><br>
+					
+					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>					
 					
 					</div>
