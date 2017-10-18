@@ -1,5 +1,5 @@
  <?php
-	if (! function_exists('utf8ize'){
+	if (! function_exists(utf8ize()){
 		function utf8ize($d)															//funtion to convert DB select into UTF8 (currently not used)
 		{
 			if (is_array($d)) {
