@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<!-- Required meta tags -->
-		<?php 								include_once '../include/include_db.php';																	//create db connection ?>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
@@ -58,7 +57,7 @@
 					<div id="rowend" class="row">
 						<select name="highway-number" class="enjoy-css">
 							<option value="" disabled selected hidden> Autobahnnummer</option>
-							<?php include_once '../include/include_tollgate.php'; Tollgate::getHighway($conn); ?>
+							<?php include_once '../include/include_db.php'; include_once '../include/include_tollgate.php'; Tollgate::getHighway($conn); ?>
 							</select> <br> <br>
 							</div>
 					<div id="rowend" class="row">
@@ -79,6 +78,7 @@
 						<select name="text-plate-exit" class="enjoy-css">
 							<option value="" disabled selected hidden>Kennzeichen</option>
 							<?php 
+								include_once '../include/include_db.php';																	//create db connection
 								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
 								$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
 								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
