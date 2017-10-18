@@ -12,5 +12,6 @@
 				echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
 			}
 		}
+	}
 
 ?>
