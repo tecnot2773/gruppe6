@@ -57,7 +57,7 @@
 					<div id="rowend" class="row">
 						<select name="highway-number" class="enjoy-css">
 							<option value="" disabled selected hidden> Autobahnnummer</option>
-							<?php include '../include/include_db.php'; include_once '../include/include_tollgate.php'; Tollgate::getHighway(); ?>
+							<?php include_once '../include/include_db.php'; include_once '../include/include_tollgate.php'; Tollgate::getHighway(); ?>
 							</select> <br> <br>
 							</div>
 					<div id="rowend" class="row">
@@ -78,7 +78,7 @@
 						<select name="text-plate-exit" class="enjoy-css">
 							<option value="" disabled selected hidden>Kennzeichen</option>
 							<?php 
-								include '../include/include_db.php';																	//create db connection
+								include_once '../include/include_db.php';																	//create db connection
 								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
 								$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
 								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
