@@ -2,7 +2,7 @@
 	include 'include_db.php';
 	class Tollgate
 	{
-		public static function getHighway()
+		public static function getHighway($conn)
 		{
 
 			$query_getHighway = "SELECT DISTINCT nameAutobahn FROM `mautstelle`";											//sql query to get  kennzeichen
