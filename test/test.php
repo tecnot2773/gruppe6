@@ -4,7 +4,6 @@
 	$npc = $_GET['npc'];
 
 	$http_content = file_get_contents("http://ptr.wowhead.com/npc=" .$npc);
-	echo  $http_content;
 	
 	preg_match('/name\":\"4(.+?)(?=\")/', $http_content, $itemName);
 	
