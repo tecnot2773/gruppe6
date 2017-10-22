@@ -7,10 +7,10 @@
 	
 	preg_match('name":"4(.+?)(?=")', $http_content, $itemName);
 	
-	$i = 0
+	$i = 0;
 	foreach($itemName as $key => $item){
 		echo $item . "<br>";
-		i++
+		i++;
 	}
 	
 ?>
