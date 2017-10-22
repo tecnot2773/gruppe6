@@ -8,7 +8,7 @@
 	preg_match_all('/"name":"4(.+?)(?=")/', $http_content, $itemName);
 	$len=count($itemName);
 	for ($i=0; $i<$len ;$i++){
-		echo $itemName[$i][1];
+		echo $itemName[1][$i];
 	}
 	
 ?>
