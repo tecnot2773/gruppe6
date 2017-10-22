@@ -9,7 +9,7 @@
 	print_r($itemName);
 	$len=count($itemName);
 	for ($i=0; $i<$len ;$i++){
-		echo $itemName[1][$i];
+		echo $itemName[$i][1];
 	}
 	
 ?>
