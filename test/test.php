@@ -10,7 +10,7 @@
 	$i = 0;
 	foreach($itemName as $key => $item){
 		echo $item . "<br>";
-		i++;
+		$i++;
 	}
 	
 ?>
