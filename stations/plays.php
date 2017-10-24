@@ -10,7 +10,7 @@
 	$result_getSongId = mysqli_query($conn, $query_getSongId);			
 	$rows_getSongid = mysqli_num_rows($result_getSongId);			
 	if ($rows_getSongid == 0){			
-		$query_insertSong = "INSERT INTO song (name, artist) VALUES ('$songname', '$artistname')";			
+		$query_insertSong = "INSERT INTO song (name, artist, firstPlayedBy) VALUES ('$songname', '$artistname', '$station')";			
 		mysqli_query($conn, $query_insertSong);			
 		$get_songId = mysqli_query($conn, $query_getSongId);			
 		while($data = mysqli_fetch_array($get_songId)){			
