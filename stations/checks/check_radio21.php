@@ -7,8 +7,31 @@
 	$http_content = file_get_contents("http://www.radio21.de/titelabfrage/titelabfragesnippet.php");
 	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $songs);
 	preg_match_all('/(?=>\s)..(.+?)(?= <)/', $http_content, $artists);
+
 	$artistname = mysqli_real_escape_string($conn,strtolower(strip_tags($artists[1][0])));
 	$songname = mysqli_real_escape_string($conn,strtolower(strip_tags($songs[1][1])));
+
+	if(preg_match('/(?=&amp)(.+?)(?<=;)/', $artistname)){
+		$pattern = '/(?=&amp)(.+?)(?<=;)/';
+		$replacement = '&';
+		$artistname = preg_replace($pattern, $replacement, $artistname);
+	}
+	if(preg_match('/(?=&amp)(.+?)(?<=;)/', $songname)){
+		$pattern = '/(?=&amp)(.+?)(?<=;)/';
+		$replacement = '&';
+		$songname = preg_replace($pattern, $replacement, $songname);
+	}
+	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $artistname)){
+		$pattern = '/(?=&#039)(.+?)(?<=;)/';
+		$replacement = "`";
+		$artistname = preg_replace($pattern, $replacement, $artistname);
+	}
+	if(preg_match('/(?=&#039)(.+?)(?<=;)/', $songname)){
+		$pattern = '/(?=&#039)(.+?)(?<=;)/';
+		$replacement = "`";
+		$songname = preg_replace($pattern, $replacement, $songname);
+	}
+
 	if(empty($artistname) OR empty($songname)){
 		
 	}else{
