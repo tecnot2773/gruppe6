@@ -66,7 +66,11 @@ class Statistic
 				$result_monthyCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$month%'");
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
 				
-				echo "<td width='350px'> Autos im Monat ${i} auf der Autobahn </td>";
+				$dateObj   = DateTime::createFromFormat('!m', $i);
+				$monthName = $dateObj->format('F');
+				
+				
+				echo "<td width='350px'> Autos im Monat ${monthName} auf der Autobahn </td>";
 				echo "<td width='350px'> ${monthlyCount} </td>";
 				echo "</tr>";
 			}
