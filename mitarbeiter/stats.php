@@ -74,16 +74,18 @@
 			</tr>
 			<?php Statistic::monthlyCount($conn); ?>
 			</table>
-			</div>
-			<div id="rowstart" class="row">
-				<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum"> 
-			</div>
-			<div id="rowend" class="row">
-				<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End Datum"><br>				
-			</div>
-			<div id="buttonrow" class="row">
-				<input class="button" type="submit" name="submit" value="Ausführen">  						
-			</div>
+			<form action="/stats.php" method="post">
+				</div>
+				<div id="rowstart" class="row">
+					<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum"> 
+				</div>
+				<div id="rowend" class="row">
+					<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End Datum"><br>				
+				</div>
+				<div id="buttonrow" class="row">
+					<input class="button" type="submit" name="submit" value="Ausführen">  						
+				</div>
+			</form>
 			<?php Statistic::searchCount($conn); ?>
 		</div>
 	</body>

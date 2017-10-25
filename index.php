@@ -55,9 +55,10 @@
 
 					</div>
 				</div>
-			</form>
+			</div>
+		</form>
 
-		</div>
+		
 		</div>
 		<!-- JAVASCRIPT  -->
 	</body>
