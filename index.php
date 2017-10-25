@@ -24,7 +24,7 @@
 						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
 						<li>
 							<div class="dropdown">
-								<button class="dropbtn">Dropdown</button>
+								<div class="dropbtn">Dropdown</div>
 								<div class="dropdown-content">
 									<a href="#">Link 1</a>
 									<a href="#">Link 2</a>
