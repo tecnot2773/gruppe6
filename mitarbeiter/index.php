@@ -8,6 +8,7 @@
 		<link href="/mitarbeiter/index.css" type="text/css" rel="stylesheet" />
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
 		<link href="/css/navbar.css" type="text/css" rel="stylesheet" />
+		<link href="/css/body.css" type="text/css" rel="stylesheet" />
 		<title>Mautstationen</title>
 	</head>
 	<body>
@@ -42,21 +43,11 @@
 				<div id="placeholder" class="test">
 				</div>
 				<div id="griddiv-nav-top" class="test">
-					<div id="buttondiv_rowstart" class="row">
-						<center>
-							<a href="index.php" class="linkbutton">Ein/Aus-fahrt</a>
-							<a href="addmaut.php" class="linkbutton">Mautstelle hinzufügen</a>
-							<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
-							<a href="autobahn.php" class="linkbutton">Auf der Autobahn</a>
-							<a href="stats.php" class="linkbutton">Statistik</a>
-						</center>
-					</div>
-					<div id="buttondiv_line" class="row"></div>
 					<div id="buttondiv_rowend" class="row">
 						<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?><center>
 					</div>
 				</div>
-				<div id="griddiv-left" class="test">
+				<div id="jumbo-white" class="test">
 					<div id="rowstart" class="row">
 						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
