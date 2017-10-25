@@ -25,7 +25,7 @@
 	if($type == "yearChart"){
 		$monthChart = "";
 		for ($i = 0; $i <= 11; $i++){
-			$month = date('Y-m', strtotime("first day of january last year +$i Month"));
+			$month = date('Y-m', strtotime("first day of january +$i Month"));
 			$query_getMonthChart = "SELECT replaysPerMonth FROM yearlyStats WHERE stationId = '$station' AND timestamp LIKE '$month%'";
 			echo $query_getMonthChart . "<br>";
 			$getReplaysPerMonthChart = mysqli_query($conn, $$query_getMonthChart);
