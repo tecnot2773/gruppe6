@@ -55,14 +55,15 @@
 					}
 					else{
 						$entryTime = $entryTime;
-					}
-					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
-						$entryTime = date("Y-m-d H:i:s", strtotime($entryTime));
-					}
-					else
-					{
-						$entryTime = date("Y-m-d H:i:s");																					//if time format is not correct, replace with current time
-						echo "Falsche Zeitangabe - Zeitangabe wurde zu $entryTime geändert. ";
+
+						if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
+							$entryTime = date("Y-m-d H:i:s", strtotime($entryTime));
+						}
+						else
+						{
+							$entryTime = date("Y-m-d H:i:s");																					//if time format is not correct, replace with current time
+							echo "Falsche Zeitangabe - Zeitangabe wurde zu $entryTime geändert. ";
+						}
 					}
 					//End Check Time
 
