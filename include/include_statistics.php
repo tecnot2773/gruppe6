@@ -64,7 +64,7 @@ class Statistic
 				$month = date("Y");
 				$month = $month . "-" . $i;
 				echo $month;
-				$result_monthyCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$month$'");
+				$result_monthyCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$month%'");
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
 				
 				echo "<td width='350px'> Autos im Monat ${i} auf der Autobahn </td>";
