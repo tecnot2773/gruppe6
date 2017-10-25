@@ -21,6 +21,12 @@
 						<li><a href="/index.php">Kosten berechnen</a></li>
 						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
 						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
+						  <button class="dropbtn">Dropdown</button>
+						  <div class="dropdown-content">
+							<a href="#">Link 1</a>
+							<a href="#">Link 2</a>
+							<a href="#">Link 3</a>
+						  </div>
 					</ul>
 				</nav>
 			</div>
