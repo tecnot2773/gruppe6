@@ -74,6 +74,13 @@ class Statistic
 				echo "<td width='350px'> ${monthlyCount} </td>";
 				echo "</tr>";
 			}
-		}	
+		}
+		public static function searchCount($conn)
+		{
+			$start = $_POST["searchStart"];
+			$end = $_POST["searchEnd"];
+			echo $start;
+			echo $end;
+		}
 	}
 ?>
