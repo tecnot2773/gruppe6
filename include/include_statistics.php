@@ -70,6 +70,7 @@ class Statistic
 				echo "<td width='350px'> Autos diesen Monat auf der Autobahn </td>";
 				echo "<td width='350px'> ${monthlyCount} </td>";
 				echo "</tr>";
-				
+			}
+		}	
 	}
 ?>
