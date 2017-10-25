@@ -48,7 +48,6 @@
 					</div>
 				</div>
 				<div id="jumbo-white" class="test">
-					<div class="griddiv-left">
 						<div id="rowstart" class="row">
 							<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 						</div>
@@ -57,8 +56,8 @@
 							<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
 							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>
 						</div>
-					</div>
-					<div class="griddiv-right">
+
+
 						<div id="rowstart" class="row">
 							<input type="radio" name="selection" value="exit">Ausfahrt<br>
 						</div>
@@ -78,7 +77,7 @@
 							<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
 							<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS
 						</div>
-					</div>
+
 				<div id="griddiv-left-lower" class="test">
 					<div id="buttondiv_rowstart" class="row">
 					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
