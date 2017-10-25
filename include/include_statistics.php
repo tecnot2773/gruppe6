@@ -41,7 +41,7 @@ class Statistic
 			$result_getDailyExit = mysqli_query($conn,$query_getDailyExit);
 			$dailyExitRows = mysqli_num_rows($result_getDailyExit);														//get rows from previous select
 			
-			echo $dailyExitRows
+			echo $dailyExitRows;
 		}
 		public static function monthlyExit($conn)
 		{	
@@ -50,6 +50,6 @@ class Statistic
 			$result_getMonthlyExit = mysqli_query($conn,$query_getMonthlyExit);
 			$monthlyExitRows = mysqli_num_rows($result_getMonthlyExit);													//get rows from previous select
 			
-			echo $monthlyExitRows
+			echo $monthlyExitRows;
 		}
 ?>
