@@ -48,7 +48,10 @@
 				</div>
 				<div id="jumbo-white" class="test">
 						<div class="row-radio">
-							<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
+							<label>
+								<input type="radio" name="selection" value="entry" checked="checked">
+								Einfahrt
+							</label>
 						</div>
 						<div id="first-row" class="row-data">
 							<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen">
