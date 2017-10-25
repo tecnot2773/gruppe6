@@ -63,6 +63,10 @@ padding-bottom: 15px;
 #first-row {
 	padding-bottom: 35px;
 }
+label {
+		cursor: pointer;
+}
+
 #rowend-left-upper {
 padding-top:  50px;
 padding-left: 50px;
