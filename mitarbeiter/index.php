@@ -17,7 +17,6 @@
 				<a href="/index.php">
 				<img src="../images/logo.png" alt="logo" class="logo" />
 				</a>
-
 			<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
@@ -26,9 +25,10 @@
 							<div class="dropdown">
 								<a>Mitarbeiter Menü</a>
 								<div class="dropdown-content">
-									<a href="#">Link 1</a>
-									<a href="#">Link 2</a>
-									<a href="#">Link 3</a>
+									<a href="stats.php">Dashboard</a>
+									<a href="index.php">Ein/Aus-Fahrt</a>
+									<a href="addmaut.php">Mautstellen</a>
+									<a href="rechnungen.php">Rechnungen</a>
 								</div>
 							</div>
 						</li>
