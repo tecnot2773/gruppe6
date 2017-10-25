@@ -4,7 +4,8 @@
      background-color: white;
      opacity: 0.8;
      border-radius: 20px;
-     width: 100%;
+     width: 80%;
+	margin: 0 auto;
 }
 #griddiv-left-upper {
 background-color: white;
