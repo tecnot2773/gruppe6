@@ -77,8 +77,8 @@ class Statistic
 		}
 		public static function searchCount($conn)
 		{
-			$start = $_POST["searchStart"];
-			$end = $_POST["searchEnd"];
+			$start = $_POST["startSearch"];
+			$end = $_POST["endSearch"];
 			echo $start;
 			echo $end;
 		}
