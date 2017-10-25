@@ -53,7 +53,11 @@
 								Einfahrt
 							</label>
 						</div>
+<<<<<<< HEAD
+						<div id="firtst-row" class="row-data">
+=======
 						<div id="first-row" class="row-data">
+>>>>>>> 94b60992e8165e9634230779de533bad02757891
 							<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen">
 							<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt">
 							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS
