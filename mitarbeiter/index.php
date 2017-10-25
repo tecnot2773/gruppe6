@@ -58,8 +58,6 @@
 					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>
 
 					</div>
-				</div>
-				<div id="griddiv-right" class="test">
 					<div id="rowstart" class="row">
 						<input type="radio" name="selection" value="exit">Ausfahrt<br>
 					</div>
@@ -83,14 +81,14 @@
 					<div id="resultstring" class="alert alert-info">
 
 					</div>
-				</div>
+
 				<div id="griddiv-left-lower" class="test">
 
 					<div id="buttondiv_rowstart" class="row">
 					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
 					</div>
 				</div>
-
+			</div>
 			</div>
 		</form>
 	</body>
