@@ -131,15 +131,15 @@
 				}
 				else{
 					$exit_time = $exit_time;
-				}
-				
-				if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
-					$exit_time = date("Y-m-d H:i:s", strtotime($exit_time));
-				}
-				else
-				{
-					$exit_time = date("Y-m-d H:i:s");
-					echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert. ";
+					
+					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
+						$exit_time = date("Y-m-d H:i:s", strtotime($exit_time));
+					}
+					else
+					{
+						$exit_time = date("Y-m-d H:i:s");
+						echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert. ";
+					}
 				}
 				
 				$query_getTollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exitTollgate";

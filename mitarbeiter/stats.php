@@ -53,7 +53,7 @@
 			<th>Statistiken</th>
 			<th></th>
 			</tr>
-			<tr class='userlistoutput'>";
+			<tr class='userlistoutput'>
 			<td width='350px'> Mautstellen in der Datenbank </td>
 			<td width='350px'> <?php Statistic::tollgateCount($conn); ?> </td>
 			</tr>
