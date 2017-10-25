@@ -13,9 +13,11 @@
 	<body>
 		<!--navbar -->
 		<header>
+			<div class="navbar-container">
 				<a href="/index.php">
 				<img src="../images/logo.png" alt="logo" class="logo" />
 				</a>
+
 			<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
