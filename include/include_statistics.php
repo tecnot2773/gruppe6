@@ -21,8 +21,9 @@ class Statistic
 		{
 			$query_exitNumber = "SELECT * FROM faehrtAus";
 			$result_exitNumber = mysqli_query($conn,$query_exitNumber);
+			$exitNumberRows = mysqli_num_rows($result_exitNumber);
 			
-			echo $result_exitNumber;
+			echo $exitNumberRows;
 		}
 		public static function onTheRoad($conn)
 		{	
