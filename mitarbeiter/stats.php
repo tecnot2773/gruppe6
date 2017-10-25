@@ -73,6 +73,9 @@
 			<td width='350px'> <?php Statistic::monthlyExit($conn); ?> </td>
 			</tr>
 			<?php Statistic::monthlyCount($conn); ?>
+			<td width='350px'> Autosim Zeitraum auf der Autobahn </td>
+			<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
+			</tr>			
 			</table>
 			<form action="/mitarbeiter/stats.php" method="post">
 				</div>

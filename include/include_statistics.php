@@ -79,8 +79,14 @@ class Statistic
 		{
 			$start = $_POST["startSearch"];
 			$end = $_POST["endSearch"];
-			echo $start;
-			echo $end;
+			
+			$start = date("Y-m-d H:i:s", strtotime($start));
+			$end = date("Y-m-d H:i:s", strtotime($end));
+		
+			$result_searchCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel BETWEEN '$start' and '$end'")
+			$searchCount = mysqli_num_rows($result_searchCount);
+			
+			echo $searchCount;
 		}
 	}
 ?>
