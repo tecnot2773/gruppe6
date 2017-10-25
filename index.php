@@ -48,8 +48,9 @@
 					<div id="rowstart" class="row">
 						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
-						<button class="dropbtn">Dropdown</button>
+						
 						<div class="dropdown">
+							<button class="dropbtn">Dropdown</button>
 							<div class="dropdown-content">
 								<a href="#">Link 1</a>
 								<a href="#">Link 2</a>
