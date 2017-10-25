@@ -86,6 +86,5 @@
 			</div>
 			<?php Statistic::searchCount($conn); ?>
 		</div>
-		</div>
 	</body>
 </html>
