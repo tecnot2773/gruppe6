@@ -1,5 +1,4 @@
 ﻿<?php
-	include_once 'include_db.php';																				//create DB connection
 class Statistic
 	{
 		public static function tollgateCount($conn)
