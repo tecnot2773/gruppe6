@@ -51,16 +51,16 @@
 				if($checkTollgateCode == "TRUE"){																							//if Tollgate exists do 
 					//Start Check Time
 					if (empty($entryTime)){																									//check if time is empty
-						$entryTime = date("d.m.Y H:i:s");																					//if time is empty insert current time
+						$entryTime = date("Y-m-d H:i:s");																					//if time is empty insert current time
 					}
 					else{
 						$entryTime = $entryTime;
 					}
-					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
+					if (preg_match("/^(\d{4})([-])(\d{2})(-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
 					}
 					else
 					{
-						$entryTime = date("d.m.Y H:i:s");																					//if time format is not correct, replace with current time
+						$entryTime = date("Y-m-d H:i:s");																					//if time format is not correct, replace with current time
 						echo "Falsche Zeitangabe - Zeitangabe wurde zu $entryTime geändert";
 					}
 					//End Check Time
@@ -126,17 +126,17 @@
 			
 			if($checkTollgateCode == "TRUE"){				
 				if (empty($exit_time)){
-					$exit_time = date("d.m.Y H:i:s");
+					$exit_time = date("Y-m-d H:i:s");
 				}
 				else{
 					$exit_time = $exit_time;
 				}
 				
-				if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
+				if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
 				}
 				else
 				{
-					$exit_time = date("d.m.Y H:i:s");
+					$exit_time = date("Y-m-d H:i:s");
 					echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert";
 				}
 				
