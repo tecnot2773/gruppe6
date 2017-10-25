@@ -47,7 +47,32 @@
 					</div>
 				</div>
 			<div id="griddiv-left" class="test">
-				<?php include_once '../include/include_statistics.php'; ?>
+				<?php include_once '../include/include_statistics.php'; include_once '..include/include_db.php'; ?>
+			<table border='1'>																					
+			<tr>
+			<th>Statistiken</th>
+			<th></th>
+			</tr>";
+			<tr class='userlistoutput'>";
+			<td width='350px'> Mautstellen in der Datenbank </td>
+			<td width='350px'> <?php Statistic::tollgateCount($conn); ?> </td>
+			</tr>
+			<td width='350px'> Insgesamte Einfahrten </td>
+			<td width='350px'> <?php Statistic::entryCount($conn); ?> </td>
+			</tr>
+			<td width='350px'> Insgesamte Ausfahrten </td>
+			<td width='350px'> <?php Statistic::exitCount($conn); ?> </td>
+			</tr>
+			<td width='350px'> Autos auf der Autobahn </td>
+			<td width='350px'> <?php Statistic::onTheRoad($conn); ?> </td>
+			</tr>
+			<td width='350px'> Autos heute auf der Autobahn </td>
+			<td width='350px'> <?php Statistic::dailyExit($conn); ?> </td>
+			</tr>
+			<td width='350px'> Autos diesen Monat auf der Autobahn </td>
+			<td width='350px'> <?php Statistic::monthlyExit($conn); ?> </td>
+			</tr>
+			</table>
 			</div>
 		</div>
 		</div>
