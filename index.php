@@ -7,7 +7,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 		<link href="/index.css" type="text/css" rel="stylesheet" />
 		<link href="/textbox.css" type="text/css" rel="stylesheet" />
-		<link href="/dropdown.css" type="text/css" rel="stylesheet" />
+		<link href="/css/dropdown.css" type="text/css" rel="stylesheet" />
 		<title>Mautstationen</title>
 	</head>
 	<body>
