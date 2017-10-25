@@ -75,7 +75,7 @@ nav a:hover::before {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
+    display: none !important;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
