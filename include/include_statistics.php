@@ -62,7 +62,7 @@ class Statistic
 		{
 			for($i = 1; $i < 12; $i++){
 				$month = date("Y");
-				$month = $month . $i;
+				$month = $month . "-" . $i;
 				echo $month;
 				$result_monthyCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$month$'");
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
