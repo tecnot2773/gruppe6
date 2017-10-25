@@ -48,42 +48,38 @@
 					</div>
 				</div>
 				<div id="jumbo-white" class="test">
-					<div id="rowstart" class="row">
-						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
+					<div class="griddiv-left">
+						<div id="rowstart" class="row">
+							<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
+						</div>
+						<div id="rowend" class="row">
+							<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
+							<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
+							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>
+						</div>
 					</div>
+					<div class="griddiv-right">
+						<div id="rowstart" class="row">
+							<input type="radio" name="selection" value="exit">Ausfahrt<br>
+						</div>
 
-					<div id="rowend" class="row">
-					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
-					<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
-					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>
-
+						<div id="rowend" class="row">
+							<select name="text-plate-exit" class="enjoy-css">
+								<option value="" disabled selected hidden>Kennzeichen</option>
+								<?php
+									include_once '../include/include_db.php';																	//create db connection
+									$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
+									$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
+									while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
+										echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>';		//use echo to execute html in php
+									}
+								?>
+							</select> <br><br>
+							<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
+							<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS
+						</div>
 					</div>
-					<div id="rowstart" class="row">
-						<input type="radio" name="selection" value="exit">Ausfahrt<br>
-					</div>
-
-					<div id="rowend" class="row">
-						<select name="text-plate-exit" class="enjoy-css">
-							<option value="" disabled selected hidden>Kennzeichen</option>
-							<?php
-								include_once '../include/include_db.php';																	//create db connection
-								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
-								$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
-								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
-									echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>';		//use echo to execute html in php
-								}
-							?>
-						</select> <br><br>
-						<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
-						<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS
-					</div>
-
-					<div id="resultstring" class="alert alert-info">
-
-					</div>
-
 				<div id="griddiv-left-lower" class="test">
-
 					<div id="buttondiv_rowstart" class="row">
 					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
 					</div>

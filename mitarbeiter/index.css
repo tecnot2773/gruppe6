@@ -4,6 +4,7 @@
      background-color: white;
      opacity: 0.8;
      border-radius: 20px;
+     width: 100%;
 }
 #griddiv-left-upper {
 background-color: white;
@@ -44,17 +45,9 @@ width: 100%;
 margin-bottom: 18px;
 }
 #griddiv-left {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 49%;
 float: left;
 }
 #griddiv-right {
-background-color: white;
-opacity: 0.8;
-border-radius: 20px;
-width: 49%;
 float: right;
 }
 #rowstart {
