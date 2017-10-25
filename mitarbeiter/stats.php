@@ -74,7 +74,7 @@
 			</tr>
 			<?php Statistic::monthlyCount($conn); ?>
 			</table>
-			<form action="/stats.php" method="post">
+			<form action="/mitarbeiter/stats.php" method="post">
 				</div>
 				<div id="rowstart" class="row">
 					<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum"> 
