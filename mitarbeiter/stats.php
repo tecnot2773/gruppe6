@@ -72,7 +72,7 @@
 			<td width='350px'> Autos diesen Monat auf der Autobahn </td>
 			<td width='350px'> <?php Statistic::monthlyExit($conn); ?> </td>
 			</tr>
-			<?php Statistic:monthlyCount($conn); ?>
+			<?php Statistic::monthlyCount($conn); ?>
 			</table>
 			</div>
 		</div>
