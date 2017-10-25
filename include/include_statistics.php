@@ -26,7 +26,12 @@ class Statistic
 			echo $exitNumberRows;
 		}
 		public static function onTheRoad($conn)
-		{	
+		{		
+			$query_entryNumber = "SELECT * FROM faehrtEin";
+			$result_entryNumber = mysqli_query($conn,$query_entryNumber);
+			$entryNumberRows = mysqli_num_rows($result_entryNumber);		
+		
+		
 			$query_exitNumber = "SELECT * FROM faehrtAus";
 			$result_exitNumber = mysqli_query($conn,$query_exitNumber);
 			$exitNumberRows = mysqli_num_rows($result_exitNumber);
