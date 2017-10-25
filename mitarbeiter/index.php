@@ -20,7 +20,16 @@
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
 						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
-						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
+						<li>
+							<div class="dropdown">
+								<a>test</a>
+								<div class="dropdown-content">
+									<a href="#">Link 1</a>
+									<a href="#">Link 2</a>
+									<a href="#">Link 3</a>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -49,23 +58,23 @@
 					<div id="rowstart" class="row">
 						<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 					</div>
-					
+
 					<div id="rowend" class="row">
 					<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen"><br><br>
 					<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt"><br><br>
-					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>					
-					
+					<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS<br><br>
+
 					</div>
 				</div>
 				<div id="griddiv-right" class="test">
 					<div id="rowstart" class="row">
 						<input type="radio" name="selection" value="exit">Ausfahrt<br>
 					</div>
-					
+
 					<div id="rowend" class="row">
 						<select name="text-plate-exit" class="enjoy-css">
 							<option value="" disabled selected hidden>Kennzeichen</option>
-							<?php 
+							<?php
 								include_once '../include/include_db.php';																	//create db connection
 								$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
 								$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
@@ -75,17 +84,17 @@
 							?>
 						</select> <br><br>
 						<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
-						<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS				
+						<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS
 					</div>
-					
+
 					<div id="resultstring" class="alert alert-info">
 
 					</div>
 				</div>
 				<div id="griddiv-left-lower" class="test">
-					
+
 					<div id="buttondiv_rowstart" class="row">
-					<center><input class="button" type="submit" name="execute" value="Ausführen"></center> 
+					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
 					</div>
 				</div>
 
