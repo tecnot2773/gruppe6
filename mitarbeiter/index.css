@@ -132,7 +132,9 @@ a.linkbutton:hover {
 	background-color: white;
     color: black;
     border: 2px solid #008CBA;
-	border-radius: 12px;
+    border-radius: 12px;
+     float: right;
+     margin-right: 50px;
 }
 
 .button:hover {

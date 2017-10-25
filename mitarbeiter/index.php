@@ -76,13 +76,9 @@
 							</select>
 							<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt">
 							<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS
+							<input class="button" type="submit" name="execute" value="Ausführen">
 						</div>
 
-				<div id="griddiv-left-lower" class="test">
-					<div id="buttondiv_rowstart" class="row">
-					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
-					</div>
-				</div>
 			</div>
 			</div>
 		</form>
