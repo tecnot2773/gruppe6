@@ -47,21 +47,21 @@
 					</div>
 				</div>
 				<div id="jumbo-white" class="test">
-						<div id="rowstart" class="row">
+						<div class="row-radio">
 							<input type="radio" name="selection" value="entry" checked="checked">Einfahrt<br>
 						</div>
-						<div id="rowend" class="row">
+						<div class="row-data">
 							<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen">
 							<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt">
 							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS
 						</div>
 
 
-						<div id="rowstart" class="row">
+						<div class="row-radio">
 							<input type="radio" name="selection" value="exit">Ausfahrt<br>
 						</div>
 
-						<div id="rowend" class="row">
+						<div class="row-data">
 							<select name="text-plate-exit" class="enjoy-css">
 								<option value="" disabled selected hidden>Kennzeichen</option>
 								<?php

@@ -51,16 +51,10 @@ float: left;
 #griddiv-right {
 float: right;
 }
-#rowstart {
-padding-top:  50px;
-padding-left: 50px;
-padding-right: 50px;
+.row-radio {
+padding-bottom: 15px;
 }
-#rowend {
-padding-top: 25px;
-padding-bottom: 50px;
-padding-left: 50px;
-padding-right: 50px;
+.row-data {
 }
 #rowend-left-upper {
 padding-top:  50px;
