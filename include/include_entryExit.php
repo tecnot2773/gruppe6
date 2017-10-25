@@ -55,7 +55,6 @@
 					}
 					else{
 						$entryTime = $entryTime;
-						echo $entryTime;
 					}
 					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
 						$entryTime = date("Y-m-d H:i:s", strtotime($entryTime));
@@ -63,7 +62,7 @@
 					else
 					{
 						$entryTime = date("Y-m-d H:i:s");																					//if time format is not correct, replace with current time
-						echo "Falsche Zeitangabe - Zeitangabe wurde zu $entryTime geändert";
+						echo "Falsche Zeitangabe - Zeitangabe wurde zu $entryTime geändert. ";
 					}
 					//End Check Time
 
@@ -140,7 +139,7 @@
 				else
 				{
 					$exit_time = date("Y-m-d H:i:s");
-					echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert";
+					echo "Falsche Zeitangabe - Zeitangabe wurde zu $exit_time geändert. ";
 				}
 				
 				$query_getTollgateExitId = "SELECT ID FROM mautstelle WHERE code = $code_exitTollgate";

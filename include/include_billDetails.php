@@ -26,6 +26,7 @@ $EntryTollgateData = mysqli_query($conn, $query_getEntryTollgateData);
 while ($data3 = mysqli_fetch_array($EntryTollgateData)){
 	$entryTime = $data3['zeitstempel'];
 	$entryTollgate = $data3['mautstelleID'];
+	$entryTime = date("d.m.Y H:i:s", strtotime($entryTime));
 }
 
 $query_getExitTollgateData = "SELECT zeitstempel, mautstelleID FROM faehrtAus WHERE id = $exitId";
@@ -33,6 +34,7 @@ $exitTollgateData = mysqli_query($conn, $query_getExitTollgateData);
 while ($data4 = mysqli_fetch_array($exitTollgateData)){
 	$exitTime = $data4['zeitstempel'];
 	$exitTollgate = $data4['mautstelleID'];
+	$exitTime = date("d.m.Y H:i:s", strtotime($exitTime));
 }
 
 $query_getEntryTollgateInfo = "SELECT code, nameAutobahn, nameKreuz FROM mautstelle WHERE id = $entryTollgate";

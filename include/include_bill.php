@@ -45,7 +45,8 @@ while($data1 = mysqli_fetch_array($result_getBill)){																		//fetch ge
 					echo "<td width='45px'>" . $data2['kennzeichen'] . "</td>";
 					echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
 					echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
-					echo "<td width='70px'>" . $data4['zeitstempel'] . "</td>";
+					$timestamp = date("d.m.Y H:i:s", strtotime($data4['zeitstempel']));
+					echo "<td width='70px'>" . $timestamp . "</td>";
 					echo "<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>";
 					echo "</tr>";
 					}
