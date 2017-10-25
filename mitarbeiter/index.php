@@ -56,7 +56,7 @@
 						<div id="first-row" class="row-data">
 							<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen">
 							<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt">
-							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="Einfahrts Zeit">DD.MM.YYYY HH:MM:SS
+							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="DD.MM.YYYY HH:MM:SS">
 						</div>
 
 
@@ -80,7 +80,7 @@
 								?>
 							</select>
 							<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt">
-							<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS
+							<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="DD.MM.YYYY HH:MM:SS">
 							<input class="button" type="submit" name="execute" value="Ausführen">
 						</div>
 
