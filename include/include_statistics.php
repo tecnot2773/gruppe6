@@ -60,7 +60,7 @@ class Statistic
 		}
 		public static function monthlyCount($conn)
 		{
-			for($i = 1; $i < 12; $i++){
+			for($i = 1; $i < 13; $i++){
 				$month = date("Y");
 				$month = $month . "-" . $i;
 				echo $month;
