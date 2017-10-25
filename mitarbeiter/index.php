@@ -73,8 +73,8 @@
 										echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>';		//use echo to execute html in php
 									}
 								?>
-							</select> <br><br>
-							<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt"><br><br>
+							</select>
+							<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt">
 							<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="Ausfahrts Zeit">DD.MM.YYYY HH:MM:SS
 						</div>
 
