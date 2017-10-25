@@ -56,7 +56,8 @@
 					else{
 						$entryTime = $entryTime;
 					}
-					if (preg_match("/^(\d{4})([-])(\d{2})(-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
+					if (preg_match("/^(\d{2})([.])(\d{2})(.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
+						$entryTime = date("Y-m-d H:i:s", strtotime($entryTime));
 					}
 					else
 					{
@@ -132,7 +133,8 @@
 					$exit_time = $exit_time;
 				}
 				
-				if (preg_match("/^(\d{4})([-])(\d{2})([-])(\d{2})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
+				if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $exit_time)){
+					$exit_time = date("Y-m-d H:i:s", strtotime($exit_time));
 				}
 				else
 				{
