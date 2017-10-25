@@ -52,4 +52,5 @@ class Statistic
 			
 			echo $monthlyExitRows;
 		}
+	}
 ?>
