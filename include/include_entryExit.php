@@ -55,6 +55,7 @@
 					}
 					else{
 						$entryTime = $entryTime;
+						echo $entryTime;
 					}
 					if (preg_match("/^(\d{2})([.])(\d{2})(.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
 						$entryTime = date("Y-m-d H:i:s", strtotime($entryTime));
