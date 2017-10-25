@@ -70,7 +70,7 @@ class Statistic
 				$monthName = $dateObj->format('F');
 				
 				
-				echo "<td width='350px'> Autos im Monat ${monthName} auf der Autobahn </td>";
+				echo "<td width='350px'> Autos im ${monthName} auf der Autobahn </td>";
 				echo "<td width='350px'> ${monthlyCount} </td>";
 				echo "</tr>";
 			}
