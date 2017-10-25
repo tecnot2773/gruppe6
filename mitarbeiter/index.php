@@ -23,7 +23,7 @@
 						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
 						<li>
 							<div class="dropdown">
-								<a>test</a>
+								<a>Mitarbeiter Menü</a>
 								<div class="dropdown-content">
 									<a href="#">Link 1</a>
 									<a href="#">Link 2</a>
