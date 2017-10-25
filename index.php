@@ -22,7 +22,14 @@
 						<li><a href="/index.php">Kosten berechnen</a></li>
 						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
 						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
-
+						<div class="dropdown">
+							<button class="dropbtn">Dropdown</button>
+							<div class="dropdown-content">
+								<a href="#">Link 1</a>
+								<a href="#">Link 2</a>
+								<a href="#">Link 3</a>
+							</div>
+						</div>
 					</ul>
 				</nav>
 			</div>
@@ -49,14 +56,7 @@
 						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
 						
-						<div class="dropdown">
-							<button class="dropbtn">Dropdown</button>
-							<div class="dropdown-content">
-								<a href="#">Link 1</a>
-								<a href="#">Link 2</a>
-								<a href="#">Link 3</a>
-							</div>
-						</div>
+
 						<br><br><br>
 					<?php include_once'include/include_userAction.php'; ?>
 					</div>
