@@ -96,8 +96,8 @@ class EntryExit{
 		}
 		echo "</select>";
 
-		echo "<input id='text-plate' name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>";
-		echo "<input id='text-time-entry' name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
+		echo "<input name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>";
+		echo "<input name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
 
 		echo "<div class='row-data'>";
 		echo "<input class='buttonsmall' type='submit' name='execute' value='Abschicken'>";
@@ -130,7 +130,7 @@ class EntryExit{
 		}
 		echo "</select>";
 
-		echo "<select id='text-plate' name='text-plate' class='enjoy-css'>";
+		echo "<select name='text-plate' class='enjoy-css'>";
 			echo "<option value='' disabled selected hidden>Kennzeichen</option>";
 			$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
 			$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
@@ -139,7 +139,7 @@ class EntryExit{
 			}
 		echo "</select>";
 
-		echo "<input id='text-time-exit' name='text-time-exit' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
+		echo "<input name='text-time-exit' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
 
 		echo "<div class='row-data'>";
 		echo "<input class='buttonsmall' type='submit' name='execute' value='Abschicken'>";
