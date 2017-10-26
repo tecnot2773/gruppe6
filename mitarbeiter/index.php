@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry"){
 								echo "</label>";
 							echo "</div>";
 							echo "<select name='text-Autobahn' class='enjoy-css'>";
-								echo "<option value="" disabled="" selected="" hidden="">Autobahn</option>";
+								echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>";
 								$result_getPlate = mysqli_query($conn,"SELECT nameAutobahn from mautstelle");												//execute query and save
 								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
 								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
 								echo "</label>";
 							echo "</div>";
 							echo "<select name='text-Autobahn' class='enjoy-css'>";
-								echo "<option value="" disabled="" selected="" hidden="">Autobahn</option>";
+								echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>";
 								$result_getPlate = mysqli_query($conn,"SELECT nameAutobahn from mautstelle");												//execute query and save
 								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
 								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
