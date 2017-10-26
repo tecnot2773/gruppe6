@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 class Statistic
 	{
 		public static function tollgateCount($conn)
