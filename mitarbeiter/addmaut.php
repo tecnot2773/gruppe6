@@ -42,7 +42,7 @@
 		<form action="/mitarbeiter/addmaut.php" method="post">
 				<div class="placeholder"></div>
 				<div class="jumbo-white">
-					<div id="rowstart" class="row">
+					<div id="first-row" class="row">
 						<input id="text-code" name="text-code" class="enjoy-css" type="text" placeholder="Code/Kürzel">
 						<input id="text-namehighway" name="text-namehighway" class="enjoy-css" type="text" placeholder="Name Autobahn">
 						<input id="text-namejunction" name="text-namejunction" class="enjoy-css" type="text" placeholder="Name Kreuz">
@@ -51,10 +51,13 @@
 						<input id="text-lon" name="text-lon" class="enjoy-css" type="text" placeholder="LON">
 					</div>
 				</div>
-				<div id="griddiv-submit" class="test">
+				<div id="second-row" class="test">
 					<div id="buttondiv_rowstart" class="row">
 					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
 					</div>
+				</div>
+				<div class="row-bottom">
+					<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { include_once '../include/include_newTollgate.php';} ?>
 				</div>
 		</form>
 	</body>
