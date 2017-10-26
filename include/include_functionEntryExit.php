@@ -81,6 +81,10 @@ class EntryExit{
 		echo '<option value="' . $data['nameKreuz'] . '">' . $data['nameKreuz']. '</option>';		//use echo to execute html in php
 		}
 		echo "</select>";
+
+		echo "<input id='text-time-entry' name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
+		echo "<input id='text-plate-entry' name='text-plate-entry' class='enjoy-css' type='text' placeholder='Kennzeichen'>";
+
 	}
 
 }
