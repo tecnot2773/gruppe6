@@ -71,7 +71,7 @@
 						<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
 					</tr>
 				</table>
-				<table>
+				<table border='1'>
 					<tr>
 						<th>Statistiken nach Monaten</th>
 						<th></th>
