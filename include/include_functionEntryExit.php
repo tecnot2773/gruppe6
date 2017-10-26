@@ -115,7 +115,7 @@ class EntryExit{
 		}
 		echo "</select>";
 
-		echo "<select name='text-plate' class='enjoy-css'>";
+		echo "<select id='text-plate' name='text-plate' class='enjoy-css'>";
 			echo "<option value='' disabled selected hidden>Kennzeichen</option>";
 			$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
 			$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
