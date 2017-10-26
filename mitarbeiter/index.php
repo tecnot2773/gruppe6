@@ -58,26 +58,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empt
 	echo "exit";
 	EntryExit::exit($conn);
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"])){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"]) && $_POST['execute'] == "Weiter"){
 	echo "entryChoosen";
 	EntryExit::entryChoosen($conn);
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"])){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !empty($_POST["text-Autobahn"]) && $_POST['execute'] == "Weiter"){
 	echo "exitChoosen";
 	EntryExit::exitChoosen($conn);
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST["text-Station"]) && !empty($_POST["text-Autobahn"]) && !empty($_POST["text-Plate"])){
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST["text-Station"]) && !empty($_POST["text-Autobahn"]) && !empty($_POST["text-Plate"]) && $_POST['execute'] == "Abschicken"){
 	echo "action";
 	EntryExit::action($conn);
 
 }
 
 ?>
-						<div class="row-data">
-								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Weiter">
-						</div>
-						<div class="row-bottom">
-						</div>
 				</center>
 			</div>
 		</form>

@@ -12,6 +12,12 @@ class EntryExit{
 				echo "Ausfahrt";
 			echo "</label>";
 		echo "</div>";
+
+		echo "<div class='row-data'>";
+		echo "<input class='buttonsmall' type='submit' name='execute' value='Weiter'>";
+		echo "</div>";
+		echo "<div class='row-bottom'>";
+		echo "</div>";
 	}
 	public static function entry($conn)
 	{
@@ -32,6 +38,12 @@ class EntryExit{
 			echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
 			}
 		echo "</select>";
+
+		echo "<div class='row-data'>";
+		echo "<input class='buttonsmall' type='submit' name='execute' value='Weiter'>";
+		echo "</div>";
+		echo "<div class='row-bottom'>";
+		echo "</div>";
 	}
 	public static function exit($conn)
 	{
@@ -52,6 +64,12 @@ class EntryExit{
 			echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
 			}
 		echo "</select>";
+
+		echo "<div class='row-data'>";
+		echo "<input class='buttonsmall' type='submit' name='execute' value='Weiter'>";
+		echo "</div>";
+		echo "<div class='row-bottom'>";
+		echo "</div>";
 	}
 	public static function entryChoosen($conn)
 	{
@@ -85,6 +103,11 @@ class EntryExit{
 		echo "<input id='text-plate' name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>";
 		echo "<input id='text-time-entry' name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
 
+		echo "<div class='row-data'>";
+		echo "<input class='buttonsmall' type='submit' name='execute' value='Abschicken'>";
+		echo "</div>";
+		echo "<div class='row-bottom'>";
+		echo "</div>";
 	}
 	public static function exitChoosen($conn)
 	{
@@ -125,6 +148,12 @@ class EntryExit{
 		echo "</select>";
 
 		echo "<input id='text-time-exit' name='text-time-exit' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
+
+		echo "<div class='row-data'>";
+		echo "<input class='buttonsmall' type='submit' name='execute' value='Abschicken'>";
+		echo "</div>";
+		echo "<div class='row-bottom'>";
+		echo "</div>";
 	}
 	public static function action($conn)
 	{
