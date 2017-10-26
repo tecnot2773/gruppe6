@@ -10,7 +10,41 @@
 		<link href="/css/generic/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/buttons.css" type="text/css" rel="stylesheet" />
-<?php 	include_once '../include/include_db.php';		?>
+<?php 	include_once '../include/include_db.php';		?>													//create db connection
+		<title>Mautstationen</title>
+	</head>
+	<body>
+		<!--navbar -->
+		<header>
+			<div class="navbar-container">
+				<a href="/index.php">
+				<img src="../images/logo.png" alt="logo" class="logo" />
+				</a>
+			<nav>
+					<ul>
+						<li><a href="/index.php">Kosten berechnen</a></li>
+						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
+						<li>
+							<div class="dropdown">
+								<a>Mitarbeiter Menü</a>
+								<div class="dropdown-content">
+									<a href="stats.php">Dashboard</a>
+									<a href="index.php">Ein/Aus-Fahrt</a>
+									<a href="addmaut.php">Mautstellen</a>
+									<a href="rechnungen.php">Rechnungen</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!--main contents          -->
+		<form action="/mitarbeiter/index.php" method="post">
+				<div class="placeholder">
+				</div>
+				<div class="jumbo-white">
+					<center>
 <?php if($_SERVER['REQUEST_METHOD'] == 'GET'){
 							echo "<div class=row-radio>";
 								echo "<label>";
