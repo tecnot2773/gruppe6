@@ -19,7 +19,6 @@
 		while($data = mysqli_fetch_array($get_code)){
 			$db_code = $data['code'];
 		}
-		echo $db_code . "code";
 
 		$plateLength = strlen($plate); 																										//get plate length
 		if($plateLength > 12){																												//skip everything if plate is > 12
@@ -58,7 +57,6 @@
 				}
 
 				$query_sqlEntry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entryTime', '$tollgateId')";
-				echo "<br>" . $query_sqlEntry . "<br";;
 				mysqli_query($conn, $query_sqlEntry);
 
 				$entry_id = mysqli_insert_id ($conn);	//get ID from last INSERT
