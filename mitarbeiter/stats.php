@@ -97,7 +97,7 @@
 						if($_SERVER['REQUEST_METHOD'] == 'POST'){
 							$start = $_POST["startSearch"];
 							$end = $_POST["endSearch"];
-							echo "<td width='350px'> Autos im Zeitraum von ${start} bis ${end} auf der Autobahn </td>";
+							echo "<td width='350px'> Autos im Zeitraum vom ${start} bis ${end} auf der Autobahn </td>";
 						}else{
 							echo "<td width='350px'> Autos im Zeitraum auf der Autobahn </td>";
 						}
