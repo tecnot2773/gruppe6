@@ -58,10 +58,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empt
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"]) && empty($_POST["text-Station"])){
 	EntryExit::entryChoosen($conn);
 }
+elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['execute'] == "Abschicken"){
+	EntryExit::action($conn);
+}
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !empty($_POST["text-Autobahn"]) && $_POST['execute'] == "Weiter"){
 	EntryExit::exitChoosen($conn);
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['execute'] == "Abschicken"){
+elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['execute'] == "Abschicken"){
 	EntryExit::action($conn);
 }
 
