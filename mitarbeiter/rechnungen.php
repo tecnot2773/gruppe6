@@ -4,52 +4,43 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="content-Type" content="text/html; charset=UTF-8" />  
+		<meta http-equiv="content-Type" content="text/html; charset=UTF-8" />
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
-		<link href="/mitarbeiter/rechnungen.css" type="text/css" rel="stylesheet" />
-		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
+		<link href="/css/custom/mitarbeiter_rechnungen.css" type="text/css" rel="stylesheet" />
+		<link href="/css/generic/navbar.css" type="text/css" rel="stylesheet" />
+		<link href="/css/generic/body.css" type="text/css" rel="stylesheet" />
 		<title>Rechnungen</title>
 	</head>
 	<body>
 		<!--navbar -->
 		<header>
-			<div class="container">
+			<div class="navbar-container">
 				<a href="/index.php">
 				<img src="../images/logo.png" alt="logo" class="logo" />
 				</a>
-				<nav>
+			<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
 						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
-						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
+						<li>
+							<div class="dropdown">
+								<a>Mitarbeiter Menü</a>
+								<div class="dropdown-content">
+									<a href="stats.php">Dashboard</a>
+									<a href="index.php">Ein/Aus-Fahrt</a>
+									<a href="addmaut.php">Mautstellen</a>
+									<a href="rechnungen.php">Rechnungen</a>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 		<!--main contents          -->
-		<div id="main-area" class="container">
-				<div id="placeholder" class="test">
-				</div>
-				<div id="griddiv-nav-top" class="test">
-					<div id="buttondiv_rowstart" class="row">
-						<center>
-							<a href="index.php" class="linkbutton">Ein/Aus-fahrt</a>
-							<a href="addmaut.php" class="linkbutton">Mautstelle hinzufügen</a>
-							<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
-							<a href="autobahn.php" class="linkbutton">Auf der Autobahn</a>
-							<a href="stats.php" class="linkbutton">Statistik</a>
-						</center>
-					</div>
-					<div id="buttondiv_line" class="row"></div>
-					<p></p>
-					<div id="buttondiv_rowend" class="row">
-					<center><center>
-					</div>
-				</div>
-			<div id="griddiv-left" class="test">
-				<?php include_once '../include/include_bill.php'; ?>
-			</div>
-		</div>
+		<div id="placeholder" class="test"></div>
+		<div class="jumbo-white">
+			<?php include_once '../include/include_bill.php'; ?>
 		</div>
 	</body>
 </html>
