@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !emp
 		EntryExit::exitChoosen($conn);
 	}
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['execute'] == "Abschicken") && !empty($_POST["text-Station"]) && !empty($_POST["text-plate"])){
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['execute'] == "Abschicken" && !empty($_POST["text-Station"]) && !empty($_POST["text-plate"])){
 	EntryExit::action($conn);
 }
 
