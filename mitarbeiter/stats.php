@@ -44,7 +44,7 @@
 				<?php include_once '../include/include_statistics.php'; include_once '../include/include_db.php'; ?>
 				<table border='1'>
 					<tr>
-						<th>Statistiken</th>
+						<th>Übersicht</th>
 						<th></th>
 					</tr>
 					<tr class='userlistoutput'>
@@ -66,11 +66,8 @@
 						<td width='350px'> Autos diesen Monat auf der Autobahn </td>
 						<td width='350px'> <?php Statistic::monthlyExit($conn); ?> </td>
 					</tr>
-						<?php //Statistic::monthlyCount($conn); ?>
-						<td width='350px'> Autos im Zeitraum auf der Autobahn </td>
-						<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
-					</tr>
 				</table>
+				<div class="placeholder"><div>
 				<table border='1'>
 					<tr>
 						<th>Statistiken nach Monaten</th>
@@ -78,6 +75,17 @@
 					</tr>
 					</tr>
 						<?php Statistic::monthlyCount($conn); ?>
+					</tr>
+				</table>
+				<div class="placeholder"><div>
+				<table border='1'>
+					<tr>
+						<th>Statistiken nach Zeitraum</th>
+						<th></th>
+					</tr>
+					</tr>
+						<td width='350px'> Autos im Zeitraum auf der Autobahn </td>
+						<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
 					</tr>
 				</table>
 				<form action="/mitarbeiter/stats.php" method="post">
