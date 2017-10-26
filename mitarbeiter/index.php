@@ -76,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && emp
 								}
 							echo "</select>";
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate-exit"])){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate-exit"])){
 							echo "<div class='row-radio'>";
 								echo "<label>";
 									echo "<input type='radio' name='selection' value='entry' >";
