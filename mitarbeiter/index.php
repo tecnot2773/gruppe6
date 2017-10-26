@@ -46,40 +46,40 @@
 				<div class="jumbo-white">
 					<center>
 <?php if(($_SERVER['REQUEST_METHOD'] == 'GET'){
-							echo "<div class="row-radio">"
-								echo "<label>"
-									echo "<input type="radio" name="selection" value="entry" checked="checked">"
-									echo "Einfahrt"
-								echo "</label>"
-								echo "<label>"
-									echo "<input type="radio" name="selection" value="exit">"
-									echo "Ausfahrt"
-								echo "</label>"
-							echo "</div>"
+							echo "<div class="row-radio">";
+								echo "<label>";
+									echo "<input type="radio" name="selection" value="entry" checked="checked">";
+									echo "Einfahrt";
+								echo "</label>";
+								echo "<label>";
+									echo "<input type="radio" name="selection" value="exit">";
+									echo "Ausfahrt";
+								echo "</label>";
+							echo "</div>";
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry"){
-							echo "<div class="row-radio">"
-								echo "<label>"
-									echo "<input type="radio" name="selection" value="entry" checked="checked">"
-									echo "Einfahrt"
-								echo "</label>"
-								echo "<label>"
-									echo "<input type="radio" name="selection" value="exit">"
-									echo "Ausfahrt"
-								echo "</label>"
-							echo "</div>"
+							echo "<div class="row-radio">";
+								echo "<label>";
+									echo "<input type="radio" name="selection" value="entry" checked="checked">";
+									echo "Einfahrt";
+								echo "</label>";
+								echo "<label>";
+									echo "<input type="radio" name="selection" value="exit">";
+									echo "Ausfahrt";
+								echo "</label>";
+							echo "</div>";
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
-							echo "<div class="row-radio">"
-								echo "<label>"
-									echo "<input type="radio" name="selection" value="entry" checked="checked">"
-									echo "Einfahrt"
-								echo "</label>"
-								echo "<label>"
-									echo "<input type="radio" name="selection" value="exit">"
-									echo "Ausfahrt"
-								echo "</label>"
-							echo "</div>"
+							echo "<div class="row-radio">";
+								echo "<label>";
+									echo "<input type="radio" name="selection" value="entry" >";
+									echo "Einfahrt";
+								echo "</label>";
+								echo "<label>";
+									echo "<input type="radio" name="selection" value="exit" checked="checked">";
+									echo "Ausfahrt";
+								echo "</label>";
+							echo "</div>";
 }
 							/*<select name="text-Autobahn" class="enjoy-css">
 								<option value="" disabled="" selected="" hidden="">Autobahn</option>
