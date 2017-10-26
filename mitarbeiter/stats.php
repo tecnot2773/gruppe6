@@ -75,9 +75,7 @@
 						<th></th>
 					</tr>
 					</tr>
-						<?php Statistic::monthlyCount($conn); ?>
-
-					</tr>
+<?php Statistic::monthlyCount($conn); ?>
 				</table>
 				<div class="placeholder"></div>
 				<form action="/mitarbeiter/stats.php" method="post">
