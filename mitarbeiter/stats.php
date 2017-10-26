@@ -67,7 +67,7 @@
 						<td width='350px'> <?php Statistic::monthlyExit($conn); ?> </td>
 					</tr>
 				</table>
-				<div class="placeholder"><div>
+				<div class="placeholder"></div>
 				<table border='1'>
 					<tr>
 						<th>Statistiken nach Monaten</th>
@@ -77,7 +77,16 @@
 						<?php Statistic::monthlyCount($conn); ?>
 					</tr>
 				</table>
-				<div class="placeholder"><div>
+				<div class="placeholder"></div>
+					<form action="/mitarbeiter/stats.php" method="post">
+						<div id="rowstart" class="row">
+							<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum">
+							<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End Datum">
+						</div>
+						<div id="buttonrow" class="row">
+							<input class="button" type="submit" name="submit" value="Ausführen">
+						</div>
+					</form>
 				<table border='1'>
 					<tr>
 						<th>Statistiken nach Zeitraum</th>
@@ -88,18 +97,6 @@
 						<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
 					</tr>
 				</table>
-				<form action="/mitarbeiter/stats.php" method="post">
-					</div>
-					<div id="rowstart" class="row">
-						<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum">
-					</div>
-					<div id="rowend" class="row">
-						<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End Datum"><br>
-					</div>
-					<div id="buttonrow" class="row">
-						<input class="button" type="submit" name="submit" value="Ausführen">
-					</div>
-				</form>
 				<?php Statistic::searchCount($conn); ?>
 			</div>
 	</body>
