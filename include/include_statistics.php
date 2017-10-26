@@ -60,15 +60,14 @@ class Statistic
 		}
 		public static function monthlyCount($conn)
 		{
-			setlocale (LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge');
+			setlocale(LC_TIME, "de_DE");
 			for($i = 1; $i < 13; $i++){
 				$month = date("Y");
 				$month = $month . "-" . $i;
 				$result_monthyCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$month%'");
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
 
-				$dateObj   = DateTime::createFromFormat('!m', $i);
-				$monthName = $dateObj->format('F');
+				$monthName = strftime("%B", strtotime($month));
 
 
 				echo "<td width='350px'> Autos im ${monthName} auf der Autobahn </td>";
