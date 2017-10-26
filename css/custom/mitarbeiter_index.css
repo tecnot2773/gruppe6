@@ -10,9 +10,10 @@ padding-bottom: 15px;
 #first-row {
 	padding-bottom: 35px;
 }
+#execute {
+	margin-top: 25px;
+	padding: 8px 80px !important;
+}
 label {
 	cursor: pointer;
-}
-#execute {
-	float: right;
 }
