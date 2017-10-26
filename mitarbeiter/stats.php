@@ -93,7 +93,15 @@
 						<th></th>
 					</tr>
 					</tr>
-						<td width='350px'> Autos im Zeitraum auf der Autobahn </td>
+					<?php
+						if($_SERVER['REQUEST_METHOD'] == 'POST'){
+							$start = $_POST["startSearch"];
+							$end = $_POST["endSearch"];
+							echo "<td width='350px'> Autos im Zeitraum von ${start} bis ${end} auf der Autobahn </td>";
+						}else{
+							echo "<td width='350px'> Autos im Zeitraum auf der Autobahn </td>";
+						}
+					?>
 						<td width='350px'> <?php echo Statistic::searchCount($conn); ?> </td>
 					</tr>
 				</table>
