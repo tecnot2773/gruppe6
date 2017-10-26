@@ -49,22 +49,21 @@
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	EntryExit::noSelect($conn);
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"])){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-plate"])){
 	EntryExit::entry($conn);
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"])){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empty($_POST["text-Autobahn"]) && empty($_POST["text-plate"])){
 	EntryExit::exit($conn);
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"]) && empty($_POST["text-Station"])){
-	EntryExit::entryChoosen($conn);
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"]){
+	if(empty($_POST["text-Station"]) || empty($_POST["text-plate"])){
+		EntryExit::entryChoosen($conn);
+	}
 }
-elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && $_POST['execute'] == "Abschicken"){
-	EntryExit::action($conn);
-}
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"]) && empty($_POST["text-Station"])){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !empty($_POST["text-Autobahn"]){
 	EntryExit::exitChoosen($conn);
 }
-elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && $_POST['execute'] == "Abschicken"){
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['execute'] == "Abschicken") && !empty($_POST["text-Station"]) && !empty($_POST["text-plate"])){
 	EntryExit::action($conn);
 }
 
