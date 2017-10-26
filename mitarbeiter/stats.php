@@ -74,7 +74,6 @@
 						<th>Statistiken nach Monaten</th>
 						<th></th>
 					</tr>
-					</tr>
 <?php Statistic::monthlyCount($conn); ?>
 				</table>
 				<div class="placeholder"></div>
