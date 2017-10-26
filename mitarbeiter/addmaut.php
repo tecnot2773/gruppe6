@@ -50,14 +50,13 @@
 						<input id="text-lat" name="text-lat" class="enjoy-css" type="text" placeholder="LAT">
 						<input id="text-lon" name="text-lon" class="enjoy-css" type="text" placeholder="LON">
 					</div>
-				</div>
-				<div id="second-row" class="test">
-					<div id="buttondiv_rowstart" class="row">
-					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
+
+					<div id="second-row" class="test">
+						<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
 					</div>
-				</div>
-				<div class="row-bottom">
-					<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { include_once '../include/include_newTollgate.php';} ?>
+					<div class="row-bottom">
+						<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { include_once '../include/include_newTollgate.php';} ?>
+					</div>
 				</div>
 		</form>
 	</body>
