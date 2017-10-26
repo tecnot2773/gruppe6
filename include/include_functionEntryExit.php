@@ -150,6 +150,8 @@ class EntryExit{
 	public static function action($conn)
 	{
 		include_once 'include_entryExit.php';
+
+
 	}
 
 }
