@@ -10,7 +10,7 @@
 		<link href="/css/generic/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/buttons.css" type="text/css" rel="stylesheet" />
-<?php 	include_once '../include/include_db.php';		?>													//create db connection
+<?php 	include_once '../include/include_db.php';		?>
 		<title>Mautstationen</title>
 	</head>
 	<body>
@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry"){
 							echo "</div>";
 							echo "<select name='text-Autobahn' class='enjoy-css'>";
 								echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>";
-								$result_getPlate = mysqli_query($conn,"SELECT nameAutobahn from mautstelle");												//execute query and save
+								$result_getPlate = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
 								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
 								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
 								}
@@ -89,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
 							echo "</div>";
 							echo "<select name='text-Autobahn' class='enjoy-css'>";
 								echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>";
-								$result_getPlate = mysqli_query($conn,"SELECT nameAutobahn from mautstelle");												//execute query and save
+								$result_getPlate = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
 								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
 								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
 								}
