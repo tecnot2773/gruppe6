@@ -40,7 +40,7 @@
 			</div>
 		</header>
 		<!--main contents          -->
-				<div class="placeholder"></div>
+		<div class="placeholder"></div>
 			<div class="jumbo-white">
 				<?php include_once '../include/include_statistics.php'; include_once '../include/include_db.php'; ?>
 				<table border='1'>
@@ -52,18 +52,23 @@
 						<td width='350px'> Mautstellen in der Datenbank </td>
 						<td width='350px'> <?php echo Statistic::tollgateCount($conn); ?> </td>
 					</tr>
+					<tr>
 						<td width='350px'> Insgesamte Einfahrten </td>
 						<td width='350px'> <?php echo Statistic::entryCount($conn); ?> </td>
 					</tr>
+					<tr>
 						<td width='350px'> Insgesamte Ausfahrten </td>
 						<td width='350px'> <?php echo Statistic::exitCount($conn); ?> </td>
 					</tr>
+					<tr>
 						<td width='350px'> Autos auf der Autobahn </td>
 						<td width='350px'> <?php echo Statistic::onTheRoad($conn); ?> </td>
 					</tr>
+					<tr>
 						<td width='350px'> Autos heute auf der Autobahn </td>
 						<td width='350px'> <?php echo Statistic::dailyExit($conn); ?> </td>
 					</tr>
+					<tr>
 						<td width='350px'> Autos diesen Monat auf der Autobahn </td>
 						<td width='350px'> <?php echo Statistic::monthlyExit($conn); ?> </td>
 					</tr>
@@ -106,6 +111,5 @@
 					</tr>
 				</table>
 			</div>
-
 	</body>
 </html>
