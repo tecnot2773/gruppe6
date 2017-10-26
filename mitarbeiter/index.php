@@ -68,6 +68,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry"){
 									echo "Ausfahrt";
 								echo "</label>";
 							echo "</div>";
+							echo "<select name='text-Autobahn' class='enjoy-css'>";
+								echo "<option value="" disabled="" selected="" hidden="">Autobahn</option>";
+								$result_getPlate = mysqli_query($conn,"SELECT nameAutobahn from mautstelle");												//execute query and save
+								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
+								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
+								}
+							echo "</select>";
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
 							echo "<div class='row-radio'>";
@@ -80,6 +87,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
 									echo "Ausfahrt";
 								echo "</label>";
 							echo "</div>";
+							echo "<select name='text-Autobahn' class='enjoy-css'>";
+								echo "<option value="" disabled="" selected="" hidden="">Autobahn</option>";
+								$result_getPlate = mysqli_query($conn,"SELECT nameAutobahn from mautstelle");												//execute query and save
+								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
+								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
+								}
+							echo "</select>";
 }
 							/*<select name="text-Autobahn" class="enjoy-css">
 								<option value="" disabled="" selected="" hidden="">Autobahn</option>
@@ -115,7 +129,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
 								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Weiter">
 						</div>
 						<div class="row-bottom">
-							<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?>
+							<?php //if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?>
 						</div>
 				</center>
 			</div>
