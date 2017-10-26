@@ -43,6 +43,7 @@
 				<div class="placeholder">
 				</div>
 				<div class="jumbo-white">
+					<center>
 						<div class="row-radio">
 							<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt">
 							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="DD.MM.YYYY HH:MM:SS">
@@ -82,6 +83,7 @@
 						<div class="row-bottom">
 							<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?>
 						</div>
+				</center>
 			</div>
 		</form>
 	</body>
