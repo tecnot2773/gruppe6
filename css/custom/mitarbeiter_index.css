@@ -11,7 +11,8 @@ padding-bottom: 15px;
 	padding-bottom: 35px;
 }
 #execute {
-	padding-top: 25px;
+	margin-top: 25px;
+	padding: 8px 80px !important;
 }
 label {
 	cursor: pointer;
