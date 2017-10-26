@@ -10,6 +10,7 @@
 		<link href="/css/generic/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/buttons.css" type="text/css" rel="stylesheet" />
+<?php 	include_once '../include/include_db.php';		?>													//create db connection
 		<title>Mautstationen</title>
 	</head>
 	<body>
@@ -44,18 +45,43 @@
 				</div>
 				<div class="jumbo-white">
 					<center>
-						<div class="row-radio">
-							<div class="row-radio">
-								<label>
-									<input type="radio" name="selection" value="entry" checked="checked">
-									Einfahrt
-								</label>
-								<label>
-									<input type="radio" name="selection" value="exit">
-									Ausfahrt
-								</label>
-							</div>
-							<select name="text-Autobahn" class="enjoy-css">
+<?php if(($_SERVER['REQUEST_METHOD'] == 'GET'){
+							echo "<div class="row-radio">"
+								echo "<label>"
+									echo "<input type="radio" name="selection" value="entry" checked="checked">"
+									echo "Einfahrt"
+								echo "</label>"
+								echo "<label>"
+									echo "<input type="radio" name="selection" value="exit">"
+									echo "Ausfahrt"
+								echo "</label>"
+							echo "</div>"
+}
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry"){
+							echo "<div class="row-radio">"
+								echo "<label>"
+									echo "<input type="radio" name="selection" value="entry" checked="checked">"
+									echo "Einfahrt"
+								echo "</label>"
+								echo "<label>"
+									echo "<input type="radio" name="selection" value="exit">"
+									echo "Ausfahrt"
+								echo "</label>"
+							echo "</div>"
+}
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
+							echo "<div class="row-radio">"
+								echo "<label>"
+									echo "<input type="radio" name="selection" value="entry" checked="checked">"
+									echo "Einfahrt"
+								echo "</label>"
+								echo "<label>"
+									echo "<input type="radio" name="selection" value="exit">"
+									echo "Ausfahrt"
+								echo "</label>"
+							echo "</div>"
+}
+							/*<select name="text-Autobahn" class="enjoy-css">
 								<option value="" disabled="" selected="" hidden="">Autobahn</option>
 								<option value="A1">A1</option>
 								<option value="A2">A2</option>
@@ -74,7 +100,6 @@
 							<select name="text-plate-exit" class="enjoy-css">
 								<option value="" disabled selected hidden>Kennzeichen</option>
 								<?php
-									include_once '../include/include_db.php';																	//create db connection
 									$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
 									$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
 									while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
@@ -84,8 +109,9 @@
 							</select>
 
 						</div>
+						*/
 						<div class="row-data">
-								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Ausführen">
+								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Weiter">
 						</div>
 						<div class="row-bottom">
 							<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?>
