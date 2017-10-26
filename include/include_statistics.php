@@ -63,10 +63,10 @@ class Statistic
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
 
 				$monthName = strftime("%B", strtotime($month));		//make date to month in german
-				echo "\t\t\t\t\t <tr> \r\n";
-				echo "\t\t\t\t\t\t <td width='350px'> Autos im ${monthName} auf der Autobahn </td> \r\n";
-				echo "\t\t\t\t\t\t <td width='350px'> ${monthlyCount} </td> \r\n";
-				echo "\t\t\t\t\t </tr> \r\n";
+				echo "\t\t\t\t\t<tr> \r\n";
+				echo "\t\t\t\t\t\t<td width='350px'> Autos im ${monthName} auf der Autobahn </td> \r\n";
+				echo "\t\t\t\t\t\t<td width='350px'> ${monthlyCount} </td> \r\n";
+				echo "\t\t\t\t\t</tr> \r\n";
 			}
 		}
 		public static function searchCount($conn)
