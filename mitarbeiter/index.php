@@ -62,8 +62,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !emp
 	EntryExit::exitChoosen($conn);
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST["text-Station"]) && !empty($_POST["text-Autobahn"]) && !empty($_POST["text-Plate"])){
-	EntryExit::action($conn);
 	echo "Hallo";
+	EntryExit::action($conn);
+
 }
 
 ?>
