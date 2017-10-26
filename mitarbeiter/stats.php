@@ -99,5 +99,6 @@
 				</table>
 				<?php Statistic::searchCount($conn); ?>
 			</div>
+			
 	</body>
 </html>
