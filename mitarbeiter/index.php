@@ -67,7 +67,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !emp
 								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Weiter">
 						</div>
 						<div class="row-bottom">
-							<?php //if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?>
 						</div>
 				</center>
 			</div>

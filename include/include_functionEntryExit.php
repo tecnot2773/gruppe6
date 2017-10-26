@@ -84,6 +84,8 @@ class EntryExit{
 
 		echo "<input id='text-plate-entry' name='text-plate-entry' class='enjoy-css' type='text' placeholder='Kennzeichen'>";
 		echo "<input id='text-time-entry' name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
+
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once 'include_entryExit.php';}
 	}
 	public static function exitChoosen($conn)
 	{
@@ -124,6 +126,8 @@ class EntryExit{
 		echo "</select>";
 
 		echo "<input id='text-time-exit' name='text-time-exit' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
+
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once 'include_entryExit.php';}
 	}
 
 }
