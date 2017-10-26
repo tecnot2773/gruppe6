@@ -110,7 +110,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
 
 						</div>
 						*/
-						?>
+?>
 						<div class="row-data">
 								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Weiter">
 						</div>
