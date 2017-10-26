@@ -38,7 +38,7 @@
 			</div>
 		</header>
 		<!--main contents          -->
-		<div id="placeholder" class="test"></div>
+		<div class="placeholder"></div>
 		<div class="jumbo-white">
 			<?php include_once '../include/include_bill.php'; ?>
 		</div>
