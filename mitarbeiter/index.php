@@ -45,46 +45,18 @@
 				</div>
 				<div class="jumbo-white">
 					<center>
-<?php if($_SERVER['REQUEST_METHOD'] == 'GET'){
+<?php
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	EntryExit::noSelect($conn);
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"])){
-							echo "<div class='row-radio'>";
-								echo "<label>";
-									echo "<input type='radio' name='selection' value='entry' checked='checked'>";
-									echo "Einfahrt";
-								echo "</label>";
-								echo "<label>";
-									echo "<input type='radio' name='selection' value='exit'>";
-									echo "Ausfahrt";
-								echo "</label>";
-							echo "</div>";
-							echo "<select name='text-Autobahn' class='enjoy-css'>";
-								echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>";
-								$result_getPlate = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
-								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
-								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
-								}
-							echo "</select>";
+	EntryExit::entry($conn);
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate-exit"])){
-							echo "<div class='row-radio'>";
-								echo "<label>";
-									echo "<input type='radio' name='selection' value='entry' >";
-									echo "Einfahrt";
-								echo "</label>";
-								echo "<label>";
-									echo "<input type='radio' name='selection' value='exit' checked='checked'>";
-									echo "Ausfahrt";
-								echo "</label>";
-							echo "</div>";
-							echo "<select name='text-Autobahn' class='enjoy-css'>";
-								echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>";
-								$result_getPlate = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
-								while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
-								echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
-								}
-							echo "</select>";
+	EntryExit::exit($conn);
+}
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"])){
+	EntryExit::entryChoosen($conn);
 }
 /*
 							<select name="text-Station" class="enjoy-css">
