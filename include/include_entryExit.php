@@ -1,12 +1,10 @@
 <?php
-	//Create connection
-	include_once 'include_db.php';																											//create DB connection
 	$action= $_POST["selection"];																											//get selection from html and save in action
 
 	//add new vehicle entry
 	if ($action == "entry")																													//if action = entry
 	{
-		$plate = $_POST["text-plate-entry"];																								//get text-plate-entry and save in plate
+		$plate = $_POST["text-plate"];																								//get text-plate-entry and save in plate
 		$highwayName = $_POST["text-Autobahn"];
 		$junctionName = $_POST["text-Station"];																				//get text-codeEntry and save in codeEntryTollgate
 		$entryTime = $_POST["text-time-entry"];																								//get text-time-entry and save in time
@@ -75,7 +73,7 @@
 	//add new vehicle exit and update
 	if ($action == "exit")																													//do if action = exit
 	{
-		$plate = $_POST["text-plate-exit"];
+		$plate = $_POST["text-plate"];
 		$highwayName = $_POST["text-Autobahn"];
 		$junctionName = $_POST["text-Station"];
 		$exit_time = $_POST["text-time-exit"];
