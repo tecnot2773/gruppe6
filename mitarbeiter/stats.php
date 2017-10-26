@@ -80,11 +80,11 @@
 				<div class="placeholder"></div>
 					<form action="/mitarbeiter/stats.php" method="post">
 						<div id="rowstart" class="row">
-							<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum">
-							<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End Datum">
-						</div>
-						<div id="buttonrow" class="row">
-							<input class="button" type="submit" name="submit" value="Ausführen">
+							<center>
+								<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum">
+								<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End Datum">
+								<input class="buttonsmall" type="submit" name="submit" value="Ausführen">
+							</center>
 						</div>
 					</form>
 				<table border='1'>
@@ -97,8 +97,7 @@
 						<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
 					</tr>
 				</table>
-				<?php Statistic::searchCount($conn); ?>
 			</div>
-			
+
 	</body>
 </html>
