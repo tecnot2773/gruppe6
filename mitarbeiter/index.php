@@ -58,30 +58,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empt
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"])){
 	EntryExit::entryChoosen($conn);
 }
-/*
-							<select name="text-Station" class="enjoy-css">
-								<option value="" disabled="" selected="" hidden="">Mautstation</option>
-								<option value="A1">Hannover abfahrt Laatzen</option>
-								<option value="A2">Am Arsch der Welt</option>
-								<option value="A7">Noch weiter dahinten</option>
-							</select>
-							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="DD.MM.YYYY HH:MM:SS">
-						</div>
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empty($_POST["text-Autobahn"])){
+	EntryExit::exitChoosen($conn);
+}
 
-						<div class="row-data">
-							<select name="text-plate-exit" class="enjoy-css">
-								<option value="" disabled selected hidden>Kennzeichen</option>
-								<?php
-									$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL";						//sql query to get  kennzeichen
-									$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
-									while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
-										echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>';		//use echo to execute html in php
-									}
-								?>
-							</select>
-
-						</div>
-						*/
 ?>
 						<div class="row-data">
 								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Weiter">
