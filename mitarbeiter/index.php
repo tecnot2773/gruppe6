@@ -45,7 +45,7 @@
 				</div>
 				<div class="jumbo-white">
 					<center>
-<?php if(($_SERVER['REQUEST_METHOD'] == 'GET'){
+<?php if($_SERVER['REQUEST_METHOD'] == 'GET'){
 							echo "<div class=row-radio>";
 								echo "<label>";
 									echo "<input type='radio' name='selection' value='entry' checked='checked'>";
