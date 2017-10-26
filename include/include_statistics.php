@@ -64,9 +64,9 @@ class Statistic
 
 				$monthName = strftime("%B", strtotime($month));		//make date to month in german
 
-				echo "<td width='350px'> Autos im ${monthName} auf der Autobahn </td>";
-				echo "<td width='350px'> ${monthlyCount} </td>";
-				echo "</tr>";
+				echo "\t\t\t\t\t <td width='350px'> Autos im ${monthName} auf der Autobahn </td> \r\n";
+				echo "\t\t\t\t\t <td width='350px'> ${monthlyCount} </td> \r\n";
+				echo "\t\t\t\t</tr> \r\n";
 			}
 		}
 		public static function searchCount($conn)

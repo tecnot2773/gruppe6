@@ -76,6 +76,7 @@
 					</tr>
 					</tr>
 						<?php Statistic::monthlyCount($conn); ?>
+
 					</tr>
 				</table>
 				<div class="placeholder"></div>
