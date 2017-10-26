@@ -41,10 +41,10 @@
 		</header>
 		<!--main contents          -->
 		<form action="/mitarbeiter/index.php" method="post">
-				<div class="placeholder">
-				</div>
-				<div class="jumbo-white">
-					<center>
+			<div class="placeholder">
+			</div>
+			<div class="jumbo-white">
+				<center>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	EntryExit::noSelect($conn);

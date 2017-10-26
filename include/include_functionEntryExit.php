@@ -2,7 +2,7 @@
 class EntryExit{
 	public static function noSelect($conn)
 	{
-		echo "<div class=row-radio>";
+		echo "\t\t\t\t\t<div class=row-radio>\r\n";
 			echo "<label>";
 				echo "<input type='radio' name='selection' value='entry' checked='checked'>";
 				echo "Einfahrt";
