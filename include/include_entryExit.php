@@ -16,7 +16,7 @@
 
 
 		$get_code = mysqli_query($conn, "SELECT code FROM mautstelle WHERE nameAutobahn = '$highwayName' AND nameKreuz = '$junctionName'");
-		while($date = mysqli_fetch_array($get_code)){
+		while($data = mysqli_fetch_array($get_code)){
 			$db_code = $data['code'];
 		}
 
