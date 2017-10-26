@@ -80,7 +80,7 @@
 							<input class="buttonsmall" type="submit" id="execute" name="execute" value="Ausführen">
 						</div>
 						<div class="row-bottom">
-							<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?><center>
+							<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?>
 						</div>
 			</div>
 		</form>
