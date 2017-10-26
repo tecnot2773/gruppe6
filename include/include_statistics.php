@@ -60,15 +60,15 @@ class Statistic
 		}
 		public static function monthlyCount($conn)
 		{
-			setlocale(LC_TIME, "de_DE");
+			setlocale(LC_TIME, "de_DE");				//set local langugage for date and time
 			for($i = 1; $i < 13; $i++){
 				$month = date("Y");
 				$month = $month . "-" . $i;
 				$result_monthyCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$month%'");
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
 
-				$monthName = strftime("%B", strtotime($month));
-
+				$monthName = strftime("%B", strtotime($month));		//make date to month in german
+				echo $monthname;
 
 				echo "<td width='350px'> Autos im ${monthName} auf der Autobahn </td>";
 				echo "<td width='350px'> ${monthlyCount} </td>";
