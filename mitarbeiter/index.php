@@ -45,6 +45,16 @@
 				<div class="jumbo-white">
 					<center>
 						<div class="row-radio">
+							<div class="row-radio">
+								<label>
+									<input type="radio" name="selection" value="entry" checked="checked">
+									Einfahrt
+								</label>
+								<label>
+									<input type="radio" name="selection" value="exit">
+									Ausfahrt
+								</label>
+							</div>
 							<select name="text-Autobahn" class="enjoy-css">
 								<option value="" disabled="" selected="" hidden="">Autobahn</option>
 								<option value="A1">A1</option>
@@ -58,23 +68,6 @@
 								<option value="A7">Noch weiter dahinten</option>
 							</select>
 							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="DD.MM.YYYY HH:MM:SS">
-						</div>
-						<div class="row-radio">
-							<label>
-								<input type="radio" name="selection" value="entry" checked="checked">
-								Einfahrt
-							</label>
-						</div>
-						<div id="first-row" class="row-data">
-							<input id="text-plate-entry" name="text-plate-entry" class="enjoy-css" type="text" placeholder="Kennzeichen">
-						</div>
-
-
-						<div class="row-radio">
-							<label>
-								<input type="radio" name="selection" value="exit">
-								Ausfahrt
-							</label>
 						</div>
 
 						<div class="row-data">
