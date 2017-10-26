@@ -52,7 +52,7 @@
 					</div>
 
 					<div id="second-row" class="test">
-						<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
+						<center><input class="buttonbig" type="submit" name="execute" value="Ausführen"></center>
 					</div>
 					<div class="row-bottom">
 						<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { include_once '../include/include_newTollgate.php';} ?>
