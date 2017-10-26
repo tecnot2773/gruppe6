@@ -20,7 +20,7 @@
 				<a href="/index.php">
 				<img src="../images/logo.png" alt="logo" class="logo" />
 				</a>
-			<nav>
+				<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
 						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
