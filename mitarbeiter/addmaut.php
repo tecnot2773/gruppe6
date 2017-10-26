@@ -7,15 +7,15 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/../images/favicon.ico">
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
 		<link href="/css/addmaut.css" type="text/css" rel="stylesheet" />
-		<link href="/css/griddiv-nav.css" type="text/css" rel="stylesheet" />
+		<link href="/css/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/buttons.css" type="text/css" rel="stylesheet" />
-		<link href="/css/settings.css" type="text/css" rel="stylesheet" />
+		<link href="/css/body.css" type="text/css" rel="stylesheet" />
 		<title>Mautstationen</title>
 	</head>
 	<body>
 		<!--navbar -->
 		<header>
-			<div class="container">
+			<div class="navbar-container">
 				<a href="/index.php">
 				<img src="../images/logo.png" alt="logo" class="logo" />
 				</a>
@@ -23,31 +23,25 @@
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
 						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
-						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
+						<li>
+							<div class="dropdown">
+								<a>Mitarbeiter Menü</a>
+								<div class="dropdown-content">
+									<a href="stats.php">Dashboard</a>
+									<a href="index.php">Ein/Aus-Fahrt</a>
+									<a href="addmaut.php">Mautstellen</a>
+									<a href="rechnungen.php">Rechnungen</a>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 		<!--main contents          -->
 		<form action="/mitarbeiter/addmaut.php" method="post">
-			<div id="main-area" class="container">
-				<div id="placeholder" class="test"></div>
-				<div id="griddiv-nav-top" class="test">
-					<div id="buttondiv_rowstart" class="row">
-						<center>
-							<a href="index.php" class="linkbutton">Ein/Aus-fahrt</a>
-							<a href="addmaut.php" class="linkbutton">Mautstelle hinzufügen</a>
-							<a href="rechnungen.php" class="linkbutton">Rechnungen</a>
-							<a href="autobahn.php" class="linkbutton">Auf der Autobahn</a>
-							<a href="stats.php" class="linkbutton">Statistik</a>
-						</center>
-					</div>
-					<div id="buttondiv_line" class="row"></div>
-					<div id="buttondiv_rowend" class="row">
-						<center><?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { include_once '../include/include_newTollgate.php';} ?><center>
-					</div>
-				</div>
-				<div id="griddiv-main" class="test">
+				<div class="placeholder"></div>
+				<div class="jumbo-white">
 					<div id="rowstart" class="row">
 						<input id="text-code" name="text-code" class="enjoy-css" type="text" placeholder="Code/Kürzel">
 						<input id="text-namehighway" name="text-namehighway" class="enjoy-css" type="text" placeholder="Name Autobahn">
@@ -59,10 +53,9 @@
 				</div>
 				<div id="griddiv-submit" class="test">
 					<div id="buttondiv_rowstart" class="row">
-					<center><input class="button" type="submit" name="execute" value="Ausführen"></center> 
+					<center><input class="button" type="submit" name="execute" value="Ausführen"></center>
 					</div>
 				</div>
-			</div>
 		</form>
 	</body>
 </html>
