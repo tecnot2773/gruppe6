@@ -128,7 +128,7 @@ class EntryExit{
 	}
 	public static function action($conn)
 	{
-		if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once 'include_entryExit.php';}
+		include_once 'include_entryExit.php';
 	}
 
 }
