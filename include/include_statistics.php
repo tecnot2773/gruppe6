@@ -84,7 +84,7 @@ class Statistic
 				return $searchCount;
 			}
 			else {
-				echo "0";
+				echo "Keine Eingabe";
 			}
 		}
 	}
