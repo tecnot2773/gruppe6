@@ -67,7 +67,7 @@ class EntryExit{
 			echo "</label>";
 		echo "</div>";
 		echo "<select name='text-Autobahn' class='enjoy-css'>";
-			echo "<option value='${selection}' selected=''>'$selection'</option>";
+			echo "<option value=${selection} selected=''>${selection}</option>";
 			$result_getPlate = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
 			while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
 			echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>';		//use echo to execute html in php
