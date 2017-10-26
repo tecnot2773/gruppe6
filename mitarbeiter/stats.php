@@ -92,14 +92,14 @@
 						<th>Statistiken nach Zeitraum</th>
 						<th></th>
 					</tr>
-					</tr>
+					<tr>
 					<?php
 						if($_SERVER['REQUEST_METHOD'] == 'POST'){
 							$start = $_POST["startSearch"];
 							$end = $_POST["endSearch"];
-							echo "<td width='350px'> Autos im Zeitraum vom ${start} bis ${end} auf der Autobahn </td>";
+							echo "\t<td width='350px'> Autos im Zeitraum vom ${start} bis ${end} auf der Autobahn </td> \r\n";
 						}else{
-							echo "<td width='350px'> Autos im Zeitraum auf der Autobahn </td>";
+							echo "\t<td width='350px'> Autos im Zeitraum auf der Autobahn </td>\r\n";
 						}
 					?>
 						<td width='350px'> <?php echo Statistic::searchCount($conn); ?> </td>
