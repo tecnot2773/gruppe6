@@ -157,8 +157,5 @@
 		$query_insertBill = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$db_costs', '$db_routeId')";
 		mysqli_query($conn, $query_insertBill);
 		echo "Neue Ausfahrt verbucht und Rechnung erstellt";
-		if($checkTollgateCode == "FALSE"){
-		echo "Falscher MautstellenCode - Keine Ausfahrt verbucht";
-		}
 	}
 ?>
