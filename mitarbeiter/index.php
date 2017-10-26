@@ -9,6 +9,7 @@
 		<link href="/mitarbeiter/textbox.css" type="text/css" rel="stylesheet" />
 		<link href="/css/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/body.css" type="text/css" rel="stylesheet" />
+		<link href="/css/buttons.css" type="text/css" rel="stylesheet" />
 		<title>Mautstationen</title>
 	</head>
 	<body>
@@ -39,9 +40,9 @@
 		</header>
 		<!--main contents          -->
 		<form action="/mitarbeiter/index.php" method="post">
-				<div id="placeholder" class="test">
+				<div class="placeholder">
 				</div>
-				<div id="jumbo-white" class="test">
+				<div class="jumbo-white">
 						<div class="row-radio">
 							<label>
 								<input type="radio" name="selection" value="entry" checked="checked">
