@@ -42,9 +42,8 @@
 					$entryTime = date("Y-m-d H:i:s");																					//if time is empty insert current time
 				}
 				else{
-				$entryTime = $entryTime;
-
-					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct							$entryTime = date("Y-m-d H:i:s", strtotime($entryTime));
+					if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})(\s)(\d{2})([:])(\d{2})([:])(\d{2})$/", $entryTime)){					//check if time format ist correct
+					$entryTime = date("Y-m-d H:i:s", strtotime($entryTime));
 					}
 					else
 					{
@@ -54,6 +53,7 @@
 				}
 				//End Check Time
 				$query_sqlEntry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entryTime', '$db_code')";
+				echo "<br>" . $query_sqlEntry . "<br";;
 				mysqli_query($conn, $query_sqlEntry);
 
 				$entry_id = mysqli_insert_id ($conn);	//get ID from last INSERT
