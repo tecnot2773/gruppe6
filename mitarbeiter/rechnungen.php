@@ -39,6 +39,7 @@
 		</header>
 		<!--main contents          -->
 		<div class="placeholder"></div>
+		w
 		<div class="jumbo-white">
 			<?php include_once '../include/include_bill.php'; ?>
 		</div>
