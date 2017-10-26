@@ -3,21 +3,21 @@ class EntryExit{
 	public static function noSelect($conn)
 	{
 		echo "\t\t\t\t\t<div class=row-radio>\r\n";
-			echo "<label>";
-				echo "<input type='radio' name='selection' value='entry' checked='checked'>";
-				echo "Einfahrt";
-			echo "</label>";
-			echo "<label>";
-				echo "<input type='radio' name='selection' value='exit'>";
-				echo "Ausfahrt";
-			echo "</label>";
-		echo "</div>";
+			echo "\t\t\t\t\t\t<label>\r\n";
+				echo "\t\t\t\t\t\t\t<input type='radio' name='selection' value='entry' checked='checked'>\r\n";
+				echo "\t\t\t\t\t\t\tEinfahrt\r\n";
+			echo "\t\t\t\t\t\t</label>\r\n";
+			echo "\t\t\t\t\t\t<label>\r\n";
+				echo "\t\t\t\t\t\t\t<input type='radio' name='selection' value='exit'>\r\n";
+				echo "\t\t\t\t\t\t\tAusfahrt\r\n";
+			echo "\t\t\t\t\t\t</label>\r\n";
+		echo "\t\t\t\t\t</div>\r\n";
 
-		echo "<div class='row-data'>";
-		echo "<input class='buttonsmall' type='submit' name='execute' value='Weiter'>";
-		echo "</div>";
-		echo "<div class='row-bottom'>";
-		echo "</div>";
+		echo "\t\t\t\t\t<div class='row-data'>\r\n";
+			echo "\t\t\t\t\t\t<input class='buttonsmall' type='submit' name='execute' value='Weiter'>\r\n";
+		echo "\t\t\t\t\t</div>\r\n";
+		echo "\t\t\t\t\t<div class='row-bottom'>\r\n";
+		echo "\t\t\t\t\t</div>\r\n";
 	}
 	public static function entry($conn)
 	{
