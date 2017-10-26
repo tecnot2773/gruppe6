@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !emp
 	echo "exitChoosen";
 	EntryExit::exitChoosen($conn);
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST["text-Station"]) && !empty($_POST["text-Autobahn"]) && !empty($_POST["text-Plate"]) && $_POST['execute'] == "Abschicken"){
+if ($_POST['execute'] == "Abschicken"){
 	echo "action";
 	EntryExit::action($conn);
 
