@@ -85,7 +85,7 @@
 
 						</div>
 						<div class="row-data">
-								<input class="buttonsmall" type="submit" id="execute" name="execute" value="Ausführen">
+								<input class="buttonbig" type="submit" id="execute" name="execute" value="Ausführen">
 						</div>
 						<div class="row-bottom">
 							<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?>
