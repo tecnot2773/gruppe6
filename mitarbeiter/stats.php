@@ -50,7 +50,7 @@
 					</tr>
 					<tr class='userlistoutput'>
 						<td width='350px'> Mautstellen in der Datenbank </td>
-						<td width='350px'> <?php Statistic::tollgateCount($conn); ?> </td>
+						<td width='350px'> <?php echo Statistic::tollgateCount($conn); ?> </td>
 					</tr>
 						<td width='350px'> Insgesamte Einfahrten </td>
 						<td width='350px'> <?php echo Statistic::entryCount($conn); ?> </td>
@@ -59,13 +59,13 @@
 						<td width='350px'> <?php echo Statistic::exitCount($conn); ?> </td>
 					</tr>
 						<td width='350px'> Autos auf der Autobahn </td>
-						<td width='350px'> <?php Statistic::onTheRoad($conn); ?> </td>
+						<td width='350px'> <?php echo Statistic::onTheRoad($conn); ?> </td>
 					</tr>
 						<td width='350px'> Autos heute auf der Autobahn </td>
-						<td width='350px'> <?php Statistic::dailyExit($conn); ?> </td>
+						<td width='350px'> <?php echo Statistic::dailyExit($conn); ?> </td>
 					</tr>
 						<td width='350px'> Autos diesen Monat auf der Autobahn </td>
-						<td width='350px'> <?php Statistic::monthlyExit($conn); ?> </td>
+						<td width='350px'> <?php echo Statistic::monthlyExit($conn); ?> </td>
 					</tr>
 				</table>
 				<div class="placeholder"></div>
@@ -96,7 +96,7 @@
 					</tr>
 					</tr>
 						<td width='350px'> Autos im Zeitraum auf der Autobahn </td>
-						<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
+						<td width='350px'> <?php echo Statistic::searchCount($conn); ?> </td>
 					</tr>
 				</table>
 			</div>

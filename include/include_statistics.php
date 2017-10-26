@@ -7,7 +7,7 @@ class Statistic
 			$result_tollgateNumber = mysqli_query($conn,$query_tollgateNumber);
 			$tollgateNumberRows = mysqli_num_rows($result_tollgateNumber);
 
-			echo $tollgateNumberRows;
+			return $tollgateNumberRows;
 		}
 		public static function entryCount($conn)
 		{
@@ -32,7 +32,7 @@ class Statistic
 
 			$onTheRoad = $entryNumber - $exitNumber;
 
-			echo $onTheRoad;
+			return $onTheRoad;
 		}
 		public static function dailyExit($conn)
 		{
@@ -42,7 +42,7 @@ class Statistic
 			$result_getDailyExit = mysqli_query($conn,$query_getDailyExit);
 			$dailyExitRows = mysqli_num_rows($result_getDailyExit);														//get rows from previous select
 
-			echo $dailyExitRows;
+			return $dailyExitRows;
 		}
 		public static function monthlyExit($conn)
 		{
@@ -51,7 +51,7 @@ class Statistic
 			$result_getMonthlyExit = mysqli_query($conn,$query_getMonthlyExit);
 			$monthlyExitRows = mysqli_num_rows($result_getMonthlyExit);													//get rows from previous select
 
-			echo $monthlyExitRows;
+			return $monthlyExitRows;
 		}
 		public static function monthlyCount($conn)
 		{
@@ -81,7 +81,7 @@ class Statistic
 				$result_searchCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel BETWEEN '$start' and '$end'");+
 				$searchCount = mysqli_num_rows($result_searchCount);
 
-				echo $searchCount;
+				return $searchCount;
 			}
 			else {
 				echo "0";
