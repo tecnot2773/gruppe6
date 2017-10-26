@@ -45,7 +45,18 @@
 				<div class="jumbo-white">
 					<center>
 						<div class="row-radio">
-							<input id="text-IDentry" name="text-CodeEntry" class="enjoy-css" type="text" placeholder="Code Einfahrt">
+							<select name="text-Autobahn" class="enjoy-css">
+								<option value="" disabled="" selected="" hidden="">Autobahn</option>
+								<option value="A1">A1</option>
+								<option value="A2">A2</option>
+								<option value="A7">A7</option>
+							</select>
+							<select name="text-Station" class="enjoy-css">
+								<option value="" disabled="" selected="" hidden="">Mautstation</option>
+								<option value="A1">Hannover abfahrt Laatzen</option>
+								<option value="A2">Am Arsch der Welt</option>
+								<option value="A7">Noch weiter dahinten</option>
+							</select>
 							<input id="text-time-entry" name="text-time-entry" class="enjoy-css" type="text" placeholder="DD.MM.YYYY HH:MM:SS">
 						</div>
 						<div class="row-radio">
