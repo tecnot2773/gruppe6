@@ -52,7 +52,12 @@
 					}
 				}
 				//End Check Time
-				$query_sqlEntry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entryTime', '$db_code')";
+				$get_tollgateId = mysqli_query($conn, "SELECT id FROM mautstelle WHERE code = '$db_code'");
+				while($data = mysqli_fetch_array($get_tollgateId)){
+					$tollgateId = $data['id'];
+				}
+
+				$query_sqlEntry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entryTime', '$tollgateId')";
 				echo "<br>" . $query_sqlEntry . "<br";;
 				mysqli_query($conn, $query_sqlEntry);
 
@@ -98,13 +103,12 @@
 			}
 		}
 
-		$query_getTollgateExitId = "SELECT ID FROM mautstelle WHERE code = $db_code";
-		$result_getExitTollgateId = mysqli_query($conn, $query_getTollgateExitId);
-		while ($data = mysqli_fetch_array($result_getExitTollgateId)){
-			$db_exitTollgateId = $data['ID'];
+		$get_tollgateId = mysqli_query($conn, "SELECT id FROM mautstelle WHERE code = '$db_code'");
+		while($data = mysqli_fetch_array($get_tollgateId)){
+			$tollgateId = $data['id'];
 		}
 
-		$query_sqlExit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$db_exitTollgateId')";
+		$query_sqlExit = "INSERT INTO faehrtAus (zeitstempel, mautstelleID) VALUES ('$exit_time', '$tollgateId')";
 		mysqli_query($conn, $query_sqlExit);
 
 		$exit_id = mysqli_insert_id ($conn);																						//get ID from last INSERT
