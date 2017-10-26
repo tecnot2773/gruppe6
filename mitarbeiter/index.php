@@ -10,7 +10,7 @@
 		<link href="/css/generic/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/buttons.css" type="text/css" rel="stylesheet" />
-<?php 	include_once '../include/include_db.php';		?>
+<?php 	include_once '../include/include_db.php';		include_once '../include/include_functionEntryExit.php'; ?>
 		<title>Mautstationen</title>
 	</head>
 	<body>
@@ -46,16 +46,7 @@
 				<div class="jumbo-white">
 					<center>
 <?php if($_SERVER['REQUEST_METHOD'] == 'GET'){
-							echo "<div class=row-radio>";
-								echo "<label>";
-									echo "<input type='radio' name='selection' value='entry' checked='checked'>";
-									echo "Einfahrt";
-								echo "</label>";
-								echo "<label>";
-									echo "<input type='radio' name='selection' value='exit'>";
-									echo "Ausfahrt";
-								echo "</label>";
-							echo "</div>";
+	EntryExit::noSelect($conn);
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"])){
 							echo "<div class='row-radio'>";
