@@ -57,7 +57,7 @@
 								echo "</label>";
 							echo "</div>";
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry"){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate"])){
 							echo "<div class='row-radio'>";
 								echo "<label>";
 									echo "<input type='radio' name='selection' value='entry' checked='checked'>";
@@ -76,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry"){
 								}
 							echo "</select>";
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-Plate-exit"])){
 							echo "<div class='row-radio'>";
 								echo "<label>";
 									echo "<input type='radio' name='selection' value='entry' >";
@@ -95,12 +95,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit"){
 								}
 							echo "</select>";
 }
-							/*<select name="text-Autobahn" class="enjoy-css">
-								<option value="" disabled="" selected="" hidden="">Autobahn</option>
-								<option value="A1">A1</option>
-								<option value="A2">A2</option>
-								<option value="A7">A7</option>
-							</select>
+/*
 							<select name="text-Station" class="enjoy-css">
 								<option value="" disabled="" selected="" hidden="">Mautstation</option>
 								<option value="A1">Hannover abfahrt Laatzen</option>
