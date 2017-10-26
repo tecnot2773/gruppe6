@@ -19,6 +19,7 @@
 		while($data = mysqli_fetch_array($get_code)){
 			$db_code = $data['code'];
 		}
+		echo $db_code . "code";
 
 		$plateLength = strlen($plate); 																										//get plate length
 		if($plateLength > 12){																												//skip everything if plate is > 12
@@ -52,13 +53,6 @@
 					}
 				}
 				//End Check Time
-
-				$query_getTollgateEntryId = "SELECT ID FROM mautstelle WHERE code = $db_code";
-				$result_getEntryTollgateId = mysqli_query($conn, $query_getTollgateEntryId);
-				while ($data = mysqli_fetch_array($result_getEntryTollgateId)){
-					$db_EntryTollgateId = $data['ID'];
-				}
-
 				$query_sqlEntry = "INSERT INTO faehrtEin (zeitstempel, mautstelleID) VALUES ('$entryTime', '$db_code')";
 				mysqli_query($conn, $query_sqlEntry);
 
