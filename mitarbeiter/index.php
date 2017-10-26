@@ -41,11 +41,6 @@
 		<form action="/mitarbeiter/index.php" method="post">
 				<div id="placeholder" class="test">
 				</div>
-				<div id="griddiv-nav-top" class="test">
-					<div id="buttondiv_rowend" class="row">
-
-					</div>
-				</div>
 				<div id="jumbo-white" class="test">
 						<div class="row-radio">
 							<label>
