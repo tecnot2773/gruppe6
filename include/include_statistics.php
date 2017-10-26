@@ -15,7 +15,7 @@ class Statistic
 			$result_entryNumber = mysqli_query($conn,$query_entryNumber);
 			$entryNumberRows = mysqli_num_rows($result_entryNumber);
 
-			echo $entryNumberRows;
+			return $entryNumberRows;
 		}
 		public static function exitCount($conn)
 		{
@@ -23,19 +23,14 @@ class Statistic
 			$result_exitNumber = mysqli_query($conn,$query_exitNumber);
 			$exitNumberRows = mysqli_num_rows($result_exitNumber);
 
-			echo $exitNumberRows;
+			return $exitNumberRows;
 		}
 		public static function onTheRoad($conn)
 		{
-			$query_entryNumber = "SELECT * FROM faehrtEin";
-			$result_entryNumber = mysqli_query($conn,$query_entryNumber);
-			$entryNumberRows = mysqli_num_rows($result_entryNumber);
+			$exitNumber = Statistic::exitCount($conn);
+			$entryNumber = Statistic::entryCount($conn);
 
-
-			$query_exitNumber = "SELECT * FROM faehrtAus";
-			$result_exitNumber = mysqli_query($conn,$query_exitNumber);
-			$exitNumberRows = mysqli_num_rows($result_exitNumber);
-			$onTheRoad = $entryNumberRows - $exitNumberRows;
+			$onTheRoad = $entryNumber - $exitNumber;
 
 			echo $onTheRoad;
 		}

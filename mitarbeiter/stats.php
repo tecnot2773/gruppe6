@@ -53,10 +53,10 @@
 						<td width='350px'> <?php Statistic::tollgateCount($conn); ?> </td>
 					</tr>
 						<td width='350px'> Insgesamte Einfahrten </td>
-						<td width='350px'> <?php Statistic::entryCount($conn); ?> </td>
+						<td width='350px'> <?php echo Statistic::entryCount($conn); ?> </td>
 					</tr>
 						<td width='350px'> Insgesamte Ausfahrten </td>
-						<td width='350px'> <?php Statistic::exitCount($conn); ?> </td>
+						<td width='350px'> <?php echo Statistic::exitCount($conn); ?> </td>
 					</tr>
 						<td width='350px'> Autos auf der Autobahn </td>
 						<td width='350px'> <?php Statistic::onTheRoad($conn); ?> </td>
