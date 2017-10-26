@@ -66,9 +66,18 @@
 						<td width='350px'> Autos diesen Monat auf der Autobahn </td>
 						<td width='350px'> <?php Statistic::monthlyExit($conn); ?> </td>
 					</tr>
-						<?php Statistic::monthlyCount($conn); ?>
+						<?php //Statistic::monthlyCount($conn); ?>
 						<td width='350px'> Autos im Zeitraum auf der Autobahn </td>
 						<td width='350px'> <?php Statistic::searchCount($conn); ?> </td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<th>Statistiken nach Monaten</th>
+						<th></th>
+					</tr>
+					</tr>
+						<?php Statistic::monthlyCount($conn); ?>
 					</tr>
 				</table>
 				<form action="/mitarbeiter/stats.php" method="post">
