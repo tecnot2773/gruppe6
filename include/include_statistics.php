@@ -68,7 +68,7 @@ class Statistic
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
 
 				$monthName = strftime("%B", strtotime($month));		//make date to month in german
-				echo $monthname;
+				echo $monthName;
 
 				echo "<td width='350px'> Autos im ${monthName} auf der Autobahn </td>";
 				echo "<td width='350px'> ${monthlyCount} </td>";
