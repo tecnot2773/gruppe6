@@ -79,7 +79,7 @@
 					</tr>
 				</table>
 				<div class="placeholder"></div>
-					<form action="/mitarbeiter/stats.php" method="post">
+				<form action="/mitarbeiter/stats.php" method="post">
 						<div id="rowstart" class="row">
 							<center>
 								<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum">
@@ -87,7 +87,8 @@
 								<input class="buttonsmall" type="submit" name="submit" value="Ausführen">
 							</center>
 						</div>
-					</form>
+				</form>
+				<div class="placeholder"></div>
 				<table border='1'>
 					<tr>
 						<th>Statistiken nach Zeitraum</th>
