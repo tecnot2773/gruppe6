@@ -82,7 +82,7 @@ class EntryExit{
 		}
 		echo "</select>";
 
-		echo "<input id='text-plate-entry' name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>";
+		echo "<input id='text-plate' name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>";
 		echo "<input id='text-time-entry' name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>";
 
 	}
