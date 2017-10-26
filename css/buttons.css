@@ -40,7 +40,7 @@ a.linkbutton:hover {
 	color: black
 	border: 2px solid #008CBA;
 	border-radius: 12px;
-	float: right;
+
 }
 
 .buttonsmall:hover {
@@ -63,7 +63,6 @@ a.linkbutton:hover {
 	color: black
 	border: 2px solid #008CBA;
 	border-radius: 12px;
-	float: right;
 }
 
 .buttonbig:hover {

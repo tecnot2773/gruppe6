@@ -77,7 +77,7 @@
 							</select>
 							<input id="text-IDexit" name="text-CodeExit" class="enjoy-css" type="text" placeholder="Code Ausfahrt">
 							<input id="text-time-exit" name="text-time-exit" class="enjoy-css" type="text" placeholder="DD.MM.YYYY HH:MM:SS">
-							<input class="button" type="submit" name="execute" value="Ausführen">
+							<input class="buttonsmall" type="submit" id="execute" name="execute" value="Ausführen">
 						</div>
 						<div class="row-bottom">
 							<center><?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { include_once '../include/include_entryExit.php';} ?><center>
