@@ -11,6 +11,7 @@
 		<link href="/css/generic/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/buttons.css" type="text/css" rel="stylesheet" />
+		<?php include_once '../include/include_statistics.php'; include_once '../include/include_db.php'; ?>
 		<title>Statistiken</title>
 	</head>
 	<body>
@@ -42,7 +43,6 @@
 		<!--main contents          -->
 		<div class="placeholder"></div>
 			<div class="jumbo-white">
-				<?php include_once '../include/include_statistics.php'; include_once '../include/include_db.php'; ?>
 				<table border='1'>
 					<tr>
 						<th>Übersicht</th>
