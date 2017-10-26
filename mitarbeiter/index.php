@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empt
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && !empty($_POST["text-Autobahn"])){
 	EntryExit::entryChoosen($conn);
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && empty($_POST["text-Autobahn"])){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "exit" && !empty($_POST["text-Autobahn"])){
 	EntryExit::exitChoosen($conn);
 }
 
