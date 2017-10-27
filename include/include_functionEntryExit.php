@@ -123,7 +123,6 @@ class EntryExit{
 	public static function action($conn)
 	{
 		include_once 'include_entryExit.php';
-		echo "\t\t\t\t\t<br>\r\n";
 		echo "\t\t\t\t\t<div class='row-radio'>\r\n";
 		echo "\t\t\t\t\t\t<label>\r\n";
 		echo "\t\t\t\t\t\t\t<input type='radio' name='selection' value='entry' checked='checked'>\r\n";
