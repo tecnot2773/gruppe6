@@ -47,7 +47,7 @@
 				<center>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
-	EntryExit::noSelect($conn);
+	EntryExit::entry($conn);
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["selection"] == "entry" && empty($_POST["text-Autobahn"]) && empty($_POST["text-plate"])){
 	EntryExit::entry($conn);
