@@ -9,6 +9,7 @@
 		<link href="/css/custom/mitarbeiter_rechnungen.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/navbar.css" type="text/css" rel="stylesheet" />
 		<link href="/css/generic/body.css" type="text/css" rel="stylesheet" />
+		<link href="/../textbox.css" type="text/css" rel="stylesheet" />
 		<title>Rechnungen</title>
 	</head>
 	<body>
