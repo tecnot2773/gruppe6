@@ -79,10 +79,6 @@ class EntryExit{
 		echo "\t\t\t\t\t\t\t<input type='radio' name='selection' value='entry' checked='checked'>\r\n";
 		echo "\t\t\t\t\t\t\tEinfahrt\r\n";
 		echo "\t\t\t\t\t\t</label>\r\n";
-		echo "\t\t\t\t\t\t<label>\r\n";
-		echo "\t\t\t\t\t\t\t<input type='radio' name='selection' value='exit'>\r\n";
-		echo "\t\t\t\t\t\t\tAusfahrt\r\n";
-		echo "\t\t\t\t\t\t</label>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
 		echo "\t\t\t\t\t<select name='text-Autobahn' class='enjoy-css'>\r\n";
 		echo "\t\t\t\t\t\t<option value=${selection} selected=''>${selection}</option>\r\n";
@@ -109,10 +105,6 @@ class EntryExit{
 	{
 		$selection = $_POST["text-Autobahn"];
 		echo "\t\t\t\t\t<div class='row-radio'>\r\n";
-		echo "\t\t\t\t\t\t<label>\r\n";
-		echo "\t\t\t\t\t\t\t<input type='radio' name='selection' value='entry' >\r\n";
-		echo "\t\t\t\t\t\t\tEinfahrt\r\n";
-		echo "\t\t\t\t\t\t</label>\r\n";
 		echo "\t\t\t\t\t\t<label>\r\n";
 		echo "\t\t\t\t\t\t\t<input type='radio' name='selection' value='exit' checked='checked'>\r\n";
 		echo "\t\t\t\t\t\t\tAusfahrt\r\n";
