@@ -65,13 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if(mysqli_num_rows($plateCheck) > 0){
 		$query_getBill = "SELECT r.id, r.kosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
 		$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
-
+		$rows_getBill = mysqli_num_rows($result_getBill);
 		echo "<table border='1'>
 		<tr>
 		<th>Fahrten</th>
 		</tr>";
 		echo "<tr class='userlistoutput'>";
-		echo "<td width='45px'>" . mysqli_num_rows($restlt_getBill); . "</td>";
+		echo "<td width='45px'>" . $rows_getBill .  "</td>";
 		echo "</tr>";
 		echo "</table>";
 
