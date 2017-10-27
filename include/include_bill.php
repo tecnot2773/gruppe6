@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$query_getBill = "SELECT r.id, r.kosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
 		$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 		$rows_getBill = mysqli_num_rows($result_getBill);
-		echo "<table border='1'>\r\n";
+		echo "\t\t\t\t\t\t<table border='1'>\r\n";
 		echo "<tr>\r\n";
 		echo "<th>Fahrten</th>\r\n";
 		echo "</tr>\r\n";
