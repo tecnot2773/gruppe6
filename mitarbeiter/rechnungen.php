@@ -40,7 +40,23 @@
 		<!--main contents          -->
 		<div class="placeholder"></div>
 		<div class="jumbo-white">
-			<?php include_once '../include/include_bill.php'; ?>
+			<form action="/rechnung.php" method="post">
+				<div id="main-area" class="container">
+					<div id="heading" class="page-header">
+
+					</div>
+					<div id="griddiv-search" class="container">
+						<div id="rowstart" class="row">
+							<input id="text-search-kennzeichen" name="text-search-kennzeichen" class="enjoy-css" type="text" placeholder="Kennzeichen">
+							<input class="button" type="submit" name="submit" value="Suchen">
+						</div>
+		 			</div>
+
+					<div id="griddiv-left" class="test">
+						<?php include_once '../include/include_bill.php'; ?>
+					</div>
+				</div>
+			</form>
 		</div>
 	</body>
 </html>
