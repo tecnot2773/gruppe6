@@ -98,7 +98,7 @@ class Statistic
 					$db_nameJunction = $data["nameKreuz"];
 
 					echo "\t\t\t\t\t<tr> \r\n";
-					echo "\t\t\t\t\t\t<td width='350px'>" $db_nameHighway . " " . $db_nameJunction "</td> \r\n";
+					echo "\t\t\t\t\t\t<td width='350px'>" . $db_nameHighway . " " . $db_nameJunction . "</td> \r\n";
 					echo "\t\t\t\t\t\t<td width='350px'> ${$count} </td> \r\n";
 					echo "\t\t\t\t\t</tr> \r\n";
 				}
