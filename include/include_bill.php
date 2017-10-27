@@ -5,15 +5,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	$query_getBill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";												//query getBill
 	$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 
-	echo "<table border='1'>
-	<tr>
-	<th>ID</th>
-	<th>Kennzeichen</th>
-	<th>Autobahn Einfahrt</th>
-	<th>Autobahn Ausfahrt</th>
-	<th>Ausfahrt Zeit</th>
-	<th>Kosten</th>
-	</tr>";
+	echo "\t\t\t\t\t\t<table border='1'>\r\n";
+	echo "\t\t\t\t\t\t\t<tr>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>ID</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Kennzeichen</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Autobahn Einfahrt</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Autobahn Ausfahrt</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Ausfahrt Zeit</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Kosten</th>\r\n";
+	echo "\t\t\t\t\t\t\t</tr>\r\n";
 
 	while($data1 = mysqli_fetch_array($result_getBill)){																				//fetch getBill
 		$db_distanceID = $data1['streckeID'];																											//save streckeID in db_distanceID
@@ -40,22 +40,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 						$result_getHighwaynameExit = mysqli_query($conn, $query_get_HighwaynameExit);
 						while ($data6= mysqli_fetch_array($result_getHighwaynameExit)){
 
-						echo "<tr class='userlistoutput'>";																		//html chart with output
-						echo "<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>";
+						echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";																		//html chart with output
+						echo "\t\t\t\t\t\t\t\t<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>\r\n";
 
-						echo "<td width='45px'>" . $data2['kennzeichen'] . "</td>";
-						echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>";
-						echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>";
+						echo "\t\t\t\t\t\t\t\t<td width='45px'>" . $data2['kennzeichen'] . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>\r\n";
 						$timestamp = date("d.m.Y H:i:s", strtotime($data4['zeitstempel']));
-						echo "<td width='70px'>" . $timestamp . "</td>";
-						echo "<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>";
-						echo "</tr>";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $timestamp . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t</tr>\r\n";
 						}
 					}
 				}
 			}
 		}
 	}
+	echo "\t\t\t\t\t\t</table>\r\n";
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	include_once 'include_db.php';																										//include db.php
