@@ -41,7 +41,7 @@
 		<!--main contents          -->
 		<div class="placeholder"></div>
 		<div class="jumbo-white">
-			<form action="/mitarbeiter/rechnung.php" method="post">
+			<form action="/mitarbeiter/rechnungen.php" method="post">
 				<div id="main-area" class="container">
 					<div id="heading" class="page-header">
 
