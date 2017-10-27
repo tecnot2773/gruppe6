@@ -22,7 +22,7 @@
 
 		$plateLength = strlen($plate); 																										//get plate length
 		if($plateLength > 12){																												//skip everything if plate is > 12
-			echo "\t\t\t\t\tKennzeichen ist zu lang\r\n";
+			echo "\t\t\t\t\tKennzeichen ist zu lang.\r\n";
 		}
 		if($plateLength <= 12){																												//do if plate is <= 12
 			$query_getPlateFromRoute = "SELECT kennzeichen FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NULL";				//query get Plate
@@ -32,7 +32,7 @@
 				$plateCheck = "TRUE";																										//check = True
 			}
 			if ($rows >= 1){																												//if rows >= 1 this plate is already is on the road
-				echo "\t\t\t\t\tKennzeichen ist bereits auf einer Autobahn\r\n";
+				echo "\t\t\t\t\tKennzeichen ist bereits auf einer Autobahn.\r\n";
 				$plateCheck = "FALSE";																										//check = FALSE
 			}
 			if($plateCheck == "TRUE"){																										// if plate is not on the road
@@ -63,7 +63,7 @@
 
 				$query_sqlEntryRoute = "INSERT INTO strecke (kennzeichen, faehrtEinID) VALUES ('$plate', '$entry_id')";
 				mysqli_query($conn, $query_sqlEntryRoute);
-				echo "\t\t\t\t\tNeue Einfahrt mit Kennzeichen $plate verbucht\r\n";
+				echo "\t\t\t\t\tNeue Einfahrt mit Kennzeichen $plate verbucht.\r\n";
 			}
 		}
 	}
@@ -154,6 +154,6 @@
 
 		$query_insertBill = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$db_costs', '$db_routeId')";
 		mysqli_query($conn, $query_insertBill);
-		echo "\t\t\t\t\tNeue Ausfahrt verbucht und Rechnung erstellt\r\n";
+		echo "\t\t\t\t\tNeue Ausfahrt verbucht und Rechnung erstellt.\r\n";
 	}
 ?>
