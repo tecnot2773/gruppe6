@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	$plateCheck = mysqli_query($conn, "SELECT id FROM strecke WHERE kennzeichen = '$plate'");
 	if(mysqli_num_rows($plateCheck) > 0){
-		$query_getBill = "SELECT * FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
+		$query_getBill = "SELECT r.id, r.kosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
 		$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 
 		echo "<table border='1'>
