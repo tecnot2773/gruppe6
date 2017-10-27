@@ -1,9 +1,10 @@
 <?php
+/*		NOT USED
  include_once 'include_db.php';																		//include db.php
- 
+
  $query_getRoute = "SELECT id, kennzeichen, faehrtEinID FROM strecke WHERE faehrtAusID IS NULL";		//query getRoute
  $result_getRoute = mysqli_query($conn,$query_getRoute);												//execute Query and save
- 
+
 	echo "<table border='1'>
 	<tr>
 	<th>ID</th>
@@ -23,7 +24,7 @@ while($data1 = mysqli_fetch_array($result_getRoute)){																//fetch res
 		while($data3 = mysqli_fetch_array($result_getTollgateName)){												//fetch result_getTollgateName
 
 		echo "<tr class='userlistoutput'>";
-		
+
 		echo "<td width='45px'>" . $data1['id'] . "</td>"; 															//echo id
 		echo "<td width='45px'>" . $data1['kennzeichen'] . "</td>";													//echo kennzeichen
 		echo "<td width='70px'>" . $data3['nameAutobahn'] . "<br>". $data3['nameKreuz'] . "</td>";					//echo nameAutobahn
@@ -33,4 +34,5 @@ while($data1 = mysqli_fetch_array($result_getRoute)){																//fetch res
 	}
 }
 echo "</table>";
+*/
 ?>
