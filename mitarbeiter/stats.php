@@ -101,8 +101,8 @@
 				<form action="/mitarbeiter/stats.php" method="post">
 						<div id="rowstart" class="row">
 							<center>
-								<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start Datum">
-								<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End Datum">
+								<input id="startSearch" name="startSearch" class="enjoy-css" type="text" placeholder="Start DD.MM.YYYY">
+								<input id="endSearch" name="endSearch" class="enjoy-css" type="text" placeholder="End DD.MM.YYYY">
 								<input class="buttonsmall" type="submit" name="submit" value="Ausführen">
 							</center>
 						</div>
