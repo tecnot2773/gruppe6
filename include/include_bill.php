@@ -68,6 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		echo "<table border='1'>
 		<tr>
+		<th>Fahrten</th>
+		</tr>";
+		echo "<tr class='userlistoutput'>";
+		echo "<td width='45px'>" . mysqli_num_rows($restlt_getBill); . "</td>";
+		echo "</tr>";
+		echo "</table>";
+
+		echo "<table border='1'>
+		<tr>
 		<th>ID</th>
 		<th>Kennzeichen</th>
 		<th>Autobahn Einfahrt</th>
