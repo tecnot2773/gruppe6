@@ -43,22 +43,16 @@
 		<div class="placeholder"></div>
 		<div class="jumbo-white">
 			<form action="/mitarbeiter/rechnungen.php" method="post">
-				<div id="main-area" class="container">
-					<div id="heading" class="page-header">
-
-					</div>
 					<center>
-						<div id="griddiv-search" class="container">
-							<div id="rowstart" class="row">
+						<div class="row">
 								<input id="text-search-kennzeichen" name="text-search-kennzeichen" class="enjoy-css" type="text" placeholder="Kennzeichen">
 								<input class="buttonsmall" type="submit" name="submit" value="Suchen">
-							</div>
 			 			</div>
 					</center>
+					<div class="placeholder"></div>
 					<div id="griddiv-left" class="test">
-<?php include_once '../include/include_bill.php'; ?>
+						<?php include_once '../include/include_bill.php'; ?>
 					</div>
-				</div>
 			</form>
 		</div>
 	</body>
