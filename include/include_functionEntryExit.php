@@ -19,7 +19,7 @@ class EntryExit{
 			echo "\t\t\t\t\t\t" . '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>' . "\r\n";		//use echo to execute html in php
 		}
 		echo "\t\t\t\t\t</select>\r\n";
-
+		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
 		echo "\t\t\t\t\t<div class='row-data'>\r\n";
 		echo "\t\t\t\t\t\t<input class='buttonsmall' type='submit' name='execute' value='Weiter'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
@@ -46,6 +46,7 @@ class EntryExit{
 		}
 		echo "\t\t\t\t\t</select>\r\n";
 
+		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
 		echo "\t\t\t\t\t<div class='row-data'>\r\n";
 		echo "\t\t\t\t\t\t<input class='buttonsmall' type='submit' name='execute' value='Weiter'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
@@ -76,6 +77,7 @@ class EntryExit{
 		echo "\t\t\t\t\t<input name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>\r\n";
 		echo "\t\t\t\t\t<input name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>\r\n";
 
+		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
 		echo "\t\t\t\t\t<div class='row-data'>\r\n";
 		echo "\t\t\t\t\t\t<input class='buttonsmall' type='submit' name='execute' value='Abschicken'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
@@ -114,6 +116,7 @@ class EntryExit{
 
 		echo "\t\t\t\t\t<input name='text-time-exit' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>\r\n";
 
+		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
 		echo "\t\t\t\t\t<div class='row-data'>\r\n";
 		echo "\t\t\t\t\t\t<input class='buttonsmall' type='submit' name='execute' value='Abschicken'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
@@ -141,6 +144,7 @@ class EntryExit{
 		}
 		echo "\t\t\t\t\t</select>\r\n";
 
+		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
 		echo "\t\t\t\t\t<div class='row-data'>\r\n";
 		echo "\t\t\t\t\t\t<input class='buttonsmall' type='submit' name='execute' value='Weiter'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
