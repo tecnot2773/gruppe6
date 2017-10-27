@@ -4,7 +4,7 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="content-Type" content="text/html; charset=UTF-8" />  
+		<meta http-equiv="content-Type" content="text/html; charset=UTF-8" />
 		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 		<link href="/mautstellen-info.css" type="text/css" rel="stylesheet" />
 		<link href="/textbox.css" type="text/css" rel="stylesheet" />
@@ -32,16 +32,16 @@
 			<div id="heading" class="page-header">
 
 			</div>
-			<div id="griddiv-search" class="container">		
-				<div id="rowstart" class="row">		
+			<div id="griddiv-search" class="container">
+				<div id="rowstart" class="row">
 					<input id="text-search-autobahn" name="text-search-autobahn" class="enjoy-css" type="text" placeholder="Autobahn Nummer">
 					<input id="text-search-kreuz" name="text-search-kreuz" class="enjoy-css" type="text" placeholder="Name des Kreuzes">
-					<input class="button" type="submit" name="submit" value="Suchen">  					
+					<input class="button" type="submit" name="submit" value="Suchen">
 				</div>						
- 			</div>	
+ 			</div>
 
 			<div id="griddiv-left" class="test">
-			<?php include_once 'include/include_tollgateInfo.php'; ?>
+<?php include_once 'include/include_tollgateInfo.php'; ?>
 			</div>
 
 		</div>
