@@ -86,6 +86,23 @@ class Statistic
 			else {
 				echo "Keine Eingabe";
 			}
+			public static function mostUsedStations($conn){
+				$get_entryCount = mysqli_query($conn, "SELECT `mautstelleID`, COUNT(`mautstelleID`) AS `value_occurrence` FROM `faehrtEin` GROUP BY `mautstelleID` HAVING `value_occurrence` > 0 ORDER BY `value_occurrence` DESC LIMIT 5");
+				while($data = mysqli_fetch_array($get_entryCount)){
+					$count = $data["value_occurrence"];
+				$tollgateId = $data["mautstelleID"];
+					$get_tollgateName = mysqli_query($conn, "SELECT nameAutobahn, nameKreuz WHERE ID = '$tollgateId'");
+					while($data = mysqli_fetch_array($get_tollgateName)){
+					$db_nameHighway = $data["nameAutobahn"];
+						$db_nameJunction = $data["nameKreuz"];
+
+						echo "\t\t\t\t\t<tr> \r\n";
+						echo "\t\t\t\t\t\t<td width='350px'>" $db_nameHighway . " " . $db_nameJunction "</td> \r\n";
+						echo "\t\t\t\t\t\t<td width='350px'> ${$count} </td> \r\n";
+						echo "\t\t\t\t\t</tr> \r\n";
+					}
+				}
+			}
 		}
 	}
 ?>

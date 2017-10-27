@@ -76,6 +76,15 @@
 				<div class="placeholder"></div>
 				<table border='1'>
 					<tr>
+						<th>Meist genutze Einfahrten</th>
+						<th></th>
+					</tr>
+<?php Statistic::mostUsedStations($conn); ?>
+				</table>
+				<div class="placeholder"></div>
+				<div class="placeholder"></div>
+				<table border='1'>
+					<tr>
 						<th>Statistiken nach Monaten</th>
 						<th></th>
 					</tr>
