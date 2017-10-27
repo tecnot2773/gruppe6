@@ -79,9 +79,16 @@
 						<th>Meist genutze Einfahrten</th>
 						<th></th>
 					</tr>
-<?php Statistic::mostUsedStations($conn); ?>
+<?php Statistic::mostUsedEinfahrt($conn); ?>
 				</table>
 				<div class="placeholder"></div>
+				<table border='1'>
+					<tr>
+						<th>Meist genutze Ausfahrten</th>
+						<th></th>
+					</tr>
+<?php Statistic::mostUsedAusfahrt($conn); ?>
+				</table>
 				<div class="placeholder"></div>
 				<table border='1'>
 					<tr>
