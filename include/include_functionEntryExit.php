@@ -35,7 +35,7 @@ class EntryExit{
 			echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>\r\n";
 			$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
 			while($data = mysqli_fetch_array($result_Highway)){												//fetch data from result_getPlate
-			echo "'<option value=' . $data['nameAutobahn'] . '>' . $data['nameAutobahn']. '</option>'\r\n";		//use echo to execute html in php
+			echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>' . "\r\n";		//use echo to execute html in php
 			}
 		echo "</select>\r\n";
 
@@ -61,7 +61,7 @@ class EntryExit{
 			echo "<option value='' disabled='' selected='' hidden=''>Autobahn</option>\r\n";
 			$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
 			while($data = mysqli_fetch_array($result_Highway)){												//fetch data from result_getPlate
-			echo "'<option value=' . $data['nameAutobahn'] . '>' . $data['nameAutobahn']. '</option>'\r\n";		//use echo to execute html in php
+			echo '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>' . "\r\n";		//use echo to execute html in php
 			}
 		echo "</select>\r\n";
 
@@ -92,7 +92,7 @@ class EntryExit{
 		echo "<option value='' disabled='' selected='' hidden=''>Mautstation</option>\r\n";
 		$result_getJunction = mysqli_query($conn,"SELECT DISTINCT nameKreuz from mautstelle WHERE nameAutobahn = '$selection' ORDER BY SUBSTR(nameKreuz FROM 1 FOR 1), CAST(SUBSTR(nameKreuz FROM 2) AS UNSIGNED)");												//execute query and save
 		while($data = mysqli_fetch_array($result_getJunction)){												//fetch data from result_getPlate
-		echo "'<option value=' . $data['nameKreuz'] . '>' . $data['nameKreuz']. '</option>'\r\n";		//use echo to execute html in php
+		echo '<option value="' . $data['nameKreuz'] . '">' . $data['nameKreuz']. '</option>' . "\r\n";		//use echo to execute html in php
 		}
 		echo "</select>\r\n";
 
@@ -126,7 +126,7 @@ class EntryExit{
 		echo "<option value='' disabled='' selected='' hidden=''>Mautstation</option>\r\n";
 		$result_getJunction = mysqli_query($conn,"SELECT DISTINCT nameKreuz from mautstelle WHERE nameAutobahn = '$selection' ORDER BY SUBSTR(nameKreuz FROM 1 FOR 1), CAST(SUBSTR(nameKreuz FROM 2) AS UNSIGNED)");												//execute query and save
 		while($data = mysqli_fetch_array($result_getJunction)){												//fetch data from result_getPlate
-		echo "'<option value=' . $data['nameKreuz'] . '>' . $data['nameKreuz']. '</option>'\r\n";		//use echo to execute html in php
+		echo '<option value="' . $data['nameKreuz'] . '">' . $data['nameKreuz']. '</option>' . "\r\n";		//use echo to execute html in php
 		}
 		echo "</select>\r\n";
 
@@ -135,7 +135,7 @@ class EntryExit{
 			$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL\r\n";						//sql query to get  kennzeichen
 			$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
 			while($data = mysqli_fetch_array($result_getPlate)){												//fetch data from result_getPlate
-				echo "'<option value=' . $data['kennzeichen'] . '>' . $data['kennzeichen']. '</option>'\r\n";		//use echo to execute html in php
+				echo '<option value="' . $data['kennzeichen'] . '">' . $data['kennzeichen']. '</option>' . "\r\n";		//use echo to execute html in php
 			}
 		echo "</select>\r\n";
 
