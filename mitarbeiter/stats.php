@@ -121,7 +121,11 @@
 							if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $start) && preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $end)){
 								echo "\t<td width='350px'> Autos im Zeitraum vom ${start} bis ${end} auf der Autobahn </td> \r\n";
 							}
-						}else{
+							else{
+								echo "\t<td width='350px'> Autos im Zeitraum auf der Autobahn </td>\r\n";
+							}
+						}
+						else{
 							echo "\t<td width='350px'> Autos im Zeitraum auf der Autobahn </td>\r\n";
 						}
 					?>

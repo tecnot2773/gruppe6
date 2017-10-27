@@ -84,7 +84,7 @@ class Statistic
 					return $searchCount;
 				}
 				else{
-					echo "Falsche Zeit Angabe";
+					echo "Falsche Zeitangabe";
 				}
 			}
 			else {
