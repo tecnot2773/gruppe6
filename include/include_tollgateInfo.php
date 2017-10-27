@@ -6,23 +6,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {																		//if REQUEST_METHOD
 	$result_getTollgate = mysqli_query($conn,$query_getTollgate);												//execute query and save
 
 	echo "\t\t\t\t<table border='1'>\r\n";
-	echo "\t\t\t\t\t<tr>\r\n";
-	echo "\t\t\t\t\t\t<th>Code</th>\r\n";
-	echo "\t\t\t\t\t\t<th>Autobahn</th>\r\n";
-	echo "\t\t\t\t\t\t<th>Kreuz Name</th>\r\n";
-	echo "\t\t\t\t\t\t<th>Kreuz Nummer</th>\r\n";
-	echo "\t\t\t\t\t</tr>\r\n";
+	echo "\t\t\t\t\t\t<tr>\r\n";
+	echo "\t\t\t\t\t\t\t<th>Code</th>\r\n";
+	echo "\t\t\t\t\t\t\t<th>Autobahn</th>\r\n";
+	echo "\t\t\t\t\t\t\t<th>Kreuz Name</th>\r\n";
+	echo "\t\t\t\t\t\t\t<th>Kreuz Nummer</th>\r\n";
+	echo "\t\t\t\t\t\t</tr>\r\n";
 
 	while($data = mysqli_fetch_array($result_getTollgate))							//fetch arry getTollgate
 	{
-		echo "\t\t\t\t\t<tr class='userlistoutput'>\r\n";
-		echo "\t\t\t\t\t\t<td width='120px'>" . $data['code'] . "</td>\r\n";					//echo code
-		echo "\t\t\t\t\t\t<td width='120px'>" . $data['nameAutobahn'] . "</td>\r\n";			//echo nameAutobahn
-		echo "\t\t\t\t\t\t<td width='120px'>" . $data['nameKreuz'] . "</td>\r\n";				//echo nameKreuz
-		echo "\t\t\t\t\t\t<td width='120px'>" . $data['kreuzNummer'] . "</td>\r\n";				//echo kreuzNummer
-		echo "\t\t\t\t\t</tr>\r\n";
+		echo "\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";
+		echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['code'] . "</td>\r\n";					//echo code
+		echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['nameAutobahn'] . "</td>\r\n";			//echo nameAutobahn
+		echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['nameKreuz'] . "</td>\r\n";				//echo nameKreuz
+		echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['kreuzNummer'] . "</td>\r\n";				//echo kreuzNummer
+		echo "\t\t\t\t\t\t</tr>\r\n";
 	}
-	  echo "\t\t\t\t</table>\r\n";
+	  echo "\t\t\t\t\t</table>\r\n";
 }
 
 
