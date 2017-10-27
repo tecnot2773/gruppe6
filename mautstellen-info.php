@@ -30,7 +30,6 @@
 		<form action="/mautstellen-info.php" method="post">
 			<div id="main-area" class="container">
 				<div id="heading" class="page-header">
-
 				</div>
 				<div id="griddiv-search" class="container">
 					<div id="rowstart" class="row">
@@ -39,7 +38,6 @@
 						<input class="button" type="submit" name="submit" value="Suchen">
 					</div>
 	 			</div>
-
 				<div id="griddiv-left" class="test">
 	<?php include_once 'include/include_tollgateInfo.php'; ?>
 				</div>

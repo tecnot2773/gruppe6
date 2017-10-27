@@ -42,22 +42,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {										//if REQUEST_METHOD == POS
 	$rows = mysqli_num_rows($result_getTollgateInfo);
 	if ($rows > 0){
 		echo "\t\t\t\t<table border='1'>\r\n";
-		echo "\t\t\t\t\t<tr>\r\n";
-		echo "\t\t\t\t\t\t<th>Code</th>\r\n";
-		echo "\t\t\t\t\t\t<th>Autobahn</th>\r\n";
-		echo "\t\t\t\t\t\t<th>Kreuz Name</th>\r\n";
-		echo "\t\t\t\t\t\t<th>Kreuz Nummer</th>\r\n";
-		echo "\t\t\t\t\t</tr>\r\n";
+		echo "\t\t\t\t\t\t<tr>\r\n";
+		echo "\t\t\t\t\t\t\t<th>Code</th>\r\n";
+		echo "\t\t\t\t\t\t\t<th>Autobahn</th>\r\n";
+		echo "\t\t\t\t\t\t\t<th>Kreuz Name</th>\r\n";
+		echo "\t\t\t\t\t\t\t<th>Kreuz Nummer</th>\r\n";
+		echo "\t\t\t\t\t\t</tr>\r\n";
 
 		while($data = mysqli_fetch_array($result_getTollgateInfo)){						//fetch getTollgateInfo
-			echo "\t\t\t\t\t<tr class='userlistoutput'>\r\n";
-			echo "\t\t\t\t\t\t<td width='120px'>" . $data['code'] . "</td>\r\n";						//echo code
-			echo "\t\t\t\t\t\t<td width='120px'>" . $data['nameAutobahn'] . "</td>\r\n";				//echo nameAutobahn
-			echo "\t\t\t\t\t\t<td width='120px'>" . $data['nameKreuz'] . "</td>\r\n";					//echo nameKreuz
-			echo "\t\t\t\t\t\t<td width='120px'>" . $data['kreuzNummer'] . "</td>\r\n";					//echo kreuzNummer
-			echo "\t\t\t\t\t</tr>\r\n";
+			echo "\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";
+			echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['code'] . "</td>\r\n";						//echo code
+			echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['nameAutobahn'] . "</td>\r\n";				//echo nameAutobahn
+			echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['nameKreuz'] . "</td>\r\n";					//echo nameKreuz
+			echo "\t\t\t\t\t\t\t<td width='120px'>" . $data['kreuzNummer'] . "</td>\r\n";					//echo kreuzNummer
+			echo "\t\t\t\t\t\t</tr>\r\n";
 		}
-		echo "\t\t\t\t</table>\r\n";
+		echo "\t\t\t\t\t</table>\r\n";
 	}
 	else{
 		echo "\t\t\t\tDie Suche hat keine Ergebnisse ergeben.\r\n";
