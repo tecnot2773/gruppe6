@@ -92,7 +92,7 @@ class Statistic
 			while($data = mysqli_fetch_array($get_entryCount)){
 				$count = $data["value_occurrence"];
 				$tollgateId = $data["mautstelleID"];
-				$get_tollgateName = mysqli_query($conn, "SELECT nameAutobahn, nameKreuz WHERE ID = '$tollgateId'");
+				$get_tollgateName = mysqli_query($conn, "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE id = '$tollgateId'");
 				while($data = mysqli_fetch_array($get_tollgateName)){
 					$db_nameHighway = $data["nameAutobahn"];
 					$db_nameJunction = $data["nameKreuz"];
