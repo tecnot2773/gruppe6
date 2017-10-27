@@ -120,13 +120,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $timestamp . "</td>\r\n";
 							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
 							echo "\t\t\t\t\t\t\t</tr>\r\n";
-							echo "\t\t\t\t\t\t</table>\r\n";
 							}
 						}
 					}
 				}
 			}
 		}
+		echo "\t\t\t\t\t\t</table>\r\n";
 	}
 	else{
 		echo "\t\t\t\t\t\t<center>\r\n";
