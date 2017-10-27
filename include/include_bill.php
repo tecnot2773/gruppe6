@@ -67,23 +67,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 		$rows_getBill = mysqli_num_rows($result_getBill);
 		echo "\t\t\t\t\t\t<table border='1'>\r\n";
-		echo "<tr>\r\n";
-		echo "<th>Fahrten</th>\r\n";
-		echo "</tr>\r\n";
-		echo "<tr class='userlistoutput'>\r\n";
-		echo "<td width='45px'>" . $rows_getBill .  "</td>\r\n";
-		echo "</tr>\r\n";
-		echo "</table>\r\n";
+		echo "\t\t\t\t\t\t\t<tr>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Fahrten</th>\r\n";
+		echo "\t\t\t\t\t\t\t</tr>\r\n";
+		echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";
+		echo "\t\t\t\t\t\t\t\t<td width='45px'>" . $rows_getBill .  "</td>\r\n";
+		echo "\t\t\t\t\t\t\t</tr>\r\n";
+		echo "\t\t\t\t\t\t</table>\r\n";
 
-		echo "<table border='1'>\r\n";
-		echo "<tr>\r\n";
-		echo "<th>ID</th>\r\n";
-		echo "<th>Kennzeichen</th>\r\n";
-		echo "<th>Autobahn Einfahrt</th>\r\n";
-		echo "<th>Autobahn Ausfahrt</th>\r\n";
-		echo "<th>Ausfahrt Zeit</th>\r\n";
-		echo "<th>Kosten</th>\r\n";
-		echo "</tr>\r\n";
+		echo "\t\t\t\t\t\t<table border='1'>\r\n";
+		echo "\t\t\t\t\t\t\t<tr>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>ID</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Kennzeichen</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Autobahn Einfahrt</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Autobahn Ausfahrt</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Ausfahrt Zeit</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Kosten</th>\r\n";
+		echo "\t\t\t\t\t\t\t</tr>\r\n";
 
 		while($data1 = mysqli_fetch_array($result_getBill)){																				//fetch getBill
 			$db_distanceID = $data1['streckeID'];																											//save streckeID in db_distanceID
@@ -110,16 +110,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							$result_getHighwaynameExit = mysqli_query($conn, $query_get_HighwaynameExit);
 							while ($data6= mysqli_fetch_array($result_getHighwaynameExit)){
 
-							echo "<tr class='userlistoutput'>\r\n";																		//html chart with output
-							echo "<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>\r\n";
+							echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";																		//html chart with output
+							echo "\t\t\t\t\t\t\t\t<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>\r\n";
 
-							echo "<td width='45px'>" . $data2['kennzeichen'] . "</td>\r\n";
-							echo "<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>\r\n";
-							echo "<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='45px'>" . $data2['kennzeichen'] . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>\r\n";
 							$timestamp = date("d.m.Y H:i:s", strtotime($data4['zeitstempel']));
-							echo "<td width='70px'>" . $timestamp . "</td>\r\n";
-							echo "<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
-							echo "</tr>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $timestamp . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t</tr>\r\n";
+							echo "\t\t\t\t\t\t</table>\r\n";
 							}
 						}
 					}
@@ -128,10 +129,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}
 	}
 	else{
-		echo "<center>\r\n";
-		echo "Das eingegebene Kennzeichen ist nicht vorhanden.\r\n";
-		echo "</center>\r\n";
+		echo "\t\t\t\t\t\t<center>\r\n";
+		echo "\t\t\t\t\t\t\tDas eingegebene Kennzeichen ist nicht vorhanden.\r\n";
+		echo "\t\t\t\t\t\t</center>\r\n";
 	}
 }
-echo "</table>\r\n";
 ?>
