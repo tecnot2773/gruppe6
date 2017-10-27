@@ -119,7 +119,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}
 	}
 	else{
+		echo "<center>";
 		echo "Das eingegebene Kennzeichen ist nicht vorhanden.";
+		echo "</center>";
 	}
 }
 echo "</table>";
