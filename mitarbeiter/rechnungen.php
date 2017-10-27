@@ -55,7 +55,7 @@
 			 			</div>
 					</center>
 					<div id="griddiv-left" class="test">
-						<?php include_once '../include/include_bill.php'; ?>
+<?php include_once '../include/include_bill.php'; ?>
 					</div>
 				</div>
 			</form>
