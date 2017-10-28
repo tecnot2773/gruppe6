@@ -57,15 +57,15 @@
           </tr>
           <tr>
             <td colspan="4"></td>
-            <td class="total"><?php if($cost != $calcCosts){echo $costs} ?></td>
+            <td class="total"><?php if($cost != $calcCosts){echo $costs;} ?></td>
           </tr>
           <tr>
             <td colspan="4"> </td>
-            <td class="total"><?php if($cost != $calcCosts){echo "-5%"} ?></td>
+            <td class="total"><?php if($cost != $calcCosts){echo "-5%";} ?></td>
           </tr>
           <tr>
             <td colspan="4" class="grand total">Summe</td>
-            <td class="grand total"><?php echo $calcCosts ?> €</td>
+            <td class="grand total"><?php echo $calcCosts; ?> €</td>
           </tr>
         </tbody>
       </table>
