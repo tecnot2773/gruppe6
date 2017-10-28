@@ -56,9 +56,8 @@ class Statistic
 		public static function monthlyCount($conn)
 		{
 			setlocale(LC_TIME, "de_DE.utf8");				//set local langugage for date and time
-			for($i = 1; $i < 13; $i++){
-				$month = date("Y");
-				$month = $month . "-" . $i;
+			for($i = 0; $i < 12; $i++){
+				$month = date("Y-m",strtotime("January this Year +$i Month"));
 				$result_monthyCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel LIKE '$month%'");
 				$monthlyCount = mysqli_num_rows($result_monthyCount);
 
