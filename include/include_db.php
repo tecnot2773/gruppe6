@@ -1,5 +1,5 @@
  <?php
-	function utf8ize($d)
+	function utf8ize($d)															//funtion to convert DB select into UTF8 (currently not used)
 	{
 		if (is_array($d)) {
 			foreach ($d as $k => $v) {
@@ -11,17 +11,17 @@
 		return $d;
 	}
 	
-	$servername = "localhost";
-	$username = "mysql";
-	$password = "dbcodepw12";
+	$servername = "localhost";														//server name
+	$username = "mysql";															//login name
+	$password = "dbcodepw12";														//login password
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password);
 	// Check connection
 	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
+		die("Connection failed: " . $conn->connect_error);							//error log
 	}
-	$conn->select_db("maut");
+	$conn->select_db("maut");														//selet Database
 	
 	$strQuery = "SET character_set_results = 'utf8', 
 	  character_set_client = 'utf8', 

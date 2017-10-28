@@ -7,6 +7,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 		<link href="/index.css" type="text/css" rel="stylesheet" />
 		<link href="/textbox.css" type="text/css" rel="stylesheet" />
+		<link href="/css/navbar.css" type="text/css" rel="stylesheet" />
 		<title>Mautstationen</title>
 	</head>
 	<body>
@@ -19,8 +20,8 @@
 				<nav>
 					<ul>
 						<li><a href="/index.php">Kosten berechnen</a></li>
+						<li><a href="/mautstellen-info.php">Mautstellen</a></li>
 						<li><a href="/mitarbeiter/index.php">Mitarbeiter Login</a></li>
-						<li><a href="/impressum.html">Impressum</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -33,96 +34,34 @@
 				</div>
 				<div id="griddiv-left" class="test">
 					<div id="rowstart" class="row">
-						<input id="text-startstation" name="text-startstation" class="enjoy-css" type="text" placeholder="Code von Start-Mautstelle"> 
+						<input id="text-startstation" name="text-startstation" class="enjoy-css" type="text" placeholder="Code von Start-Mautstelle">
 					</div>
 					<div id="rowend" class="row">
-						<input id="text-endstation" name="text-endstation" class="enjoy-css" type="text" placeholder="Code von End-Mautstelle"><br>				
+						<input id="text-endstation" name="text-endstation" class="enjoy-css" type="text" placeholder="Code von End-Mautstelle"><br>
 					</div>
 					<div id="buttonrow" class="row">
-						<input class="button" type="submit" name="submit" value="Berechnen">  						
+						<input class="button" type="submit" name="submit" value="Berechnen">
 					</div>
 				</div>
 				<div id="griddiv-right" class="test">
 					<div id="rowstart" class="row">
 						Geben Sie ihre Informationen auf der Linken Seite ein, um Ihre Kosten zu berechnen.<br>
 						Eine Liste aller Mautstationen finden Sie <a target="_blank" href="/mautstellen-info.php">hier</a>.
+
+
 						<br><br><br>
-						<?php
-						if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-							include_once 'include/calculation.php';
-							$code1 = $_POST["text-startstation"];
-							$code2 = $_POST["text-endstation"];
-							
-							$code1 = mysqli_real_escape_string ($conn, $code1);
-							$code2 = mysqli_real_escape_string ($conn, $code2);
-
-							$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code1";
-							$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-							$rows = mysqli_num_rows($result_getTollgateCode);
-							if ($rows == 0){
-							$checkTollgateCode = "FALSE";
-							}
-							if($rows >= 1){
-								$checkTollgateCode = "TRUE";
-							}
-							if($checkTollgateCode == "TRUE"){
-								$query_getTollgateCode = "SELECT code FROM mautstelle WHERE code = $code2";
-								$result_getTollgateCode = mysqli_query($conn, $query_getTollgateCode);
-								$rows = mysqli_num_rows($result_getTollgateCode);
-								if ($rows == 0){
-								$checkTollgateCode = "FALSE";
-								}
-								if($rows >= 1){
-									$checkTollgateCode = "TRUE";
-								}
-								if($checkTollgateCode == "TRUE"){
-									$sql_Code1 = "SELECT lat, lon FROM mautstelle WHERE code = $code1";
-									$sql_Code2 = "SELECT lat, lon FROM mautstelle WHERE code = $code2";
-									
-									$result1 = mysqli_query($conn,$sql_Code1);
-
-									while ($data = mysqli_fetch_assoc($result1)){
-									$db_latitude1 = $data['lat'];
-									$db_longitude1 = $data['lon'];
-									}
-									$result2 = mysqli_query($conn,$sql_Code2);
-
-									while ($data = mysqli_fetch_assoc($result2)){
-									$db_latitude2 = $data['lat'];
-									$db_longitude2 = $data['lon'];
-									}
-									$distance = Geo::get_distance("$db_latitude1","$db_longitude1","$db_latitude2","$db_longitude2");
-									echo "Die Entfernung beträgt: ".$distance." km";
-								}
-								
-							}
-							if($checkTollgateCode == "FALSE"){
-								echo "MautstellenCode ist nicht in der Datenbank";
-							}
-
-							if($checkTollgateCode == "TRUE"){
-									include 'include/price_calculation.php';
-									
-									$price = price::get_price("$distance");
-									echo "Der Preis für diese Entfernung beträgt: ".$price." Euro.";
-							}
-						}
-						else
-						{
-							echo "<br>"; //empty line, we need the same height all the time!
-						}
-						?>
+					<?php include_once'include/include_userAction.php'; ?>
 					</div>
 					<div id="rowend" class="row">
-						 
 					</div>
 					<div id="resultstring" class="alert alert-info">
 
 					</div>
 				</div>
-			</form>
+			</div>
+		</form>
 
-		</div>
+
 		</div>
 		<!-- JAVASCRIPT  -->
 	</body>

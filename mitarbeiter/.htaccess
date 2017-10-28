@@ -1,4 +1,4 @@
 AuthType Basic
-AuthName "Password Protected Area"
+AuthName "Mitarbeiter Passwort"
 AuthUserFile /etc/apache2/.htpasswd-mitarbeiter
 Require valid-user

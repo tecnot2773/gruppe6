@@ -1,0 +1,138 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	include_once 'include_db.php';																										//include db.php
+
+	$query_getBill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";												//query getBill
+	$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
+
+	echo "\t\t\t\t\t\t<table border='1'>\r\n";
+	echo "\t\t\t\t\t\t\t<tr>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>ID</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Kennzeichen</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Autobahn Einfahrt</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Autobahn Ausfahrt</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Ausfahrt Zeit</th>\r\n";
+	echo "\t\t\t\t\t\t\t\t<th>Kosten</th>\r\n";
+	echo "\t\t\t\t\t\t\t</tr>\r\n";
+
+	while($data1 = mysqli_fetch_array($result_getBill)){																				//fetch getBill
+		$db_distanceID = $data1['streckeID'];																											//save streckeID in db_distanceID
+		$query_getDistance = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $db_distanceID";	//query getDistance
+		$result_getDistance = mysqli_query($conn, $query_getDistance);															//execute query and save
+		while ($data2 = mysqli_fetch_array($result_getDistance)){																//fetch getDistance
+			$db_getTollgateEntry = $data2['faehrtEinID'];																		//save faehrtEinID in db_getTollgateEntry
+			$db_getTollgateExit = $data2['faehrtAusID'];																		//save faehrtAusID in db_getTollgateExit
+
+			$query_getTollgateidEntry = "SELECT mautstelleID FROM faehrtEin WHERE id = $db_getTollgateEntry";					//query getTollgateidEntry
+			$result_getTollgateidEntry = mysqli_query($conn, $query_getTollgateidEntry);										//execute query and save
+			while ($data3 = mysqli_fetch_array($result_getTollgateidEntry)){													//fetch getTollgateidEntry
+				$db_getTollgateEntry2 = $data3['mautstelleID'];																	//save mautstelleID in getTollgateidEntry2
+
+				$query_getTollgateidExit = "SELECT zeitstempel,mautstelleID FROM faehrtAus WHERE id = $db_getTollgateExit";
+				$result_getTollgateidExit = mysqli_query($conn, $query_getTollgateidExit);
+				while ($data4 = mysqli_fetch_array($result_getTollgateidExit)){
+					$db_getTollgateExit2 = $data4['mautstelleID'];
+
+					$query_getHighwaynameEntry = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_getTollgateEntry2";
+					$result_getHighwaynameEntry = mysqli_query($conn, $query_getHighwaynameEntry);
+					while ($data5 = mysqli_fetch_array($result_getHighwaynameEntry)){
+						$query_get_HighwaynameExit = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_getTollgateExit2";
+						$result_getHighwaynameExit = mysqli_query($conn, $query_get_HighwaynameExit);
+						while ($data6= mysqli_fetch_array($result_getHighwaynameExit)){
+
+						echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";																		//html chart with output
+						echo "\t\t\t\t\t\t\t\t<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>\r\n";
+
+						echo "\t\t\t\t\t\t\t\t<td width='45px'>" . $data2['kennzeichen'] . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>\r\n";
+						$timestamp = date("d.m.Y H:i:s", strtotime($data4['zeitstempel']));
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $timestamp . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t</tr>\r\n";
+						}
+					}
+				}
+			}
+		}
+	}
+	echo "\t\t\t\t\t\t</table>\r\n";
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	include_once 'include_db.php';																										//include db.php
+	$plate = $_POST["text-search-kennzeichen"];
+
+	$plateCheck = mysqli_query($conn, "SELECT id FROM strecke WHERE kennzeichen = '$plate'");
+	if(mysqli_num_rows($plateCheck) > 0){
+		$query_getBill = "SELECT r.id, r.kosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
+		$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
+		$rows_getBill = mysqli_num_rows($result_getBill);
+		echo "\t\t\t\t\t\t<table border='1'>\r\n";
+		echo "\t\t\t\t\t\t\t<tr>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Fahrten</th>\r\n";
+		echo "\t\t\t\t\t\t\t</tr>\r\n";
+		echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";
+		echo "\t\t\t\t\t\t\t\t<td width='45px'>" . $rows_getBill .  "</td>\r\n";
+		echo "\t\t\t\t\t\t\t</tr>\r\n";
+		echo "\t\t\t\t\t\t</table>\r\n";
+
+		echo "\t\t\t\t\t\t<table border='1'>\r\n";
+		echo "\t\t\t\t\t\t\t<tr>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>ID</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Kennzeichen</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Autobahn Einfahrt</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Autobahn Ausfahrt</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Ausfahrt Zeit</th>\r\n";
+		echo "\t\t\t\t\t\t\t\t<th>Kosten</th>\r\n";
+		echo "\t\t\t\t\t\t\t</tr>\r\n";
+
+		while($data1 = mysqli_fetch_array($result_getBill)){																				//fetch getBill
+			$db_distanceID = $data1['streckeID'];																											//save streckeID in db_distanceID
+			$query_getDistance = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $db_distanceID";	//query getDistance
+			$result_getDistance = mysqli_query($conn, $query_getDistance);															//execute query and save
+			while ($data2 = mysqli_fetch_array($result_getDistance)){																//fetch getDistance
+				$db_getTollgateEntry = $data2['faehrtEinID'];																		//save faehrtEinID in db_getTollgateEntry
+				$db_getTollgateExit = $data2['faehrtAusID'];																		//save faehrtAusID in db_getTollgateExit
+
+				$query_getTollgateidEntry = "SELECT mautstelleID FROM faehrtEin WHERE id = $db_getTollgateEntry";					//query getTollgateidEntry
+				$result_getTollgateidEntry = mysqli_query($conn, $query_getTollgateidEntry);										//execute query and save
+				while ($data3 = mysqli_fetch_array($result_getTollgateidEntry)){													//fetch getTollgateidEntry
+					$db_getTollgateEntry2 = $data3['mautstelleID'];																	//save mautstelleID in getTollgateidEntry2
+
+					$query_getTollgateidExit = "SELECT zeitstempel,mautstelleID FROM faehrtAus WHERE id = $db_getTollgateExit";
+					$result_getTollgateidExit = mysqli_query($conn, $query_getTollgateidExit);
+					while ($data4 = mysqli_fetch_array($result_getTollgateidExit)){
+						$db_getTollgateExit2 = $data4['mautstelleID'];
+
+						$query_getHighwaynameEntry = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_getTollgateEntry2";
+						$result_getHighwaynameEntry = mysqli_query($conn, $query_getHighwaynameEntry);
+						while ($data5 = mysqli_fetch_array($result_getHighwaynameEntry)){
+							$query_get_HighwaynameExit = "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE ID = $db_getTollgateExit2";
+							$result_getHighwaynameExit = mysqli_query($conn, $query_get_HighwaynameExit);
+							while ($data6= mysqli_fetch_array($result_getHighwaynameExit)){
+
+							echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";																		//html chart with output
+							echo "\t\t\t\t\t\t\t\t<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>\r\n";
+
+							echo "\t\t\t\t\t\t\t\t<td width='45px'>" . $data2['kennzeichen'] . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data5['nameAutobahn'] . "<br>". $data5['nameKreuz'] . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>\r\n";
+							$timestamp = date("d.m.Y H:i:s", strtotime($data4['zeitstempel']));
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $timestamp . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t</tr>\r\n";
+							}
+						}
+					}
+				}
+			}
+		}
+		echo "\t\t\t\t\t\t</table>\r\n";
+	}
+	else{
+		echo "\t\t\t\t\t\t<center>\r\n";
+		echo "\t\t\t\t\t\t\tDas eingegebene Kennzeichen ist nicht vorhanden.\r\n";
+		echo "\t\t\t\t\t\t</center>\r\n";
+	}
+}
+?>
