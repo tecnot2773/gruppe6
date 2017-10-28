@@ -75,7 +75,7 @@ class EntryExit{
 		echo "\t\t\t\t\t</select>\r\n";
 
 		echo "\t\t\t\t\t<input name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>\r\n";
-		echo "\t\t\t\t\t<input name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>\r\n";
+		echo "\t\t\t\t\t<input id='text-time-entry' name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>\r\n";
 
 		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
 		echo "\t\t\t\t\t<div class='row-data'>\r\n";
@@ -114,7 +114,7 @@ class EntryExit{
 		}
 		echo "\t\t\t\t\t</select>\r\n";
 
-		echo "\t\t\t\t\t<input name='text-time-exit' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>\r\n";
+		echo "\t\t\t\t\t<input id='text-time-exit' name='text-time-exit' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>\r\n";
 
 		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
 		echo "\t\t\t\t\t<div class='row-data'>\r\n";
