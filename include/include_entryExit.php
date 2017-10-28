@@ -147,7 +147,8 @@
 		mysqli_query($conn, $query_updateRoute);
 
 		//add Rechnung
-		$getRides = mysqli_query($conn, "SELECT kennzeichen, COUNT(`kennzeichen`) AS `value_occurrence` FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NOT NULL GROUP BY `kennzeichen`");
+		$now = date("Y-m");
+		$getRides = mysqli_query($conn, "SELECT kennzeichen, COUNT(`kennzeichen`) AS `value_occurrence` FROM strecke s JOIN faehrtAus fA ON s.faehrtAusID = fA.id WHERE s.kennzeichen = '$plate' AND s.faehrtAusID IS NOT NULL AND fA.zeitstempel LIKE '$now%' GROUP BY kennzeichen");
 		$getOccurrence = mysqli_fetch_assoc($getRides)['value_occurrence'];
 		if($getOccurrence >= 5){
 			$modifier = 0.95;
