@@ -162,7 +162,7 @@
 			$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
 			$db_costs = mysqli_fetch_assoc(mysqli_query($conn, $query_getCost))['kosten'];
 			echo "\t\t\t\t\tNeue Ausfahrt verbucht und Rechnung erstellt.\r\n";
-			$db_costPreCalc = $db_cost;
+			$db_costPreCalc = $db_costs;
 		}
 		$query_getRouteId = "SELECT id FROM strecke WHERE faehrtEinID = $db_EntryId and faehrtAusID = $exit_id and kennzeichen = '$plate'";
 		$db_routeId = mysqli_fetch_assoc(mysqli_query($conn, $query_getRouteId))['id'];
