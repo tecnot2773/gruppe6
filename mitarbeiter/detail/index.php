@@ -57,11 +57,11 @@
           </tr>
           <tr>
             <td colspan="4"></td>
-            <td class="total"></td>
+            <td class="total">400€</td>
           </tr>
           <tr>
             <td colspan="4"> </td>
-            <td class="total"></td>
+            <td class="total">-5%</td>
           </tr>
           <tr>
             <td colspan="4" class="grand total">Summe</td>
