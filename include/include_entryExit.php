@@ -147,7 +147,7 @@
 		mysqli_query($conn, $query_updateRoute);
 
 		//add Rechnung
-		$getRides = mysqli_query($conn, "SELECT kennzeichen, COUNT(`kennzeichen`) AS `value_occurrence` FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NOT NULL GROUP BY `kennzeichen`")
+		$getRides = mysqli_query($conn, "SELECT kennzeichen, COUNT(`kennzeichen`) AS `value_occurrence` FROM strecke WHERE kennzeichen = '$plate' AND faehrtAusID IS NOT NULL GROUP BY `kennzeichen`");
 		if(mysqli_num_rows($getRides) >= 5){
 			$modifier = 0.95;
 			$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
