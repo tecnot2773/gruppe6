@@ -57,7 +57,7 @@
           </tr>
           <tr>
             <td colspan="4"></td>
-            <td class="total"><?php if($costs != $calcCosts){echo $costs;} ?> €</td>
+            <td class="total"><?php if($costs != $calcCosts){echo $costs . " €";} ?></td>
           </tr>
           <tr>
             <td colspan="4"> </td>
