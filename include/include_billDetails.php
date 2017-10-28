@@ -5,11 +5,12 @@ $bill_id = $_GET["id"];																									//get id from html
 $bill_id = mysqli_real_escape_string ($conn, $bill_id);
 
 																														//get some data from database that is needed in the Bill
-$query_getBillData = "SELECT kosten, streckeID FROM rechnung WHERE id = $bill_id";
+$query_getBillData = "SELECT kosten, berechneteKosten streckeID FROM rechnung WHERE id = $bill_id";
 $billData = mysqli_query($conn, $query_getBillData);
 while ($data1 = mysqli_fetch_array($billData)){
 	$costs = $data1['kosten'];
 	$routeId = $data1 ['streckeID'];
+	$calcCosts = $data1['berechneteKosten'];
 }
 
 $query_getRouteData = "SELECT kilometer, kennzeichen, faehrtEinID, faehrtAusID FROM strecke WHERE id = $routeId";

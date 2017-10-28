@@ -153,6 +153,7 @@
 			$modifier = 0.95;
 			$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
 			$db_costs = mysqli_fetch_assoc(mysqli_query($conn, $query_getCost))['kosten'];
+			$db_costPreCalc = $db_cost;
 			$db_costs = $db_costs * $modifier;
 			echo "\t\t\t\t\tNeue Ausfahrt verbucht und Rechnung mit 5% Rabatt erstellt.\r\n";
 		}
@@ -160,11 +161,12 @@
 			$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
 			$db_costs = mysqli_fetch_assoc(mysqli_query($conn, $query_getCost))['kosten'];
 			echo "\t\t\t\t\tNeue Ausfahrt verbucht und Rechnung erstellt.\r\n";
+			$db_costPreCalc = $db_cost;
 		}
 		$query_getRouteId = "SELECT id FROM strecke WHERE faehrtEinID = $db_EntryId and faehrtAusID = $exit_id and kennzeichen = '$plate'";
 		$db_routeId = mysqli_fetch_assoc(mysqli_query($conn, $query_getRouteId))['id'];
 
-		$query_insertBill = "INSERT INTO rechnung (kosten, streckeID) VALUES ('$db_costs', '$db_routeId')";
+		$query_insertBill = "INSERT INTO rechnung (kosten, berechneteKosten, streckeID) VALUES ('$db_costs', '$db_costPreCalc', '$db_routeId')";
 		mysqli_query($conn, $query_insertBill);
 	}
 ?>

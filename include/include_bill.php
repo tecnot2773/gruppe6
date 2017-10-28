@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	include_once 'include_db.php';																										//include db.php
 
-	$query_getBill = "SELECT id, kosten, streckeID FROM rechnung ORDER BY id DESC";												//query getBill
+	$query_getBill = "SELECT id, berechneteKosten, streckeID FROM rechnung ORDER BY id DESC";												//query getBill
 	$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 
 	echo "\t\t\t\t\t\t<table border='1'>\r\n";
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>\r\n";
 						$timestamp = date("d.m.Y H:i:s", strtotime($data4['zeitstempel']));
 						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $timestamp . "</td>\r\n";
-						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
+						echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['berechneteKosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
 						echo "\t\t\t\t\t\t\t</tr>\r\n";
 						}
 					}
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	$plateCheck = mysqli_query($conn, "SELECT id FROM strecke WHERE kennzeichen = '$plate'");
 	if(mysqli_num_rows($plateCheck) > 0){
-		$query_getBill = "SELECT r.id, r.kosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
+		$query_getBill = "SELECT r.id, r.berechneteKosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
 		$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 		$rows_getBill = mysqli_num_rows($result_getBill);
 		echo "\t\t\t\t\t\t<table border='1'>\r\n";
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data6['nameAutobahn'] . "<br>". $data6['nameKreuz'] . "</td>\r\n";
 							$timestamp = date("d.m.Y H:i:s", strtotime($data4['zeitstempel']));
 							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $timestamp . "</td>\r\n";
-							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['kosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
+							echo "\t\t\t\t\t\t\t\t<td width='70px'>" . $data1['berechneteKosten'] . "&nbsp;" . "\xE2\x82\xAc" . "</td>\r\n";
 							echo "\t\t\t\t\t\t\t</tr>\r\n";
 							}
 						}
