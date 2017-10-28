@@ -153,7 +153,7 @@
 			$modifier = 0.95;
 			$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
 			$db_costs = mysqli_fetch_assoc(mysqli_query($conn, $query_getCost))['kosten'];
-			$db_costPreCalc = $db_cost;
+			$db_costPreCalc = $db_costs;
 			$db_costs = $db_costs * $modifier;
 			echo "\t\t\t\t\tNeue Ausfahrt verbucht und Rechnung mit 5% Rabatt erstellt.\r\n";
 		}
