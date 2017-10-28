@@ -166,7 +166,7 @@
 		$query_getRouteId = "SELECT id FROM strecke WHERE faehrtEinID = $db_EntryId and faehrtAusID = $exit_id and kennzeichen = '$plate'";
 		$db_routeId = mysqli_fetch_assoc(mysqli_query($conn, $query_getRouteId))['id'];
 
-		$query_insertBill = "INSERT INTO rechnung (kosten, berechneteKosten, streckeID) VALUES ('$db_costs', '$db_costPreCalc', '$db_routeId')";
+		$query_insertBill = "INSERT INTO rechnung (kosten, berechneteKosten, streckeID) VALUES ('$db_costPreCalc', '$db_costs', '$db_routeId')";
 		mysqli_query($conn, $query_insertBill);
 	}
 ?>
