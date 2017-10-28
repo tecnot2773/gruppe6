@@ -61,7 +61,7 @@
 						<td width='350px'> <?php echo Statistic::exitCount($conn); ?> </td>
 					</tr>
 					<tr>
-						<td width='350px'> Autos auf der Autobahn </td>
+						<td width='350px'> Autos aktuell auf der Autobahn </td>
 						<td width='350px'> <?php echo Statistic::onTheRoad($conn); ?> </td>
 					</tr>
 					<tr>
