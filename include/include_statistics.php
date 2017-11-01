@@ -91,7 +91,7 @@ class Statistic
 			}
 		}
 		public static function mostUsedEinfahrt($conn){
-			$get_entryCount = mysqli_query($conn, "SELECT fE.mautstelleID, COUNT(fE.mautstelleID) AS `value_occurrence`, m.nameAutobahn, m.nameKreuz FROM faehrtEin fE JOIN mautstelle m ON fE.mautstelleID = m.ID GROUP BY fE.mautstelleID HAVING value_occurrence > 0 ORDER BY value_occurrence DESC, m.nameAutobahn ASC LIMIT 5");		// SELECT most used Einfahrt
+			$get_entryCount = mysqli_query($conn, "SELECT fE.mautstelleID, COUNT(fE.mautstelleID) AS `value_occurrence`, m.nameAutobahn, m.nameKreuz FROM faehrtEin fE JOIN mautstelle m ON fE.mautstelleID = m.ID GROUP BY fE.mautstelleID HAVING value_occurrence > 0 ORDER BY value_occurrence DESC, m.nameAutobahn ASC, m.nameKreuz ASC LIMIT 5");		// SELECT most used Einfahrt
 			while($data = mysqli_fetch_array($get_entryCount)){
 				$count = $data["value_occurrence"];
 				$tollgateId = $data["mautstelleID"];
@@ -105,7 +105,7 @@ class Statistic
 			}
 		}
 		public static function mostUsedAusfahrt($conn){
-			$get_entryCount = mysqli_query($conn, "SELECT fA.mautstelleID, COUNT(fA.mautstelleID) AS `value_occurrence`, m.nameAutobahn, m.nameKreuz FROM faehrtAus fA JOIN mautstelle m ON fA.mautstelleID = m.ID GROUP BY fA.mautstelleID HAVING value_occurrence > 0 ORDER BY value_occurrence DESC, m.nameAutobahn ASC LIMIT 5");			// SELECT most used Aufahrt
+			$get_entryCount = mysqli_query($conn, "SELECT fA.mautstelleID, COUNT(fA.mautstelleID) AS `value_occurrence`, m.nameAutobahn, m.nameKreuz FROM faehrtAus fA JOIN mautstelle m ON fA.mautstelleID = m.ID GROUP BY fA.mautstelleID HAVING value_occurrence > 0 ORDER BY value_occurrence DESC, m.nameAutobahn ASC, m.nameKreuz ASC LIMIT 5");			// SELECT most used Aufahrt
 			while($data = mysqli_fetch_array($get_entryCount)){
 				$count = $data["value_occurrence"];
 				$tollgateId = $data["mautstelleID"];
