@@ -91,37 +91,31 @@ class Statistic
 			}
 		}
 		public static function mostUsedEinfahrt($conn){
-			$get_entryCount = mysqli_query($conn, "SELECT `mautstelleID`, COUNT(`mautstelleID`) AS `value_occurrence` FROM `faehrtEin` GROUP BY `mautstelleID` HAVING `value_occurrence` > 0 ORDER BY `value_occurrence` DESC LIMIT 5");		// SELECT most used Einfahrt
+			$get_entryCount = mysqli_query($conn, "SELECT fE.mautstelleID, COUNT(fE.mautstelleID) AS `value_occurrence`, m.nameAutobahn, m.nameKreuz FROM faehrtEin fE JOIN mautstelle m ON fE.mautstelleID = m.ID GROUP BY fE.mautstelleID HAVING value_occurrence > 0 ORDER BY value_occurrence DESC, m.nameAutobahn ASC LIMIT 5");		// SELECT most used Einfahrt
 			while($data = mysqli_fetch_array($get_entryCount)){
 				$count = $data["value_occurrence"];
 				$tollgateId = $data["mautstelleID"];
-				$get_tollgateName = mysqli_query($conn, "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE id = '$tollgateId'");
-				while($data = mysqli_fetch_array($get_tollgateName)){
-					$db_nameHighway = $data["nameAutobahn"];
-					$db_nameJunction = $data["nameKreuz"];
+				$db_nameHighway = $data["nameAutobahn"];
+				$db_nameJunction = $data["nameKreuz"];
 
-					echo "\t\t\t\t\t<tr> \r\n";
-					echo "\t\t\t\t\t\t<td width='350px'>" . $db_nameHighway . " " . $db_nameJunction . "</td> \r\n";
-					echo "\t\t\t\t\t\t<td width='350px'> ${count} </td> \r\n";
-					echo "\t\t\t\t\t</tr> \r\n";
-				}
+				echo "\t\t\t\t\t<tr> \r\n";
+				echo "\t\t\t\t\t\t<td width='350px'>" . $db_nameHighway . " " . $db_nameJunction . "</td> \r\n";
+				echo "\t\t\t\t\t\t<td width='350px'> ${count} </td> \r\n";
+				echo "\t\t\t\t\t</tr> \r\n";
 			}
 		}
 		public static function mostUsedAusfahrt($conn){
-			$get_entryCount = mysqli_query($conn, "SELECT `mautstelleID`, COUNT(`mautstelleID`) AS `value_occurrence` FROM `faehrtAus` GROUP BY `mautstelleID` HAVING `value_occurrence` > 0 ORDER BY `value_occurrence` DESC LIMIT 5");			// SELECT most used Aufahrt
+			$get_entryCount = mysqli_query($conn, "SELECT fA.mautstelleID, COUNT(fA.mautstelleID) AS `value_occurrence`, m.nameAutobahn, m.nameKreuz FROM faehrtAus fA JOIN mautstelle m ON fA.mautstelleID = m.ID GROUP BY fA.mautstelleID HAVING value_occurrence > 0 ORDER BY value_occurrence DESC, m.nameAutobahn ASC LIMIT 5");			// SELECT most used Aufahrt
 			while($data = mysqli_fetch_array($get_entryCount)){
 				$count = $data["value_occurrence"];
 				$tollgateId = $data["mautstelleID"];
-				$get_tollgateName = mysqli_query($conn, "SELECT nameAutobahn, nameKreuz FROM mautstelle WHERE id = '$tollgateId'");
-				while($data = mysqli_fetch_array($get_tollgateName)){
-					$db_nameHighway = $data["nameAutobahn"];
-					$db_nameJunction = $data["nameKreuz"];
+				$db_nameHighway = $data["nameAutobahn"];
+				$db_nameJunction = $data["nameKreuz"];
 
-					echo "\t\t\t\t\t<tr> \r\n";
-					echo "\t\t\t\t\t\t<td width='350px'>" . $db_nameHighway . " " . $db_nameJunction . "</td> \r\n";
-					echo "\t\t\t\t\t\t<td width='350px'> ${count} </td> \r\n";
-					echo "\t\t\t\t\t</tr> \r\n";
-				}
+				echo "\t\t\t\t\t<tr> \r\n";
+				echo "\t\t\t\t\t\t<td width='350px'>" . $db_nameHighway . " " . $db_nameJunction . "</td> \r\n";
+				echo "\t\t\t\t\t\t<td width='350px'> ${count} </td> \r\n";
+				echo "\t\t\t\t\t</tr> \r\n";
 			}
 		}
 	}
