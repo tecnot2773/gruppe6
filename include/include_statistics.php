@@ -1,4 +1,4 @@
-<?php
+<?php 				//USED IN gruppe6/mitarbeiter/stats.php
 class Statistic
 	{
 		public static function tollgateCount($conn)
@@ -27,8 +27,8 @@ class Statistic
 		}
 		public static function onTheRoad($conn)
 		{
-			$exitNumber = Statistic::exitCount($conn);
-			$entryNumber = Statistic::entryCount($conn);
+			$exitNumber = Statistic::exitCount($conn);					//call function
+			$entryNumber = Statistic::entryCount($conn);				//call function
 
 			$onTheRoad = $entryNumber - $exitNumber;
 
@@ -73,12 +73,12 @@ class Statistic
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$start = $_POST["startSearch"];
 				$end = $_POST["endSearch"];
-				if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $start) && preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $end)){
-					$start = date("Y-m-d H:i:s", strtotime($start));
+				if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $start) && preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $end)){		//end and start need to match german timestamp
+					$start = date("Y-m-d H:i:s", strtotime($start));				//make german timestamp to US timestamp
 					$end = date("Y-m-d H:i:s", strtotime($end));
 
-					$result_searchCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel BETWEEN '$start' and '$end'");+
-					$searchCount = mysqli_num_rows($result_searchCount);
+					$result_searchCount = mysqli_query($conn, "SELECT * FROM faehrtAus WHERE zeitstempel BETWEEN '$start' and '$end'");
+					$searchCount = mysqli_num_rows($result_searchCount);		//count rows of result
 
 					return $searchCount;
 				}
@@ -91,7 +91,7 @@ class Statistic
 			}
 		}
 		public static function mostUsedEinfahrt($conn){
-			$get_entryCount = mysqli_query($conn, "SELECT `mautstelleID`, COUNT(`mautstelleID`) AS `value_occurrence` FROM `faehrtEin` GROUP BY `mautstelleID` HAVING `value_occurrence` > 0 ORDER BY `value_occurrence` DESC LIMIT 5");
+			$get_entryCount = mysqli_query($conn, "SELECT `mautstelleID`, COUNT(`mautstelleID`) AS `value_occurrence` FROM `faehrtEin` GROUP BY `mautstelleID` HAVING `value_occurrence` > 0 ORDER BY `value_occurrence` DESC LIMIT 5");		// SELECT most used Einfahrt
 			while($data = mysqli_fetch_array($get_entryCount)){
 				$count = $data["value_occurrence"];
 				$tollgateId = $data["mautstelleID"];
@@ -108,7 +108,7 @@ class Statistic
 			}
 		}
 		public static function mostUsedAusfahrt($conn){
-			$get_entryCount = mysqli_query($conn, "SELECT `mautstelleID`, COUNT(`mautstelleID`) AS `value_occurrence` FROM `faehrtAus` GROUP BY `mautstelleID` HAVING `value_occurrence` > 0 ORDER BY `value_occurrence` DESC LIMIT 5");
+			$get_entryCount = mysqli_query($conn, "SELECT `mautstelleID`, COUNT(`mautstelleID`) AS `value_occurrence` FROM `faehrtAus` GROUP BY `mautstelleID` HAVING `value_occurrence` > 0 ORDER BY `value_occurrence` DESC LIMIT 5");			// SELECT most used Aufahrt
 			while($data = mysqli_fetch_array($get_entryCount)){
 				$count = $data["value_occurrence"];
 				$tollgateId = $data["mautstelleID"];

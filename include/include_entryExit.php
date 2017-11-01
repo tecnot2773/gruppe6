@@ -148,14 +148,15 @@
 
 		//add Rechnung
 		$now = date("Y-m");
+		//query count number of exits
 		$getRides = mysqli_query($conn, "SELECT kennzeichen, COUNT(`kennzeichen`) AS `value_occurrence` FROM strecke s JOIN faehrtAus fA ON s.faehrtAusID = fA.id WHERE s.kennzeichen = '$plate' AND s.faehrtAusID IS NOT NULL AND fA.zeitstempel LIKE '$now%' GROUP BY kennzeichen");
 		$getOccurrence = mysqli_fetch_assoc($getRides)['value_occurrence'];
-		if($getOccurrence >= 5){
-			$modifier = 0.95;
-			$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";
+		if($getOccurrence >= 5){		//if more then 5 exits
+			$modifier = 0.95;					//rabatt modifier
+			$query_getCost = "SELECT kosten FROM gebuehren WHERE bisEntfernung > $distance ORDER BY bisEntfernung ASC LIMIT 1";		//get "gebuehren table"
 			$db_costs = mysqli_fetch_assoc(mysqli_query($conn, $query_getCost))['kosten'];
 			$db_costPreCalc = $db_costs;
-			$db_costs = $db_costs * $modifier;
+			$db_costs = $db_costs * $modifier;		//calculate reduced costs
 			echo "\t\t\t\t\tNeue Ausfahrt verbucht und Rechnung mit 5% Rabatt erstellt.\r\n";
 		}
 		else{
@@ -168,6 +169,6 @@
 		$db_routeId = mysqli_fetch_assoc(mysqli_query($conn, $query_getRouteId))['id'];
 
 		$query_insertBill = "INSERT INTO rechnung (kosten, berechneteKosten, streckeID) VALUES ('$db_costPreCalc', '$db_costs', '$db_routeId')";
-		mysqli_query($conn, $query_insertBill);
+		mysqli_query($conn, $query_insertBill);		// Insert into table
 	}
 ?>

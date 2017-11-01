@@ -1,4 +1,4 @@
-﻿<?php
+﻿<?php 					//USED IN gruppe6/mautstellen-info.php
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {																		//if REQUEST_METHOD == GET
 
 	include_once 'include_db.php';																				//include db.php

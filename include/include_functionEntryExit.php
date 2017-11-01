@@ -1,6 +1,7 @@
 <?php
+// USED IN gruppe6/mitarbeiter/index.php
 class EntryExit{
-	public static function entry($conn)
+	public static function entry($conn)					//if "Einfahrt" is Selected
 	{
 		echo "\t\t\t\t\t<div class='row-radio'>\r\n";
 		echo "\t\t\t\t\t\t<label>\r\n";
@@ -14,7 +15,7 @@ class EntryExit{
 		echo "\t\t\t\t\t</div>\r\n";
 		echo "\t\t\t\t\t<select name='text-Autobahn' class='enjoy-css'>\r\n";
 		echo "\t\t\t\t\t\t<option value='' disabled='' selected='' hidden=''>Autobahn</option>\r\n";
-		$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
+		$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");					//SELECT name of Autobahn without dupilicates ordered
 		while($data = mysqli_fetch_array($result_Highway)){												//fetch data from result_getPlate
 			echo "\t\t\t\t\t\t" . '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>' . "\r\n";		//use echo to execute html in php
 		}
@@ -26,7 +27,7 @@ class EntryExit{
 		echo "\t\t\t\t\t<div class='row-bottom'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
 	}
-	public static function exit($conn)
+	public static function exit($conn) // if "Ausfahrt" is Selected
 	{
 		echo "\t\t\t\t\t<div class='row-radio'>\r\n";
 		echo "\t\t\t\t\t\t<label>\r\n";
@@ -40,7 +41,7 @@ class EntryExit{
 		echo "\t\t\t\t\t</div>\r\n";
 		echo "\t\t\t\t\t<select name='text-Autobahn' class='enjoy-css'>\r\n";
 		echo "\t\t\t\t\t\t<option value='' disabled='' selected='' hidden=''>Autobahn</option>\r\n";
-		$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
+		$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//SELECT name of Autobahn without dupilicates ordered
 		while($data = mysqli_fetch_array($result_Highway)){												//fetch data from result_getPlate
 			echo "\t\t\t\t\t\t" . '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>' . "\r\n";		//use echo to execute html in php
 		}
@@ -53,7 +54,7 @@ class EntryExit{
 		echo "\t\t\t\t\t<div class='row-bottom'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
 	}
-	public static function entryChoosen($conn)
+	public static function entryChoosen($conn)		//if "Einfahrt" is selected and "Autobahn" is choosen
 	{
 		$selection = $_POST["text-Autobahn"];
 		echo "\t\t\t\t\t<div class='row-radio'>\r\n";
@@ -68,7 +69,7 @@ class EntryExit{
 
 		echo "\t\t\t\t\t<select name='text-Station' class='enjoy-css'>\r\n";
 		echo "\t\t\t\t\t\t<option value='' disabled='' selected='' hidden=''>Mautstation</option>\r\n";
-		$result_getJunction = mysqli_query($conn,"SELECT DISTINCT nameKreuz from mautstelle WHERE nameAutobahn = '$selection' ORDER BY SUBSTR(nameKreuz FROM 1 FOR 1), CAST(SUBSTR(nameKreuz FROM 2) AS UNSIGNED)");												//execute query and save
+		$result_getJunction = mysqli_query($conn,"SELECT DISTINCT nameKreuz from mautstelle WHERE nameAutobahn = '$selection' ORDER BY SUBSTR(nameKreuz FROM 1 FOR 1), CAST(SUBSTR(nameKreuz FROM 2) AS UNSIGNED)");						//SELECT name of AutobahnKreuz without dupilicates ordered
 		while($data = mysqli_fetch_array($result_getJunction)){												//fetch data from result_getPlate
 			echo "\t\t\t\t\t\t" . '<option value="' . $data['nameKreuz'] . '">' . $data['nameKreuz']. '</option>' . "\r\n";		//use echo to execute html in php
 		}
@@ -84,7 +85,7 @@ class EntryExit{
 		echo "\t\t\t\t\t<div class='row-bottom'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
 	}
-	public static function exitChoosen($conn)
+	public static function exitChoosen($conn) 		//if "ausfahrt" and "autbahn" is choosen
 	{
 		$selection = $_POST["text-Autobahn"];
 		echo "\t\t\t\t\t<div class='row-radio'>\r\n";
@@ -99,7 +100,7 @@ class EntryExit{
 
 		echo "\t\t\t\t\t<select name='text-Station' class='enjoy-css'>\r\n";
 		echo "\t\t\t\t\t\t<option value='' disabled='' selected='' hidden=''>Mautstation</option>\r\n";
-		$result_getJunction = mysqli_query($conn,"SELECT DISTINCT nameKreuz from mautstelle WHERE nameAutobahn = '$selection' ORDER BY SUBSTR(nameKreuz FROM 1 FOR 1), CAST(SUBSTR(nameKreuz FROM 2) AS UNSIGNED)");												//execute query and save
+		$result_getJunction = mysqli_query($conn,"SELECT DISTINCT nameKreuz from mautstelle WHERE nameAutobahn = '$selection' ORDER BY SUBSTR(nameKreuz FROM 1 FOR 1), CAST(SUBSTR(nameKreuz FROM 2) AS UNSIGNED)");					//SELECT name of AutobahnKreuz without dupilicates ordered
 		while($data = mysqli_fetch_array($result_getJunction)){												//fetch data from result_getPlate
 			echo "\t\t\t\t\t\t" . '<option value="' . $data['nameKreuz'] . '">' . $data['nameKreuz']. '</option>' . "\r\n";		//use echo to execute html in php
 		}
@@ -123,7 +124,7 @@ class EntryExit{
 		echo "\t\t\t\t\t<div class='row-bottom'>\r\n";
 		echo "\t\t\t\t\t</div>\r\n";
 	}
-	public static function action($conn)
+	public static function action($conn)		//if nothing is selected
 	{
 		include_once 'include_entryExit.php';
 		echo "\t\t\t\t\t<div class='row-radio'>\r\n";
@@ -138,7 +139,7 @@ class EntryExit{
 		echo "\t\t\t\t\t</div>\r\n";
 		echo "\t\t\t\t\t<select name='text-Autobahn' class='enjoy-css'>\r\n";
 		echo "\t\t\t\t\t\t<option value='' disabled='' selected='' hidden=''>Autobahn</option>\r\n";
-		$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");												//execute query and save
+		$result_Highway = mysqli_query($conn,"SELECT DISTINCT nameAutobahn from mautstelle ORDER BY SUBSTR(nameAutobahn FROM 1 FOR 1), CAST(SUBSTR(nameAutobahn FROM 2) AS UNSIGNED)");									//SELECT name of Autobahn without dupilicates ordered			
 		while($data = mysqli_fetch_array($result_Highway)){												//fetch data from result_getPlate
 			echo "\t\t\t\t\t\t" . '<option value="' . $data['nameAutobahn'] . '">' . $data['nameAutobahn']. '</option>' . "\r\n";		//use echo to execute html in php
 		}

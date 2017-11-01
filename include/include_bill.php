@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	$query_getBill = "SELECT id, berechneteKosten, streckeID FROM rechnung ORDER BY id DESC";												//query getBill
 	$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 
-	echo "\t\t\t\t\t\t<table border='1'>\r\n";
+	echo "\t\t\t\t\t\t<table border='1'>\r\n";								//echo table
 	echo "\t\t\t\t\t\t\t<tr>\r\n";
 	echo "\t\t\t\t\t\t\t\t<th>ID</th>\r\n";
 	echo "\t\t\t\t\t\t\t\t<th>Kennzeichen</th>\r\n";
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 						$result_getHighwaynameExit = mysqli_query($conn, $query_get_HighwaynameExit);
 						while ($data6= mysqli_fetch_array($result_getHighwaynameExit)){
 
-						echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";																		//html chart with output
+						echo "\t\t\t\t\t\t\t<tr class='userlistoutput'>\r\n";																		//html table with output
 						echo "\t\t\t\t\t\t\t\t<td width='45px'><a target=\"_blank\" href=\"detail/index.php?id=" . $data1['id'] . "\">" . $data1['id'] . "</a></td>\r\n";
 
 						echo "\t\t\t\t\t\t\t\t<td width='45px'>" . $data2['kennzeichen'] . "</td>\r\n";
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	$plateCheck = mysqli_query($conn, "SELECT id FROM strecke WHERE kennzeichen = '$plate'");
 	if(mysqli_num_rows($plateCheck) > 0){
-		$query_getBill = "SELECT r.id, r.berechneteKosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";												//query getBill
+		$query_getBill = "SELECT r.id, r.berechneteKosten, r.streckeID FROM rechnung r JOIN strecke s ON r.streckeID = s.id WHERE s.kennzeichen = '$plate' ORDER BY r.id DESC";					//Only Select data where kennzeichen = $plate
 		$result_getBill = mysqli_query($conn,$query_getBill);																		//execute query and save
 		$rows_getBill = mysqli_num_rows($result_getBill);
 		echo "\t\t\t\t\t\t<table border='1'>\r\n";
@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}
 		echo "\t\t\t\t\t\t</table>\r\n";
 	}
-	else{
+	else{																		//echo if kennzeichen is not found in DB
 		echo "\t\t\t\t\t\t<center>\r\n";
 		echo "\t\t\t\t\t\t\tDas eingegebene Kennzeichen ist nicht vorhanden.\r\n";
 		echo "\t\t\t\t\t\t</center>\r\n";
