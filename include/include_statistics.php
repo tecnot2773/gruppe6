@@ -73,6 +73,10 @@ class Statistic
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$start = $_POST["startSearch"];
 				$end = $_POST["endSearch"];
+
+				$start = mysqli_real_escape_string($conn, $start);
+				$end = mysqli_real_escape_string($conn, $end);
+
 				if (preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $start) && preg_match("/^(\d{2})([.])(\d{2})([.])(\d{4})$/", $end)){		//end and start need to match german timestamp
 					$start = date("Y-m-d H:i:s", strtotime($start));				//make german timestamp to US timestamp
 					$end = date("Y-m-d H:i:s", strtotime($end));
