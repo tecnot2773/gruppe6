@@ -100,7 +100,7 @@
 							<div class="list-group SongListGroup">
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading mostplayedsong">
-										<?php Details::mostPlayedSongWeek($stationId, $conn, song); ?>
+										<?php $a = "song"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
 									</h4>
 									<p class="list-group-item-text">
 										meist gespielter<br>Song
@@ -108,7 +108,7 @@
 								</div>
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										<?php Details::mostPlayedSongWeek($stationId, $conn, count); ?>
+										<?php $a = "count"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
 									</h4>
 									<p class="list-group-item-text">
 										mal gespielt
