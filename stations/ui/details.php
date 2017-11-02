@@ -100,7 +100,7 @@
 							<div class="list-group SongListGroup">
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading mostplayedsong">
-										Helene Fischer - Atemlos
+										<?php Details::mostPlayedSongWeek($stationId, $conn, 'song'); ?>
 									</h4>
 									<p class="list-group-item-text">
 										meist gespielter<br>Song
@@ -108,7 +108,7 @@
 								</div>
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										5
+										<?php Details::mostPlayedSongWeek($stationId, $conn, 'count'); ?>
 									</h4>
 									<p class="list-group-item-text">
 										mal gespielt
