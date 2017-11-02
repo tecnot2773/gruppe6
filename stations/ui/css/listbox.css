@@ -18,3 +18,8 @@ div.visitorh4.list-group-item-heading {
 	display: flex;
 	width: 100%;
 }
+@media (max-width: 550px) {
+	.SongListGroup{
+		flex-direction: column !important;
+	}
+}
