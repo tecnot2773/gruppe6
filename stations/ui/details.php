@@ -99,40 +99,52 @@
 					<div class="row" id="SongInfoRow">
 							<div class="list-group SongListGroup">
 								<div class="list-group-item visitor">
-									<div>
+									<div class="list-group-item-heading">
 										<h4 class="list-group-item-heading mostplayedsong">
 											<?php $a = "song"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
 										</h4>
 									</div>
-									<div>
+									<div class="list-group-item-content">
 										<p class="list-group-item-text">
 											meist gespielter Song des letzten Tages
 										</p>
 									</div>
 								</div>
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
-										<?php $a = "count"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
-									</h4>
-									<p class="list-group-item-text">
-										mal gespielt
-									</p>
+									<div class="list-group-item-heading">
+										<h4 class="list-group-item-heading count">
+											<?php $a = "count"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
+										</h4>
+									</div>
+									<div class="list-group-item-content">
+										<p class="list-group-item-text">
+											mal gespielt
+										</p>
+									</div>
 								</div>
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading mostplayedsong">
-										Honk! - Bätmän
-									</h4>
-									<p class="list-group-item-text">
-										meist gespielter Song der letzten Woche
-									</p>
+									<div class="list-group-item-heading">
+										<h4 class="list-group-item-heading mostplayedsong">
+											Honk! - Bätmän
+										</h4>
+									</div>
+									<div class="list-group-item-content">
+										<p class="list-group-item-text">
+											meist gespielter Song der letzten Woche
+										</p>
+									</div>
 								</div>
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
-										3
-									</h4>
-									<p class="list-group-item-text">
-										mal gespielt
-									</p>
+									<div class="list-group-item-heading">
+										<h4 class="list-group-item-heading count">
+											3
+										</h4>
+									</div>
+									<div class="list-group-item-content">
+										<p class="list-group-item-text">
+											mal gespielt
+										</p>
+									</div>
 								</div>
 							</div>
 					</div>
