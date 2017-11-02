@@ -99,7 +99,7 @@
 					<div class="row" id="SongInfoRow">
 							<div class="list-group" id="SongListGroup">
 								<div class="list-group-item visitor">
-									<h4 class="list-group-item-heading count">
+									<h4 class="list-group-item-heading mostplayedsong">
 										Helene Fischer - Atemlos
 									</h4>
 									<p class="list-group-item-text">
