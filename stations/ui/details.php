@@ -146,30 +146,6 @@
 										</p>
 									</div>
 								</div>
-								<div class="list-group-item visitor">
-									<div class="ListBoxSongs-top">
-										<h4 class="list-group-item-heading mostplayedsong">
-											Honk! - Bätmän
-										</h4>
-									</div>
-									<div class="ListBoxSongs-bottom">
-										<p>
-											meist gespielter Song des letzten Monats
-										</p>
-									</div>
-								</div>
-								<div class="list-group-item visitor">
-									<div class="ListBoxSongs-top">
-										<h4 class="list-group-item-heading count">
-											3
-										</h4>
-									</div>
-									<div class="ListBoxSongs-bottom">
-										<p>
-											mal gespielt
-										</p>
-									</div>
-								</div>
 							</div>
 					</div>
 					<div class="row" id="monthlyChartRow">
