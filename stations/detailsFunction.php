@@ -62,16 +62,22 @@
 			
 			echo $db_avgReplaysPerMonth;
 		}
-		public static function mostPlayedSongWeek($station, $conn){
+		public static function mostPlayedSongWeek($station, $conn, $select){
 			$get_mostPlayedSong = myslqi_query($conn,"SELECT s.artist, s.name, wS.count FROM weeklyStats wS JOIN song s ON wS.mostPlayedSong = s.id WHERE wS.stationId = '$station' ORDER BY timestamp DESC LIMIT 1");
 			while ($data = mysqli_fetch_array($get_mostPlayedSong)){
 				$db_artist = $data['artist'];
 				$db_song = $data['name'];
 				$db_count = $data['count'];
 			}
-			return $db_artist;
-			
-	
+			if($select == 'artist'){
+				return $db_artist;
+			}
+			if($select == 'song'){
+				return $db_song;
+			}
+			if($select == 'count'){
+				return $db_count;
+			}
 		}
 	}
 	
