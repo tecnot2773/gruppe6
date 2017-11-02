@@ -9,6 +9,9 @@ div.visitorh4.list-group-item-heading {
 	white-space: pre-line;
 	word-wrap: break-word;
 }
+.list-group-item {
+	flex: 1;
+}
 .list-group.SongListGroup{
 	flex-direction: row;
 	padding-bottom: 50px;
