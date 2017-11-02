@@ -9,3 +9,9 @@ div.visitorh4.list-group-item-heading {
 	white-space: pre-line;
 	word-wrap: break-word;
 }
+#SongListGroup{
+flex-direction: column;
+padding-bottom: 50px;
+display: flex;
+width: 100%;
+}
