@@ -32,7 +32,5 @@
 		border-left: 1px solid #CACACA;
 		border-right: 1px solid #CACACA;
 	}
-	#SongListGroup{
-		flex-direction: row !important;
-	}
+
 }
