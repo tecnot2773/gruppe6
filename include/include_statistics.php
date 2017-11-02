@@ -122,7 +122,5 @@ class Statistic
 				echo "\t\t\t\t\t</tr> \r\n";
 			}
 		}
-		public static function mostPlayedSongWeek($conn){
-			$get_mostPlayedSong = myslqi_query($conn,"SELECT s.artist, s.name FROM weeklyStats wS JOIN song s ON wS.mostPlayedSong = s.id WHERE wS.stationId = '1' AND timestamp LIKE '2017-10-30%'");
 	}
 ?>
