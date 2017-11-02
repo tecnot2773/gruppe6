@@ -70,13 +70,13 @@
 				$db_count = $data['count'];
 			}
 			if($select == 'artist'){
-				return $db_artist;
+				echo $db_artist;
 			}
 			if($select == 'song'){
-				return $db_song;
+				echo $db_song;
 			}
 			if($select == 'count'){
-				return $db_count;
+				echo $db_count;
 			}
 		}
 	}
