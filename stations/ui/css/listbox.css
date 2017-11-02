@@ -10,8 +10,8 @@ div.visitorh4.list-group-item-heading {
 	word-wrap: break-word;
 }
 #SongListGroup{
-flex-direction: column;
-padding-bottom: 50px;
-display: flex;
-width: 100%;
+	flex-direction: row;
+	padding-bottom: 50px;
+	display: flex;
+	width: 100%;
 }
