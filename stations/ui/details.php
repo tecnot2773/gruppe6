@@ -134,8 +134,8 @@
 										</p>
 									</div>
 								</div>
-								<div class="ListBoxSongs-top">
-									<div class="list-group-item-heading">
+								<div class="list-group-item visitor">
+									<div class="ListBoxSongs-top">
 										<h4 class="list-group-item-heading count">
 											3
 										</h4>
