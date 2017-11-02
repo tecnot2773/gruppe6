@@ -101,7 +101,7 @@
 								<div class="list-group-item visitor">
 									<div class="ListBoxSongs-top">
 										<h4 class="list-group-item-heading mostplayedsong">
-											<?php $a = "song"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
+											<?php $a = "song"; Details::mostPlayedSongDay($stationId, $conn, $a); ?>
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
@@ -113,7 +113,7 @@
 								<div class="list-group-item visitor">
 									<div class="ListBoxSongs-top">
 										<h4 class="list-group-item-heading count">
-											<?php $a = "count"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
+											<?php $a = "count"; Details::mostPlayedSongDay($stationId, $conn, $a); ?>
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
@@ -125,7 +125,7 @@
 								<div class="list-group-item visitor">
 									<div class="ListBoxSongs-top">
 										<h4 class="list-group-item-heading mostplayedsong">
-											Honk! - Bätmän
+											<?php $a = "song"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
@@ -137,7 +137,7 @@
 								<div class="list-group-item visitor">
 									<div class="ListBoxSongs-top">
 										<h4 class="list-group-item-heading count">
-											3
+											<?php $a = "count"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
