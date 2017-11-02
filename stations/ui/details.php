@@ -103,7 +103,7 @@
 										<?php $a = "song"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
 									</h4>
 									<p class="list-group-item-text">
-										meist gespielter<br>Song
+										meist gespielter Song des letzten Tages
 									</p>
 								</div>
 								<div class="list-group-item visitor">
@@ -116,10 +116,10 @@
 								</div>
 								<div class="list-group-item visitor">
 									<h4 class="list-group-item-heading count">
-										2
+										Honk! - Bätmän
 									</h4>
 									<p class="list-group-item-text">
-										test
+										meist gespielter Song der letzten Woche
 									</p>
 								</div>
 								<div class="list-group-item visitor">
@@ -127,7 +127,7 @@
 										3
 									</h4>
 									<p class="list-group-item-text">
-										test2
+										mal gespielt
 									</p>
 								</div>
 							</div>
