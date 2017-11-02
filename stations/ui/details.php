@@ -105,7 +105,7 @@
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
-										<p class="list-group-item-text">
+										<p>
 											meist gespielter Song des letzten Tages
 										</p>
 									</div>
@@ -117,7 +117,7 @@
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
-										<p class="list-group-item-text">
+										<p>
 											mal gespielt
 										</p>
 									</div>
@@ -129,7 +129,7 @@
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
-										<p class="list-group-item-text">
+										<p>
 											meist gespielter Song der letzten Woche
 										</p>
 									</div>
@@ -141,7 +141,7 @@
 										</h4>
 									</div>
 									<div class="ListBoxSongs-bottom">
-										<p class="list-group-item-text">
+										<p>
 											mal gespielt
 										</p>
 									</div>
