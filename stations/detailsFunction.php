@@ -69,11 +69,10 @@
 				$db_song = $data['name'];
 				$db_count = $data['count'];
 			}
-			if($select == 'artist'){
-				echo $db_artist;
-			}
+			$songArtist = $db_artist . " - " . $db_song;
+			$songArtist = strtoupper($songArtist);
 			if($select == 'song'){
-				echo $db_song;
+				echo $songArtist;
 			}
 			if($select == 'count'){
 				echo $db_count;
