@@ -96,7 +96,43 @@
 							</div>
 						</div>
 					</div>
-					<div class="row" id="bottom">
+					<div class="row" id="SongInfoRow">
+							<div class="list-group" id="SongListGroup">
+								<div class="list-group-item visitor">
+									<h4 class="list-group-item-heading count">
+										Helene Fischer - Atemlos
+									</h4>
+									<p class="list-group-item-text">
+										meist gespielter<br>Song
+									</p>
+								</div>
+								<div class="list-group-item visitor">
+									<h4 class="list-group-item-heading count">
+										5
+									</h4>
+									<p class="list-group-item-text">
+										mal gespielt
+									</p>
+								</div>
+								<div class="list-group-item visitor">
+									<h4 class="list-group-item-heading count">
+										2
+									</h4>
+									<p class="list-group-item-text">
+										test
+									</p>
+								</div>
+								<div class="list-group-item visitor">
+									<h4 class="list-group-item-heading count">
+										3
+									</h4>
+									<p class="list-group-item-text">
+										test2
+									</p>
+								</div>
+							</div>
+					</div>
+					<div class="row" id="monthlyChartRow">
 							<div class="fillParent" style="position:relative;">
 								<canvas id="monthlyChart" width="400" height="400"></canvas>
 							</div>
