@@ -23,6 +23,7 @@
 		$firstOfMonth = $data['firstOfThisMonth'];
 		$lastOfMonth = $data['lastOfThisMonth'];
 	}
+	$first = date("Y-m-d",strtotime("Last Monday of Last Month"));
 	
 	$max = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM station"));					//check how many stations we have
 	for($i = 1; $i <= $max; $i++){
@@ -45,7 +46,7 @@
 		}
 		mysqli_query($conn, "UPDATE monthlyStats SET replaysPerMonth = '$replaysPerMonth' WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'");
 		
-		$query_replaysPerDay = "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '$station' AND timestamp BETWEEN '$firstOfMonth' AND '$lastOfMonth'";
+		$query_replaysPerDay = "SELECT replaysPerWeek FROM weeklyStats WHERE stationId = '$station' AND timestamp BETWEEN '$first' AND '$lastOfMonth'";
 		$result_replaysPerDay = mysqli_query($conn, $query_replaysPerDay);
 		while($data = mysqli_fetch_array($result_replaysPerDay)){
 			$db_replaysPerDay = $data['replaysPerWeek'];
