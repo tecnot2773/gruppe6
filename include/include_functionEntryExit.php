@@ -75,7 +75,7 @@ class EntryExit{
 		}
 		echo "\t\t\t\t\t</select>\r\n";
 
-		echo "\t\t\t\t\t<input name='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>\r\n";
+		echo "\t\t\t\t\t<input name='text-plate' id='text-plate' class='enjoy-css' type='text' placeholder='Kennzeichen'>\r\n";
 		echo "\t\t\t\t\t<input id='text-time-entry' name='text-time-entry' class='enjoy-css' type='text' placeholder='DD.MM.YYYY HH:MM:SS'>\r\n";
 
 		echo "\t\t\t\t\t<div class='placeholder'></div>\r\n";
@@ -106,7 +106,7 @@ class EntryExit{
 		}
 		echo "\t\t\t\t\t</select>\r\n";
 
-		echo "\t\t\t\t\t<select name='text-plate' class='enjoy-css'>\r\n";
+		echo "\t\t\t\t\t<select name='text-plate' id='text-plate' class='enjoy-css'>\r\n";
 		echo "\t\t\t\t\t\t<option value='' disabled selected hidden>Kennzeichen</option>\r\n";
 		$query_getPlate = "SELECT kennzeichen from strecke WHERE faehrtAusID IS NULL\r\n";						//sql query to get  kennzeichen
 		$result_getPlate = mysqli_query($conn,$query_getPlate);												//execute query and save
