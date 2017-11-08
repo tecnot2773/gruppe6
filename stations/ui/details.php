@@ -96,7 +96,59 @@
 							</div>
 						</div>
 					</div>
-					<div class="row" id="bottom">
+					<div class="row" id="SongInfoRow">
+							<div class="list-group SongListGroup">
+								<div class="list-group-item visitor">
+									<div class="ListBoxSongs-top">
+										<h4 class="list-group-item-heading mostplayedsong">
+											<?php $a = "song"; Details::mostPlayedSongDay($stationId, $conn, $a); ?>
+										</h4>
+									</div>
+									<div class="ListBoxSongs-bottom">
+										<p>
+											meist gespielter Song des letzten Tages
+										</p>
+									</div>
+								</div>
+								<div class="list-group-item visitor">
+									<div class="ListBoxSongs-top">
+										<h4 class="list-group-item-heading count">
+											<?php $a = "count"; Details::mostPlayedSongDay($stationId, $conn, $a); ?>
+										</h4>
+									</div>
+									<div class="ListBoxSongs-bottom">
+										<p>
+											mal gespielt
+										</p>
+									</div>
+								</div>
+								<div class="list-group-item visitor">
+									<div class="ListBoxSongs-top">
+										<h4 class="list-group-item-heading mostplayedsong">
+											<?php $a = "song"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
+										</h4>
+									</div>
+									<div class="ListBoxSongs-bottom">
+										<p>
+											meist gespielter Song der letzten Woche
+										</p>
+									</div>
+								</div>
+								<div class="list-group-item visitor">
+									<div class="ListBoxSongs-top">
+										<h4 class="list-group-item-heading count">
+											<?php $a = "count"; Details::mostPlayedSongWeek($stationId, $conn, $a); ?>
+										</h4>
+									</div>
+									<div class="ListBoxSongs-bottom">
+										<p>
+											mal gespielt
+										</p>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="row" id="monthlyChartRow">
 							<div class="fillParent" style="position:relative;">
 								<canvas id="monthlyChart" width="400" height="400"></canvas>
 							</div>

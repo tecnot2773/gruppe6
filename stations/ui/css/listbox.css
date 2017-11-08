@@ -9,3 +9,23 @@ div.visitorh4.list-group-item-heading {
 	white-space: pre-line;
 	word-wrap: break-word;
 }
+.list-group-item {
+	flex: 1;
+}
+.list-group.SongListGroup{
+	flex-direction: row;
+	padding-bottom: 50px;
+	display: flex;
+	width: 100%;
+}
+.ListBoxSongs-top{
+	height: 70%
+}
+.ListBoxSongs-bottom{
+	height: 30%
+}
+@media (max-width: 550px) {
+	.SongListGroup{
+		flex-direction: column !important;
+	}
+}

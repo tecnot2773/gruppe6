@@ -62,6 +62,40 @@
 			
 			echo $db_avgReplaysPerMonth;
 		}
+		public static function mostPlayedSongWeek($station, $conn, $select){
+			$lastWeek = date("Y-m-d", strtotime("monday last week"));
+			$get_mostPlayedSong = mysqli_query($conn,"SELECT s.artist, s.name, wS.count FROM weeklyStats wS JOIN song s ON wS.mostPlayedSong = s.id WHERE wS.stationId = '$station' AND wS.timestamp LIKE '$lastWeek%' LIMIT 1");
+			while ($data = mysqli_fetch_array($get_mostPlayedSong)){
+				$db_artist = $data['artist'];
+				$db_song = $data['name'];
+				$db_count = $data['count'];
+			}
+			$songArtist = $db_artist . " - " . $db_song;
+			$songArtist = strtoupper($songArtist);
+			if($select == 'song'){
+				echo $songArtist;
+			}
+			if($select == 'count'){
+				echo $db_count;
+			}
+		}
+		public static function mostPlayedSongDay($station, $conn, $select){
+			$lastDay = date("Y-m-d", strtotime("today -1 day"));
+			$get_mostPlayedSong = mysqli_query($conn,"SELECT s.artist, s.name, dS.count FROM dailyStats dS JOIN song s ON dS.mostPlayedSong = s.id WHERE dS.stationId = '$station' AND dS.timestamp LIKE '$lastDay%' LIMIT 1");
+			while ($data = mysqli_fetch_array($get_mostPlayedSong)){
+				$db_artist = $data['artist'];
+				$db_song = $data['name'];
+				$db_count = $data['count'];
+			}
+			$songArtist = $db_artist . " - " . $db_song;
+			$songArtist = strtoupper($songArtist);
+			if($select == 'song'){
+				echo $songArtist;
+			}
+			if($select == 'count'){
+				echo $db_count;
+			}
+		}
 	}
 	
 ?>
